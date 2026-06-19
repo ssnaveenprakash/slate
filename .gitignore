@@ -1,0 +1,42 @@
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# Testing
+/coverage
+/cypress/videos
+/cypress/screenshots
+
+# Production build outputs
+/dist
+/.angular
+
+# Local environment files (contains sensitive API keys/secrets)
+.env
+.env.local
+.env.*.local
+src/environments/environment.development.ts
+src/environments/environment.ts
+
+# Firebase cache (if using Firebase CLI)
+/.firebase
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+/.pnpm-debug.log*
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# System files
+.DS_Store
+Thumbs.db
