@@ -4,3 +4,4 @@
 
 export * from './lib/slate.service';
 export * from './lib/slate.component';
+export * from './lib/atoms/typography/typography.component';
