@@ -1,0 +1,21 @@
+
+// projects/slate/src/styles/styles.scss
+
+// Import Design Tokens and Theming
+@import './tokens';
+@import './theme';
+
+// Global Styles (Example - reset or base styles)
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
+  font-size: var(--slt-font-size-base);
+  line-height: var(--slt-line-height-base);
+  color: var(--slt-text-color);
+  background-color: var(--slt-background-color);
+  margin: 0;
+  padding: 0;
+}
+
+// You can add more global styles here if needed.

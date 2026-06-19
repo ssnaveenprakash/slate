@@ -1,0 +1,50 @@
+
+// projects/slate/src/styles/_tokens.scss
+
+// Color Palette - Design inspired (simplified for example)
+$slt-primary-color: #1890ff;
+$slt-success-color: #52c41a;
+$slt-warning-color: #faad14;
+$slt-error-color: #ff4d4f;
+$slt-info-color: #1677ff;
+$slt-text-color: #000000d9; // Darker text for light theme
+$slt-text-color-secondary: #00000073;
+$slt-background-color-light: #fff;
+$slt-background-color-dark: #001529; // Dark background for dark theme
+$slt-border-color-base: #d9d9d9;
+
+// CSS Custom Properties (runtime theming)
+:root {
+  // Light Theme Defaults
+  --slt-primary-color: #{$slt-primary-color};
+  --slt-success-color: #{$slt-success-color};
+  --slt-warning-color: #{$slt-warning-color};
+  --slt-error-color: #{$slt-error-color};
+  --slt-info-color: #{$slt-info-color};
+  --slt-text-color: #{$slt-text-color};
+  --slt-text-color-secondary: #{$slt-text-color-secondary};
+  --slt-background-color: #{$slt-background-color-light};
+  --slt-border-color-base: #{$slt-border-color-base};
+
+  // Typography
+  --slt-font-size-base: 14px;
+  --slt-font-size-lg: 16px;
+  --slt-font-size-sm: 12px;
+  --slt-line-height-base: 1.57142857;
+  --slt-heading-color: #000000d9;
+
+  // Spacing
+  --slt-padding-lg: 24px;
+  --slt-padding-md: 16px;
+  --slt-padding-sm: 12px;
+  --slt-padding-xs: 8px;
+  --slt-padding-xxs: 4px;
+
+  // Border Radius
+  --slt-border-radius-base: 6px;
+  --slt-border-radius-sm: 4px;
+
+  // Shadows
+  --slt-box-shadow-base: 0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 1px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px 0 rgba(0, 0, 0, 0.02);
+  --slt-box-shadow-hover: 0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 1px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px 0 rgba(0, 0, 0, 0.02); // Placeholder, typically slightly different
+}

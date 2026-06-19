@@ -1,0 +1,30 @@
+
+// projects/slate/src/styles/_theme.scss
+
+// Dark Theme Overrides
+body.theme-dark {
+  --slt-primary-color: #1765ad; // Darker primary for dark theme
+  --slt-text-color: #ffffffd9;
+  --slt-text-color-secondary: #ffffff73;
+  --slt-background-color: #{$slt-background-color-dark};
+  --slt-border-color-base: #434343;
+  --slt-heading-color: #ffffffd9;
+}
+
+// Mixin to easily apply theme colors
+@mixin themed() {
+  @content;
+}
+
+// Usage example in a component's SCSS:
+// .my-component {
+//   background-color: var(--slt-background-color);
+//   color: var(--slt-text-color);
+//
+//   @include themed() {
+//     // Specific dark mode adjustments if needed
+//     body.theme-dark & {
+//       border-color: var(--slt-border-color-base);
+//     }
+//   }
+// }

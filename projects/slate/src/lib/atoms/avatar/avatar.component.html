@@ -1,0 +1,23 @@
+
+<div class="slt-avatar-content">
+  <ng-container *ngIf="src && !isImgBroken; else avatarContent">
+    <img [src]="src" [attr.alt]="alt" (error)="imgError()" />
+  </ng-container>
+
+  <ng-template #avatarContent>
+    <ng-container *ngIf="icon; else textContent">
+      <ng-container *ngIf="isTemplateIcon; else stringIcon">
+        <ng-container *ngTemplateOutlet="icon"></ng-container>
+      </ng-container>
+      <ng-template #stringIcon>
+        <span class="slt-avatar-icon-custom" [class]="icon"></span>
+      </ng-template>
+    </ng-container>
+    <ng-template #textContent>
+      <span class="slt-avatar-string" [ngStyle]="textStyles">{{ getInitials() }}</span>
+    </ng-template>
+  </ng-template>
+</div>
+
+<!-- Status indicator -->
+<span *ngIf="status" class="slt-avatar-status" [attr.data-status]="status" [attr.aria-hidden]="false" [attr.aria-label]="status"></span>

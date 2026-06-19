@@ -1,0 +1,121 @@
+
+// projects/slate/src/lib/avatar/avatar.component.scss
+
+@import '../../../styles/tokens';
+@import '../../../styles/theme';
+
+.slt-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  position: relative;
+  /* allow status to overflow/overlap the avatar boundary */
+  overflow: visible;
+  vertical-align: middle;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  border-radius: var(--slt-border-radius-base);
+  background-color: var(--slt-border-color-base); // Default background
+  color: var(--slt-text-color-secondary);
+  font-size: var(--slt-font-size-base);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &-lg {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: var(--slt-font-size-lg);
+  }
+
+  &-sm {
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    font-size: var(--slt-font-size-sm);
+  }
+
+  &-square {
+    border-radius: var(--slt-border-radius-sm);
+  }
+
+  &-circle {
+    border-radius: 50%;
+  }
+
+  &-string {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    transform-origin: center center;
+    display: inline-block;
+    text-align: center;
+    line-height: 1; // keep compact
+    white-space: nowrap;
+    max-width: 90%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    z-index: 2; /* above content */
+  }
+
+  // Status indicators can be added here, e.g., using a ::after pseudo-element
+  // .slt-avatar-status-dot {
+  //   position: absolute;
+  //   right: 0;
+  //   bottom: 0;
+  //   width: 8px;
+  //   height: 8px;
+  //   background-color: var(--slt-success-color);
+  //   border-radius: 50%;
+  //   border: 1px solid var(--slt-background-color);
+  // }
+
+  /* Content wrapper: clip the image/text/icon to the avatar shape */
+  .slt-avatar-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: inherit;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    z-index: 1;
+  }
+
+  &.slt-avatar-has-status {
+    padding-right: 6px; // space for status indicator
+  }
+
+  .slt-avatar-status {
+    position: absolute;
+    right: -2px;
+    bottom: -2px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid var(--slt-background-color);
+    box-shadow: 0 0 0 0 rgba(0,0,0,0.05);
+  }
+
+  &.slt-avatar-status-online .slt-avatar-status {
+    background-color: var(--slt-success-color);
+  }
+  &.slt-avatar-status-offline .slt-avatar-status {
+    background-color: #bfbfbf;
+  }
+  &.slt-avatar-status-away .slt-avatar-status {
+    background-color: var(--slt-warning-color);
+  }
+  &.slt-avatar-status-busy .slt-avatar-status {
+    background-color: var(--slt-error-color);
+  }
+}

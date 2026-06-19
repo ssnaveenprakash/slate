@@ -1,0 +1,46 @@
+
+// projects/slate/src/lib/icon/icon.component.scss
+
+@import '../../../styles/tokens';
+@import '../../../styles/theme';
+
+.slt-icon {
+  display: inline-flex;
+  align-items: center;
+  color: inherit;
+  font-style: normal;
+  line-height: 0;
+  text-align: center;
+  text-transform: none;
+  vertical-align: -0.125em;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  > * {
+    line-height: 1;
+  }
+
+  svg {
+    display: inline-block;
+    vertical-align: -0.125em;
+  }
+
+  &-spin {
+    animation: iconRotate 1s infinite linear;
+  }
+
+  // Themes - basic styling, actual icon variations depend on SVG content
+  // For Design, icon variations usually come from different SVG paths
+  &-outlined { /* styles for outlined theme */ }
+  &-filled { /* styles for filled theme */ }
+  &-two-tone {
+    color: var(--slt-primary-color); // Example: two-tone icons might use primary color
+  }
+}
+
+@keyframes iconRotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
