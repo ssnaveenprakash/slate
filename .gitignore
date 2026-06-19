@@ -43,3 +43,6 @@ Thumbs.db
 
 *storybook.log
 storybook-static
+
+# Slate generated docs
+projects/slate/documentation.json
