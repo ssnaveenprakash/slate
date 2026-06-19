@@ -1,0 +1,11 @@
+.radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font: inherit;
+}
+
+.radio input {
+  margin: 0;
+}

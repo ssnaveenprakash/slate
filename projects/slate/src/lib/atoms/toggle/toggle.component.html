@@ -1,0 +1,13 @@
+<label class="toggle" [style.background-color]="backgroundColor || null">
+  <input
+    type="checkbox"
+    class="toggle__input"
+    [checked]="checked"
+    [disabled]="disabled"
+    (change)="handleToggleChange($event)"
+  />
+  <span class="toggle__track" aria-hidden="true">
+    <span class="toggle__thumb"></span>
+  </span>
+  <span>{{ label }}</span>
+</label>
