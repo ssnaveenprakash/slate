@@ -1,0 +1,10 @@
+<label class="radio" [style.background-color]="backgroundColor || null">
+  <input
+    type="radio"
+    [name]="name"
+    [checked]="checked"
+    [disabled]="disabled"
+    (change)="handleRadioChange($event)"
+  />
+  <span>{{ label }}</span>
+</label>

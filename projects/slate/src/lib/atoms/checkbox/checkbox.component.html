@@ -1,0 +1,9 @@
+<label class="checkbox" [style.background-color]="backgroundColor || null">
+	<input
+		type="checkbox"
+		[checked]="checked"
+		[disabled]="disabled"
+		(change)="handleCheckboxChange($event)"
+	/>
+	<span>{{ label }}</span>
+</label>
