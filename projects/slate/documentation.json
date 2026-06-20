@@ -14,41 +14,51 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/stories/checkbox.stories.ts",
+                "file": "projects/slate/src/lib/atoms/checkbox/checkbox.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n    args: {\n        label: 'Checkbox',\n        checked: false,\n    },\n}"
+                "defaultValue": "{\n  args: {\n    label: 'Checkbox',\n    checked: false,\n  },\n}"
             },
             {
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/stories/atoms/radio.stories.ts",
+                "file": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    label: 'Radio',\n    checked: false,\n    name: 'radio-group',\n    onClick: () => console.log('Radio state changed in story export')\n  },\n}"
+                "defaultValue": "{\n  args: {\n    label: 'Radio',\n    checked: false,\n    name: 'radio-group',\n    onClick: fn()\n  },\n}"
             },
             {
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/stories/atoms/toggle.stories.ts",
+                "file": "projects/slate/src/lib/atoms/toggle/toggle.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    label: 'Toggle',\n    checked: false,\n  },\n}"
             },
             {
-                "name": "Large",
+                "name": "Disabled",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/stories/button.stories.ts",
+                "file": "projects/slate/src/lib/atoms/field/field.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    size: 'large',\n    label: 'Button',\n  },\n}"
+                "defaultValue": "{\n  args: {\n    fieldType: 'input',\n    label: 'Username',\n    placeholder: '',\n    helperText: '',\n    error: '',\n    disabled: true,\n    showPrefix: false,\n    showSuffix: false,\n  },\n  render: Playground.render,\n}"
+            },
+            {
+                "name": "docJson",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/.storybook/preview.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "any",
+                "defaultValue": "{}"
             },
             {
                 "name": "LoggedIn",
@@ -94,36 +104,6 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/slate.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<SlateComponent>",
-                "defaultValue": "{\n  title: 'Components/Slate',\n  component: SlateComponent,\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/slate/src/stories/button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<ButtonComponent>",
-                "defaultValue": "{\n  title: 'Example/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: {\n      control: 'color',\n    },\n  },\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#story-args\n  args: { onClick: fn() },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/slate/src/stories/checkbox.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<CheckboxComponent>",
-                "defaultValue": "{\n    title: 'Example/Checkbox',\n    component: CheckboxComponent,\n    tags: ['autodocs'],\n    argTypes: {\n        backgroundColor: { control: 'color' },\n    },\n    args: {\n        onChange: () => console.log('Checkbox state changed'),\n    },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/slate/src/stories/header.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -144,7 +124,47 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/stories/atoms/radio.stories.ts",
+                "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ButtonComponent>",
+                "defaultValue": "{\n  title: 'Atoms/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n\n  argTypes: {\n    variant: {\n      control: 'radio',\n      options: ['primary', 'secondary', 'ghost', 'danger'],\n    },\n\n    size: {\n      control: 'radio',\n      options: ['small', 'medium', 'large'],\n    },\n\n    disabled: {\n      control: 'boolean',\n    },\n\n    loading: {\n      control: 'boolean',\n    },\n\n    label: {\n      control: 'text',\n    },\n  },\n\n  args: {\n    onClick: fn(),\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/checkbox/checkbox.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<CheckboxComponent>",
+                "defaultValue": "{\n  title: 'Example/Checkbox',\n  component: CheckboxComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: { control: 'color' },\n  },\n  args: {\n    onChange: fn(),\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/field/field.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<FieldStoryArgs>",
+                "defaultValue": "{\n  title: 'Atoms/Field',\n  component: FieldComponent,\n  tags: ['autodocs'],\n\n  argTypes: {\n    fieldType: {\n      control: 'radio',\n      options: ['input', 'textarea'],\n    },\n    label: { control: 'text' },\n    helperText: { control: 'text' },\n    error: { control: 'text' },\n    placeholder: { control: 'text' },\n    disabled: { control: 'boolean' },\n\n    showPrefix: {\n      control: 'boolean',\n    },\n    showSuffix: {\n      control: 'boolean',\n    },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<any>",
+                "defaultValue": "{\n  title: 'Atoms/Icon',\n  component: IconComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CommonModule, IconComponent]\n    })\n  ],\n  argTypes: {\n    type: { control: 'text' },\n    theme: {\n      control: { type: 'select' },\n      options: ['outlined', 'filled', 'twoTone']\n    },\n    spin: { control: 'boolean' },\n    dark: { control: 'boolean' }\n  }\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<RadioComponent>",
@@ -154,11 +174,101 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/stories/atoms/toggle.stories.ts",
+                "file": "projects/slate/src/lib/atoms/toggle/toggle.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<ToggleComponent>",
-                "defaultValue": "{\n  title: 'Example/Toggle',\n  component: ToggleComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: { control: 'color' },\n  },\n  args: {\n    onChange: () => console.log('Toggle state changed'),\n  },\n}"
+                "defaultValue": "{\n  title: 'Example/Toggle',\n  component: ToggleComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: { control: 'color' },\n  },\n  args: {\n    onChange: fn(),\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<any>",
+                "defaultValue": "{\n  title: 'Atoms/Avatar',\n  component: AvatarComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CommonModule, AvatarComponent, IconComponent]\n    })\n  ],\n  argTypes: {\n    size: {\n      control: { type: 'select' },\n      options: ['large', 'small', 'default']\n    },\n    shape: {\n      control: { type: 'select' },\n      options: ['circle', 'square']\n    },\n    src: { control: 'text' },\n    alt: { control: 'text' },\n    status: {\n      control: { type: 'select' },\n      options: [null, 'online', 'offline', 'away', 'busy']\n    },\n    dark: { control: 'boolean' },\n    showIcon: { control: 'boolean' },\n    iconType: { control: 'text' }\n  }\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<TypographyComponent>",
+                "defaultValue": "{\n  title: 'Atoms/Typography',\n  component: TypographyComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    variant: {\n      control: 'select',\n      options: ['title', 'text', 'paragraph', 'link'],\n      description: 'The type of element to render',\n    },\n    level: {\n      control: 'select',\n      options: [1, 2, 3, 4, 5],\n      description: 'Heading level (only applies to variant: \"title\")',\n    },\n    type: {\n      control: 'select',\n      options: ['primary', 'secondary', 'success', 'warning', 'danger'],\n      description: 'Semantic color styles for the text',\n    },\n    strong: {\n      control: 'boolean',\n      description: 'Applies bold text styling',\n    },\n    italic: {\n      control: 'boolean',\n      description: 'Applies italic text styling',\n    },\n    underline: {\n      control: 'boolean',\n      description: 'Applies underlined text styling',\n    },\n    delete: {\n      control: 'boolean',\n      description: 'Applies line-through text styling',\n    },\n    code: {\n      control: 'boolean',\n      description: 'Wraps content in semantic <code> block styling',\n    },\n    mark: {\n      control: 'boolean',\n      description: 'Wraps content in high-visibility mark highlighting',\n    },\n    disabled: {\n      control: 'boolean',\n      description: 'Mutes and disables interaction (only link variant)',\n    },\n    href: {\n      control: 'text',\n      description: 'Hyperlink path (only applies to variant: \"link\")',\n    },\n    target: {\n      control: 'select',\n      options: ['_self', '_blank', '_parent', '_top'],\n      description: 'Hyperlink target behavior (only applies to variant: \"link\")',\n    },\n  },\n}"
+            },
+            {
+                "name": "Modifiers",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 12px;\">\n        <storybook-typography [strong]=\"true\">Strong text (bold)</storybook-typography>\n        <storybook-typography [italic]=\"true\">Italicized text</storybook-typography>\n        <storybook-typography [underline]=\"true\">Underlined text</storybook-typography>\n        <storybook-typography [delete]=\"true\">Strikethrough text</storybook-typography>\n        <div>\n          <storybook-typography [code]=\"true\">npm install slate-ui</storybook-typography>\n        </div>\n        <div>\n          <storybook-typography [mark]=\"true\">Highlighted text (mark)</storybook-typography>\n        </div>\n        <storybook-typography [disabled]=\"true\">Disabled read-only text</storybook-typography>\n        <storybook-typography [strong]=\"true\" [italic]=\"true\" [underline]=\"true\">\n          Multiple formatting combined (Bold + Italic + Underlined)\n        </storybook-typography>\n      </div>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "ParagraphAndLinks",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div>\n        <storybook-typography variant=\"title\" [level]=\"3\">Paragraphs and Links</storybook-typography>\n        \n        <storybook-typography variant=\"paragraph\" type=\"secondary\">\n          This is a paragraph variant which creates vertical margins. You can nest other custom styling elements within it or mix links directly. Below you will find interactive hyperlink components.\n        </storybook-typography>\n\n        <storybook-typography variant=\"paragraph\">\n          For more information, please visit our documentation or checkout the \n          <storybook-typography variant=\"link\" href=\"https://github.com\" target=\"_blank\">external GitHub repository</storybook-typography> \n          for open-source contributions.\n        </storybook-typography>\n\n        <div style=\"display: flex; gap: 16px;\">\n          <storybook-typography variant=\"link\" href=\"#\">Internal Page Link</storybook-typography>\n          <storybook-typography variant=\"link\" href=\"#\" [disabled]=\"true\">Disabled Link</storybook-typography>\n        </div>\n      </div>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "Playground",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    variant: 'primary',\n    size: 'medium',\n    label: 'Button',\n    disabled: false,\n    loading: false,\n  },\n}"
+            },
+            {
+                "name": "Playground",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/field/field.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    fieldType: 'input',\n    label: 'Name',\n    placeholder: 'Enter your name',\n    helperText: 'This is helper text',\n    error: '',\n    disabled: false,\n    showPrefix: false,\n    showSuffix: false,\n  },\n\n  render: (args) => ({\n    props: args,\n    template: `\n      <storybook-field\n        [fieldType]=\"fieldType\"\n        [label]=\"label\"\n        [placeholder]=\"placeholder\"\n        [helperText]=\"helperText\"\n        [error]=\"error\"\n        [disabled]=\"disabled\"\n      >\n        <span *ngIf=\"showPrefix\" prefix>🔍</span>\n        <span *ngIf=\"showSuffix\" suffix>⌘K</span>\n      </storybook-field>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "Playground",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    type: 'user',\n    theme: 'outlined',\n    spin: false,\n    dark: false\n  },\n  render: (args: any) => {\n    if (args.dark) document.body.classList.add('theme-dark');\n    else document.body.classList.remove('theme-dark');\n\n    // Don't pass `dark` into component props\n    const { dark: _d, ...componentProps } = args;\n\n    return {\n      props: componentProps,\n      template: `\n        <div style=\"padding: 24px; background: var(--slt-background-color); color: var(--slt-text-color);\">\n          <slt-icon [type]=\"type\" [theme]=\"theme\" [spin]=\"spin\"></slt-icon>\n        </div>\n      `\n    };\n  }\n}"
+            },
+            {
+                "name": "Playground",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    size: 'default',\n    shape: 'circle',\n    src: '',\n    alt: 'John Doe',\n    status: null,\n    dark: false,\n    showIcon: false,\n    iconType: 'user'\n  },\n  render: (args: any) => {\n    // toggle theme class\n    if (args.dark) document.body.classList.add('theme-dark');\n    else document.body.classList.remove('theme-dark');\n\n    const iconTemplate = args.showIcon\n      ? `<ng-template #myIcon><slt-icon [type]=\"iconType\" [theme]=\"'outlined'\"></slt-icon></ng-template>`\n      : '';\n\n    const iconBinding = args.showIcon ? `[icon]=\"myIcon\"` : '';\n\n    // remove non-component args from props to avoid Angular input warnings\n    const { dark: _d, showIcon: _s, iconType: _i, ...componentProps } = args;\n    return {\n      props: { ...componentProps, iconType: args.iconType },\n      template: `\n          ${iconTemplate}\n          <div style=\"padding: 24px; background: var(--slt-background-color);\">\n            <slt-avatar ${iconBinding} [size]=\"size\" [shape]=\"shape\" [src]=\"src\" [alt]=\"alt\" [status]=\"status\"></slt-avatar>\n          </div>\n        `\n    };\n  }\n}"
+            },
+            {
+                "name": "Playground",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    variant: 'text',\n    level: 1,\n    type: 'primary',\n    strong: false,\n    italic: false,\n    underline: false,\n    delete: false,\n    code: false,\n    mark: false,\n    disabled: false,\n    href: '',\n    target: '_self',\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <storybook-typography\n        [variant]=\"variant\"\n        [level]=\"level\"\n        [type]=\"type\"\n        [strong]=\"strong\"\n        [italic]=\"italic\"\n        [underline]=\"underline\"\n        [delete]=\"delete\"\n        [code]=\"code\"\n        [mark]=\"mark\"\n        [disabled]=\"disabled\"\n        [href]=\"href\"\n        [target]=\"target\"\n      >\n        Typography Content\n      </storybook-typography>\n    `,\n  }),\n}"
             },
             {
                 "name": "preview",
@@ -171,80 +281,98 @@
                 "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n       color: /(background|color)$/i,\n       date: /Date$/i,\n      },\n    },\n  },\n}"
             },
             {
-                "name": "Primary",
+                "name": "Sizes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/slate.stories.ts",
+                "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {},\n}"
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display:flex; gap:12px; align-items:center;\">\n        <storybook-button\n          size=\"small\"\n          label=\"Small\">\n        </storybook-button>\n\n        <storybook-button\n          size=\"medium\"\n          label=\"Medium\">\n        </storybook-button>\n\n        <storybook-button\n          size=\"large\"\n          label=\"Large\">\n        </storybook-button>\n      </div>\n    `,\n  }),\n}"
             },
             {
-                "name": "Primary",
+                "name": "States",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/stories/button.stories.ts",
+                "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    primary: true,\n    label: 'Button',\n  },\n}"
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display:flex; gap:12px;\">\n        <storybook-button\n          label=\"Default\">\n        </storybook-button>\n\n        <storybook-button\n          [disabled]=\"true\"\n          label=\"Disabled\">\n        </storybook-button>\n\n        <storybook-button\n          [loading]=\"true\"\n          label=\"Loading\">\n        </storybook-button>\n      </div>\n    `,\n  }),\n}"
             },
             {
-                "name": "Secondary",
+                "name": "Textarea",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/stories/button.stories.ts",
+                "file": "projects/slate/src/lib/atoms/field/field.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    label: 'Button',\n  },\n}"
+                "defaultValue": "{\n  args: {\n    fieldType: 'textarea',\n    label: 'Description',\n    placeholder: 'Enter description',\n    helperText: 'Write a short description',\n    error: '',\n    disabled: false,\n    showPrefix: false,\n    showSuffix: false,\n  },\n  render: Playground.render,\n}"
             },
             {
-                "name": "Small",
+                "name": "Titles",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/stories/button.stories.ts",
+                "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    size: 'small',\n    label: 'Button',\n  },\n}"
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div>\n        <storybook-typography variant=\"title\" [level]=\"1\">H1. Slate Heading</storybook-typography>\n        <storybook-typography variant=\"title\" [level]=\"2\">H2. Slate Heading</storybook-typography>\n        <storybook-typography variant=\"title\" [level]=\"3\">H3. Slate Heading</storybook-typography>\n        <storybook-typography variant=\"title\" [level]=\"4\">H4. Slate Heading</storybook-typography>\n        <storybook-typography variant=\"title\" [level]=\"5\">H5. Slate Heading</storybook-typography>\n      </div>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "Types",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 8px;\">\n        <storybook-typography type=\"primary\">Primary text color (default)</storybook-typography>\n        <storybook-typography type=\"secondary\">Secondary description text color</storybook-typography>\n        <storybook-typography type=\"success\">Success state text color</storybook-typography>\n        <storybook-typography type=\"warning\">Warning status warning text color</storybook-typography>\n        <storybook-typography type=\"danger\">Danger error text color</storybook-typography>\n      </div>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "Variants",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display:flex; gap:12px;\">\n        <storybook-button\n          variant=\"primary\"\n          label=\"Primary\">\n        </storybook-button>\n\n        <storybook-button\n          variant=\"secondary\"\n          label=\"Secondary\">\n        </storybook-button>\n\n        <storybook-button\n          variant=\"ghost\"\n          label=\"Ghost\">\n        </storybook-button>\n\n        <storybook-button\n          variant=\"danger\"\n          label=\"Danger\">\n        </storybook-button>\n      </div>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "WithError",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/field/field.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    fieldType: 'input',\n    label: 'Email',\n    placeholder: 'Enter email',\n    helperText: '',\n    error: 'Email is required',\n    disabled: false,\n    showPrefix: false,\n    showSuffix: false,\n  },\n  render: Playground.render,\n}"
+            },
+            {
+                "name": "WithPrefixAndSuffix",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/field/field.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    fieldType: 'input',\n    label: 'Search',\n    placeholder: 'Search...',\n    helperText: 'Search by name or email',\n    error: '',\n    disabled: false,\n    showPrefix: true,\n    showSuffix: true,\n  },\n  render: Playground.render,\n}"
             }
         ],
         "functions": [],
         "typealiases": [
             {
-                "name": "Story",
+                "name": "FieldStoryArgs",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<SlateComponent>",
-                "file": "projects/slate/src/lib/slate.stories.ts",
+                "rawtype": "unknown",
+                "file": "projects/slate/src/lib/atoms/field/field.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
-                "kind": 184
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<ButtonComponent>",
-                "file": "projects/slate/src/stories/button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 184
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<CheckboxComponent>",
-                "file": "projects/slate/src/stories/checkbox.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 184
+                "kind": 194
             },
             {
                 "name": "Story",
@@ -272,8 +400,52 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<ButtonComponent>",
+                "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<CheckboxComponent>",
+                "file": "projects/slate/src/lib/atoms/checkbox/checkbox.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<FieldStoryArgs>",
+                "file": "projects/slate/src/lib/atoms/field/field.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<any>",
+                "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<RadioComponent>",
-                "file": "projects/slate/src/stories/atoms/radio.stories.ts",
+                "file": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -284,7 +456,29 @@
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
                 "rawtype": "StoryObj<ToggleComponent>",
-                "file": "projects/slate/src/stories/atoms/toggle.stories.ts",
+                "file": "projects/slate/src/lib/atoms/toggle/toggle.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<any>",
+                "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<TypographyComponent>",
+                "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -293,56 +487,56 @@
         ],
         "enumerations": [],
         "groupedVariables": {
-            "projects/slate/src/stories/checkbox.stories.ts": [
+            "projects/slate/src/lib/atoms/checkbox/checkbox.stories.ts": [
                 {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/slate/src/stories/checkbox.stories.ts",
+                    "file": "projects/slate/src/lib/atoms/checkbox/checkbox.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n    args: {\n        label: 'Checkbox',\n        checked: false,\n    },\n}"
+                    "defaultValue": "{\n  args: {\n    label: 'Checkbox',\n    checked: false,\n  },\n}"
                 },
                 {
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/slate/src/stories/checkbox.stories.ts",
+                    "file": "projects/slate/src/lib/atoms/checkbox/checkbox.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<CheckboxComponent>",
-                    "defaultValue": "{\n    title: 'Example/Checkbox',\n    component: CheckboxComponent,\n    tags: ['autodocs'],\n    argTypes: {\n        backgroundColor: { control: 'color' },\n    },\n    args: {\n        onChange: () => console.log('Checkbox state changed'),\n    },\n}"
+                    "defaultValue": "{\n  title: 'Example/Checkbox',\n  component: CheckboxComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: { control: 'color' },\n  },\n  args: {\n    onChange: fn(),\n  },\n}"
                 }
             ],
-            "projects/slate/src/stories/atoms/radio.stories.ts": [
+            "projects/slate/src/lib/atoms/radio/radio.stories.ts": [
                 {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/slate/src/stories/atoms/radio.stories.ts",
+                    "file": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    label: 'Radio',\n    checked: false,\n    name: 'radio-group',\n    onClick: () => console.log('Radio state changed in story export')\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    label: 'Radio',\n    checked: false,\n    name: 'radio-group',\n    onClick: fn()\n  },\n}"
                 },
                 {
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/slate/src/stories/atoms/radio.stories.ts",
+                    "file": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<RadioComponent>",
                     "defaultValue": "{\n  title: 'Example/Radio',\n  component: RadioComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: { control: 'color' },\n  }\n}"
                 }
             ],
-            "projects/slate/src/stories/atoms/toggle.stories.ts": [
+            "projects/slate/src/lib/atoms/toggle/toggle.stories.ts": [
                 {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/slate/src/stories/atoms/toggle.stories.ts",
+                    "file": "projects/slate/src/lib/atoms/toggle/toggle.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -352,63 +546,95 @@
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/slate/src/stories/atoms/toggle.stories.ts",
+                    "file": "projects/slate/src/lib/atoms/toggle/toggle.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<ToggleComponent>",
-                    "defaultValue": "{\n  title: 'Example/Toggle',\n  component: ToggleComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: { control: 'color' },\n  },\n  args: {\n    onChange: () => console.log('Toggle state changed'),\n  },\n}"
+                    "defaultValue": "{\n  title: 'Example/Toggle',\n  component: ToggleComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: { control: 'color' },\n  },\n  args: {\n    onChange: fn(),\n  },\n}"
                 }
             ],
-            "projects/slate/src/stories/button.stories.ts": [
+            "projects/slate/src/lib/atoms/field/field.stories.ts": [
                 {
-                    "name": "Large",
+                    "name": "Disabled",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/slate/src/stories/button.stories.ts",
+                    "file": "projects/slate/src/lib/atoms/field/field.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    size: 'large',\n    label: 'Button',\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    fieldType: 'input',\n    label: 'Username',\n    placeholder: '',\n    helperText: '',\n    error: '',\n    disabled: true,\n    showPrefix: false,\n    showSuffix: false,\n  },\n  render: Playground.render,\n}"
                 },
                 {
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/slate/src/stories/button.stories.ts",
+                    "file": "projects/slate/src/lib/atoms/field/field.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Meta<ButtonComponent>",
-                    "defaultValue": "{\n  title: 'Example/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: {\n      control: 'color',\n    },\n  },\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#story-args\n  args: { onClick: fn() },\n}"
+                    "type": "Meta<FieldStoryArgs>",
+                    "defaultValue": "{\n  title: 'Atoms/Field',\n  component: FieldComponent,\n  tags: ['autodocs'],\n\n  argTypes: {\n    fieldType: {\n      control: 'radio',\n      options: ['input', 'textarea'],\n    },\n    label: { control: 'text' },\n    helperText: { control: 'text' },\n    error: { control: 'text' },\n    placeholder: { control: 'text' },\n    disabled: { control: 'boolean' },\n\n    showPrefix: {\n      control: 'boolean',\n    },\n    showSuffix: {\n      control: 'boolean',\n    },\n  },\n}"
                 },
                 {
-                    "name": "Primary",
+                    "name": "Playground",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/slate/src/stories/button.stories.ts",
+                    "file": "projects/slate/src/lib/atoms/field/field.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    primary: true,\n    label: 'Button',\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    fieldType: 'input',\n    label: 'Name',\n    placeholder: 'Enter your name',\n    helperText: 'This is helper text',\n    error: '',\n    disabled: false,\n    showPrefix: false,\n    showSuffix: false,\n  },\n\n  render: (args) => ({\n    props: args,\n    template: `\n      <storybook-field\n        [fieldType]=\"fieldType\"\n        [label]=\"label\"\n        [placeholder]=\"placeholder\"\n        [helperText]=\"helperText\"\n        [error]=\"error\"\n        [disabled]=\"disabled\"\n      >\n        <span *ngIf=\"showPrefix\" prefix>🔍</span>\n        <span *ngIf=\"showSuffix\" suffix>⌘K</span>\n      </storybook-field>\n    `,\n  }),\n}"
                 },
                 {
-                    "name": "Secondary",
+                    "name": "Textarea",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/slate/src/stories/button.stories.ts",
+                    "file": "projects/slate/src/lib/atoms/field/field.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    label: 'Button',\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    fieldType: 'textarea',\n    label: 'Description',\n    placeholder: 'Enter description',\n    helperText: 'Write a short description',\n    error: '',\n    disabled: false,\n    showPrefix: false,\n    showSuffix: false,\n  },\n  render: Playground.render,\n}"
                 },
                 {
-                    "name": "Small",
+                    "name": "WithError",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/slate/src/stories/button.stories.ts",
+                    "file": "projects/slate/src/lib/atoms/field/field.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    size: 'small',\n    label: 'Button',\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    fieldType: 'input',\n    label: 'Email',\n    placeholder: 'Enter email',\n    helperText: '',\n    error: 'Email is required',\n    disabled: false,\n    showPrefix: false,\n    showSuffix: false,\n  },\n  render: Playground.render,\n}"
+                },
+                {
+                    "name": "WithPrefixAndSuffix",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/field/field.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    fieldType: 'input',\n    label: 'Search',\n    placeholder: 'Search...',\n    helperText: 'Search by name or email',\n    error: '',\n    disabled: false,\n    showPrefix: true,\n    showSuffix: true,\n  },\n  render: Playground.render,\n}"
+                }
+            ],
+            "projects/slate/.storybook/preview.ts": [
+                {
+                    "name": "docJson",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/.storybook/preview.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "any",
+                    "defaultValue": "{}"
+                },
+                {
+                    "name": "preview",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/.storybook/preview.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Preview",
+                    "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n       color: /(background|color)$/i,\n       date: /Date$/i,\n      },\n    },\n  },\n}"
                 }
             ],
             "projects/slate/src/stories/header.stories.ts": [
@@ -475,77 +701,186 @@
                     "defaultValue": "{\n  title: 'Example/Page',\n  component: PageComponent,\n  parameters: {\n    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout\n    layout: 'fullscreen',\n  },\n}"
                 }
             ],
-            "projects/slate/src/lib/slate.stories.ts": [
+            "projects/slate/src/lib/atoms/button/button.stories.ts": [
                 {
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/slate/src/lib/slate.stories.ts",
+                    "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Meta<SlateComponent>",
-                    "defaultValue": "{\n  title: 'Components/Slate',\n  component: SlateComponent,\n}"
+                    "type": "Meta<ButtonComponent>",
+                    "defaultValue": "{\n  title: 'Atoms/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n\n  argTypes: {\n    variant: {\n      control: 'radio',\n      options: ['primary', 'secondary', 'ghost', 'danger'],\n    },\n\n    size: {\n      control: 'radio',\n      options: ['small', 'medium', 'large'],\n    },\n\n    disabled: {\n      control: 'boolean',\n    },\n\n    loading: {\n      control: 'boolean',\n    },\n\n    label: {\n      control: 'text',\n    },\n  },\n\n  args: {\n    onClick: fn(),\n  },\n}"
                 },
                 {
-                    "name": "Primary",
+                    "name": "Playground",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/slate/src/lib/slate.stories.ts",
+                    "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {},\n}"
-                }
-            ],
-            "projects/slate/.storybook/preview.ts": [
+                    "defaultValue": "{\n  args: {\n    variant: 'primary',\n    size: 'medium',\n    label: 'Button',\n    disabled: false,\n    loading: false,\n  },\n}"
+                },
                 {
-                    "name": "preview",
+                    "name": "Sizes",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/slate/.storybook/preview.ts",
+                    "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Preview",
-                    "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n       color: /(background|color)$/i,\n       date: /Date$/i,\n      },\n    },\n  },\n}"
+                    "type": "Story",
+                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display:flex; gap:12px; align-items:center;\">\n        <storybook-button\n          size=\"small\"\n          label=\"Small\">\n        </storybook-button>\n\n        <storybook-button\n          size=\"medium\"\n          label=\"Medium\">\n        </storybook-button>\n\n        <storybook-button\n          size=\"large\"\n          label=\"Large\">\n        </storybook-button>\n      </div>\n    `,\n  }),\n}"
+                },
+                {
+                    "name": "States",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display:flex; gap:12px;\">\n        <storybook-button\n          label=\"Default\">\n        </storybook-button>\n\n        <storybook-button\n          [disabled]=\"true\"\n          label=\"Disabled\">\n        </storybook-button>\n\n        <storybook-button\n          [loading]=\"true\"\n          label=\"Loading\">\n        </storybook-button>\n      </div>\n    `,\n  }),\n}"
+                },
+                {
+                    "name": "Variants",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display:flex; gap:12px;\">\n        <storybook-button\n          variant=\"primary\"\n          label=\"Primary\">\n        </storybook-button>\n\n        <storybook-button\n          variant=\"secondary\"\n          label=\"Secondary\">\n        </storybook-button>\n\n        <storybook-button\n          variant=\"ghost\"\n          label=\"Ghost\">\n        </storybook-button>\n\n        <storybook-button\n          variant=\"danger\"\n          label=\"Danger\">\n        </storybook-button>\n      </div>\n    `,\n  }),\n}"
+                }
+            ],
+            "projects/slate/src/lib/atoms/icon/icon.stories.ts": [
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<any>",
+                    "defaultValue": "{\n  title: 'Atoms/Icon',\n  component: IconComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CommonModule, IconComponent]\n    })\n  ],\n  argTypes: {\n    type: { control: 'text' },\n    theme: {\n      control: { type: 'select' },\n      options: ['outlined', 'filled', 'twoTone']\n    },\n    spin: { control: 'boolean' },\n    dark: { control: 'boolean' }\n  }\n}"
+                },
+                {
+                    "name": "Playground",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    type: 'user',\n    theme: 'outlined',\n    spin: false,\n    dark: false\n  },\n  render: (args: any) => {\n    if (args.dark) document.body.classList.add('theme-dark');\n    else document.body.classList.remove('theme-dark');\n\n    // Don't pass `dark` into component props\n    const { dark: _d, ...componentProps } = args;\n\n    return {\n      props: componentProps,\n      template: `\n        <div style=\"padding: 24px; background: var(--slt-background-color); color: var(--slt-text-color);\">\n          <slt-icon [type]=\"type\" [theme]=\"theme\" [spin]=\"spin\"></slt-icon>\n        </div>\n      `\n    };\n  }\n}"
+                }
+            ],
+            "projects/slate/src/lib/atoms/avatar/avatar.stories.ts": [
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<any>",
+                    "defaultValue": "{\n  title: 'Atoms/Avatar',\n  component: AvatarComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CommonModule, AvatarComponent, IconComponent]\n    })\n  ],\n  argTypes: {\n    size: {\n      control: { type: 'select' },\n      options: ['large', 'small', 'default']\n    },\n    shape: {\n      control: { type: 'select' },\n      options: ['circle', 'square']\n    },\n    src: { control: 'text' },\n    alt: { control: 'text' },\n    status: {\n      control: { type: 'select' },\n      options: [null, 'online', 'offline', 'away', 'busy']\n    },\n    dark: { control: 'boolean' },\n    showIcon: { control: 'boolean' },\n    iconType: { control: 'text' }\n  }\n}"
+                },
+                {
+                    "name": "Playground",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    size: 'default',\n    shape: 'circle',\n    src: '',\n    alt: 'John Doe',\n    status: null,\n    dark: false,\n    showIcon: false,\n    iconType: 'user'\n  },\n  render: (args: any) => {\n    // toggle theme class\n    if (args.dark) document.body.classList.add('theme-dark');\n    else document.body.classList.remove('theme-dark');\n\n    const iconTemplate = args.showIcon\n      ? `<ng-template #myIcon><slt-icon [type]=\"iconType\" [theme]=\"'outlined'\"></slt-icon></ng-template>`\n      : '';\n\n    const iconBinding = args.showIcon ? `[icon]=\"myIcon\"` : '';\n\n    // remove non-component args from props to avoid Angular input warnings\n    const { dark: _d, showIcon: _s, iconType: _i, ...componentProps } = args;\n    return {\n      props: { ...componentProps, iconType: args.iconType },\n      template: `\n          ${iconTemplate}\n          <div style=\"padding: 24px; background: var(--slt-background-color);\">\n            <slt-avatar ${iconBinding} [size]=\"size\" [shape]=\"shape\" [src]=\"src\" [alt]=\"alt\" [status]=\"status\"></slt-avatar>\n          </div>\n        `\n    };\n  }\n}"
+                }
+            ],
+            "projects/slate/src/lib/atoms/typography/typography.stories.ts": [
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<TypographyComponent>",
+                    "defaultValue": "{\n  title: 'Atoms/Typography',\n  component: TypographyComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    variant: {\n      control: 'select',\n      options: ['title', 'text', 'paragraph', 'link'],\n      description: 'The type of element to render',\n    },\n    level: {\n      control: 'select',\n      options: [1, 2, 3, 4, 5],\n      description: 'Heading level (only applies to variant: \"title\")',\n    },\n    type: {\n      control: 'select',\n      options: ['primary', 'secondary', 'success', 'warning', 'danger'],\n      description: 'Semantic color styles for the text',\n    },\n    strong: {\n      control: 'boolean',\n      description: 'Applies bold text styling',\n    },\n    italic: {\n      control: 'boolean',\n      description: 'Applies italic text styling',\n    },\n    underline: {\n      control: 'boolean',\n      description: 'Applies underlined text styling',\n    },\n    delete: {\n      control: 'boolean',\n      description: 'Applies line-through text styling',\n    },\n    code: {\n      control: 'boolean',\n      description: 'Wraps content in semantic <code> block styling',\n    },\n    mark: {\n      control: 'boolean',\n      description: 'Wraps content in high-visibility mark highlighting',\n    },\n    disabled: {\n      control: 'boolean',\n      description: 'Mutes and disables interaction (only link variant)',\n    },\n    href: {\n      control: 'text',\n      description: 'Hyperlink path (only applies to variant: \"link\")',\n    },\n    target: {\n      control: 'select',\n      options: ['_self', '_blank', '_parent', '_top'],\n      description: 'Hyperlink target behavior (only applies to variant: \"link\")',\n    },\n  },\n}"
+                },
+                {
+                    "name": "Modifiers",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 12px;\">\n        <storybook-typography [strong]=\"true\">Strong text (bold)</storybook-typography>\n        <storybook-typography [italic]=\"true\">Italicized text</storybook-typography>\n        <storybook-typography [underline]=\"true\">Underlined text</storybook-typography>\n        <storybook-typography [delete]=\"true\">Strikethrough text</storybook-typography>\n        <div>\n          <storybook-typography [code]=\"true\">npm install slate-ui</storybook-typography>\n        </div>\n        <div>\n          <storybook-typography [mark]=\"true\">Highlighted text (mark)</storybook-typography>\n        </div>\n        <storybook-typography [disabled]=\"true\">Disabled read-only text</storybook-typography>\n        <storybook-typography [strong]=\"true\" [italic]=\"true\" [underline]=\"true\">\n          Multiple formatting combined (Bold + Italic + Underlined)\n        </storybook-typography>\n      </div>\n    `,\n  }),\n}"
+                },
+                {
+                    "name": "ParagraphAndLinks",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div>\n        <storybook-typography variant=\"title\" [level]=\"3\">Paragraphs and Links</storybook-typography>\n        \n        <storybook-typography variant=\"paragraph\" type=\"secondary\">\n          This is a paragraph variant which creates vertical margins. You can nest other custom styling elements within it or mix links directly. Below you will find interactive hyperlink components.\n        </storybook-typography>\n\n        <storybook-typography variant=\"paragraph\">\n          For more information, please visit our documentation or checkout the \n          <storybook-typography variant=\"link\" href=\"https://github.com\" target=\"_blank\">external GitHub repository</storybook-typography> \n          for open-source contributions.\n        </storybook-typography>\n\n        <div style=\"display: flex; gap: 16px;\">\n          <storybook-typography variant=\"link\" href=\"#\">Internal Page Link</storybook-typography>\n          <storybook-typography variant=\"link\" href=\"#\" [disabled]=\"true\">Disabled Link</storybook-typography>\n        </div>\n      </div>\n    `,\n  }),\n}"
+                },
+                {
+                    "name": "Playground",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    variant: 'text',\n    level: 1,\n    type: 'primary',\n    strong: false,\n    italic: false,\n    underline: false,\n    delete: false,\n    code: false,\n    mark: false,\n    disabled: false,\n    href: '',\n    target: '_self',\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <storybook-typography\n        [variant]=\"variant\"\n        [level]=\"level\"\n        [type]=\"type\"\n        [strong]=\"strong\"\n        [italic]=\"italic\"\n        [underline]=\"underline\"\n        [delete]=\"delete\"\n        [code]=\"code\"\n        [mark]=\"mark\"\n        [disabled]=\"disabled\"\n        [href]=\"href\"\n        [target]=\"target\"\n      >\n        Typography Content\n      </storybook-typography>\n    `,\n  }),\n}"
+                },
+                {
+                    "name": "Titles",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div>\n        <storybook-typography variant=\"title\" [level]=\"1\">H1. Slate Heading</storybook-typography>\n        <storybook-typography variant=\"title\" [level]=\"2\">H2. Slate Heading</storybook-typography>\n        <storybook-typography variant=\"title\" [level]=\"3\">H3. Slate Heading</storybook-typography>\n        <storybook-typography variant=\"title\" [level]=\"4\">H4. Slate Heading</storybook-typography>\n        <storybook-typography variant=\"title\" [level]=\"5\">H5. Slate Heading</storybook-typography>\n      </div>\n    `,\n  }),\n}"
+                },
+                {
+                    "name": "Types",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 8px;\">\n        <storybook-typography type=\"primary\">Primary text color (default)</storybook-typography>\n        <storybook-typography type=\"secondary\">Secondary description text color</storybook-typography>\n        <storybook-typography type=\"success\">Success state text color</storybook-typography>\n        <storybook-typography type=\"warning\">Warning status warning text color</storybook-typography>\n        <storybook-typography type=\"danger\">Danger error text color</storybook-typography>\n      </div>\n    `,\n  }),\n}"
                 }
             ]
         },
         "groupedFunctions": {},
         "groupedEnumerations": {},
         "groupedTypeAliases": {
-            "projects/slate/src/lib/slate.stories.ts": [
+            "projects/slate/src/lib/atoms/field/field.stories.ts": [
                 {
-                    "name": "Story",
+                    "name": "FieldStoryArgs",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<SlateComponent>",
-                    "file": "projects/slate/src/lib/slate.stories.ts",
+                    "rawtype": "unknown",
+                    "file": "projects/slate/src/lib/atoms/field/field.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
-                    "kind": 184
-                }
-            ],
-            "projects/slate/src/stories/button.stories.ts": [
+                    "kind": 194
+                },
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<ButtonComponent>",
-                    "file": "projects/slate/src/stories/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
-            "projects/slate/src/stories/checkbox.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<CheckboxComponent>",
-                    "file": "projects/slate/src/stories/checkbox.stories.ts",
+                    "rawtype": "StoryObj<FieldStoryArgs>",
+                    "file": "projects/slate/src/lib/atoms/field/field.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -578,26 +913,91 @@
                     "kind": 184
                 }
             ],
-            "projects/slate/src/stories/atoms/radio.stories.ts": [
+            "projects/slate/src/lib/atoms/button/button.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<RadioComponent>",
-                    "file": "projects/slate/src/stories/atoms/radio.stories.ts",
+                    "rawtype": "StoryObj<ButtonComponent>",
+                    "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
                     "kind": 184
                 }
             ],
-            "projects/slate/src/stories/atoms/toggle.stories.ts": [
+            "projects/slate/src/lib/atoms/checkbox/checkbox.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<CheckboxComponent>",
+                    "file": "projects/slate/src/lib/atoms/checkbox/checkbox.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/slate/src/lib/atoms/icon/icon.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<any>",
+                    "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/slate/src/lib/atoms/radio/radio.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<RadioComponent>",
+                    "file": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/slate/src/lib/atoms/toggle/toggle.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
                     "rawtype": "StoryObj<ToggleComponent>",
-                    "file": "projects/slate/src/stories/atoms/toggle.stories.ts",
+                    "file": "projects/slate/src/lib/atoms/toggle/toggle.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/slate/src/lib/atoms/avatar/avatar.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<any>",
+                    "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/slate/src/lib/atoms/typography/typography.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<TypographyComponent>",
+                    "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -620,13 +1020,23 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
+                "name": "docJson",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/.storybook/preview.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
                 "name": "preview",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
             },
             {
-                "filePath": "projects/slate/src/lib/slate.stories.ts",
+                "filePath": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -636,17 +1046,17 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/slate/src/lib/slate.stories.ts",
+                "filePath": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Primary",
+                "name": "Playground",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
             },
             {
-                "filePath": "projects/slate/src/lib/slate.stories.ts",
+                "filePath": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",
@@ -656,7 +1066,67 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/slate/src/stories/atoms/radio.stories.ts",
+                "filePath": "projects/slate/src/lib/atoms/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/atoms/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Playground",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/atoms/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Sizes",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/atoms/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "States",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/atoms/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Variants",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/atoms/button/button.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/atoms/checkbox/checkbox.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -666,7 +1136,7 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/slate/src/stories/atoms/radio.stories.ts",
+                "filePath": "projects/slate/src/lib/atoms/checkbox/checkbox.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -676,7 +1146,7 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/slate/src/stories/atoms/radio.stories.ts",
+                "filePath": "projects/slate/src/lib/atoms/checkbox/checkbox.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",
@@ -686,7 +1156,117 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/slate/src/stories/atoms/toggle.stories.ts",
+                "filePath": "projects/slate/src/lib/atoms/field/field.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Disabled",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/atoms/field/field.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/atoms/field/field.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Playground",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/atoms/field/field.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Textarea",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/atoms/field/field.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithError",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/atoms/field/field.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithPrefixAndSuffix",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/atoms/field/field.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "FieldStoryArgs",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/atoms/field/field.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Playground",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -696,7 +1276,7 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/slate/src/stories/atoms/toggle.stories.ts",
+                "filePath": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -706,7 +1286,7 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/slate/src/stories/atoms/toggle.stories.ts",
+                "filePath": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",
@@ -716,67 +1296,7 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/slate/src/stories/button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Large",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/slate/src/stories/button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "meta",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/slate/src/stories/button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Primary",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/slate/src/stories/button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Secondary",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/slate/src/stories/button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Small",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/slate/src/stories/button.stories.ts",
-                "type": "type alias",
-                "linktype": "miscellaneous",
-                "linksubtype": "typealias",
-                "name": "Story",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/slate/src/stories/checkbox.stories.ts",
+                "filePath": "projects/slate/src/lib/atoms/toggle/toggle.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -786,7 +1306,7 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/slate/src/stories/checkbox.stories.ts",
+                "filePath": "projects/slate/src/lib/atoms/toggle/toggle.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -796,7 +1316,77 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/slate/src/stories/checkbox.stories.ts",
+                "filePath": "projects/slate/src/lib/atoms/toggle/toggle.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Modifiers",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ParagraphAndLinks",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Playground",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Titles",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Types",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",
