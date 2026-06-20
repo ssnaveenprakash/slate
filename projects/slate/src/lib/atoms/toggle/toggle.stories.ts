@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/angular';
 import { fn } from 'storybook/test';
 
-import { ToggleComponent } from './toggle/toggle.component';
+import { ToggleComponent } from './toggle.component';
 
 const meta: Meta<ToggleComponent> = {
   title: 'Example/Toggle',
