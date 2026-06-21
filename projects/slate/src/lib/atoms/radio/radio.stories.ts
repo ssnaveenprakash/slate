@@ -4,7 +4,7 @@ import { fn } from 'storybook/test';
 import { RadioComponent } from './radio.component';
 
 const meta: Meta<RadioComponent> = {
-  title: 'Example/Radio',
+  title: 'Atoms/Radio',
   component: RadioComponent,
   tags: ['autodocs'],
   argTypes: {

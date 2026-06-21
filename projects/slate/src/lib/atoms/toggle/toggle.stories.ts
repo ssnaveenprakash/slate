@@ -4,7 +4,7 @@ import { fn } from 'storybook/test';
 import { ToggleComponent } from './toggle.component';
 
 const meta: Meta<ToggleComponent> = {
-  title: 'Example/Toggle',
+  title: 'Atoms/Toggle',
   component: ToggleComponent,
   tags: ['autodocs'],
   argTypes: {
