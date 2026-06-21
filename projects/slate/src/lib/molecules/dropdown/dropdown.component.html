@@ -1,0 +1,68 @@
+<div class="slt-dropdown" [class.slt-dropdown--open]="isOpen"
+     [class.slt-dropdown--disabled]="disabled" (click)="toggleOpen()">
+    <div class="slt-dropdown__control">
+        <div class="slt-dropdown__selection">
+            <ng-container *ngIf="multiple; else singleSelection">
+                <ng-container *ngIf="selectedItems.length; else emptyPlaceholder">
+                    <span class="slt-dropdown__tag" *ngFor="let option of selectedItems">
+                        {{ option.label }}
+                        <button type="button" class="slt-dropdown__tag-remove"
+                                (click)="removeTag(option.value); $event.stopPropagation()"
+                                [attr.aria-label]="'Remove ' + option.label">
+                            ×
+                        </button>
+                    </span>
+                </ng-container>
+            </ng-container>
+
+            <ng-template #singleSelection>
+                <span class="slt-dropdown__single"
+                      [class.slt-dropdown__placeholder]="!displayLabel">
+                    {{ displayLabel || placeholder }}
+                </span>
+            </ng-template>
+
+            <ng-template #emptyPlaceholder>
+                <span class="slt-dropdown__placeholder">{{ placeholder }}</span>
+            </ng-template>
+        </div>
+
+        <div class="slt-dropdown__actions">
+            <button *ngIf="allowClear && showClear && !disabled" type="button"
+                    class="slt-dropdown__clear" (click)="clearSelection($event)"
+                    aria-label="Clear selection">
+                ×
+            </button>
+            <span class="slt-dropdown__arrow"></span>
+        </div>
+    </div>
+
+    <div class="slt-dropdown__panel" *ngIf="isOpen" (click)="$event.stopPropagation()">
+        <div *ngIf="searchable" class="slt-dropdown__search">
+            <input type="text" placeholder="Search" [value]="searchTerm"
+                   (input)="onSearch($any($event.target).value)" aria-label="Search options" />
+        </div>
+
+        <div class="slt-dropdown__options">
+            <div *ngIf="optionBlocks.length === 0" class="slt-dropdown__empty">
+                {{ notFoundText }}
+            </div>
+
+            <ng-container *ngFor="let block of optionBlocks">
+                <div *ngIf="block.group" class="slt-dropdown__group">
+                    <div class="slt-dropdown__group-title">{{ block.group }}</div>
+                </div>
+
+                <button *ngFor="let option of block.options" type="button"
+                        class="slt-dropdown__option"
+                        [class.slt-dropdown__option--selected]="isSelected(option)"
+                        [class.slt-dropdown__option--disabled]="option.disabled"
+                        (click)="selectOption(option)" [disabled]="option.disabled">
+                    <span>{{ option.label }}</span>
+                    <span *ngIf="multiple && isSelected(option)"
+                          class="slt-dropdown__option-check">✓</span>
+                </button>
+            </ng-container>
+        </div>
+    </div>
+</div>
