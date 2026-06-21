@@ -11,6 +11,16 @@
     "miscellaneous": {
         "variables": [
             {
+                "name": "AutoDismiss",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/alert/alert.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    type: 'success',\n    message: 'Auto-Timeout Alert',\n    description: 'This alert will automatically fade out and dismiss after 3 seconds (3000ms).',\n    dismissible: true,\n    duration: 3000,\n  },\n}"
+            },
+            {
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -104,16 +114,6 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/molecules/dropdown/dropdown.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<any>",
-                "defaultValue": "{\n    title: 'Molecules/Dropdown',\n    component: DropdownComponent,\n    decorators: [\n        moduleMetadata({\n            imports: [CommonModule, DropdownComponent],\n        }),\n    ],\n    argTypes: {\n        multiple: { control: 'boolean' },\n        searchable: { control: 'boolean' },\n        disabled: { control: 'boolean' },\n        allowClear: { control: 'boolean' },\n        placeholder: { control: 'text' },\n        notFoundText: { control: 'text' },\n    },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -124,11 +124,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
+                "file": "projects/slate/src/lib/atoms/field/field.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<ButtonComponent>",
-                "defaultValue": "{\n  title: 'Atoms/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n\n  argTypes: {\n    variant: {\n      control: 'radio',\n      options: ['primary', 'secondary', 'ghost', 'danger'],\n    },\n\n    size: {\n      control: 'radio',\n      options: ['small', 'medium', 'large'],\n    },\n\n    disabled: {\n      control: 'boolean',\n    },\n\n    loading: {\n      control: 'boolean',\n    },\n\n    label: {\n      control: 'text',\n    },\n  },\n\n  args: {\n    onClick: fn(),\n  },\n}"
+                "type": "Meta<FieldStoryArgs>",
+                "defaultValue": "{\n  title: 'Atoms/Field',\n  component: FieldComponent,\n  tags: ['autodocs'],\n\n  argTypes: {\n    fieldType: {\n      control: 'radio',\n      options: ['input', 'textarea'],\n    },\n    label: { control: 'text' },\n    helperText: { control: 'text' },\n    error: { control: 'text' },\n    placeholder: { control: 'text' },\n    disabled: { control: 'boolean' },\n\n    showPrefix: {\n      control: 'boolean',\n    },\n    showSuffix: {\n      control: 'boolean',\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -144,11 +144,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/atoms/field/field.stories.ts",
+                "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<FieldStoryArgs>",
-                "defaultValue": "{\n  title: 'Atoms/Field',\n  component: FieldComponent,\n  tags: ['autodocs'],\n\n  argTypes: {\n    fieldType: {\n      control: 'radio',\n      options: ['input', 'textarea'],\n    },\n    label: { control: 'text' },\n    helperText: { control: 'text' },\n    error: { control: 'text' },\n    placeholder: { control: 'text' },\n    disabled: { control: 'boolean' },\n\n    showPrefix: {\n      control: 'boolean',\n    },\n    showSuffix: {\n      control: 'boolean',\n    },\n  },\n}"
+                "type": "Meta<ButtonComponent>",
+                "defaultValue": "{\n  title: 'Atoms/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n\n  argTypes: {\n    variant: {\n      control: 'radio',\n      options: ['primary', 'secondary', 'ghost', 'danger'],\n    },\n\n    size: {\n      control: 'radio',\n      options: ['small', 'medium', 'large'],\n    },\n\n    disabled: {\n      control: 'boolean',\n    },\n\n    loading: {\n      control: 'boolean',\n    },\n\n    label: {\n      control: 'text',\n    },\n  },\n\n  args: {\n    onClick: fn(),\n  },\n}"
             },
             {
                 "name": "meta",
@@ -174,6 +174,16 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<TypographyComponent>",
+                "defaultValue": "{\n  title: 'Atoms/Typography',\n  component: TypographyComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    variant: {\n      control: 'select',\n      options: ['title', 'text', 'paragraph', 'link'],\n      description: 'The type of element to render',\n    },\n    level: {\n      control: 'select',\n      options: [1, 2, 3, 4, 5],\n      description: 'Heading level (only applies to variant: \"title\")',\n    },\n    type: {\n      control: 'select',\n      options: ['primary', 'secondary', 'success', 'warning', 'danger'],\n      description: 'Semantic color styles for the text',\n    },\n    strong: {\n      control: 'boolean',\n      description: 'Applies bold text styling',\n    },\n    italic: {\n      control: 'boolean',\n      description: 'Applies italic text styling',\n    },\n    underline: {\n      control: 'boolean',\n      description: 'Applies underlined text styling',\n    },\n    delete: {\n      control: 'boolean',\n      description: 'Applies line-through text styling',\n    },\n    code: {\n      control: 'boolean',\n      description: 'Wraps content in semantic <code> block styling',\n    },\n    mark: {\n      control: 'boolean',\n      description: 'Wraps content in high-visibility mark highlighting',\n    },\n    disabled: {\n      control: 'boolean',\n      description: 'Mutes and disables interaction (only link variant)',\n    },\n    href: {\n      control: 'text',\n      description: 'Hyperlink path (only applies to variant: \"link\")',\n    },\n    target: {\n      control: 'select',\n      options: ['_self', '_blank', '_parent', '_top'],\n      description: 'Hyperlink target behavior (only applies to variant: \"link\")',\n    },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/slate/src/lib/atoms/toggle/toggle.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -184,11 +194,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
+                "file": "projects/slate/src/lib/molecules/alert/alert.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<TypographyComponent>",
-                "defaultValue": "{\n  title: 'Atoms/Typography',\n  component: TypographyComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    variant: {\n      control: 'select',\n      options: ['title', 'text', 'paragraph', 'link'],\n      description: 'The type of element to render',\n    },\n    level: {\n      control: 'select',\n      options: [1, 2, 3, 4, 5],\n      description: 'Heading level (only applies to variant: \"title\")',\n    },\n    type: {\n      control: 'select',\n      options: ['primary', 'secondary', 'success', 'warning', 'danger'],\n      description: 'Semantic color styles for the text',\n    },\n    strong: {\n      control: 'boolean',\n      description: 'Applies bold text styling',\n    },\n    italic: {\n      control: 'boolean',\n      description: 'Applies italic text styling',\n    },\n    underline: {\n      control: 'boolean',\n      description: 'Applies underlined text styling',\n    },\n    delete: {\n      control: 'boolean',\n      description: 'Applies line-through text styling',\n    },\n    code: {\n      control: 'boolean',\n      description: 'Wraps content in semantic <code> block styling',\n    },\n    mark: {\n      control: 'boolean',\n      description: 'Wraps content in high-visibility mark highlighting',\n    },\n    disabled: {\n      control: 'boolean',\n      description: 'Mutes and disables interaction (only link variant)',\n    },\n    href: {\n      control: 'text',\n      description: 'Hyperlink path (only applies to variant: \"link\")',\n    },\n    target: {\n      control: 'select',\n      options: ['_self', '_blank', '_parent', '_top'],\n      description: 'Hyperlink target behavior (only applies to variant: \"link\")',\n    },\n  },\n}"
+                "type": "Meta<AlertComponent>",
+                "defaultValue": "{\n  title: 'Molecules/Alert',\n  component: AlertComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    type: {\n      control: 'select',\n      options: ['info', 'success', 'warning', 'error'],\n      description: 'The type of notification state to represent',\n    },\n    message: {\n      control: 'text',\n      description: 'The primary message header text',\n    },\n    description: {\n      control: 'text',\n      description: 'Secondary, detailed description text',\n    },\n    dismissible: {\n      control: 'boolean',\n      description: 'Whether the close button is displayed',\n    },\n    duration: {\n      control: 'number',\n      description: 'Auto-dismiss timeout duration in ms (0 to disable)',\n    },\n  },\n  args: {\n    onClose: fn(),\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/dropdown/dropdown.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<any>",
+                "defaultValue": "{\n    title: 'Molecules/Dropdown',\n    component: DropdownComponent,\n    decorators: [\n        moduleMetadata({\n            imports: [CommonModule, DropdownComponent],\n        }),\n    ],\n    argTypes: {\n        multiple: { control: 'boolean' },\n        searchable: { control: 'boolean' },\n        disabled: { control: 'boolean' },\n        allowClear: { control: 'boolean' },\n        placeholder: { control: 'text' },\n        notFoundText: { control: 'text' },\n    },\n}"
             },
             {
                 "name": "Modifiers",
@@ -234,21 +254,21 @@
                 "name": "Playground",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {\n    variant: 'primary',\n    size: 'medium',\n    label: 'Button',\n    disabled: false,\n    loading: false,\n  },\n}"
-            },
-            {
-                "name": "Playground",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/slate/src/lib/atoms/field/field.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    fieldType: 'input',\n    label: 'Name',\n    placeholder: 'Enter your name',\n    helperText: 'This is helper text',\n    error: '',\n    disabled: false,\n    showPrefix: false,\n    showSuffix: false,\n  },\n\n  render: (args) => ({\n    props: args,\n    template: `\n      <storybook-field\n        [fieldType]=\"fieldType\"\n        [label]=\"label\"\n        [placeholder]=\"placeholder\"\n        [helperText]=\"helperText\"\n        [error]=\"error\"\n        [disabled]=\"disabled\"\n      >\n        <span *ngIf=\"showPrefix\" prefix>🔍</span>\n        <span *ngIf=\"showSuffix\" suffix>⌘K</span>\n      </storybook-field>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "Playground",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    variant: 'primary',\n    size: 'medium',\n    label: 'Button',\n    disabled: false,\n    loading: false,\n  },\n}"
             },
             {
                 "name": "Playground",
@@ -269,6 +289,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    variant: 'text',\n    level: 1,\n    type: 'primary',\n    strong: false,\n    italic: false,\n    underline: false,\n    delete: false,\n    code: false,\n    mark: false,\n    disabled: false,\n    href: '',\n    target: '_self',\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <storybook-typography\n        [variant]=\"variant\"\n        [level]=\"level\"\n        [type]=\"type\"\n        [strong]=\"strong\"\n        [italic]=\"italic\"\n        [underline]=\"underline\"\n        [delete]=\"delete\"\n        [code]=\"code\"\n        [mark]=\"mark\"\n        [disabled]=\"disabled\"\n        [href]=\"href\"\n        [target]=\"target\"\n      >\n        Typography Content\n      </storybook-typography>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "Playground",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/alert/alert.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    type: 'info',\n    message: 'Check out this notification!',\n    description: 'This alert is customizable and interactive.',\n    dismissible: true,\n    duration: 0,\n  },\n}"
             },
             {
                 "name": "preview",
@@ -341,6 +371,16 @@
                 "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 8px;\">\n        <storybook-typography type=\"primary\">Primary text color (default)</storybook-typography>\n        <storybook-typography type=\"secondary\">Secondary description text color</storybook-typography>\n        <storybook-typography type=\"success\">Success state text color</storybook-typography>\n        <storybook-typography type=\"warning\">Warning status warning text color</storybook-typography>\n        <storybook-typography type=\"danger\">Danger error text color</storybook-typography>\n      </div>\n    `,\n  }),\n}"
             },
             {
+                "name": "Types",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/alert/alert.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 16px; width: 100%; max-width: 600px;\">\n        <storybook-alert\n          type=\"info\"\n          message=\"Info Alert\"\n          description=\"This is some general informative text for the user.\"\n        ></storybook-alert>\n\n        <storybook-alert\n          type=\"success\"\n          message=\"Success Alert\"\n          description=\"Your operation completed successfully without any errors.\"\n        ></storybook-alert>\n\n        <storybook-alert\n          type=\"warning\"\n          message=\"Warning Alert\"\n          description=\"Attention required! Please verify the credentials before completing the task.\"\n        ></storybook-alert>\n\n        <storybook-alert\n          type=\"error\"\n          message=\"Error Alert\"\n          description=\"A critical failure occurred. Please contact the systems administrator.\"\n        ></storybook-alert>\n      </div>\n    `,\n  }),\n}"
+            },
+            {
                 "name": "Variants",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -359,6 +399,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    fieldType: 'input',\n    label: 'Email',\n    placeholder: 'Enter email',\n    helperText: '',\n    error: 'Email is required',\n    disabled: false,\n    showPrefix: false,\n    showSuffix: false,\n  },\n  render: Playground.render,\n}"
+            },
+            {
+                "name": "WithoutDescription",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/alert/alert.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 600px;\">\n        <storybook-alert type=\"info\" message=\"Standard informative message header.\"></storybook-alert>\n        <storybook-alert type=\"success\" message=\"Successfully saved settings.\"></storybook-alert>\n        <storybook-alert type=\"warning\" message=\"Database space is getting low.\"></storybook-alert>\n        <storybook-alert type=\"error\" message=\"Invalid credentials entered.\"></storybook-alert>\n      </div>\n    `,\n  }),\n}"
             },
             {
                 "name": "WithPrefixAndSuffix",
@@ -389,17 +439,6 @@
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
                 "rawtype": "StoryObj<any>",
-                "file": "projects/slate/src/lib/molecules/dropdown/dropdown.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 184
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<any>",
                 "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -410,8 +449,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ButtonComponent>",
-                "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
+                "rawtype": "StoryObj<FieldStoryArgs>",
+                "file": "projects/slate/src/lib/atoms/field/field.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -432,8 +471,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<FieldStoryArgs>",
-                "file": "projects/slate/src/lib/atoms/field/field.stories.ts",
+                "rawtype": "StoryObj<ButtonComponent>",
+                "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -465,6 +504,17 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<TypographyComponent>",
+                "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<ToggleComponent>",
                 "file": "projects/slate/src/lib/atoms/toggle/toggle.stories.ts",
                 "deprecated": false,
@@ -476,8 +526,19 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<TypographyComponent>",
-                "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
+                "rawtype": "StoryObj<AlertComponent>",
+                "file": "projects/slate/src/lib/molecules/alert/alert.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<any>",
+                "file": "projects/slate/src/lib/molecules/dropdown/dropdown.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -486,6 +547,58 @@
         ],
         "enumerations": [],
         "groupedVariables": {
+            "projects/slate/src/lib/molecules/alert/alert.stories.ts": [
+                {
+                    "name": "AutoDismiss",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/molecules/alert/alert.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    type: 'success',\n    message: 'Auto-Timeout Alert',\n    description: 'This alert will automatically fade out and dismiss after 3 seconds (3000ms).',\n    dismissible: true,\n    duration: 3000,\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/molecules/alert/alert.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<AlertComponent>",
+                    "defaultValue": "{\n  title: 'Molecules/Alert',\n  component: AlertComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    type: {\n      control: 'select',\n      options: ['info', 'success', 'warning', 'error'],\n      description: 'The type of notification state to represent',\n    },\n    message: {\n      control: 'text',\n      description: 'The primary message header text',\n    },\n    description: {\n      control: 'text',\n      description: 'Secondary, detailed description text',\n    },\n    dismissible: {\n      control: 'boolean',\n      description: 'Whether the close button is displayed',\n    },\n    duration: {\n      control: 'number',\n      description: 'Auto-dismiss timeout duration in ms (0 to disable)',\n    },\n  },\n  args: {\n    onClose: fn(),\n  },\n}"
+                },
+                {
+                    "name": "Playground",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/molecules/alert/alert.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    type: 'info',\n    message: 'Check out this notification!',\n    description: 'This alert is customizable and interactive.',\n    dismissible: true,\n    duration: 0,\n  },\n}"
+                },
+                {
+                    "name": "Types",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/molecules/alert/alert.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 16px; width: 100%; max-width: 600px;\">\n        <storybook-alert\n          type=\"info\"\n          message=\"Info Alert\"\n          description=\"This is some general informative text for the user.\"\n        ></storybook-alert>\n\n        <storybook-alert\n          type=\"success\"\n          message=\"Success Alert\"\n          description=\"Your operation completed successfully without any errors.\"\n        ></storybook-alert>\n\n        <storybook-alert\n          type=\"warning\"\n          message=\"Warning Alert\"\n          description=\"Attention required! Please verify the credentials before completing the task.\"\n        ></storybook-alert>\n\n        <storybook-alert\n          type=\"error\"\n          message=\"Error Alert\"\n          description=\"A critical failure occurred. Please contact the systems administrator.\"\n        ></storybook-alert>\n      </div>\n    `,\n  }),\n}"
+                },
+                {
+                    "name": "WithoutDescription",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/molecules/alert/alert.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 600px;\">\n        <storybook-alert type=\"info\" message=\"Standard informative message header.\"></storybook-alert>\n        <storybook-alert type=\"success\" message=\"Successfully saved settings.\"></storybook-alert>\n        <storybook-alert type=\"warning\" message=\"Database space is getting low.\"></storybook-alert>\n        <storybook-alert type=\"error\" message=\"Invalid credentials entered.\"></storybook-alert>\n      </div>\n    `,\n  }),\n}"
+                }
+            ],
             "projects/slate/src/lib/atoms/checkbox/checkbox.stories.ts": [
                 {
                     "name": "Default",
@@ -894,19 +1007,6 @@
                     "kind": 184
                 }
             ],
-            "projects/slate/src/lib/molecules/dropdown/dropdown.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<any>",
-                    "file": "projects/slate/src/lib/molecules/dropdown/dropdown.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
             "projects/slate/src/lib/atoms/avatar/avatar.stories.ts": [
                 {
                     "name": "Story",
@@ -920,19 +1020,6 @@
                     "kind": 184
                 }
             ],
-            "projects/slate/src/lib/atoms/button/button.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<ButtonComponent>",
-                    "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
             "projects/slate/src/lib/atoms/checkbox/checkbox.stories.ts": [
                 {
                     "name": "Story",
@@ -940,6 +1027,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<CheckboxComponent>",
                     "file": "projects/slate/src/lib/atoms/checkbox/checkbox.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/slate/src/lib/atoms/button/button.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ButtonComponent>",
+                    "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -972,6 +1072,19 @@
                     "kind": 184
                 }
             ],
+            "projects/slate/src/lib/atoms/typography/typography.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<TypographyComponent>",
+                    "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
             "projects/slate/src/lib/atoms/toggle/toggle.stories.ts": [
                 {
                     "name": "Story",
@@ -985,13 +1098,26 @@
                     "kind": 184
                 }
             ],
-            "projects/slate/src/lib/atoms/typography/typography.stories.ts": [
+            "projects/slate/src/lib/molecules/alert/alert.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<TypographyComponent>",
-                    "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
+                    "rawtype": "StoryObj<AlertComponent>",
+                    "file": "projects/slate/src/lib/molecules/alert/alert.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/slate/src/lib/molecules/dropdown/dropdown.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<any>",
+                    "file": "projects/slate/src/lib/molecules/dropdown/dropdown.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -1381,6 +1507,66 @@
             },
             {
                 "filePath": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/alert/alert.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "AutoDismiss",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/alert/alert.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/alert/alert.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Playground",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/alert/alert.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Types",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/alert/alert.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithoutDescription",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/alert/alert.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",
