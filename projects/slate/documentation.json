@@ -124,11 +124,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
+                "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<ButtonComponent>",
-                "defaultValue": "{\n  title: 'Atoms/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n\n  argTypes: {\n    variant: {\n      control: 'radio',\n      options: ['primary', 'secondary', 'ghost', 'danger'],\n    },\n\n    size: {\n      control: 'radio',\n      options: ['small', 'medium', 'large'],\n    },\n\n    disabled: {\n      control: 'boolean',\n    },\n\n    loading: {\n      control: 'boolean',\n    },\n\n    label: {\n      control: 'text',\n    },\n  },\n\n  args: {\n    onClick: fn(),\n  },\n}"
+                "type": "Meta<any>",
+                "defaultValue": "{\n  title: 'Atoms/Avatar',\n  component: AvatarComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CommonModule, AvatarComponent, IconComponent]\n    })\n  ],\n  argTypes: {\n    size: {\n      control: { type: 'select' },\n      options: ['large', 'small', 'default']\n    },\n    shape: {\n      control: { type: 'select' },\n      options: ['circle', 'square']\n    },\n    src: { control: 'text' },\n    alt: { control: 'text' },\n    status: {\n      control: { type: 'select' },\n      options: [null, 'online', 'offline', 'away', 'busy']\n    },\n    dark: { control: 'boolean' },\n    showIcon: { control: 'boolean' },\n    iconType: { control: 'text' }\n  }\n}"
             },
             {
                 "name": "meta",
@@ -139,6 +139,16 @@
                 "deprecationMessage": "",
                 "type": "Meta<CheckboxComponent>",
                 "defaultValue": "{\n  title: 'Example/Checkbox',\n  component: CheckboxComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: { control: 'color' },\n  },\n  args: {\n    onChange: fn(),\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ButtonComponent>",
+                "defaultValue": "{\n  title: 'Atoms/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n\n  argTypes: {\n    variant: {\n      control: 'radio',\n      options: ['primary', 'secondary', 'ghost', 'danger'],\n    },\n\n    size: {\n      control: 'radio',\n      options: ['small', 'medium', 'large'],\n    },\n\n    disabled: {\n      control: 'boolean',\n    },\n\n    loading: {\n      control: 'boolean',\n    },\n\n    label: {\n      control: 'text',\n    },\n  },\n\n  args: {\n    onClick: fn(),\n  },\n}"
             },
             {
                 "name": "meta",
@@ -174,31 +184,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/atoms/toggle/toggle.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<ToggleComponent>",
-                "defaultValue": "{\n  title: 'Example/Toggle',\n  component: ToggleComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: { control: 'color' },\n  },\n  args: {\n    onChange: fn(),\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<any>",
-                "defaultValue": "{\n  title: 'Atoms/Avatar',\n  component: AvatarComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CommonModule, AvatarComponent, IconComponent]\n    })\n  ],\n  argTypes: {\n    size: {\n      control: { type: 'select' },\n      options: ['large', 'small', 'default']\n    },\n    shape: {\n      control: { type: 'select' },\n      options: ['circle', 'square']\n    },\n    src: { control: 'text' },\n    alt: { control: 'text' },\n    status: {\n      control: { type: 'select' },\n      options: [null, 'online', 'offline', 'away', 'busy']\n    },\n    dark: { control: 'boolean' },\n    showIcon: { control: 'boolean' },\n    iconType: { control: 'text' }\n  }\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<TypographyComponent>",
                 "defaultValue": "{\n  title: 'Atoms/Typography',\n  component: TypographyComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    variant: {\n      control: 'select',\n      options: ['title', 'text', 'paragraph', 'link'],\n      description: 'The type of element to render',\n    },\n    level: {\n      control: 'select',\n      options: [1, 2, 3, 4, 5],\n      description: 'Heading level (only applies to variant: \"title\")',\n    },\n    type: {\n      control: 'select',\n      options: ['primary', 'secondary', 'success', 'warning', 'danger'],\n      description: 'Semantic color styles for the text',\n    },\n    strong: {\n      control: 'boolean',\n      description: 'Applies bold text styling',\n    },\n    italic: {\n      control: 'boolean',\n      description: 'Applies italic text styling',\n    },\n    underline: {\n      control: 'boolean',\n      description: 'Applies underlined text styling',\n    },\n    delete: {\n      control: 'boolean',\n      description: 'Applies line-through text styling',\n    },\n    code: {\n      control: 'boolean',\n      description: 'Wraps content in semantic <code> block styling',\n    },\n    mark: {\n      control: 'boolean',\n      description: 'Wraps content in high-visibility mark highlighting',\n    },\n    disabled: {\n      control: 'boolean',\n      description: 'Mutes and disables interaction (only link variant)',\n    },\n    href: {\n      control: 'text',\n      description: 'Hyperlink path (only applies to variant: \"link\")',\n    },\n    target: {\n      control: 'select',\n      options: ['_self', '_blank', '_parent', '_top'],\n      description: 'Hyperlink target behavior (only applies to variant: \"link\")',\n    },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/toggle/toggle.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ToggleComponent>",
+                "defaultValue": "{\n  title: 'Example/Toggle',\n  component: ToggleComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: { control: 'color' },\n  },\n  args: {\n    onChange: fn(),\n  },\n}"
             },
             {
                 "name": "Modifiers",
@@ -219,6 +219,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  render: () => ({\n    template: `\n      <div>\n        <storybook-typography variant=\"title\" [level]=\"3\">Paragraphs and Links</storybook-typography>\n        \n        <storybook-typography variant=\"paragraph\" type=\"secondary\">\n          This is a paragraph variant which creates vertical margins. You can nest other custom styling elements within it or mix links directly. Below you will find interactive hyperlink components.\n        </storybook-typography>\n\n        <storybook-typography variant=\"paragraph\">\n          For more information, please visit our documentation or checkout the \n          <storybook-typography variant=\"link\" href=\"https://github.com\" target=\"_blank\">external GitHub repository</storybook-typography> \n          for open-source contributions.\n        </storybook-typography>\n\n        <div style=\"display: flex; gap: 16px;\">\n          <storybook-typography variant=\"link\" href=\"#\">Internal Page Link</storybook-typography>\n          <storybook-typography variant=\"link\" href=\"#\" [disabled]=\"true\">Disabled Link</storybook-typography>\n        </div>\n      </div>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "Playground",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    size: 'default',\n    shape: 'circle',\n    src: '',\n    alt: 'John Doe',\n    status: null,\n    dark: false,\n    showIcon: false,\n    iconType: 'user'\n  },\n  render: (args: any) => {\n    // toggle theme class\n    if (args.dark) document.body.classList.add('theme-dark');\n    else document.body.classList.remove('theme-dark');\n\n    const iconTemplate = args.showIcon\n      ? `<ng-template #myIcon><slt-icon [type]=\"iconType\" [theme]=\"'outlined'\"></slt-icon></ng-template>`\n      : '';\n\n    const iconBinding = args.showIcon ? `[icon]=\"myIcon\"` : '';\n\n    // remove non-component args from props to avoid Angular input warnings\n    const { dark: _d, showIcon: _s, iconType: _i, ...componentProps } = args;\n    return {\n      props: { ...componentProps, iconType: args.iconType },\n      template: `\n          ${iconTemplate}\n          <div style=\"padding: 24px; background: var(--slt-background-color);\">\n            <slt-avatar ${iconBinding} [size]=\"size\" [shape]=\"shape\" [src]=\"src\" [alt]=\"alt\" [status]=\"status\"></slt-avatar>\n          </div>\n        `\n    };\n  }\n}"
             },
             {
                 "name": "Playground",
@@ -249,16 +259,6 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    type: 'user',\n    theme: 'outlined',\n    spin: false,\n    dark: false\n  },\n  render: (args: any) => {\n    if (args.dark) document.body.classList.add('theme-dark');\n    else document.body.classList.remove('theme-dark');\n\n    // Don't pass `dark` into component props\n    const { dark: _d, ...componentProps } = args;\n\n    return {\n      props: componentProps,\n      template: `\n        <div style=\"padding: 24px; background: var(--slt-background-color); color: var(--slt-text-color);\">\n          <slt-icon [type]=\"type\" [theme]=\"theme\" [spin]=\"spin\"></slt-icon>\n        </div>\n      `\n    };\n  }\n}"
-            },
-            {
-                "name": "Playground",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {\n    size: 'default',\n    shape: 'circle',\n    src: '',\n    alt: 'John Doe',\n    status: null,\n    dark: false,\n    showIcon: false,\n    iconType: 'user'\n  },\n  render: (args: any) => {\n    // toggle theme class\n    if (args.dark) document.body.classList.add('theme-dark');\n    else document.body.classList.remove('theme-dark');\n\n    const iconTemplate = args.showIcon\n      ? `<ng-template #myIcon><slt-icon [type]=\"iconType\" [theme]=\"'outlined'\"></slt-icon></ng-template>`\n      : '';\n\n    const iconBinding = args.showIcon ? `[icon]=\"myIcon\"` : '';\n\n    // remove non-component args from props to avoid Angular input warnings\n    const { dark: _d, showIcon: _s, iconType: _i, ...componentProps } = args;\n    return {\n      props: { ...componentProps, iconType: args.iconType },\n      template: `\n          ${iconTemplate}\n          <div style=\"padding: 24px; background: var(--slt-background-color);\">\n            <slt-avatar ${iconBinding} [size]=\"size\" [shape]=\"shape\" [src]=\"src\" [alt]=\"alt\" [status]=\"status\"></slt-avatar>\n          </div>\n        `\n    };\n  }\n}"
             },
             {
                 "name": "Playground",
@@ -400,8 +400,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ButtonComponent>",
-                "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
+                "rawtype": "StoryObj<any>",
+                "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -413,6 +413,17 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<CheckboxComponent>",
                 "file": "projects/slate/src/lib/atoms/checkbox/checkbox.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<ButtonComponent>",
+                "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -455,30 +466,19 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ToggleComponent>",
-                "file": "projects/slate/src/lib/atoms/toggle/toggle.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 184
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<any>",
-                "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 184
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
                 "rawtype": "StoryObj<TypographyComponent>",
                 "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<ToggleComponent>",
+                "file": "projects/slate/src/lib/atoms/toggle/toggle.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -701,6 +701,28 @@
                     "defaultValue": "{\n  title: 'Example/Page',\n  component: PageComponent,\n  parameters: {\n    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout\n    layout: 'fullscreen',\n  },\n}"
                 }
             ],
+            "projects/slate/src/lib/atoms/avatar/avatar.stories.ts": [
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<any>",
+                    "defaultValue": "{\n  title: 'Atoms/Avatar',\n  component: AvatarComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CommonModule, AvatarComponent, IconComponent]\n    })\n  ],\n  argTypes: {\n    size: {\n      control: { type: 'select' },\n      options: ['large', 'small', 'default']\n    },\n    shape: {\n      control: { type: 'select' },\n      options: ['circle', 'square']\n    },\n    src: { control: 'text' },\n    alt: { control: 'text' },\n    status: {\n      control: { type: 'select' },\n      options: [null, 'online', 'offline', 'away', 'busy']\n    },\n    dark: { control: 'boolean' },\n    showIcon: { control: 'boolean' },\n    iconType: { control: 'text' }\n  }\n}"
+                },
+                {
+                    "name": "Playground",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    size: 'default',\n    shape: 'circle',\n    src: '',\n    alt: 'John Doe',\n    status: null,\n    dark: false,\n    showIcon: false,\n    iconType: 'user'\n  },\n  render: (args: any) => {\n    // toggle theme class\n    if (args.dark) document.body.classList.add('theme-dark');\n    else document.body.classList.remove('theme-dark');\n\n    const iconTemplate = args.showIcon\n      ? `<ng-template #myIcon><slt-icon [type]=\"iconType\" [theme]=\"'outlined'\"></slt-icon></ng-template>`\n      : '';\n\n    const iconBinding = args.showIcon ? `[icon]=\"myIcon\"` : '';\n\n    // remove non-component args from props to avoid Angular input warnings\n    const { dark: _d, showIcon: _s, iconType: _i, ...componentProps } = args;\n    return {\n      props: { ...componentProps, iconType: args.iconType },\n      template: `\n          ${iconTemplate}\n          <div style=\"padding: 24px; background: var(--slt-background-color);\">\n            <slt-avatar ${iconBinding} [size]=\"size\" [shape]=\"shape\" [src]=\"src\" [alt]=\"alt\" [status]=\"status\"></slt-avatar>\n          </div>\n        `\n    };\n  }\n}"
+                }
+            ],
             "projects/slate/src/lib/atoms/button/button.stories.ts": [
                 {
                     "name": "meta",
@@ -773,28 +795,6 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{\n  args: {\n    type: 'user',\n    theme: 'outlined',\n    spin: false,\n    dark: false\n  },\n  render: (args: any) => {\n    if (args.dark) document.body.classList.add('theme-dark');\n    else document.body.classList.remove('theme-dark');\n\n    // Don't pass `dark` into component props\n    const { dark: _d, ...componentProps } = args;\n\n    return {\n      props: componentProps,\n      template: `\n        <div style=\"padding: 24px; background: var(--slt-background-color); color: var(--slt-text-color);\">\n          <slt-icon [type]=\"type\" [theme]=\"theme\" [spin]=\"spin\"></slt-icon>\n        </div>\n      `\n    };\n  }\n}"
-                }
-            ],
-            "projects/slate/src/lib/atoms/avatar/avatar.stories.ts": [
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<any>",
-                    "defaultValue": "{\n  title: 'Atoms/Avatar',\n  component: AvatarComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CommonModule, AvatarComponent, IconComponent]\n    })\n  ],\n  argTypes: {\n    size: {\n      control: { type: 'select' },\n      options: ['large', 'small', 'default']\n    },\n    shape: {\n      control: { type: 'select' },\n      options: ['circle', 'square']\n    },\n    src: { control: 'text' },\n    alt: { control: 'text' },\n    status: {\n      control: { type: 'select' },\n      options: [null, 'online', 'offline', 'away', 'busy']\n    },\n    dark: { control: 'boolean' },\n    showIcon: { control: 'boolean' },\n    iconType: { control: 'text' }\n  }\n}"
-                },
-                {
-                    "name": "Playground",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {\n    size: 'default',\n    shape: 'circle',\n    src: '',\n    alt: 'John Doe',\n    status: null,\n    dark: false,\n    showIcon: false,\n    iconType: 'user'\n  },\n  render: (args: any) => {\n    // toggle theme class\n    if (args.dark) document.body.classList.add('theme-dark');\n    else document.body.classList.remove('theme-dark');\n\n    const iconTemplate = args.showIcon\n      ? `<ng-template #myIcon><slt-icon [type]=\"iconType\" [theme]=\"'outlined'\"></slt-icon></ng-template>`\n      : '';\n\n    const iconBinding = args.showIcon ? `[icon]=\"myIcon\"` : '';\n\n    // remove non-component args from props to avoid Angular input warnings\n    const { dark: _d, showIcon: _s, iconType: _i, ...componentProps } = args;\n    return {\n      props: { ...componentProps, iconType: args.iconType },\n      template: `\n          ${iconTemplate}\n          <div style=\"padding: 24px; background: var(--slt-background-color);\">\n            <slt-avatar ${iconBinding} [size]=\"size\" [shape]=\"shape\" [src]=\"src\" [alt]=\"alt\" [status]=\"status\"></slt-avatar>\n          </div>\n        `\n    };\n  }\n}"
                 }
             ],
             "projects/slate/src/lib/atoms/typography/typography.stories.ts": [
@@ -913,13 +913,13 @@
                     "kind": 184
                 }
             ],
-            "projects/slate/src/lib/atoms/button/button.stories.ts": [
+            "projects/slate/src/lib/atoms/avatar/avatar.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<ButtonComponent>",
-                    "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
+                    "rawtype": "StoryObj<any>",
+                    "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -933,6 +933,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<CheckboxComponent>",
                     "file": "projects/slate/src/lib/atoms/checkbox/checkbox.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/slate/src/lib/atoms/button/button.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ButtonComponent>",
+                    "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -965,32 +978,6 @@
                     "kind": 184
                 }
             ],
-            "projects/slate/src/lib/atoms/toggle/toggle.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<ToggleComponent>",
-                    "file": "projects/slate/src/lib/atoms/toggle/toggle.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
-            "projects/slate/src/lib/atoms/avatar/avatar.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<any>",
-                    "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
             "projects/slate/src/lib/atoms/typography/typography.stories.ts": [
                 {
                     "name": "Story",
@@ -998,6 +985,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<TypographyComponent>",
                     "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/slate/src/lib/atoms/toggle/toggle.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ToggleComponent>",
+                    "file": "projects/slate/src/lib/atoms/toggle/toggle.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
