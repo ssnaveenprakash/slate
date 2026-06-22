@@ -1,0 +1,18 @@
+<section
+  class="storybook-card"
+  [ngClass]="classes"
+  role="group"
+  [attr.aria-label]="ariaLabel"
+>
+  <header class="storybook-card__header">
+    <ng-content select="[cardHeader]"></ng-content>
+  </header>
+
+  <div class="storybook-card__body">
+    <ng-content></ng-content>
+  </div>
+
+  <footer class="storybook-card__footer">
+    <ng-content select="[cardFooter]"></ng-content>
+  </footer>
+</section>
