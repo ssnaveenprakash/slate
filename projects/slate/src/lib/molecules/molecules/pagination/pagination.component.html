@@ -1,0 +1,43 @@
+<nav class="storybook-pagination" [attr.aria-label]="ariaLabel">
+    <button
+        type="button"
+        class="storybook-pagination__control"
+        [disabled]="!canGoPrevious"
+        aria-label="Previous page"
+        (click)="goToPrevious()"
+    >
+        Previous
+    </button>
+
+    <ol class="storybook-pagination__list">
+        <li *ngFor="let item of displayItems; trackBy: trackByPage" class="storybook-pagination__item">
+            <ng-container *ngIf="item !== 'ellipsis'; else ellipsisTemplate">
+                <button
+                    type="button"
+                    class="storybook-pagination__page"
+                    [class.storybook-pagination__page--active]="item === currentPage"
+                    [disabled]="disabled || item === currentPage"
+                    [attr.aria-current]="item === currentPage ? 'page' : null"
+                    [attr.aria-label]="'Page ' + item"
+                    (click)="goToPage(item)"
+                >
+                    {{ item }}
+                </button>
+            </ng-container>
+
+            <ng-template #ellipsisTemplate>
+                <span class="storybook-pagination__ellipsis" aria-hidden="true">&hellip;</span>
+            </ng-template>
+        </li>
+    </ol>
+
+    <button
+        type="button"
+        class="storybook-pagination__control"
+        [disabled]="!canGoNext"
+        aria-label="Next page"
+        (click)="goToNext()"
+    >
+        Next
+    </button>
+</nav>
