@@ -1,0 +1,79 @@
+.slt-search-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  padding: 8px 12px;
+  background: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.slt-search-bar:focus-within {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+.slt-search-bar__icon {
+  width: 16px;
+  height: 16px;
+  color: #9ca3af;
+  flex-shrink: 0;
+  transition: color 0.15s ease;
+}
+
+.slt-search-bar:focus-within .slt-search-bar__icon {
+  color: #6366f1;
+}
+
+.slt-search-bar__input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  color: #111827;
+  background: transparent;
+  min-width: 0;
+}
+
+.slt-search-bar__input::placeholder {
+  color: #9ca3af;
+}
+
+/* Remove native clear button in webkit */
+.slt-search-bar__input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.slt-search-bar__clear {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  border-radius: 50%;
+  color: #9ca3af;
+  flex-shrink: 0;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.slt-search-bar__clear:hover {
+  color: #374151;
+  background-color: #f3f4f6;
+}
+
+.slt-search-bar__clear-icon {
+  width: 14px;
+  height: 14px;
+}
+
+.slt-search-bar--disabled {
+  opacity: 0.6;
+  pointer-events: none;
+  background: #f9fafb;
+}

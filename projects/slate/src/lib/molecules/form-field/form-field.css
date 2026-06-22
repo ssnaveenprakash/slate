@@ -1,0 +1,93 @@
+.slt-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.slt-form-field__label {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #111827;
+}
+
+.slt-form-field__required {
+  color: #dc2626;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.slt-form-field__control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1.5px solid #d1d5db;
+  border-radius: 6px;
+  padding: 8px 12px;
+  background: #fff;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.slt-form-field__control:focus-within {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+.slt-form-field__control--error {
+  border-color: #dc2626;
+}
+
+.slt-form-field__control--error:focus-within {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12);
+}
+
+.slt-form-field__input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+  color: #111827;
+  background: transparent;
+}
+
+.slt-form-field__input::placeholder {
+  color: #9ca3af;
+}
+
+.slt-form-field__slot {
+  display: inline-flex;
+  align-items: center;
+  color: #6b7280;
+  flex-shrink: 0;
+}
+
+.slt-form-field__helper {
+  margin: 0;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.slt-form-field__validation {
+  margin: 0;
+  font-size: 12px;
+  color: #dc2626;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.slt-form-field__validation-icon {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+}
+
+.slt-form-field--disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}

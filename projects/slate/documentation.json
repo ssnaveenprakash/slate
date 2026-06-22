@@ -11,6 +11,16 @@
     "miscellaneous": {
         "variables": [
             {
+                "name": "AllStates",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 24px; max-width: 400px;\">\n        <slt-form-field\n          label=\"Default\"\n          placeholder=\"Enter value\"\n          helperText=\"This is helper text.\"\n        ></slt-form-field>\n\n        <slt-form-field\n          label=\"Required\"\n          placeholder=\"Enter value\"\n          [required]=\"true\"\n          helperText=\"This field is required.\"\n        ></slt-form-field>\n\n        <slt-form-field\n          label=\"With Error\"\n          placeholder=\"Enter value\"\n          [required]=\"true\"\n          validationMessage=\"This field cannot be empty.\"\n        ></slt-form-field>\n\n        <slt-form-field\n          label=\"Disabled\"\n          placeholder=\"Not editable\"\n          [disabled]=\"true\"\n          helperText=\"This field is currently disabled.\"\n        ></slt-form-field>\n      </div>\n    `,\n  }),\n}"
+            },
+            {
                 "name": "AutoDismiss",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -19,6 +29,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    type: 'success',\n    message: 'Auto-Timeout Alert',\n    description: 'This alert will automatically fade out and dismiss after 3 seconds (3000ms).',\n    dismissible: true,\n    duration: 3000,\n  },\n}"
+            },
+            {
+                "name": "CustomPlaceholder",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    value: '',\n    placeholder: 'Search by name, email, or role…',\n  },\n}"
             },
             {
                 "name": "Default",
@@ -59,6 +79,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    fieldType: 'input',\n    label: 'Username',\n    placeholder: '',\n    helperText: '',\n    error: '',\n    disabled: true,\n    showPrefix: false,\n    showSuffix: false,\n  },\n  render: Playground.render,\n}"
+            },
+            {
+                "name": "Disabled",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    value: '',\n    placeholder: 'Search unavailable',\n    disabled: true,\n  },\n}"
             },
             {
                 "name": "docJson",
@@ -124,11 +154,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/atoms/field/field.stories.ts",
+                "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<FieldStoryArgs>",
-                "defaultValue": "{\n  title: 'Atoms/Field',\n  component: FieldComponent,\n  tags: ['autodocs'],\n\n  argTypes: {\n    fieldType: {\n      control: 'radio',\n      options: ['input', 'textarea'],\n    },\n    label: { control: 'text' },\n    helperText: { control: 'text' },\n    error: { control: 'text' },\n    placeholder: { control: 'text' },\n    disabled: { control: 'boolean' },\n\n    showPrefix: {\n      control: 'boolean',\n    },\n    showSuffix: {\n      control: 'boolean',\n    },\n  },\n}"
+                "type": "Meta<ButtonComponent>",
+                "defaultValue": "{\n  title: 'Atoms/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n\n  argTypes: {\n    variant: {\n      control: 'radio',\n      options: ['primary', 'secondary', 'ghost', 'danger'],\n    },\n\n    size: {\n      control: 'radio',\n      options: ['small', 'medium', 'large'],\n    },\n\n    disabled: {\n      control: 'boolean',\n    },\n\n    loading: {\n      control: 'boolean',\n    },\n\n    label: {\n      control: 'text',\n    },\n  },\n\n  args: {\n    onClick: fn(),\n  },\n}"
             },
             {
                 "name": "meta",
@@ -144,21 +174,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
+                "file": "projects/slate/src/lib/atoms/field/field.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<ButtonComponent>",
-                "defaultValue": "{\n  title: 'Atoms/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n\n  argTypes: {\n    variant: {\n      control: 'radio',\n      options: ['primary', 'secondary', 'ghost', 'danger'],\n    },\n\n    size: {\n      control: 'radio',\n      options: ['small', 'medium', 'large'],\n    },\n\n    disabled: {\n      control: 'boolean',\n    },\n\n    loading: {\n      control: 'boolean',\n    },\n\n    label: {\n      control: 'text',\n    },\n  },\n\n  args: {\n    onClick: fn(),\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<RadioComponent>",
-                "defaultValue": "{\n  title: 'Atoms/Radio',\n  component: RadioComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: { control: 'color' },\n  }\n}"
+                "type": "Meta<FieldStoryArgs>",
+                "defaultValue": "{\n  title: 'Atoms/Field',\n  component: FieldComponent,\n  tags: ['autodocs'],\n\n  argTypes: {\n    fieldType: {\n      control: 'radio',\n      options: ['input', 'textarea'],\n    },\n    label: { control: 'text' },\n    helperText: { control: 'text' },\n    error: { control: 'text' },\n    placeholder: { control: 'text' },\n    disabled: { control: 'boolean' },\n\n    showPrefix: {\n      control: 'boolean',\n    },\n    showSuffix: {\n      control: 'boolean',\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -174,11 +194,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
+                "file": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<TypographyComponent>",
-                "defaultValue": "{\n  title: 'Atoms/Typography',\n  component: TypographyComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    variant: {\n      control: 'select',\n      options: ['title', 'text', 'paragraph', 'link'],\n      description: 'The type of element to render',\n    },\n    level: {\n      control: 'select',\n      options: [1, 2, 3, 4, 5],\n      description: 'Heading level (only applies to variant: \"title\")',\n    },\n    type: {\n      control: 'select',\n      options: ['primary', 'secondary', 'success', 'warning', 'danger'],\n      description: 'Semantic color styles for the text',\n    },\n    strong: {\n      control: 'boolean',\n      description: 'Applies bold text styling',\n    },\n    italic: {\n      control: 'boolean',\n      description: 'Applies italic text styling',\n    },\n    underline: {\n      control: 'boolean',\n      description: 'Applies underlined text styling',\n    },\n    delete: {\n      control: 'boolean',\n      description: 'Applies line-through text styling',\n    },\n    code: {\n      control: 'boolean',\n      description: 'Wraps content in semantic <code> block styling',\n    },\n    mark: {\n      control: 'boolean',\n      description: 'Wraps content in high-visibility mark highlighting',\n    },\n    disabled: {\n      control: 'boolean',\n      description: 'Mutes and disables interaction (only link variant)',\n    },\n    href: {\n      control: 'text',\n      description: 'Hyperlink path (only applies to variant: \"link\")',\n    },\n    target: {\n      control: 'select',\n      options: ['_self', '_blank', '_parent', '_top'],\n      description: 'Hyperlink target behavior (only applies to variant: \"link\")',\n    },\n  },\n}"
+                "type": "Meta<RadioComponent>",
+                "defaultValue": "{\n  title: 'Atoms/Radio',\n  component: RadioComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: { control: 'color' },\n  }\n}"
             },
             {
                 "name": "meta",
@@ -189,6 +209,16 @@
                 "deprecationMessage": "",
                 "type": "Meta<ToggleComponent>",
                 "defaultValue": "{\n  title: 'Atoms/Toggle',\n  component: ToggleComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: { control: 'color' },\n  },\n  args: {\n    onChange: fn(),\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<TypographyComponent>",
+                "defaultValue": "{\n  title: 'Atoms/Typography',\n  component: TypographyComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    variant: {\n      control: 'select',\n      options: ['title', 'text', 'paragraph', 'link'],\n      description: 'The type of element to render',\n    },\n    level: {\n      control: 'select',\n      options: [1, 2, 3, 4, 5],\n      description: 'Heading level (only applies to variant: \"title\")',\n    },\n    type: {\n      control: 'select',\n      options: ['primary', 'secondary', 'success', 'warning', 'danger'],\n      description: 'Semantic color styles for the text',\n    },\n    strong: {\n      control: 'boolean',\n      description: 'Applies bold text styling',\n    },\n    italic: {\n      control: 'boolean',\n      description: 'Applies italic text styling',\n    },\n    underline: {\n      control: 'boolean',\n      description: 'Applies underlined text styling',\n    },\n    delete: {\n      control: 'boolean',\n      description: 'Applies line-through text styling',\n    },\n    code: {\n      control: 'boolean',\n      description: 'Wraps content in semantic <code> block styling',\n    },\n    mark: {\n      control: 'boolean',\n      description: 'Wraps content in high-visibility mark highlighting',\n    },\n    disabled: {\n      control: 'boolean',\n      description: 'Mutes and disables interaction (only link variant)',\n    },\n    href: {\n      control: 'text',\n      description: 'Hyperlink path (only applies to variant: \"link\")',\n    },\n    target: {\n      control: 'select',\n      options: ['_self', '_blank', '_parent', '_top'],\n      description: 'Hyperlink target behavior (only applies to variant: \"link\")',\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -209,6 +239,26 @@
                 "deprecationMessage": "",
                 "type": "Meta<any>",
                 "defaultValue": "{\n    title: 'Molecules/Dropdown',\n    component: DropdownComponent,\n    decorators: [\n        moduleMetadata({\n            imports: [CommonModule, DropdownComponent],\n        }),\n    ],\n    argTypes: {\n        multiple: { control: 'boolean' },\n        searchable: { control: 'boolean' },\n        disabled: { control: 'boolean' },\n        allowClear: { control: 'boolean' },\n        placeholder: { control: 'text' },\n        notFoundText: { control: 'text' },\n    },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<SearchBarComponent>",
+                "defaultValue": "{\n  title: 'Molecules/SearchBar',\n  component: SearchBarComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    value: { control: 'text', description: 'Current search value' },\n    placeholder: { control: 'text', description: 'Placeholder text' },\n    disabled: { control: 'boolean' },\n    ariaLabel: { control: 'text', description: 'Accessible label for the input' },\n  },\n  args: {\n    valueChange: fn(),\n    cleared: fn(),\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<FormFieldComponent>",
+                "defaultValue": "{\n  title: 'Molecules/FormField',\n  component: FormFieldComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    type: {\n      control: 'select',\n      options: ['text', 'email', 'password', 'number', 'tel', 'url'],\n      description: 'HTML input type',\n    },\n    label: { control: 'text', description: 'Field label' },\n    helperText: { control: 'text', description: 'Helper text shown below the field' },\n    validationMessage: { control: 'text', description: 'Error/validation message (shown after blur)' },\n    placeholder: { control: 'text' },\n    required: { control: 'boolean' },\n    disabled: { control: 'boolean' },\n  },\n  args: {\n    valueChange: fn(),\n    blur: fn(),\n  },\n}"
             },
             {
                 "name": "Modifiers",
@@ -241,6 +291,16 @@
                 "defaultValue": "{\n  render: () => ({\n    template: `\n      <div>\n        <storybook-typography variant=\"title\" [level]=\"3\">Paragraphs and Links</storybook-typography>\n        \n        <storybook-typography variant=\"paragraph\" type=\"secondary\">\n          This is a paragraph variant which creates vertical margins. You can nest other custom styling elements within it or mix links directly. Below you will find interactive hyperlink components.\n        </storybook-typography>\n\n        <storybook-typography variant=\"paragraph\">\n          For more information, please visit our documentation or checkout the \n          <storybook-typography variant=\"link\" href=\"https://github.com\" target=\"_blank\">external GitHub repository</storybook-typography> \n          for open-source contributions.\n        </storybook-typography>\n\n        <div style=\"display: flex; gap: 16px;\">\n          <storybook-typography variant=\"link\" href=\"#\">Internal Page Link</storybook-typography>\n          <storybook-typography variant=\"link\" href=\"#\" [disabled]=\"true\">Disabled Link</storybook-typography>\n        </div>\n      </div>\n    `,\n  }),\n}"
             },
             {
+                "name": "PasswordField",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    label: 'Password',\n    placeholder: '••••••••',\n    type: 'password',\n    required: true,\n    helperText: 'Must be at least 8 characters.',\n  },\n}"
+            },
+            {
                 "name": "Playground",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -254,21 +314,21 @@
                 "name": "Playground",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/atoms/field/field.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {\n    fieldType: 'input',\n    label: 'Name',\n    placeholder: 'Enter your name',\n    helperText: 'This is helper text',\n    error: '',\n    disabled: false,\n    showPrefix: false,\n    showSuffix: false,\n  },\n\n  render: (args) => ({\n    props: args,\n    template: `\n      <storybook-field\n        [fieldType]=\"fieldType\"\n        [label]=\"label\"\n        [placeholder]=\"placeholder\"\n        [helperText]=\"helperText\"\n        [error]=\"error\"\n        [disabled]=\"disabled\"\n      >\n        <span *ngIf=\"showPrefix\" prefix>🔍</span>\n        <span *ngIf=\"showSuffix\" suffix>⌘K</span>\n      </storybook-field>\n    `,\n  }),\n}"
-            },
-            {
-                "name": "Playground",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    variant: 'primary',\n    size: 'medium',\n    label: 'Button',\n    disabled: false,\n    loading: false,\n  },\n}"
+            },
+            {
+                "name": "Playground",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/field/field.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    fieldType: 'input',\n    label: 'Name',\n    placeholder: 'Enter your name',\n    helperText: 'This is helper text',\n    error: '',\n    disabled: false,\n    showPrefix: false,\n    showSuffix: false,\n  },\n\n  render: (args) => ({\n    props: args,\n    template: `\n      <storybook-field\n        [fieldType]=\"fieldType\"\n        [label]=\"label\"\n        [placeholder]=\"placeholder\"\n        [helperText]=\"helperText\"\n        [error]=\"error\"\n        [disabled]=\"disabled\"\n      >\n        <span *ngIf=\"showPrefix\" prefix>🔍</span>\n        <span *ngIf=\"showSuffix\" suffix>⌘K</span>\n      </storybook-field>\n    `,\n  }),\n}"
             },
             {
                 "name": "Playground",
@@ -301,6 +361,26 @@
                 "defaultValue": "{\n  args: {\n    type: 'info',\n    message: 'Check out this notification!',\n    description: 'This alert is customizable and interactive.',\n    dismissible: true,\n    duration: 0,\n  },\n}"
             },
             {
+                "name": "Playground",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    value: '',\n    placeholder: 'Search…',\n    disabled: false,\n  },\n}"
+            },
+            {
+                "name": "Playground",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    label: 'Full Name',\n    placeholder: 'Enter your name',\n    helperText: 'As it appears on your ID',\n    validationMessage: '',\n    required: false,\n    disabled: false,\n    type: 'text',\n  },\n}"
+            },
+            {
                 "name": "preview",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -309,6 +389,16 @@
                 "deprecationMessage": "",
                 "type": "Preview",
                 "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n       color: /(background|color)$/i,\n       date: /Date$/i,\n      },\n    },\n  },\n}"
+            },
+            {
+                "name": "Required",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    label: 'Email Address',\n    placeholder: 'you@example.com',\n    type: 'email',\n    required: true,\n    helperText: \"We'll never share your email.\",\n  },\n}"
             },
             {
                 "name": "SingleSelect",
@@ -329,6 +419,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display:flex; gap:12px; align-items:center;\">\n        <storybook-button\n          size=\"small\"\n          label=\"Small\">\n        </storybook-button>\n\n        <storybook-button\n          size=\"medium\"\n          label=\"Medium\">\n        </storybook-button>\n\n        <storybook-button\n          size=\"large\"\n          label=\"Large\">\n        </storybook-button>\n      </div>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "Sizes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 16px;\">\n        <div style=\"width: 240px;\">\n          <slt-search-bar placeholder=\"Compact (240px)\"></slt-search-bar>\n        </div>\n        <div style=\"width: 400px;\">\n          <slt-search-bar placeholder=\"Medium (400px)\"></slt-search-bar>\n        </div>\n        <div style=\"width: 100%;\">\n          <slt-search-bar placeholder=\"Full width\"></slt-search-bar>\n        </div>\n      </div>\n    `,\n  }),\n}"
             },
             {
                 "name": "States",
@@ -419,6 +519,26 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    fieldType: 'input',\n    label: 'Search',\n    placeholder: 'Search...',\n    helperText: 'Search by name or email',\n    error: '',\n    disabled: false,\n    showPrefix: true,\n    showSuffix: true,\n  },\n  render: Playground.render,\n}"
+            },
+            {
+                "name": "WithValidationError",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"max-width: 400px;\">\n        <slt-form-field\n          label=\"Email Address\"\n          placeholder=\"you@example.com\"\n          type=\"email\"\n          [required]=\"true\"\n          validationMessage=\"Please enter a valid email address.\"\n        ></slt-form-field>\n      </div>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "WithValue",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    value: 'Angular components',\n    placeholder: 'Search…',\n  },\n}"
             }
         ],
         "functions": [],
@@ -460,17 +580,6 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<FieldStoryArgs>",
-                "file": "projects/slate/src/lib/atoms/field/field.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 184
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
                 "rawtype": "StoryObj<CheckboxComponent>",
                 "file": "projects/slate/src/lib/atoms/checkbox/checkbox.stories.ts",
                 "deprecated": false,
@@ -482,19 +591,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ButtonComponent>",
-                "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 184
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<RadioComponent>",
-                "file": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
+                "rawtype": "StoryObj<FieldStoryArgs>",
+                "file": "projects/slate/src/lib/atoms/field/field.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -515,8 +613,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<TypographyComponent>",
-                "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
+                "rawtype": "StoryObj<RadioComponent>",
+                "file": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -528,6 +626,17 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<ToggleComponent>",
                 "file": "projects/slate/src/lib/atoms/toggle/toggle.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<TypographyComponent>",
+                "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -554,10 +663,94 @@
                 "deprecationMessage": "",
                 "description": "",
                 "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<SearchBarComponent>",
+                "file": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<FormFieldComponent>",
+                "file": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
             }
         ],
         "enumerations": [],
         "groupedVariables": {
+            "projects/slate/src/lib/molecules/form-field/form-field.stories.ts": [
+                {
+                    "name": "AllStates",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 24px; max-width: 400px;\">\n        <slt-form-field\n          label=\"Default\"\n          placeholder=\"Enter value\"\n          helperText=\"This is helper text.\"\n        ></slt-form-field>\n\n        <slt-form-field\n          label=\"Required\"\n          placeholder=\"Enter value\"\n          [required]=\"true\"\n          helperText=\"This field is required.\"\n        ></slt-form-field>\n\n        <slt-form-field\n          label=\"With Error\"\n          placeholder=\"Enter value\"\n          [required]=\"true\"\n          validationMessage=\"This field cannot be empty.\"\n        ></slt-form-field>\n\n        <slt-form-field\n          label=\"Disabled\"\n          placeholder=\"Not editable\"\n          [disabled]=\"true\"\n          helperText=\"This field is currently disabled.\"\n        ></slt-form-field>\n      </div>\n    `,\n  }),\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<FormFieldComponent>",
+                    "defaultValue": "{\n  title: 'Molecules/FormField',\n  component: FormFieldComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    type: {\n      control: 'select',\n      options: ['text', 'email', 'password', 'number', 'tel', 'url'],\n      description: 'HTML input type',\n    },\n    label: { control: 'text', description: 'Field label' },\n    helperText: { control: 'text', description: 'Helper text shown below the field' },\n    validationMessage: { control: 'text', description: 'Error/validation message (shown after blur)' },\n    placeholder: { control: 'text' },\n    required: { control: 'boolean' },\n    disabled: { control: 'boolean' },\n  },\n  args: {\n    valueChange: fn(),\n    blur: fn(),\n  },\n}"
+                },
+                {
+                    "name": "PasswordField",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    label: 'Password',\n    placeholder: '••••••••',\n    type: 'password',\n    required: true,\n    helperText: 'Must be at least 8 characters.',\n  },\n}"
+                },
+                {
+                    "name": "Playground",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    label: 'Full Name',\n    placeholder: 'Enter your name',\n    helperText: 'As it appears on your ID',\n    validationMessage: '',\n    required: false,\n    disabled: false,\n    type: 'text',\n  },\n}"
+                },
+                {
+                    "name": "Required",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    label: 'Email Address',\n    placeholder: 'you@example.com',\n    type: 'email',\n    required: true,\n    helperText: \"We'll never share your email.\",\n  },\n}"
+                },
+                {
+                    "name": "WithValidationError",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"max-width: 400px;\">\n        <slt-form-field\n          label=\"Email Address\"\n          placeholder=\"you@example.com\"\n          type=\"email\"\n          [required]=\"true\"\n          validationMessage=\"Please enter a valid email address.\"\n        ></slt-form-field>\n      </div>\n    `,\n  }),\n}"
+                }
+            ],
             "projects/slate/src/lib/molecules/alert/alert.stories.ts": [
                 {
                     "name": "AutoDismiss",
@@ -608,6 +801,68 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 600px;\">\n        <storybook-alert type=\"info\" message=\"Standard informative message header.\"></storybook-alert>\n        <storybook-alert type=\"success\" message=\"Successfully saved settings.\"></storybook-alert>\n        <storybook-alert type=\"warning\" message=\"Database space is getting low.\"></storybook-alert>\n        <storybook-alert type=\"error\" message=\"Invalid credentials entered.\"></storybook-alert>\n      </div>\n    `,\n  }),\n}"
+                }
+            ],
+            "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts": [
+                {
+                    "name": "CustomPlaceholder",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    value: '',\n    placeholder: 'Search by name, email, or role…',\n  },\n}"
+                },
+                {
+                    "name": "Disabled",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    value: '',\n    placeholder: 'Search unavailable',\n    disabled: true,\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<SearchBarComponent>",
+                    "defaultValue": "{\n  title: 'Molecules/SearchBar',\n  component: SearchBarComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    value: { control: 'text', description: 'Current search value' },\n    placeholder: { control: 'text', description: 'Placeholder text' },\n    disabled: { control: 'boolean' },\n    ariaLabel: { control: 'text', description: 'Accessible label for the input' },\n  },\n  args: {\n    valueChange: fn(),\n    cleared: fn(),\n  },\n}"
+                },
+                {
+                    "name": "Playground",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    value: '',\n    placeholder: 'Search…',\n    disabled: false,\n  },\n}"
+                },
+                {
+                    "name": "Sizes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 16px;\">\n        <div style=\"width: 240px;\">\n          <slt-search-bar placeholder=\"Compact (240px)\"></slt-search-bar>\n        </div>\n        <div style=\"width: 400px;\">\n          <slt-search-bar placeholder=\"Medium (400px)\"></slt-search-bar>\n        </div>\n        <div style=\"width: 100%;\">\n          <slt-search-bar placeholder=\"Full width\"></slt-search-bar>\n        </div>\n      </div>\n    `,\n  }),\n}"
+                },
+                {
+                    "name": "WithValue",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    value: 'Angular components',\n    placeholder: 'Search…',\n  },\n}"
                 }
             ],
             "projects/slate/src/lib/atoms/checkbox/checkbox.stories.ts": [
@@ -854,28 +1109,6 @@
                     "defaultValue": "{\n  args: {\n    size: 'default',\n    shape: 'circle',\n    src: '',\n    alt: 'John Doe',\n    status: null,\n    dark: false,\n    showIcon: false,\n    iconType: 'user'\n  },\n  render: (args: any) => {\n    // toggle theme class\n    if (args.dark) document.body.classList.add('theme-dark');\n    else document.body.classList.remove('theme-dark');\n\n    const iconTemplate = args.showIcon\n      ? `<ng-template #myIcon><slt-icon [type]=\"iconType\" [theme]=\"'outlined'\"></slt-icon></ng-template>`\n      : '';\n\n    const iconBinding = args.showIcon ? `[icon]=\"myIcon\"` : '';\n\n    // remove non-component args from props to avoid Angular input warnings\n    const { dark: _d, showIcon: _s, iconType: _i, ...componentProps } = args;\n    return {\n      props: { ...componentProps, iconType: args.iconType },\n      template: `\n          ${iconTemplate}\n          <div style=\"padding: 24px; background: var(--slt-background-color);\">\n            <slt-avatar ${iconBinding} [size]=\"size\" [shape]=\"shape\" [src]=\"src\" [alt]=\"alt\" [status]=\"status\"></slt-avatar>\n          </div>\n        `\n    };\n  }\n}"
                 }
             ],
-            "projects/slate/src/lib/atoms/avatar/avatar.stories.ts": [
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<any>",
-                    "defaultValue": "{\n  title: 'Atoms/Avatar',\n  component: AvatarComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CommonModule, AvatarComponent, IconComponent]\n    })\n  ],\n  argTypes: {\n    size: {\n      control: { type: 'select' },\n      options: ['large', 'small', 'default']\n    },\n    shape: {\n      control: { type: 'select' },\n      options: ['circle', 'square']\n    },\n    src: { control: 'text' },\n    alt: { control: 'text' },\n    status: {\n      control: { type: 'select' },\n      options: [null, 'online', 'offline', 'away', 'busy']\n    },\n    dark: { control: 'boolean' },\n    showIcon: { control: 'boolean' },\n    iconType: { control: 'text' }\n  }\n}"
-                },
-                {
-                    "name": "Playground",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {\n    size: 'default',\n    shape: 'circle',\n    src: '',\n    alt: 'John Doe',\n    status: null,\n    dark: false,\n    showIcon: false,\n    iconType: 'user'\n  },\n  render: (args: any) => {\n    // toggle theme class\n    if (args.dark) document.body.classList.add('theme-dark');\n    else document.body.classList.remove('theme-dark');\n\n    const iconTemplate = args.showIcon\n      ? `<ng-template #myIcon><slt-icon [type]=\"iconType\" [theme]=\"'outlined'\"></slt-icon></ng-template>`\n      : '';\n\n    const iconBinding = args.showIcon ? `[icon]=\"myIcon\"` : '';\n\n    // remove non-component args from props to avoid Angular input warnings\n    const { dark: _d, showIcon: _s, iconType: _i, ...componentProps } = args;\n    return {\n      props: { ...componentProps, iconType: args.iconType },\n      template: `\n          ${iconTemplate}\n          <div style=\"padding: 24px; background: var(--slt-background-color);\">\n            <slt-avatar ${iconBinding} [size]=\"size\" [shape]=\"shape\" [src]=\"src\" [alt]=\"alt\" [status]=\"status\"></slt-avatar>\n          </div>\n        `\n    };\n  }\n}"
-                }
-            ],
             "projects/slate/src/lib/atoms/button/button.stories.ts": [
                 {
                     "name": "meta",
@@ -1053,19 +1286,6 @@
                     "kind": 184
                 }
             ],
-            "projects/slate/src/lib/atoms/checkbox/checkbox.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<CheckboxComponent>",
-                    "file": "projects/slate/src/lib/atoms/checkbox/checkbox.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
             "projects/slate/src/lib/atoms/button/button.stories.ts": [
                 {
                     "name": "Story",
@@ -1079,13 +1299,13 @@
                     "kind": 184
                 }
             ],
-            "projects/slate/src/lib/atoms/radio/radio.stories.ts": [
+            "projects/slate/src/lib/atoms/checkbox/checkbox.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<RadioComponent>",
-                    "file": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
+                    "rawtype": "StoryObj<CheckboxComponent>",
+                    "file": "projects/slate/src/lib/atoms/checkbox/checkbox.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -1105,13 +1325,13 @@
                     "kind": 184
                 }
             ],
-            "projects/slate/src/lib/atoms/typography/typography.stories.ts": [
+            "projects/slate/src/lib/atoms/radio/radio.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<TypographyComponent>",
-                    "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
+                    "rawtype": "StoryObj<RadioComponent>",
+                    "file": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -1125,6 +1345,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<ToggleComponent>",
                     "file": "projects/slate/src/lib/atoms/toggle/toggle.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/slate/src/lib/atoms/typography/typography.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<TypographyComponent>",
+                    "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -1151,6 +1384,32 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<any>",
                     "file": "projects/slate/src/lib/molecules/dropdown/dropdown.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<SearchBarComponent>",
+                    "file": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/slate/src/lib/molecules/form-field/form-field.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<FormFieldComponent>",
+                    "file": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -1680,6 +1939,146 @@
             },
             {
                 "filePath": "projects/slate/src/lib/molecules/dropdown/dropdown.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "AllStates",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "PasswordField",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Playground",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Required",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithValidationError",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "CustomPlaceholder",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Disabled",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Playground",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Sizes",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithValue",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",
