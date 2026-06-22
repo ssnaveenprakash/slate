@@ -1,0 +1,32 @@
+<nav class="storybook-breadcrumb" [attr.aria-label]="ariaLabel">
+    <ol class="storybook-breadcrumb__list">
+        <li
+            *ngFor="let item of items; let last = last; trackBy: trackByItem"
+            class="storybook-breadcrumb__item"
+            [class.storybook-breadcrumb__item--current]="last || !item.href || item.disabled"
+        >
+            <ng-container *ngIf="!last && item.href && !item.disabled; else currentItem">
+                <a
+                    class="storybook-breadcrumb__link"
+                    [href]="item.href"
+                    [attr.aria-label]="item.ariaLabel || item.label"
+                >
+                    {{ item.label }}
+                </a>
+            </ng-container>
+
+            <ng-template #currentItem>
+                <span
+                    class="storybook-breadcrumb__current"
+                    [attr.aria-current]="last || !item.href || item.disabled ? 'page' : null"
+                >
+                    {{ item.label }}
+                </span>
+            </ng-template>
+
+            <span *ngIf="!last" class="storybook-breadcrumb__separator" aria-hidden="true">
+                {{ separator }}
+            </span>
+        </li>
+    </ol>
+</nav>
