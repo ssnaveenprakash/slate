@@ -4,7 +4,7 @@ import { fn } from 'storybook/test';
 import { CheckboxComponent } from './checkbox.component';
 
 const meta: Meta<CheckboxComponent> = {
-  title: 'Example/Checkbox',
+  title: 'Atoms/Checkbox',
   component: CheckboxComponent,
   tags: ['autodocs'],
   argTypes: {
