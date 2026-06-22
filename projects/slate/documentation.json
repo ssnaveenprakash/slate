@@ -24,7 +24,7 @@
                 "name": "Compact",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts",
+                "file": "projects/slate/src/lib/molecules/pagination/pagination.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -44,21 +44,21 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/atoms/toggle/toggle.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {\n    label: 'Toggle',\n    checked: false,\n  },\n}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    label: 'Radio',\n    checked: false,\n    name: 'radio-group',\n    onClick: fn()\n  },\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/toggle/toggle.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    label: 'Toggle',\n    checked: false,\n  },\n}"
             },
             {
                 "name": "Disabled",
@@ -144,7 +144,7 @@
                 "name": "ManyPages",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts",
+                "file": "projects/slate/src/lib/molecules/pagination/pagination.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -174,16 +174,6 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<any>",
-                "defaultValue": "{\n  title: 'Atoms/Icon',\n  component: IconComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CommonModule, IconComponent]\n    })\n  ],\n  argTypes: {\n    type: { control: 'text' },\n    theme: {\n      control: { type: 'select' },\n      options: ['outlined', 'filled', 'twoTone']\n    },\n    spin: { control: 'boolean' },\n    dark: { control: 'boolean' }\n  }\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/slate/src/lib/atoms/field/field.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -204,41 +194,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/atoms/toggle/toggle.stories.ts",
+                "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<ToggleComponent>",
-                "defaultValue": "{\n  title: 'Atoms/Toggle',\n  component: ToggleComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: { control: 'color' },\n  },\n  args: {\n    onChange: fn(),\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/slate/src/lib/molecules/alert/alert.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<AlertComponent>",
-                "defaultValue": "{\n  title: 'Molecules/Alert',\n  component: AlertComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    type: {\n      control: 'select',\n      options: ['info', 'success', 'warning', 'error'],\n      description: 'The type of notification state to represent',\n    },\n    message: {\n      control: 'text',\n      description: 'The primary message header text',\n    },\n    description: {\n      control: 'text',\n      description: 'Secondary, detailed description text',\n    },\n    dismissible: {\n      control: 'boolean',\n      description: 'Whether the close button is displayed',\n    },\n    duration: {\n      control: 'number',\n      description: 'Auto-dismiss timeout duration in ms (0 to disable)',\n    },\n  },\n  args: {\n    onClose: fn(),\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<TypographyComponent>",
-                "defaultValue": "{\n  title: 'Atoms/Typography',\n  component: TypographyComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    variant: {\n      control: 'select',\n      options: ['title', 'text', 'paragraph', 'link'],\n      description: 'The type of element to render',\n    },\n    level: {\n      control: 'select',\n      options: [1, 2, 3, 4, 5],\n      description: 'Heading level (only applies to variant: \"title\")',\n    },\n    type: {\n      control: 'select',\n      options: ['primary', 'secondary', 'success', 'warning', 'danger'],\n      description: 'Semantic color styles for the text',\n    },\n    strong: {\n      control: 'boolean',\n      description: 'Applies bold text styling',\n    },\n    italic: {\n      control: 'boolean',\n      description: 'Applies italic text styling',\n    },\n    underline: {\n      control: 'boolean',\n      description: 'Applies underlined text styling',\n    },\n    delete: {\n      control: 'boolean',\n      description: 'Applies line-through text styling',\n    },\n    code: {\n      control: 'boolean',\n      description: 'Wraps content in semantic <code> block styling',\n    },\n    mark: {\n      control: 'boolean',\n      description: 'Wraps content in high-visibility mark highlighting',\n    },\n    disabled: {\n      control: 'boolean',\n      description: 'Mutes and disables interaction (only link variant)',\n    },\n    href: {\n      control: 'text',\n      description: 'Hyperlink path (only applies to variant: \"link\")',\n    },\n    target: {\n      control: 'select',\n      options: ['_self', '_blank', '_parent', '_top'],\n      description: 'Hyperlink target behavior (only applies to variant: \"link\")',\n    },\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/slate/src/lib/molecules/breadcrumb/breadcrumb.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<BreadcrumbComponent>",
-                "defaultValue": "{\n    title: 'Molecules/Breadcrumb',\n    component: BreadcrumbComponent,\n    tags: ['autodocs'],\n    argTypes: {\n        separator: {\n            control: 'text',\n            description: 'Character or text displayed between breadcrumb items',\n        },\n        ariaLabel: {\n            control: 'text',\n            description: 'Accessible label for the breadcrumb navigation',\n        },\n    },\n}"
+                "type": "Meta<any>",
+                "defaultValue": "{\n  title: 'Atoms/Icon',\n  component: IconComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CommonModule, IconComponent]\n    })\n  ],\n  argTypes: {\n    type: { control: 'text' },\n    theme: {\n      control: { type: 'select' },\n      options: ['outlined', 'filled', 'twoTone']\n    },\n    spin: { control: 'boolean' },\n    dark: { control: 'boolean' }\n  }\n}"
             },
             {
                 "name": "meta",
@@ -254,6 +214,46 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/toggle/toggle.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ToggleComponent>",
+                "defaultValue": "{\n  title: 'Atoms/Toggle',\n  component: ToggleComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: { control: 'color' },\n  },\n  args: {\n    onChange: fn(),\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<TypographyComponent>",
+                "defaultValue": "{\n  title: 'Atoms/Typography',\n  component: TypographyComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    variant: {\n      control: 'select',\n      options: ['title', 'text', 'paragraph', 'link'],\n      description: 'The type of element to render',\n    },\n    level: {\n      control: 'select',\n      options: [1, 2, 3, 4, 5],\n      description: 'Heading level (only applies to variant: \"title\")',\n    },\n    type: {\n      control: 'select',\n      options: ['primary', 'secondary', 'success', 'warning', 'danger'],\n      description: 'Semantic color styles for the text',\n    },\n    strong: {\n      control: 'boolean',\n      description: 'Applies bold text styling',\n    },\n    italic: {\n      control: 'boolean',\n      description: 'Applies italic text styling',\n    },\n    underline: {\n      control: 'boolean',\n      description: 'Applies underlined text styling',\n    },\n    delete: {\n      control: 'boolean',\n      description: 'Applies line-through text styling',\n    },\n    code: {\n      control: 'boolean',\n      description: 'Wraps content in semantic <code> block styling',\n    },\n    mark: {\n      control: 'boolean',\n      description: 'Wraps content in high-visibility mark highlighting',\n    },\n    disabled: {\n      control: 'boolean',\n      description: 'Mutes and disables interaction (only link variant)',\n    },\n    href: {\n      control: 'text',\n      description: 'Hyperlink path (only applies to variant: \"link\")',\n    },\n    target: {\n      control: 'select',\n      options: ['_self', '_blank', '_parent', '_top'],\n      description: 'Hyperlink target behavior (only applies to variant: \"link\")',\n    },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/alert/alert.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<AlertComponent>",
+                "defaultValue": "{\n  title: 'Molecules/Alert',\n  component: AlertComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    type: {\n      control: 'select',\n      options: ['info', 'success', 'warning', 'error'],\n      description: 'The type of notification state to represent',\n    },\n    message: {\n      control: 'text',\n      description: 'The primary message header text',\n    },\n    description: {\n      control: 'text',\n      description: 'Secondary, detailed description text',\n    },\n    dismissible: {\n      control: 'boolean',\n      description: 'Whether the close button is displayed',\n    },\n    duration: {\n      control: 'number',\n      description: 'Auto-dismiss timeout duration in ms (0 to disable)',\n    },\n  },\n  args: {\n    onClose: fn(),\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/breadcrumb/breadcrumb.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<BreadcrumbComponent>",
+                "defaultValue": "{\n    title: 'Molecules/Breadcrumb',\n    component: BreadcrumbComponent,\n    tags: ['autodocs'],\n    argTypes: {\n        separator: {\n            control: 'text',\n            description: 'Character or text displayed between breadcrumb items',\n        },\n        ariaLabel: {\n            control: 'text',\n            description: 'Accessible label for the breadcrumb navigation',\n        },\n    },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/slate/src/lib/molecules/dropdown/dropdown.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -264,7 +264,7 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts",
+                "file": "projects/slate/src/lib/molecules/pagination/pagination.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<PaginationComponent>",
@@ -324,16 +324,6 @@
                 "name": "Playground",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {\n    type: 'user',\n    theme: 'outlined',\n    spin: false,\n    dark: false\n  },\n  render: (args: any) => {\n    if (args.dark) document.body.classList.add('theme-dark');\n    else document.body.classList.remove('theme-dark');\n\n    // Don't pass `dark` into component props\n    const { dark: _d, ...componentProps } = args;\n\n    return {\n      props: componentProps,\n      template: `\n        <div style=\"padding: 24px; background: var(--slt-background-color); color: var(--slt-text-color);\">\n          <slt-icon [type]=\"type\" [theme]=\"theme\" [spin]=\"spin\"></slt-icon>\n        </div>\n      `\n    };\n  }\n}"
-            },
-            {
-                "name": "Playground",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/slate/src/lib/atoms/field/field.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -344,11 +334,11 @@
                 "name": "Playground",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/molecules/alert/alert.stories.ts",
+                "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    type: 'info',\n    message: 'Check out this notification!',\n    description: 'This alert is customizable and interactive.',\n    dismissible: true,\n    duration: 0,\n  },\n}"
+                "defaultValue": "{\n  args: {\n    type: 'user',\n    theme: 'outlined',\n    spin: false,\n    dark: false\n  },\n  render: (args: any) => {\n    if (args.dark) document.body.classList.add('theme-dark');\n    else document.body.classList.remove('theme-dark');\n\n    // Don't pass `dark` into component props\n    const { dark: _d, ...componentProps } = args;\n\n    return {\n      props: componentProps,\n      template: `\n        <div style=\"padding: 24px; background: var(--slt-background-color); color: var(--slt-text-color);\">\n          <slt-icon [type]=\"type\" [theme]=\"theme\" [spin]=\"spin\"></slt-icon>\n        </div>\n      `\n    };\n  }\n}"
             },
             {
                 "name": "Playground",
@@ -364,6 +354,16 @@
                 "name": "Playground",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/alert/alert.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    type: 'info',\n    message: 'Check out this notification!',\n    description: 'This alert is customizable and interactive.',\n    dismissible: true,\n    duration: 0,\n  },\n}"
+            },
+            {
+                "name": "Playground",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/slate/src/lib/molecules/breadcrumb/breadcrumb.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -374,7 +374,7 @@
                 "name": "Playground",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts",
+                "file": "projects/slate/src/lib/molecules/pagination/pagination.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -444,21 +444,21 @@
                 "name": "Types",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/molecules/alert/alert.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 16px; width: 100%; max-width: 600px;\">\n        <storybook-alert\n          type=\"info\"\n          message=\"Info Alert\"\n          description=\"This is some general informative text for the user.\"\n        ></storybook-alert>\n\n        <storybook-alert\n          type=\"success\"\n          message=\"Success Alert\"\n          description=\"Your operation completed successfully without any errors.\"\n        ></storybook-alert>\n\n        <storybook-alert\n          type=\"warning\"\n          message=\"Warning Alert\"\n          description=\"Attention required! Please verify the credentials before completing the task.\"\n        ></storybook-alert>\n\n        <storybook-alert\n          type=\"error\"\n          message=\"Error Alert\"\n          description=\"A critical failure occurred. Please contact the systems administrator.\"\n        ></storybook-alert>\n      </div>\n    `,\n  }),\n}"
-            },
-            {
-                "name": "Types",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 8px;\">\n        <storybook-typography type=\"primary\">Primary text color (default)</storybook-typography>\n        <storybook-typography type=\"secondary\">Secondary description text color</storybook-typography>\n        <storybook-typography type=\"success\">Success state text color</storybook-typography>\n        <storybook-typography type=\"warning\">Warning status warning text color</storybook-typography>\n        <storybook-typography type=\"danger\">Danger error text color</storybook-typography>\n      </div>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "Types",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/alert/alert.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 16px; width: 100%; max-width: 600px;\">\n        <storybook-alert\n          type=\"info\"\n          message=\"Info Alert\"\n          description=\"This is some general informative text for the user.\"\n        ></storybook-alert>\n\n        <storybook-alert\n          type=\"success\"\n          message=\"Success Alert\"\n          description=\"Your operation completed successfully without any errors.\"\n        ></storybook-alert>\n\n        <storybook-alert\n          type=\"warning\"\n          message=\"Warning Alert\"\n          description=\"Attention required! Please verify the credentials before completing the task.\"\n        ></storybook-alert>\n\n        <storybook-alert\n          type=\"error\"\n          message=\"Error Alert\"\n          description=\"A critical failure occurred. Please contact the systems administrator.\"\n        ></storybook-alert>\n      </div>\n    `,\n  }),\n}"
             },
             {
                 "name": "Variants",
@@ -540,17 +540,6 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<any>",
-                "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 184
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
                 "rawtype": "StoryObj<FieldStoryArgs>",
                 "file": "projects/slate/src/lib/atoms/field/field.stories.ts",
                 "deprecated": false,
@@ -573,8 +562,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ToggleComponent>",
-                "file": "projects/slate/src/lib/atoms/toggle/toggle.stories.ts",
+                "rawtype": "StoryObj<any>",
+                "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -584,8 +573,19 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<AlertComponent>",
-                "file": "projects/slate/src/lib/molecules/alert/alert.stories.ts",
+                "rawtype": "StoryObj<RadioComponent>",
+                "file": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<ToggleComponent>",
+                "file": "projects/slate/src/lib/atoms/toggle/toggle.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -606,8 +606,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<BreadcrumbComponent>",
-                "file": "projects/slate/src/lib/molecules/breadcrumb/breadcrumb.stories.ts",
+                "rawtype": "StoryObj<AlertComponent>",
+                "file": "projects/slate/src/lib/molecules/alert/alert.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -617,8 +617,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<RadioComponent>",
-                "file": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
+                "rawtype": "StoryObj<BreadcrumbComponent>",
+                "file": "projects/slate/src/lib/molecules/breadcrumb/breadcrumb.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -640,7 +640,7 @@
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
                 "rawtype": "StoryObj<PaginationComponent>",
-                "file": "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts",
+                "file": "projects/slate/src/lib/molecules/pagination/pagination.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -701,12 +701,12 @@
                     "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 600px;\">\n        <storybook-alert type=\"info\" message=\"Standard informative message header.\"></storybook-alert>\n        <storybook-alert type=\"success\" message=\"Successfully saved settings.\"></storybook-alert>\n        <storybook-alert type=\"warning\" message=\"Database space is getting low.\"></storybook-alert>\n        <storybook-alert type=\"error\" message=\"Invalid credentials entered.\"></storybook-alert>\n      </div>\n    `,\n  }),\n}"
                 }
             ],
-            "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts": [
+            "projects/slate/src/lib/molecules/pagination/pagination.stories.ts": [
                 {
                     "name": "Compact",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts",
+                    "file": "projects/slate/src/lib/molecules/pagination/pagination.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -716,7 +716,7 @@
                     "name": "ManyPages",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts",
+                    "file": "projects/slate/src/lib/molecules/pagination/pagination.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -726,7 +726,7 @@
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts",
+                    "file": "projects/slate/src/lib/molecules/pagination/pagination.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<PaginationComponent>",
@@ -736,7 +736,7 @@
                     "name": "Playground",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts",
+                    "file": "projects/slate/src/lib/molecules/pagination/pagination.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -765,28 +765,6 @@
                     "defaultValue": "{\n  title: 'Atoms/Checkbox',\n  component: CheckboxComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: { control: 'color' },\n  },\n  args: {\n    onChange: fn(),\n  },\n}"
                 }
             ],
-            "projects/slate/src/lib/atoms/toggle/toggle.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/slate/src/lib/atoms/toggle/toggle.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {\n    label: 'Toggle',\n    checked: false,\n  },\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/slate/src/lib/atoms/toggle/toggle.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<ToggleComponent>",
-                    "defaultValue": "{\n  title: 'Atoms/Toggle',\n  component: ToggleComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: { control: 'color' },\n  },\n  args: {\n    onChange: fn(),\n  },\n}"
-                }
-            ],
             "projects/slate/src/lib/atoms/radio/radio.stories.ts": [
                 {
                     "name": "Default",
@@ -807,6 +785,28 @@
                     "deprecationMessage": "",
                     "type": "Meta<RadioComponent>",
                     "defaultValue": "{\n  title: 'Atoms/Radio',\n  component: RadioComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: { control: 'color' },\n  }\n}"
+                }
+            ],
+            "projects/slate/src/lib/atoms/toggle/toggle.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/toggle/toggle.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    label: 'Toggle',\n    checked: false,\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/toggle/toggle.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<ToggleComponent>",
+                    "defaultValue": "{\n  title: 'Atoms/Toggle',\n  component: ToggleComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: { control: 'color' },\n  },\n  args: {\n    onChange: fn(),\n  },\n}"
                 }
             ],
             "projects/slate/src/lib/atoms/field/field.stories.ts": [
@@ -1219,19 +1219,6 @@
                     "kind": 184
                 }
             ],
-            "projects/slate/src/lib/atoms/icon/icon.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<any>",
-                    "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
             "projects/slate/src/lib/atoms/checkbox/checkbox.stories.ts": [
                 {
                     "name": "Story",
@@ -1245,52 +1232,13 @@
                     "kind": 184
                 }
             ],
-            "projects/slate/src/lib/atoms/toggle/toggle.stories.ts": [
+            "projects/slate/src/lib/atoms/icon/icon.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<ToggleComponent>",
-                    "file": "projects/slate/src/lib/atoms/toggle/toggle.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
-            "projects/slate/src/lib/molecules/alert/alert.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<AlertComponent>",
-                    "file": "projects/slate/src/lib/molecules/alert/alert.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
-            "projects/slate/src/lib/atoms/typography/typography.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<TypographyComponent>",
-                    "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
-            "projects/slate/src/lib/molecules/breadcrumb/breadcrumb.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<BreadcrumbComponent>",
-                    "file": "projects/slate/src/lib/molecules/breadcrumb/breadcrumb.stories.ts",
+                    "rawtype": "StoryObj<any>",
+                    "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -1310,6 +1258,58 @@
                     "kind": 184
                 }
             ],
+            "projects/slate/src/lib/atoms/toggle/toggle.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ToggleComponent>",
+                    "file": "projects/slate/src/lib/atoms/toggle/toggle.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/slate/src/lib/atoms/typography/typography.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<TypographyComponent>",
+                    "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/slate/src/lib/molecules/alert/alert.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<AlertComponent>",
+                    "file": "projects/slate/src/lib/molecules/alert/alert.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/slate/src/lib/molecules/breadcrumb/breadcrumb.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<BreadcrumbComponent>",
+                    "file": "projects/slate/src/lib/molecules/breadcrumb/breadcrumb.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
             "projects/slate/src/lib/molecules/dropdown/dropdown.stories.ts": [
                 {
                     "name": "Story",
@@ -1323,13 +1323,13 @@
                     "kind": 184
                 }
             ],
-            "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts": [
+            "projects/slate/src/lib/molecules/pagination/pagination.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
                     "rawtype": "StoryObj<PaginationComponent>",
-                    "file": "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts",
+                    "file": "projects/slate/src/lib/molecules/pagination/pagination.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -1918,7 +1918,7 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts",
+                "filePath": "projects/slate/src/lib/molecules/pagination/pagination.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -1928,7 +1928,7 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts",
+                "filePath": "projects/slate/src/lib/molecules/pagination/pagination.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -1938,7 +1938,7 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts",
+                "filePath": "projects/slate/src/lib/molecules/pagination/pagination.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -1948,7 +1948,7 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts",
+                "filePath": "projects/slate/src/lib/molecules/pagination/pagination.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -1958,7 +1958,7 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts",
+                "filePath": "projects/slate/src/lib/molecules/pagination/pagination.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",
