@@ -1,0 +1,64 @@
+.storybook-card {
+  background-color: var(--slt-background-color);
+  color: var(--slt-text-color);
+  border: 1px solid var(--slt-border-color-base);
+  border-radius: var(--slt-border-radius-base);
+  padding: var(--slt-padding-md);
+  box-sizing: border-box;
+  width: 100%;
+  transition: box-shadow 0.18s ease, transform 0.18s ease;
+}
+
+.storybook-card--flat {
+  /* Flat: subtle border, no elevation */
+  box-shadow: none;
+}
+
+.storybook-card--raised {
+  /* Raised: elevation from tokens */
+  box-shadow: var(--slt-box-shadow-base);
+}
+
+.storybook-card--sm {
+  padding: var(--slt-padding-sm);
+}
+
+.storybook-card--md {
+  padding: var(--slt-padding-md);
+}
+
+.storybook-card--lg {
+  padding: var(--slt-padding-lg);
+}
+
+
+.storybook-card__header {
+  display: block;
+  margin-bottom: var(--slt-padding-xs);
+  padding-bottom: var(--slt-padding-xs);
+  border-bottom: 1px solid var(--slt-border-color-base);
+}
+
+.storybook-card__header:empty {
+  display: none;
+}
+
+.storybook-card__body {
+  display: block;
+}
+
+.storybook-card__footer {
+  display: block;
+  margin-top: var(--slt-padding-xs);
+  padding-top: var(--slt-padding-xs);
+  border-top: 1px solid var(--slt-border-color-base);
+}
+
+.storybook-card__footer:empty {
+  display: none;
+}
+
+/* Slight hover lift for raised cards to show interactivity (optional) */
+.storybook-card--raised:hover {
+  transform: translateY(-2px);
+}
