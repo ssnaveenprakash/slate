@@ -1,46 +1,49 @@
-
-// projects/slate/src/lib/icon/icon.component.scss
-
-@import '../../../styles/tokens';
-@import '../../../styles/theme';
-
 .slt-icon {
-  display: inline-flex;
-  align-items: center;
-  color: inherit;
-  font-style: normal;
+  display: inline-block;
   line-height: 0;
-  text-align: center;
-  text-transform: none;
-  vertical-align: -0.125em;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  vertical-align: middle;
+  color: currentColor; /* default inherits text color */
 
-  > * {
-    line-height: 1;
-  }
-
-  svg {
+  &-graphic {
     display: inline-block;
-    vertical-align: -0.125em;
+    width: 1em;
+    height: 1em;
+    font-size: inherit;
   }
 
-  &-spin {
-    animation: iconRotate 1s infinite linear;
+  /* Sizes driven by tokens where available */
+  &--size-xs { font-size: calc(var(--slt-font-size-sm) * 0.85); }
+  &--size-sm { font-size: var(--slt-font-size-sm); }
+  &--size-md { font-size: var(--slt-font-size-base); }
+  &--size-lg { font-size: var(--slt-font-size-lg); }
+  &--size-xl { font-size: calc(var(--slt-font-size-lg) * 1.25); }
+
+  /* Color helpers - use design tokens when available */
+  &--color-primary { color: var(--slt-color-primary, currentColor); }
+  &--color-secondary { color: var(--slt-color-secondary, currentColor); }
+  &--color-success { color: var(--slt-color-success, currentColor); }
+  &--color-warning { color: var(--slt-color-warning, currentColor); }
+  &--color-danger { color: var(--slt-color-danger, currentColor); }
+  &--color-muted { color: var(--slt-color-muted, currentColor); }
+
+  &.slt-icon-spin, &-spin {
+    .slt-icon-graphic svg {
+      animation: sltIconSpin 1s linear infinite;
+      transform-origin: 50% 50%;
+    }
   }
 
-  // Themes - basic styling, actual icon variations depend on SVG content
-  // For Design, icon variations usually come from different SVG paths
-  &-outlined { /* styles for outlined theme */ }
-  &-filled { /* styles for filled theme */ }
-  &-two-tone {
-    color: var(--slt-primary-color); // Example: two-tone icons might use primary color
-  }
 }
 
-@keyframes iconRotate {
-  100% {
-    transform: rotate(360deg);
-  }
+@keyframes sltIconSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
+
+/* Ensure embedded svg scales to font-size */
+.slt-icon-graphic svg {
+  width: 1em;
+  height: 1em;
+  display: block;
+}
+

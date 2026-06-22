@@ -8,19 +8,18 @@ import {
   SimpleChanges,
   ElementRef,
   Renderer2,
-  Inject
+  HostBinding
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { IconRegistryService } from './icon-registry.service';
-
-export type IconTheme = 'outlined' | 'filled' | 'twoTone';
+import type { IconSize, IconColor, IconTheme } from './icon.types';
 
 @Component({
   selector: 'slt-icon',
   standalone: true,
   imports: [CommonModule],
-  template: `<span class="slt-icon-graphic" [innerHTML]="svgHtml"></span>`,
+  templateUrl: './icon.component.html',
   styleUrls: ['./icon.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
@@ -33,9 +32,28 @@ export type IconTheme = 'outlined' | 'filled' | 'twoTone';
   }
 })
 export class IconComponent implements OnChanges {
-  @Input() type: string = ''; // Name of the icon
+  /** Backwards-compatible inputs */
+  @Input() type: string = '';
   @Input() theme: IconTheme = 'outlined';
   @Input() spin: boolean = false;
+
+  /** New, recommended inputs */
+  @Input() size: IconSize = 'md';
+  @Input() color: IconColor = 'inherit';
+  @Input() svgContent?: string; // direct svg markup string (overrides registry)
+  @Input() decorative: boolean = true; // if true, icon is aria-hidden by default
+  @Input() ariaLabel?: string; // used when decorative === false
+
+  @HostBinding('class') hostClass = 'slt-icon';
+  @HostBinding('attr.aria-hidden') get ariaHidden(): string | null {
+    return this.decorative ? 'true' : null;
+  }
+  @HostBinding('attr.role') get roleAttr(): string | null {
+    return this.decorative ? null : 'img';
+  }
+  @HostBinding('attr.aria-label') get ariaLabelAttr(): string | null {
+    return this.decorative ? null : (this.ariaLabel || null);
+  }
 
   public svgHtml: SafeHtml | null = null;
 
@@ -47,17 +65,45 @@ export class IconComponent implements OnChanges {
   ) {}
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['type'] || changes['theme']) {
+    // update classes and content on changes
+    this.updateHostClass();
+    if (changes['svgContent'] || changes['type'] || changes['theme']) {
       this.loadSvgIcon();
+    }
+    if (!this.decorative && !this.ariaLabel) {
+      // best-effort accessibility reminder in runtime dev only
+      // keep lightweight: do not throw, but warn in console so consumers can fix.
+      // eslint-disable-next-line no-console
+      console.warn('slt-icon: non-decorative icons should provide an `ariaLabel`.');
     }
   }
 
+  private updateHostClass(): void {
+    const classes = new Set<string>();
+    classes.add('slt-icon');
+    classes.add(`slt-icon--size-${this.size}`);
+    if (this.color && this.color !== 'inherit') {
+      classes.add(`slt-icon--color-${this.color}`);
+    }
+    if (this.spin) classes.add('slt-icon-spin');
+    // theme class compatibility
+    classes.add(this.theme === 'outlined' ? 'slt-icon-outlined' : '');
+    classes.add(this.theme === 'filled' ? 'slt-icon-filled' : '');
+    classes.add(this.theme === 'twoTone' ? 'slt-icon-two-tone' : '');
+
+    this.hostClass = Array.from(classes).filter(Boolean).join(' ');
+  }
+
   private loadSvgIcon(): void {
+    // If svgContent provided explicitly, use it first.
+    if (this.svgContent) {
+      this.svgHtml = this.sanitizer.bypassSecurityTrustHtml(this.svgContent);
+      return;
+    }
+
     // Use registry to fetch SVG content and sanitize it for insertion.
     const svg = this.registry.getSvg(this.type, this.theme);
     if (svg) {
-      // Bypass here because registry should contain trusted SVG strings only.
-      // In production, ensure the registry sources are trusted and/or sanitized.
       this.svgHtml = this.sanitizer.bypassSecurityTrustHtml(svg);
       return;
     }

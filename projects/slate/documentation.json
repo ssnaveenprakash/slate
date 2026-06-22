@@ -11,6 +11,36 @@
     "miscellaneous": {
         "variables": [
             {
+                "name": "_sltTokens",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/.storybook/preview.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "unknown",
+                "defaultValue": "`\n:root {\n  --slt-primary-color: #1890ff;\n  --slt-success-color: #52c41a;\n  --slt-warning-color: #faad14;\n  --slt-error-color: #ff4d4f;\n  --slt-info-color: #1677ff;\n  --slt-text-color: #000000d9;\n  --slt-text-color-secondary: #00000073;\n  --slt-background-color: #ffffff;\n  --slt-border-color-base: #d9d9d9;\n\n  --slt-font-size-base: 14px;\n  --slt-font-size-lg: 16px;\n  --slt-font-size-sm: 12px;\n  --slt-line-height-base: 1.57142857;\n  --slt-heading-color: #000000d9;\n\n  --slt-padding-lg: 24px;\n  --slt-padding-md: 16px;\n  --slt-padding-sm: 12px;\n  --slt-padding-xs: 8px;\n  --slt-padding-xxs: 4px;\n\n  --slt-border-radius-base: 6px;\n  --slt-border-radius-sm: 4px;\n\n  --slt-box-shadow-base: 0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 1px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px 0 rgba(0, 0, 0, 0.02);\n  --slt-box-shadow-hover: 0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 1px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px 0 rgba(0, 0, 0, 0.02);\n}\n\nbody.theme-dark {\n  --slt-primary-color: #1765ad;\n  --slt-text-color: #ffffffd9;\n  --slt-text-color-secondary: #ffffff73;\n  --slt-background-color: #001529;\n  --slt-border-color-base: #434343;\n  --slt-heading-color: #ffffffd9;\n}\n`"
+            },
+            {
+                "name": "Accessibility",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"padding:24px;background:var(--slt-background-color);color:var(--slt-text-color);display:flex;flex-direction:column;gap:12px\">\n        <div>Decorative (default): <slt-icon type=\"user\"></slt-icon></div>\n        <div>Informative (non-decorative): <slt-icon type=\"close\" [decorative]=\"false\" aria-label=\"Close\"></slt-icon></div>\n      </div>\n    `\n  })\n}"
+            },
+            {
+                "name": "AllStates",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 24px; max-width: 400px;\">\n        <slt-form-field\n          label=\"Default\"\n          placeholder=\"Enter value\"\n          helperText=\"This is helper text.\"\n        ></slt-form-field>\n\n        <slt-form-field\n          label=\"Required\"\n          placeholder=\"Enter value\"\n          [required]=\"true\"\n          helperText=\"Leave empty and blur to see required error.\"\n        ></slt-form-field>\n\n        <slt-form-field\n          label=\"Email\"\n          placeholder=\"you@example.com\"\n          type=\"email\"\n          [required]=\"true\"\n          helperText=\"Type an invalid email then blur.\"\n        ></slt-form-field>\n\n        <slt-form-field\n          label=\"External Error\"\n          placeholder=\"Enter value\"\n          validationMessage=\"This error was set externally.\"\n        ></slt-form-field>\n\n        <slt-form-field\n          label=\"Disabled\"\n          placeholder=\"Not editable\"\n          [disabled]=\"true\"\n          helperText=\"This field is currently disabled.\"\n        ></slt-form-field>\n      </div>\n    `,\n  }),\n}"
+            },
+            {
                 "name": "AutoDismiss",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -21,6 +51,16 @@
                 "defaultValue": "{\n  args: {\n    type: 'success',\n    message: 'Auto-Timeout Alert',\n    description: 'This alert will automatically fade out and dismiss after 3 seconds (3000ms).',\n    dismissible: true,\n    duration: 3000,\n  },\n}"
             },
             {
+                "name": "Colors",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"padding:24px; display:flex; gap:20px; align-items:center; background:var(--slt-background-color); color:var(--slt-text-color)\">\n        <slt-icon type=\"user\" color=\"inherit\"></slt-icon>\n        <slt-icon type=\"user\" color=\"primary\"></slt-icon>\n        <slt-icon type=\"user\" color=\"secondary\"></slt-icon>\n        <slt-icon type=\"user\" color=\"success\"></slt-icon>\n        <slt-icon type=\"user\" color=\"warning\"></slt-icon>\n        <slt-icon type=\"user\" color=\"danger\"></slt-icon>\n        <slt-icon type=\"user\" color=\"muted\"></slt-icon>\n      </div>\n    `\n  })\n}"
+            },
+            {
                 "name": "Compact",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -29,6 +69,46 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n    args: {\n        currentPage: 2,\n        totalPages: 4,\n        boundaryCount: 1,\n        siblingCount: 0,\n        disabled: false,\n        ariaLabel: 'Pagination',\n    },\n}"
+            },
+            {
+                "name": "CustomPlaceholder",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    value: '',\n    placeholder: 'Search by name, email, or role…',\n  },\n}"
+            },
+            {
+                "name": "DarkExample",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: { size: 'default', shape: 'circle', dark: true },\n  render: (args: any) => {\n    if (args.dark) document.body.classList.add('theme-dark'); else document.body.classList.remove('theme-dark');\n    const { dark: _d, ...componentProps } = args;\n    return { props: { ...componentProps }, template: `<div style=\"padding:24px;background:var(--slt-background-color)\"><slt-avatar [size]=\"size\"></slt-avatar></div>` };\n  }\n}"
+            },
+            {
+                "name": "DarkExample",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: { type: 'user', theme: 'outlined', spin: false, dark: true },\n  render: (args: any) => {\n    if (args.dark) document.body.classList.add('theme-dark'); else document.body.classList.remove('theme-dark');\n    const { dark: _d, ...componentProps } = args;\n    return { props: componentProps, template: `<div style=\"padding:24px;background:var(--slt-background-color);color:var(--slt-text-color)\"><slt-icon [type]=\"type\" [theme]=\"theme\"></slt-icon></div>` };\n  }\n}"
+            },
+            {
+                "name": "DarkTheme",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/card/card.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div class=\"theme-dark\" style=\"padding:24px\">\n        <storybook-card variant=\"raised\">\n          <ng-container cardHeader><strong>Dark Theme</strong></ng-container>\n          <div>Card adapts via design tokens.</div>\n        </storybook-card>\n      </div>\n    `,\n  }),\n}"
             },
             {
                 "name": "Default",
@@ -71,6 +151,16 @@
                 "defaultValue": "{\n  args: {\n    fieldType: 'input',\n    label: 'Username',\n    placeholder: '',\n    helperText: '',\n    error: '',\n    disabled: true,\n    showPrefix: false,\n    showSuffix: false,\n  },\n  render: Playground.render,\n}"
             },
             {
+                "name": "Disabled",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    value: '',\n    placeholder: 'Search unavailable',\n    disabled: true,\n  },\n}"
+            },
+            {
                 "name": "DisabledStep",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -91,6 +181,16 @@
                 "defaultValue": "{}"
             },
             {
+                "name": "EmailValidation",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  name: 'Email — built-in validation',\n  args: {\n    label: 'Email Address',\n    placeholder: 'you@example.com',\n    type: 'email',\n    required: true,\n    helperText: 'Type an invalid email then click outside to see the error.',\n  },\n}"
+            },
+            {
                 "name": "flatOptions",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -99,6 +199,25 @@
                 "deprecationMessage": "",
                 "type": "DropdownOptionOrGroup[]",
                 "defaultValue": "[\n    { label: 'Apple', value: 'apple' },\n    { label: 'Banana', value: 'banana' },\n    { label: 'Cherry', value: 'cherry' },\n    { label: 'Orange', value: 'orange' },\n    { label: 'Lime', value: 'lime' },\n    { label: 'Strawberry', value: 'strawberry' },\n    { label: 'Blueberry', value: 'blueberry' },\n    { label: 'Raspberry', value: 'raspberry' },\n]"
+            },
+            {
+                "name": "FooterOnly",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/card/card.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <storybook-card>\n        <div cardFooter>\n          <small>Footer content</small>\n        </div>\n      </storybook-card>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "globalThis",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/.storybook/preview.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "any"
             },
             {
                 "name": "GroupedMultiSelect",
@@ -129,6 +248,36 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n    args: {\n        options: groupedOptions,\n        multiple: false,\n        searchable: true,\n        placeholder: 'Choose grouped fruit',\n    },\n}"
+            },
+            {
+                "name": "HeaderBodyFooter",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/card/card.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <storybook-card>\n        <div cardHeader>\n          <strong>Header</strong>\n        </div>\n        <p>Body content goes here. Use atoms like <code>&lt;storybook-typography&gt;</code> inside.</p>\n        <div cardFooter>\n          <small>Footer</small>\n        </div>\n      </storybook-card>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "HeaderOnly",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/card/card.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <storybook-card>\n        <div cardHeader>\n          <strong>Only Header</strong>\n        </div>\n      </storybook-card>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "LongContent",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/card/card.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <storybook-card>\n        <div cardHeader>\n          <strong>Long Content</strong>\n        </div>\n        <div>\n          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>\n          <p>Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris.</p>\n        </div>\n      </storybook-card>\n    `,\n  }),\n}"
             },
             {
                 "name": "LongLabels",
@@ -164,26 +313,6 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<ButtonComponent>",
-                "defaultValue": "{\n  title: 'Atoms/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n\n  argTypes: {\n    variant: {\n      control: 'radio',\n      options: ['primary', 'secondary', 'ghost', 'danger'],\n    },\n\n    size: {\n      control: 'radio',\n      options: ['small', 'medium', 'large'],\n    },\n\n    disabled: {\n      control: 'boolean',\n    },\n\n    loading: {\n      control: 'boolean',\n    },\n\n    label: {\n      control: 'text',\n    },\n  },\n\n  args: {\n    onClick: fn(),\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/slate/src/lib/atoms/field/field.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<FieldStoryArgs>",
-                "defaultValue": "{\n  title: 'Atoms/Field',\n  component: FieldComponent,\n  tags: ['autodocs'],\n\n  argTypes: {\n    fieldType: {\n      control: 'radio',\n      options: ['input', 'textarea'],\n    },\n    label: { control: 'text' },\n    helperText: { control: 'text' },\n    error: { control: 'text' },\n    placeholder: { control: 'text' },\n    disabled: { control: 'boolean' },\n\n    showPrefix: {\n      control: 'boolean',\n    },\n    showSuffix: {\n      control: 'boolean',\n    },\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/slate/src/lib/atoms/checkbox/checkbox.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -194,11 +323,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
+                "file": "projects/slate/src/lib/atoms/field/field.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<any>",
-                "defaultValue": "{\n  title: 'Atoms/Icon',\n  component: IconComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CommonModule, IconComponent]\n    })\n  ],\n  argTypes: {\n    type: { control: 'text' },\n    theme: {\n      control: { type: 'select' },\n      options: ['outlined', 'filled', 'twoTone']\n    },\n    spin: { control: 'boolean' },\n    dark: { control: 'boolean' }\n  }\n}"
+                "defaultValue": "{\n  title: 'Atoms/Icon',\n  component: IconComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CommonModule, IconComponent]\n    })\n  ],\n  argTypes: {\n    type: { control: 'text' },\n    theme: {\n      control: { type: 'select' },\n      options: ['outlined', 'filled', 'twoTone']\n    },\n    size: { control: { type: 'select' }, options: ['xs', 'sm', 'md', 'lg', 'xl'] },\n    color: { control: { type: 'select' }, options: ['inherit', 'primary', 'secondary', 'success', 'warning', 'danger', 'muted'] },\n    spin: { control: 'boolean' },\n    svgContent: { control: 'text' },\n    decorative: { control: 'boolean' },\n    ariaLabel: { control: 'text' },\n    dark: { control: 'boolean' }\n  }\n}"
             },
             {
                 "name": "meta",
@@ -214,11 +343,31 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/atoms/toggle/toggle.stories.ts",
+                "file": "projects/slate/src/lib/atoms/checkbox/checkbox.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<ToggleComponent>",
-                "defaultValue": "{\n  title: 'Atoms/Toggle',\n  component: ToggleComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: { control: 'color' },\n  },\n  args: {\n    onChange: fn(),\n  },\n}"
+                "type": "Meta<CheckboxComponent>",
+                "defaultValue": "{\n  title: 'Atoms/Checkbox',\n  component: CheckboxComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: { control: 'color' },\n  },\n  args: {\n    onChange: fn(),\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ButtonComponent>",
+                "defaultValue": "{\n  title: 'Atoms/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n\n  argTypes: {\n    variant: {\n      control: 'radio',\n      options: ['primary', 'secondary', 'ghost', 'danger'],\n    },\n\n    size: {\n      control: 'radio',\n      options: ['small', 'medium', 'large'],\n    },\n\n    disabled: {\n      control: 'boolean',\n    },\n\n    loading: {\n      control: 'boolean',\n    },\n\n    label: {\n      control: 'text',\n    },\n  },\n\n  args: {\n    onClick: fn(),\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<RadioComponent>",
+                "defaultValue": "{\n  title: 'Atoms/Radio',\n  component: RadioComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: { control: 'color' },\n  }\n}"
             },
             {
                 "name": "meta",
@@ -244,11 +393,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/molecules/breadcrumb/breadcrumb.stories.ts",
+                "file": "projects/slate/src/lib/molecules/alert/alert.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<BreadcrumbComponent>",
-                "defaultValue": "{\n    title: 'Molecules/Breadcrumb',\n    component: BreadcrumbComponent,\n    tags: ['autodocs'],\n    argTypes: {\n        separator: {\n            control: 'text',\n            description: 'Character or text displayed between breadcrumb items',\n        },\n        ariaLabel: {\n            control: 'text',\n            description: 'Accessible label for the breadcrumb navigation',\n        },\n    },\n}"
+                "type": "Meta<AlertComponent>",
+                "defaultValue": "{\n  title: 'Molecules/Alert',\n  component: AlertComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    type: {\n      control: 'select',\n      options: ['info', 'success', 'warning', 'error'],\n      description: 'The type of notification state to represent',\n    },\n    message: {\n      control: 'text',\n      description: 'The primary message header text',\n    },\n    description: {\n      control: 'text',\n      description: 'Secondary, detailed description text',\n    },\n    dismissible: {\n      control: 'boolean',\n      description: 'Whether the close button is displayed',\n    },\n    duration: {\n      control: 'number',\n      description: 'Auto-dismiss timeout duration in ms (0 to disable)',\n    },\n  },\n  args: {\n    onClose: fn(),\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/card/card.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<CardComponent>",
+                "defaultValue": "{\n  title: 'Molecules/Card',\n  component: CardComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    variant: {\n      control: 'select',\n      options: ['flat', 'raised'],\n      description: 'Visual surface variant',\n    },\n    size: {\n      control: 'select',\n      options: ['small', 'medium', 'large'],\n      description: 'Internal spacing density',\n    },\n    ariaLabel: {\n      control: 'text',\n      description: 'Accessible label for the card container',\n    },\n  },\n  args: {\n    variant: 'flat',\n    size: 'medium',\n  },\n}"
             },
             {
                 "name": "meta",
@@ -264,7 +423,27 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/molecules/pagination/pagination.stories.ts",
+                "file": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<FormFieldComponent>",
+                "defaultValue": "{\n  title: 'Molecules/FormField',\n  component: FormFieldComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    type: {\n      control: 'select',\n      options: ['text', 'email', 'password', 'number', 'tel', 'url'],\n      description: 'HTML input type — built-in validation fires automatically on blur',\n    },\n    label: { control: 'text' },\n    helperText: { control: 'text', description: 'Shown when there is no error' },\n    validationMessage: {\n      control: 'text',\n      description: 'External override — replaces built-in validation message when set',\n    },\n    placeholder: { control: 'text' },\n    required: { control: 'boolean' },\n    disabled: { control: 'boolean' },\n  },\n  args: {\n    valueChange: fn(),\n    blur: fn(),\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<SearchBarComponent>",
+                "defaultValue": "{\n  title: 'Molecules/SearchBar',\n  component: SearchBarComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    value: { control: 'text', description: 'Current search value' },\n    placeholder: { control: 'text', description: 'Placeholder text' },\n    disabled: { control: 'boolean' },\n    ariaLabel: { control: 'text', description: 'Accessible label for the input' },\n  },\n  args: {\n    valueChange: fn(),\n    cleared: fn(),\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<PaginationComponent>",
@@ -291,6 +470,16 @@
                 "defaultValue": "{\n    args: {\n        options: flatOptions,\n        multiple: true,\n        searchable: true,\n        placeholder: 'Select fruits',\n    },\n}"
             },
             {
+                "name": "NumberValidation",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  name: 'Number — built-in validation',\n  args: {\n    label: 'Age',\n    placeholder: '18',\n    type: 'number',\n    required: true,\n    helperText: 'Type letters or leave empty then click outside.',\n  },\n}"
+            },
+            {
                 "name": "ParagraphAndLinks",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -299,6 +488,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  render: () => ({\n    template: `\n      <div>\n        <storybook-typography variant=\"title\" [level]=\"3\">Paragraphs and Links</storybook-typography>\n        \n        <storybook-typography variant=\"paragraph\" type=\"secondary\">\n          This is a paragraph variant which creates vertical margins. You can nest other custom styling elements within it or mix links directly. Below you will find interactive hyperlink components.\n        </storybook-typography>\n\n        <storybook-typography variant=\"paragraph\">\n          For more information, please visit our documentation or checkout the \n          <storybook-typography variant=\"link\" href=\"https://github.com\" target=\"_blank\">external GitHub repository</storybook-typography> \n          for open-source contributions.\n        </storybook-typography>\n\n        <div style=\"display: flex; gap: 16px;\">\n          <storybook-typography variant=\"link\" href=\"#\">Internal Page Link</storybook-typography>\n          <storybook-typography variant=\"link\" href=\"#\" [disabled]=\"true\">Disabled Link</storybook-typography>\n        </div>\n      </div>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "PasswordField",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    label: 'Password',\n    placeholder: '••••••••',\n    type: 'password',\n    required: true,\n    helperText: 'Leave empty and blur to see required error.',\n  },\n}"
             },
             {
                 "name": "Playground",
@@ -314,21 +513,11 @@
                 "name": "Playground",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {\n    variant: 'primary',\n    size: 'medium',\n    label: 'Button',\n    disabled: false,\n    loading: false,\n  },\n}"
-            },
-            {
-                "name": "Playground",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/slate/src/lib/atoms/field/field.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    fieldType: 'input',\n    label: 'Name',\n    placeholder: 'Enter your name',\n    helperText: 'This is helper text',\n    error: '',\n    disabled: false,\n    showPrefix: false,\n    showSuffix: false,\n  },\n\n  render: (args) => ({\n    props: args,\n    template: `\n      <storybook-field\n        [fieldType]=\"fieldType\"\n        [label]=\"label\"\n        [placeholder]=\"placeholder\"\n        [helperText]=\"helperText\"\n        [error]=\"error\"\n        [disabled]=\"disabled\"\n      >\n        <span *ngIf=\"showPrefix\" prefix>🔍</span>\n        <span *ngIf=\"showSuffix\" suffix>⌘K</span>\n      </storybook-field>\n    `,\n  }),\n}"
+                "defaultValue": "{\n  args: {\n    type: 'user',\n    theme: 'outlined',\n    size: 'md',\n    color: 'inherit',\n    spin: false,\n    decorative: true,\n    ariaLabel: undefined,\n    svgContent: undefined,\n    dark: false\n  },\n  render: (args: any) => {\n    if (args.dark) document.body.classList.add('theme-dark');\n    else document.body.classList.remove('theme-dark');\n\n    // Don't pass `dark` into component props\n    const { dark: _d, ...componentProps } = args;\n\n    return {\n      props: componentProps,\n      template: `\n        <div style=\"padding: 24px; background: var(--slt-background-color); color: var(--slt-text-color);\">\n          <slt-icon [type]=\"type\" [theme]=\"theme\" [size]=\"size\" [color]=\"color\" [spin]=\"spin\" [svgContent]=\"svgContent\" [decorative]=\"decorative\" [ariaLabel]=\"ariaLabel\"></slt-icon>\n        </div>\n      `\n    };\n  }\n}"
             },
             {
                 "name": "Playground",
@@ -344,11 +533,21 @@
                 "name": "Playground",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
+                "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    variant: 'text',\n    level: 1,\n    type: 'primary',\n    strong: false,\n    italic: false,\n    underline: false,\n    delete: false,\n    code: false,\n    mark: false,\n    disabled: false,\n    href: '',\n    target: '_self',\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <storybook-typography\n        [variant]=\"variant\"\n        [level]=\"level\"\n        [type]=\"type\"\n        [strong]=\"strong\"\n        [italic]=\"italic\"\n        [underline]=\"underline\"\n        [delete]=\"delete\"\n        [code]=\"code\"\n        [mark]=\"mark\"\n        [disabled]=\"disabled\"\n        [href]=\"href\"\n        [target]=\"target\"\n      >\n        Typography Content\n      </storybook-typography>\n    `,\n  }),\n}"
+                "defaultValue": "{\n  args: {\n    variant: 'primary',\n    size: 'medium',\n    label: 'Button',\n    disabled: false,\n    loading: false,\n  },\n}"
+            },
+            {
+                "name": "Playground",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/alert/alert.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    type: 'info',\n    message: 'Check out this notification!',\n    description: 'This alert is customizable and interactive.',\n    dismissible: true,\n    duration: 0,\n  },\n}"
             },
             {
                 "name": "Playground",
@@ -374,7 +573,37 @@
                 "name": "Playground",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/molecules/pagination/pagination.stories.ts",
+                "file": "projects/slate/src/lib/molecules/card/card.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    variant: 'flat',\n    size: 'medium',\n    ariaLabel: 'Example card',\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <storybook-card [variant]=\"variant\" [size]=\"size\" [ariaLabel]=\"ariaLabel\">\n        <div cardHeader>\n          <h3 style=\"margin:0\">Card Header</h3>\n        </div>\n\n        <p style=\"margin:0\">This is the main body content of the card. It accepts arbitrary projection.</p>\n\n        <div cardFooter>\n          <div style=\"display:flex;justify-content:flex-end;gap:8px\">\n            <button>Cancel</button>\n            <button>Save</button>\n          </div>\n        </div>\n      </storybook-card>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "Playground",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    label: 'Full Name',\n    placeholder: 'Enter your name',\n    helperText: 'As it appears on your ID',\n    validationMessage: '',\n    required: false,\n    disabled: false,\n    type: 'text',\n  },\n}"
+            },
+            {
+                "name": "Playground",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    value: '',\n    placeholder: 'Search…',\n    disabled: false,\n  },\n}"
+            },
+            {
+                "name": "Playground",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -391,6 +620,36 @@
                 "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n       color: /(background|color)$/i,\n       date: /Date$/i,\n      },\n    },\n  },\n}"
             },
             {
+                "name": "RequiredValidation",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  name: 'Required — empty blur',\n  args: {\n    label: 'Username',\n    placeholder: 'Enter username',\n    type: 'text',\n    required: true,\n    helperText: 'Leave empty and click outside to trigger the required error.',\n  },\n}"
+            },
+            {
+                "name": "ShapeCircle",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: { size: 'default', shape: 'circle', src: '', alt: 'Circle Avatar', status: null, dark: false, showIcon: false, iconType: 'user' },\n  render: (args: any) => {\n    const { dark: _d, showIcon: _s, iconType: _i, ...componentProps } = args;\n    return { props: { ...componentProps }, template: `<div style=\"padding:24px;background:var(--slt-background-color)\"><slt-avatar [shape]=\"shape\" [size]=\"size\"></slt-avatar></div>` };\n  }\n}"
+            },
+            {
+                "name": "ShapeSquare",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: { size: 'default', shape: 'square', src: '', alt: 'Square Avatar', status: \"online\", dark: false, showIcon: false, iconType: 'user' },\n  render: (args: any) => {\n    const { dark: _d, showIcon: _s, iconType: _i, ...componentProps } = args;\n    return { props: { ...componentProps }, template: `<div style=\"padding:24px;background:var(--slt-background-color)\"><slt-avatar [shape]=\"shape\" [size]=\"size\"></slt-avatar></div>` };\n  }\n}"
+            },
+            {
                 "name": "SingleSelect",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -404,11 +663,111 @@
                 "name": "Sizes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"padding:24px; display:flex; gap:16px; align-items:center; background:var(--slt-background-color); color:var(--slt-text-color)\">\n        <slt-icon type=\"user\" size=\"xs\"></slt-icon>\n        <slt-icon type=\"user\" size=\"sm\"></slt-icon>\n        <slt-icon type=\"user\" size=\"md\"></slt-icon>\n        <slt-icon type=\"user\" size=\"lg\"></slt-icon>\n        <slt-icon type=\"user\" size=\"xl\"></slt-icon>\n      </div>\n    `\n  })\n}"
+            },
+            {
+                "name": "Sizes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display:flex; gap:12px; align-items:center;\">\n        <storybook-button\n          size=\"small\"\n          label=\"Small\">\n        </storybook-button>\n\n        <storybook-button\n          size=\"medium\"\n          label=\"Medium\">\n        </storybook-button>\n\n        <storybook-button\n          size=\"large\"\n          label=\"Large\">\n        </storybook-button>\n      </div>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "Sizes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 16px;\">\n        <div style=\"width: 240px;\">\n          <slt-search-bar placeholder=\"Compact (240px)\"></slt-search-bar>\n        </div>\n        <div style=\"width: 400px;\">\n          <slt-search-bar placeholder=\"Medium (400px)\"></slt-search-bar>\n        </div>\n        <div style=\"width: 100%;\">\n          <slt-search-bar placeholder=\"Full width\"></slt-search-bar>\n        </div>\n      </div>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "SizesDefault",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: { size: 'default', shape: 'circle', src: '', alt: 'Default Avatar', status: null, dark: false, showIcon: false, iconType: 'user' },\n  render: (args: any) => {\n    if (args.dark) document.body.classList.add('theme-dark');\n    else document.body.classList.remove('theme-dark');\n    const { dark: _d, showIcon: _s, iconType: _i, ...componentProps } = args;\n    return {\n      props: { ...componentProps },\n      template: `<div style=\"padding:24px;background:var(--slt-background-color)\"><slt-avatar [size]=\"size\" [shape]=\"shape\" [src]=\"src\" [alt]=\"alt\" [status]=\"status\"></slt-avatar></div>`\n    };\n  }\n}"
+            },
+            {
+                "name": "SizesLarge",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: { size: 'large', shape: 'circle', src: '', alt: 'Large Avatar', status: null, dark: false, showIcon: false, iconType: 'user' },\n  render: (args: any) => {\n    if (args.dark) document.body.classList.add('theme-dark');\n    else document.body.classList.remove('theme-dark');\n    const { dark: _d, showIcon: _s, iconType: _i, ...componentProps } = args;\n    return {\n      props: { ...componentProps },\n      template: `<div style=\"padding:24px;background:var(--slt-background-color)\"><slt-avatar [size]=\"size\" [shape]=\"shape\" [src]=\"src\" [alt]=\"alt\" [status]=\"status\"></slt-avatar></div>`\n    };\n  }\n}"
+            },
+            {
+                "name": "SizesLarge",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/card/card.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: { size: 'large', variant: 'flat' },\n  render: (args) => ({\n    props: args,\n    template: `\n      <storybook-card [variant]=\"variant\" [size]=\"size\">\n        <div cardHeader><strong>Large</strong></div>\n        <div>Spacious content with more padding</div>\n      </storybook-card>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "SizesMedium",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/card/card.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: { size: 'medium', variant: 'flat' },\n  render: (args) => ({\n    props: args,\n    template: `\n      <storybook-card [variant]=\"variant\" [size]=\"size\">\n        <div cardHeader><strong>Medium</strong></div>\n        <div>Standard content</div>\n      </storybook-card>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "SizesSmall",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: { size: 'small', shape: 'circle', src: '', alt: 'Small Avatar', status: null, dark: false, showIcon: false, iconType: 'user' },\n  render: (args: any) => {\n    if (args.dark) document.body.classList.add('theme-dark');\n    else document.body.classList.remove('theme-dark');\n    const { dark: _d, showIcon: _s, iconType: _i, ...componentProps } = args;\n    return {\n      props: { ...componentProps },\n      template: `<div style=\"padding:24px;background:var(--slt-background-color)\"><slt-avatar [size]=\"size\" [shape]=\"shape\" [src]=\"src\" [alt]=\"alt\" [status]=\"status\"></slt-avatar></div>`\n    };\n  }\n}"
+            },
+            {
+                "name": "SizesSmall",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/card/card.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: { size: 'small', variant: 'flat' },\n  render: (args) => ({\n    props: args,\n    template: `\n      <storybook-card [variant]=\"variant\" [size]=\"size\">\n        <div cardHeader><strong>Small</strong></div>\n        <div>Compact content</div>\n      </storybook-card>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "SpinOff",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: { type: 'loading', theme: 'outlined', spin: false, dark: false },\n  render: (args: any) => {\n    const { dark: _d, ...componentProps } = args;\n    return { props: componentProps, template: `<div style=\"padding:24px;background:var(--slt-background-color)\"><slt-icon [type]=\"type\" [theme]=\"theme\" [spin]=\"spin\"></slt-icon></div>` };\n  }\n}"
+            },
+            {
+                "name": "SpinOn",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: { type: 'loading', theme: 'outlined', spin: true, dark: false },\n  render: (args: any) => {\n    const { dark: _d, ...componentProps } = args;\n    return { props: componentProps, template: `<div style=\"padding:24px;background:var(--slt-background-color)\"><slt-icon [type]=\"type\" [theme]=\"theme\" [spin]=\"spin\"></slt-icon></div>` };\n  }\n}"
             },
             {
                 "name": "States",
@@ -421,6 +780,56 @@
                 "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display:flex; gap:12px;\">\n        <storybook-button\n          label=\"Default\">\n        </storybook-button>\n\n        <storybook-button\n          [disabled]=\"true\"\n          label=\"Disabled\">\n        </storybook-button>\n\n        <storybook-button\n          [loading]=\"true\"\n          label=\"Loading\">\n        </storybook-button>\n      </div>\n    `,\n  }),\n}"
             },
             {
+                "name": "StatusAway",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: { size: 'default', shape: 'circle', status: 'away', dark: false, showIcon: false, iconType: 'user' },\n  render: (args: any) => ({ props: args, template: `<div style=\"padding:24px;background:var(--slt-background-color)\"><slt-avatar [status]=\"status\"></slt-avatar></div>` }),\n}"
+            },
+            {
+                "name": "StatusBusy",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: { size: 'default', shape: 'circle', status: 'busy', dark: false, showIcon: false, iconType: 'user' },\n  render: (args: any) => ({ props: args, template: `<div style=\"padding:24px;background:var(--slt-background-color)\"><slt-avatar [status]=\"status\"></slt-avatar></div>` }),\n}"
+            },
+            {
+                "name": "StatusOffline",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: { size: 'default', shape: 'circle', status: 'offline', dark: false, showIcon: false, iconType: 'user' },\n  render: (args: any) => ({ props: args, template: `<div style=\"padding:24px;background:var(--slt-background-color)\"><slt-avatar [status]=\"status\"></slt-avatar></div>` }),\n}"
+            },
+            {
+                "name": "StatusOnline",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: { size: 'default', shape: 'circle', status: 'online', dark: false, showIcon: false, iconType: 'user' },\n  render: (args: any) => ({ props: args, template: `<div style=\"padding:24px;background:var(--slt-background-color)\"><slt-avatar [status]=\"status\"></slt-avatar></div>` }),\n}"
+            },
+            {
+                "name": "SvgOverride",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    svgContent: `<svg viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"12\" cy=\"12\" r=\"10\" fill=\"currentColor\"/></svg>`,\n    size: 'lg'\n  },\n  render: (args: any) => {\n    const { svgContent, ...props } = args;\n    return { props: { svgContent, ...props }, template: `<div style=\"padding:24px;background:var(--slt-background-color)\"><slt-icon [svgContent]=\"svgContent\" [size]=\"size\"></slt-icon></div>` };\n  }\n}"
+            },
+            {
                 "name": "Textarea",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -431,6 +840,36 @@
                 "defaultValue": "{\n  args: {\n    fieldType: 'textarea',\n    label: 'Description',\n    placeholder: 'Enter description',\n    helperText: 'Write a short description',\n    error: '',\n    disabled: false,\n    showPrefix: false,\n    showSuffix: false,\n  },\n  render: Playground.render,\n}"
             },
             {
+                "name": "ThemeFilled",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: { type: 'user', theme: 'filled', spin: false, dark: false, size: 'md', color: 'inherit' },\n  render: (args: any) => {\n    if (args.dark) document.body.classList.add('theme-dark'); else document.body.classList.remove('theme-dark');\n    const { dark: _d, ...componentProps } = args;\n    return { props: componentProps, template: `<div style=\"padding:24px;background:var(--slt-background-color);color:var(--slt-text-color)\"><slt-icon [type]=\"type\" [theme]=\"theme\" [size]=\"size\" [color]=\"color\"></slt-icon></div>` };\n  }\n}"
+            },
+            {
+                "name": "ThemeOutlined",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: { type: 'user', theme: 'outlined', spin: false, dark: false },\n  render: (args: any) => {\n    if (args.dark) document.body.classList.add('theme-dark'); else document.body.classList.remove('theme-dark');\n    const { dark: _d, ...componentProps } = args;\n    return { props: componentProps, template: `<div style=\"padding:24px;background:var(--slt-background-color);color:var(--slt-text-color)\"><slt-icon [type]=\"type\" [theme]=\"theme\" [size]=\"size\" [color]=\"color\"></slt-icon></div>` };\n  }\n}"
+            },
+            {
+                "name": "ThemeTwoTone",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: { type: 'user', theme: 'twoTone', spin: false, dark: false, size: 'md', color: 'primary' },\n  render: (args: any) => {\n    if (args.dark) document.body.classList.add('theme-dark'); else document.body.classList.remove('theme-dark');\n    const { dark: _d, ...componentProps } = args;\n    return { props: componentProps, template: `<div style=\"padding:24px;background:var(--slt-background-color);color:var(--slt-text-color)\"><slt-icon [type]=\"type\" [theme]=\"theme\" [size]=\"size\" [color]=\"color\"></slt-icon></div>` };\n  }\n}"
+            },
+            {
                 "name": "Titles",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -439,6 +878,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  render: () => ({\n    template: `\n      <div>\n        <storybook-typography variant=\"title\" [level]=\"1\">H1. Slate Heading</storybook-typography>\n        <storybook-typography variant=\"title\" [level]=\"2\">H2. Slate Heading</storybook-typography>\n        <storybook-typography variant=\"title\" [level]=\"3\">H3. Slate Heading</storybook-typography>\n        <storybook-typography variant=\"title\" [level]=\"4\">H4. Slate Heading</storybook-typography>\n        <storybook-typography variant=\"title\" [level]=\"5\">H5. Slate Heading</storybook-typography>\n      </div>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "TokenShowcase",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/card/card.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display:flex;gap:16px;flex-direction:column;max-width:600px\">\n        <div style=\"display:flex;gap:12px;align-items:center\">\n          <div style=\"width:56px;height:40px;border-radius:4px;border:1px solid var(--slt-border-color-base);background:var(--slt-background-color)\"></div>\n          <div>\n            <div style=\"font-weight:600\">Surface</div>\n            <div style=\"font-size:12px;color:var(--slt-text-color-secondary)\"><code>var(--slt-background-color)</code></div>\n          </div>\n        </div>\n\n        <div style=\"display:flex;gap:12px;align-items:center\">\n          <div style=\"width:120px;padding:8px;border-radius:6px;background:var(--slt-background-color);box-shadow:var(--slt-box-shadow-base)\">Elevated</div>\n          <div>\n            <div style=\"font-weight:600\">Elevation</div>\n            <div style=\"font-size:12px;color:var(--slt-text-color-secondary)\"><code>var(--slt-box-shadow-base)</code></div>\n          </div>\n        </div>\n      </div>\n    `,\n  }),\n}"
             },
             {
                 "name": "Types",
@@ -461,6 +910,16 @@
                 "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 16px; width: 100%; max-width: 600px;\">\n        <storybook-alert\n          type=\"info\"\n          message=\"Info Alert\"\n          description=\"This is some general informative text for the user.\"\n        ></storybook-alert>\n\n        <storybook-alert\n          type=\"success\"\n          message=\"Success Alert\"\n          description=\"Your operation completed successfully without any errors.\"\n        ></storybook-alert>\n\n        <storybook-alert\n          type=\"warning\"\n          message=\"Warning Alert\"\n          description=\"Attention required! Please verify the credentials before completing the task.\"\n        ></storybook-alert>\n\n        <storybook-alert\n          type=\"error\"\n          message=\"Error Alert\"\n          description=\"A critical failure occurred. Please contact the systems administrator.\"\n        ></storybook-alert>\n      </div>\n    `,\n  }),\n}"
             },
             {
+                "name": "UrlValidation",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  name: 'URL — built-in validation',\n  args: {\n    label: 'Website',\n    placeholder: 'https://example.com',\n    type: 'url',\n    helperText: 'Type an invalid URL then click outside to see the error.',\n  },\n}"
+            },
+            {
                 "name": "Variants",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -471,6 +930,26 @@
                 "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display:flex; gap:12px;\">\n        <storybook-button\n          variant=\"primary\"\n          label=\"Primary\">\n        </storybook-button>\n\n        <storybook-button\n          variant=\"secondary\"\n          label=\"Secondary\">\n        </storybook-button>\n\n        <storybook-button\n          variant=\"ghost\"\n          label=\"Ghost\">\n        </storybook-button>\n\n        <storybook-button\n          variant=\"danger\"\n          label=\"Danger\">\n        </storybook-button>\n      </div>\n    `,\n  }),\n}"
             },
             {
+                "name": "VariantsFlat",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/card/card.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: { variant: 'flat', size: 'medium' },\n  render: (args) => ({\n    props: args,\n    template: `\n      <storybook-card [variant]=\"variant\" [size]=\"size\">\n        <div cardHeader><strong>Flat</strong></div>\n        <div>Simple flat surface example</div>\n      </storybook-card>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "VariantsRaised",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/card/card.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: { variant: 'raised', size: 'medium' },\n  render: (args) => ({\n    props: args,\n    template: `\n      <storybook-card [variant]=\"variant\" [size]=\"size\">\n        <div cardHeader><strong>Raised</strong></div>\n        <div>Elevated surface using tokenized shadow</div>\n      </storybook-card>\n    `,\n  }),\n}"
+            },
+            {
                 "name": "WithError",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -479,6 +958,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    fieldType: 'input',\n    label: 'Email',\n    placeholder: 'Enter email',\n    helperText: '',\n    error: 'Email is required',\n    disabled: false,\n    showPrefix: false,\n    showSuffix: false,\n  },\n  render: Playground.render,\n}"
+            },
+            {
+                "name": "WithIcon",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: { size: 'default', shape: 'circle', showIcon: true, iconType: 'user', dark: false },\n  render: (args: any) => {\n    if (args.dark) document.body.classList.add('theme-dark'); else document.body.classList.remove('theme-dark');\n    const iconTemplate = args.showIcon ? `<ng-template #myIcon><slt-icon [type]=\"iconType\" [theme]=\"'outlined'\"></slt-icon></ng-template>` : '';\n    const iconBinding = args.showIcon ? `[icon]=\"myIcon\"` : '';\n    const { dark: _d, showIcon: _s, iconType: _i, ...componentProps } = args;\n    return { props: { ...componentProps }, template: `${iconTemplate}<div style=\"padding:24px;background:var(--slt-background-color)\"><slt-avatar ${iconBinding} [size]=\"size\"></slt-avatar></div>` };\n  }\n}"
             },
             {
                 "name": "WithoutDescription",
@@ -499,6 +988,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    fieldType: 'input',\n    label: 'Search',\n    placeholder: 'Search...',\n    helperText: 'Search by name or email',\n    error: '',\n    disabled: false,\n    showPrefix: true,\n    showSuffix: true,\n  },\n  render: Playground.render,\n}"
+            },
+            {
+                "name": "WithValue",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    value: 'Angular components',\n    placeholder: 'Search…',\n  },\n}"
             }
         ],
         "functions": [],
@@ -520,28 +1019,6 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<any>",
                 "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 184
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<ButtonComponent>",
-                "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 184
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<FieldStoryArgs>",
-                "file": "projects/slate/src/lib/atoms/field/field.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -575,6 +1052,28 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<RadioComponent>",
                 "file": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<FieldStoryArgs>",
+                "file": "projects/slate/src/lib/atoms/field/field.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<ButtonComponent>",
+                "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -628,6 +1127,17 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<CardComponent>",
+                "file": "projects/slate/src/lib/molecules/card/card.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<any>",
                 "file": "projects/slate/src/lib/molecules/dropdown/dropdown.stories.ts",
                 "deprecated": false,
@@ -639,8 +1149,30 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<FormFieldComponent>",
+                "file": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<SearchBarComponent>",
+                "file": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<PaginationComponent>",
-                "file": "projects/slate/src/lib/molecules/pagination/pagination.stories.ts",
+                "file": "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -649,6 +1181,251 @@
         ],
         "enumerations": [],
         "groupedVariables": {
+            "projects/slate/.storybook/preview.ts": [
+                {
+                    "name": "_sltTokens",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/.storybook/preview.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "defaultValue": "`\n:root {\n  --slt-primary-color: #1890ff;\n  --slt-success-color: #52c41a;\n  --slt-warning-color: #faad14;\n  --slt-error-color: #ff4d4f;\n  --slt-info-color: #1677ff;\n  --slt-text-color: #000000d9;\n  --slt-text-color-secondary: #00000073;\n  --slt-background-color: #ffffff;\n  --slt-border-color-base: #d9d9d9;\n\n  --slt-font-size-base: 14px;\n  --slt-font-size-lg: 16px;\n  --slt-font-size-sm: 12px;\n  --slt-line-height-base: 1.57142857;\n  --slt-heading-color: #000000d9;\n\n  --slt-padding-lg: 24px;\n  --slt-padding-md: 16px;\n  --slt-padding-sm: 12px;\n  --slt-padding-xs: 8px;\n  --slt-padding-xxs: 4px;\n\n  --slt-border-radius-base: 6px;\n  --slt-border-radius-sm: 4px;\n\n  --slt-box-shadow-base: 0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 1px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px 0 rgba(0, 0, 0, 0.02);\n  --slt-box-shadow-hover: 0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 1px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px 0 rgba(0, 0, 0, 0.02);\n}\n\nbody.theme-dark {\n  --slt-primary-color: #1765ad;\n  --slt-text-color: #ffffffd9;\n  --slt-text-color-secondary: #ffffff73;\n  --slt-background-color: #001529;\n  --slt-border-color-base: #434343;\n  --slt-heading-color: #ffffffd9;\n}\n`"
+                },
+                {
+                    "name": "docJson",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/.storybook/preview.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "any",
+                    "defaultValue": "{}"
+                },
+                {
+                    "name": "globalThis",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/.storybook/preview.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "any"
+                },
+                {
+                    "name": "preview",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/.storybook/preview.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Preview",
+                    "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n       color: /(background|color)$/i,\n       date: /Date$/i,\n      },\n    },\n  },\n}"
+                }
+            ],
+            "projects/slate/src/lib/atoms/icon/icon.stories.ts": [
+                {
+                    "name": "Accessibility",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"padding:24px;background:var(--slt-background-color);color:var(--slt-text-color);display:flex;flex-direction:column;gap:12px\">\n        <div>Decorative (default): <slt-icon type=\"user\"></slt-icon></div>\n        <div>Informative (non-decorative): <slt-icon type=\"close\" [decorative]=\"false\" aria-label=\"Close\"></slt-icon></div>\n      </div>\n    `\n  })\n}"
+                },
+                {
+                    "name": "Colors",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"padding:24px; display:flex; gap:20px; align-items:center; background:var(--slt-background-color); color:var(--slt-text-color)\">\n        <slt-icon type=\"user\" color=\"inherit\"></slt-icon>\n        <slt-icon type=\"user\" color=\"primary\"></slt-icon>\n        <slt-icon type=\"user\" color=\"secondary\"></slt-icon>\n        <slt-icon type=\"user\" color=\"success\"></slt-icon>\n        <slt-icon type=\"user\" color=\"warning\"></slt-icon>\n        <slt-icon type=\"user\" color=\"danger\"></slt-icon>\n        <slt-icon type=\"user\" color=\"muted\"></slt-icon>\n      </div>\n    `\n  })\n}"
+                },
+                {
+                    "name": "DarkExample",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: { type: 'user', theme: 'outlined', spin: false, dark: true },\n  render: (args: any) => {\n    if (args.dark) document.body.classList.add('theme-dark'); else document.body.classList.remove('theme-dark');\n    const { dark: _d, ...componentProps } = args;\n    return { props: componentProps, template: `<div style=\"padding:24px;background:var(--slt-background-color);color:var(--slt-text-color)\"><slt-icon [type]=\"type\" [theme]=\"theme\"></slt-icon></div>` };\n  }\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<any>",
+                    "defaultValue": "{\n  title: 'Atoms/Icon',\n  component: IconComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CommonModule, IconComponent]\n    })\n  ],\n  argTypes: {\n    type: { control: 'text' },\n    theme: {\n      control: { type: 'select' },\n      options: ['outlined', 'filled', 'twoTone']\n    },\n    size: { control: { type: 'select' }, options: ['xs', 'sm', 'md', 'lg', 'xl'] },\n    color: { control: { type: 'select' }, options: ['inherit', 'primary', 'secondary', 'success', 'warning', 'danger', 'muted'] },\n    spin: { control: 'boolean' },\n    svgContent: { control: 'text' },\n    decorative: { control: 'boolean' },\n    ariaLabel: { control: 'text' },\n    dark: { control: 'boolean' }\n  }\n}"
+                },
+                {
+                    "name": "Playground",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    type: 'user',\n    theme: 'outlined',\n    size: 'md',\n    color: 'inherit',\n    spin: false,\n    decorative: true,\n    ariaLabel: undefined,\n    svgContent: undefined,\n    dark: false\n  },\n  render: (args: any) => {\n    if (args.dark) document.body.classList.add('theme-dark');\n    else document.body.classList.remove('theme-dark');\n\n    // Don't pass `dark` into component props\n    const { dark: _d, ...componentProps } = args;\n\n    return {\n      props: componentProps,\n      template: `\n        <div style=\"padding: 24px; background: var(--slt-background-color); color: var(--slt-text-color);\">\n          <slt-icon [type]=\"type\" [theme]=\"theme\" [size]=\"size\" [color]=\"color\" [spin]=\"spin\" [svgContent]=\"svgContent\" [decorative]=\"decorative\" [ariaLabel]=\"ariaLabel\"></slt-icon>\n        </div>\n      `\n    };\n  }\n}"
+                },
+                {
+                    "name": "Sizes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"padding:24px; display:flex; gap:16px; align-items:center; background:var(--slt-background-color); color:var(--slt-text-color)\">\n        <slt-icon type=\"user\" size=\"xs\"></slt-icon>\n        <slt-icon type=\"user\" size=\"sm\"></slt-icon>\n        <slt-icon type=\"user\" size=\"md\"></slt-icon>\n        <slt-icon type=\"user\" size=\"lg\"></slt-icon>\n        <slt-icon type=\"user\" size=\"xl\"></slt-icon>\n      </div>\n    `\n  })\n}"
+                },
+                {
+                    "name": "SpinOff",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: { type: 'loading', theme: 'outlined', spin: false, dark: false },\n  render: (args: any) => {\n    const { dark: _d, ...componentProps } = args;\n    return { props: componentProps, template: `<div style=\"padding:24px;background:var(--slt-background-color)\"><slt-icon [type]=\"type\" [theme]=\"theme\" [spin]=\"spin\"></slt-icon></div>` };\n  }\n}"
+                },
+                {
+                    "name": "SpinOn",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: { type: 'loading', theme: 'outlined', spin: true, dark: false },\n  render: (args: any) => {\n    const { dark: _d, ...componentProps } = args;\n    return { props: componentProps, template: `<div style=\"padding:24px;background:var(--slt-background-color)\"><slt-icon [type]=\"type\" [theme]=\"theme\" [spin]=\"spin\"></slt-icon></div>` };\n  }\n}"
+                },
+                {
+                    "name": "SvgOverride",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    svgContent: `<svg viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"12\" cy=\"12\" r=\"10\" fill=\"currentColor\"/></svg>`,\n    size: 'lg'\n  },\n  render: (args: any) => {\n    const { svgContent, ...props } = args;\n    return { props: { svgContent, ...props }, template: `<div style=\"padding:24px;background:var(--slt-background-color)\"><slt-icon [svgContent]=\"svgContent\" [size]=\"size\"></slt-icon></div>` };\n  }\n}"
+                },
+                {
+                    "name": "ThemeFilled",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: { type: 'user', theme: 'filled', spin: false, dark: false, size: 'md', color: 'inherit' },\n  render: (args: any) => {\n    if (args.dark) document.body.classList.add('theme-dark'); else document.body.classList.remove('theme-dark');\n    const { dark: _d, ...componentProps } = args;\n    return { props: componentProps, template: `<div style=\"padding:24px;background:var(--slt-background-color);color:var(--slt-text-color)\"><slt-icon [type]=\"type\" [theme]=\"theme\" [size]=\"size\" [color]=\"color\"></slt-icon></div>` };\n  }\n}"
+                },
+                {
+                    "name": "ThemeOutlined",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: { type: 'user', theme: 'outlined', spin: false, dark: false },\n  render: (args: any) => {\n    if (args.dark) document.body.classList.add('theme-dark'); else document.body.classList.remove('theme-dark');\n    const { dark: _d, ...componentProps } = args;\n    return { props: componentProps, template: `<div style=\"padding:24px;background:var(--slt-background-color);color:var(--slt-text-color)\"><slt-icon [type]=\"type\" [theme]=\"theme\" [size]=\"size\" [color]=\"color\"></slt-icon></div>` };\n  }\n}"
+                },
+                {
+                    "name": "ThemeTwoTone",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: { type: 'user', theme: 'twoTone', spin: false, dark: false, size: 'md', color: 'primary' },\n  render: (args: any) => {\n    if (args.dark) document.body.classList.add('theme-dark'); else document.body.classList.remove('theme-dark');\n    const { dark: _d, ...componentProps } = args;\n    return { props: componentProps, template: `<div style=\"padding:24px;background:var(--slt-background-color);color:var(--slt-text-color)\"><slt-icon [type]=\"type\" [theme]=\"theme\" [size]=\"size\" [color]=\"color\"></slt-icon></div>` };\n  }\n}"
+                }
+            ],
+            "projects/slate/src/lib/molecules/form-field/form-field.stories.ts": [
+                {
+                    "name": "AllStates",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 24px; max-width: 400px;\">\n        <slt-form-field\n          label=\"Default\"\n          placeholder=\"Enter value\"\n          helperText=\"This is helper text.\"\n        ></slt-form-field>\n\n        <slt-form-field\n          label=\"Required\"\n          placeholder=\"Enter value\"\n          [required]=\"true\"\n          helperText=\"Leave empty and blur to see required error.\"\n        ></slt-form-field>\n\n        <slt-form-field\n          label=\"Email\"\n          placeholder=\"you@example.com\"\n          type=\"email\"\n          [required]=\"true\"\n          helperText=\"Type an invalid email then blur.\"\n        ></slt-form-field>\n\n        <slt-form-field\n          label=\"External Error\"\n          placeholder=\"Enter value\"\n          validationMessage=\"This error was set externally.\"\n        ></slt-form-field>\n\n        <slt-form-field\n          label=\"Disabled\"\n          placeholder=\"Not editable\"\n          [disabled]=\"true\"\n          helperText=\"This field is currently disabled.\"\n        ></slt-form-field>\n      </div>\n    `,\n  }),\n}"
+                },
+                {
+                    "name": "EmailValidation",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  name: 'Email — built-in validation',\n  args: {\n    label: 'Email Address',\n    placeholder: 'you@example.com',\n    type: 'email',\n    required: true,\n    helperText: 'Type an invalid email then click outside to see the error.',\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<FormFieldComponent>",
+                    "defaultValue": "{\n  title: 'Molecules/FormField',\n  component: FormFieldComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    type: {\n      control: 'select',\n      options: ['text', 'email', 'password', 'number', 'tel', 'url'],\n      description: 'HTML input type — built-in validation fires automatically on blur',\n    },\n    label: { control: 'text' },\n    helperText: { control: 'text', description: 'Shown when there is no error' },\n    validationMessage: {\n      control: 'text',\n      description: 'External override — replaces built-in validation message when set',\n    },\n    placeholder: { control: 'text' },\n    required: { control: 'boolean' },\n    disabled: { control: 'boolean' },\n  },\n  args: {\n    valueChange: fn(),\n    blur: fn(),\n  },\n}"
+                },
+                {
+                    "name": "NumberValidation",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  name: 'Number — built-in validation',\n  args: {\n    label: 'Age',\n    placeholder: '18',\n    type: 'number',\n    required: true,\n    helperText: 'Type letters or leave empty then click outside.',\n  },\n}"
+                },
+                {
+                    "name": "PasswordField",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    label: 'Password',\n    placeholder: '••••••••',\n    type: 'password',\n    required: true,\n    helperText: 'Leave empty and blur to see required error.',\n  },\n}"
+                },
+                {
+                    "name": "Playground",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    label: 'Full Name',\n    placeholder: 'Enter your name',\n    helperText: 'As it appears on your ID',\n    validationMessage: '',\n    required: false,\n    disabled: false,\n    type: 'text',\n  },\n}"
+                },
+                {
+                    "name": "RequiredValidation",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  name: 'Required — empty blur',\n  args: {\n    label: 'Username',\n    placeholder: 'Enter username',\n    type: 'text',\n    required: true,\n    helperText: 'Leave empty and click outside to trigger the required error.',\n  },\n}"
+                },
+                {
+                    "name": "UrlValidation",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  name: 'URL — built-in validation',\n  args: {\n    label: 'Website',\n    placeholder: 'https://example.com',\n    type: 'url',\n    helperText: 'Type an invalid URL then click outside to see the error.',\n  },\n}"
+                }
+            ],
             "projects/slate/src/lib/molecules/alert/alert.stories.ts": [
                 {
                     "name": "AutoDismiss",
@@ -701,12 +1478,12 @@
                     "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 600px;\">\n        <storybook-alert type=\"info\" message=\"Standard informative message header.\"></storybook-alert>\n        <storybook-alert type=\"success\" message=\"Successfully saved settings.\"></storybook-alert>\n        <storybook-alert type=\"warning\" message=\"Database space is getting low.\"></storybook-alert>\n        <storybook-alert type=\"error\" message=\"Invalid credentials entered.\"></storybook-alert>\n      </div>\n    `,\n  }),\n}"
                 }
             ],
-            "projects/slate/src/lib/molecules/pagination/pagination.stories.ts": [
+            "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts": [
                 {
                     "name": "Compact",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/slate/src/lib/molecules/pagination/pagination.stories.ts",
+                    "file": "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -716,7 +1493,7 @@
                     "name": "ManyPages",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/slate/src/lib/molecules/pagination/pagination.stories.ts",
+                    "file": "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -726,7 +1503,7 @@
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/slate/src/lib/molecules/pagination/pagination.stories.ts",
+                    "file": "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<PaginationComponent>",
@@ -736,11 +1513,337 @@
                     "name": "Playground",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/slate/src/lib/molecules/pagination/pagination.stories.ts",
+                    "file": "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{\n    args: {\n        currentPage: 4,\n        totalPages: 12,\n        boundaryCount: 1,\n        siblingCount: 1,\n        disabled: false,\n        ariaLabel: 'Pagination',\n    },\n}"
+                }
+            ],
+            "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts": [
+                {
+                    "name": "CustomPlaceholder",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    value: '',\n    placeholder: 'Search by name, email, or role…',\n  },\n}"
+                },
+                {
+                    "name": "Disabled",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    value: '',\n    placeholder: 'Search unavailable',\n    disabled: true,\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<SearchBarComponent>",
+                    "defaultValue": "{\n  title: 'Molecules/SearchBar',\n  component: SearchBarComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    value: { control: 'text', description: 'Current search value' },\n    placeholder: { control: 'text', description: 'Placeholder text' },\n    disabled: { control: 'boolean' },\n    ariaLabel: { control: 'text', description: 'Accessible label for the input' },\n  },\n  args: {\n    valueChange: fn(),\n    cleared: fn(),\n  },\n}"
+                },
+                {
+                    "name": "Playground",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    value: '',\n    placeholder: 'Search…',\n    disabled: false,\n  },\n}"
+                },
+                {
+                    "name": "Sizes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 16px;\">\n        <div style=\"width: 240px;\">\n          <slt-search-bar placeholder=\"Compact (240px)\"></slt-search-bar>\n        </div>\n        <div style=\"width: 400px;\">\n          <slt-search-bar placeholder=\"Medium (400px)\"></slt-search-bar>\n        </div>\n        <div style=\"width: 100%;\">\n          <slt-search-bar placeholder=\"Full width\"></slt-search-bar>\n        </div>\n      </div>\n    `,\n  }),\n}"
+                },
+                {
+                    "name": "WithValue",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    value: 'Angular components',\n    placeholder: 'Search…',\n  },\n}"
+                }
+            ],
+            "projects/slate/src/lib/atoms/avatar/avatar.stories.ts": [
+                {
+                    "name": "DarkExample",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: { size: 'default', shape: 'circle', dark: true },\n  render: (args: any) => {\n    if (args.dark) document.body.classList.add('theme-dark'); else document.body.classList.remove('theme-dark');\n    const { dark: _d, ...componentProps } = args;\n    return { props: { ...componentProps }, template: `<div style=\"padding:24px;background:var(--slt-background-color)\"><slt-avatar [size]=\"size\"></slt-avatar></div>` };\n  }\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<any>",
+                    "defaultValue": "{\n  title: 'Atoms/Avatar',\n  component: AvatarComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CommonModule, AvatarComponent, IconComponent]\n    })\n  ],\n  argTypes: {\n    size: {\n      control: { type: 'select' },\n      options: ['large', 'small', 'default']\n    },\n    shape: {\n      control: { type: 'select' },\n      options: ['circle', 'square']\n    },\n    src: { control: 'text' },\n    alt: { control: 'text' },\n    status: {\n      control: { type: 'select' },\n      options: [null, 'online', 'offline', 'away', 'busy']\n    },\n    dark: { control: 'boolean' },\n    showIcon: { control: 'boolean' },\n    iconType: { control: 'text' }\n  }\n}"
+                },
+                {
+                    "name": "Playground",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    size: 'default',\n    shape: 'circle',\n    src: '',\n    alt: 'John Doe',\n    status: null,\n    dark: false,\n    showIcon: false,\n    iconType: 'user'\n  },\n  render: (args: any) => {\n    // toggle theme class\n    if (args.dark) document.body.classList.add('theme-dark');\n    else document.body.classList.remove('theme-dark');\n\n    const iconTemplate = args.showIcon\n      ? `<ng-template #myIcon><slt-icon [type]=\"iconType\" [theme]=\"'outlined'\"></slt-icon></ng-template>`\n      : '';\n\n    const iconBinding = args.showIcon ? `[icon]=\"myIcon\"` : '';\n\n    // remove non-component args from props to avoid Angular input warnings\n    const { dark: _d, showIcon: _s, iconType: _i, ...componentProps } = args;\n    return {\n      props: { ...componentProps, iconType: args.iconType },\n      template: `\n          ${iconTemplate}\n          <div style=\"padding: 24px; background: var(--slt-background-color);\">\n            <slt-avatar ${iconBinding} [size]=\"size\" [shape]=\"shape\" [src]=\"src\" [alt]=\"alt\" [status]=\"status\"></slt-avatar>\n          </div>\n        `\n    };\n  }\n}"
+                },
+                {
+                    "name": "ShapeCircle",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: { size: 'default', shape: 'circle', src: '', alt: 'Circle Avatar', status: null, dark: false, showIcon: false, iconType: 'user' },\n  render: (args: any) => {\n    const { dark: _d, showIcon: _s, iconType: _i, ...componentProps } = args;\n    return { props: { ...componentProps }, template: `<div style=\"padding:24px;background:var(--slt-background-color)\"><slt-avatar [shape]=\"shape\" [size]=\"size\"></slt-avatar></div>` };\n  }\n}"
+                },
+                {
+                    "name": "ShapeSquare",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: { size: 'default', shape: 'square', src: '', alt: 'Square Avatar', status: \"online\", dark: false, showIcon: false, iconType: 'user' },\n  render: (args: any) => {\n    const { dark: _d, showIcon: _s, iconType: _i, ...componentProps } = args;\n    return { props: { ...componentProps }, template: `<div style=\"padding:24px;background:var(--slt-background-color)\"><slt-avatar [shape]=\"shape\" [size]=\"size\"></slt-avatar></div>` };\n  }\n}"
+                },
+                {
+                    "name": "SizesDefault",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: { size: 'default', shape: 'circle', src: '', alt: 'Default Avatar', status: null, dark: false, showIcon: false, iconType: 'user' },\n  render: (args: any) => {\n    if (args.dark) document.body.classList.add('theme-dark');\n    else document.body.classList.remove('theme-dark');\n    const { dark: _d, showIcon: _s, iconType: _i, ...componentProps } = args;\n    return {\n      props: { ...componentProps },\n      template: `<div style=\"padding:24px;background:var(--slt-background-color)\"><slt-avatar [size]=\"size\" [shape]=\"shape\" [src]=\"src\" [alt]=\"alt\" [status]=\"status\"></slt-avatar></div>`\n    };\n  }\n}"
+                },
+                {
+                    "name": "SizesLarge",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: { size: 'large', shape: 'circle', src: '', alt: 'Large Avatar', status: null, dark: false, showIcon: false, iconType: 'user' },\n  render: (args: any) => {\n    if (args.dark) document.body.classList.add('theme-dark');\n    else document.body.classList.remove('theme-dark');\n    const { dark: _d, showIcon: _s, iconType: _i, ...componentProps } = args;\n    return {\n      props: { ...componentProps },\n      template: `<div style=\"padding:24px;background:var(--slt-background-color)\"><slt-avatar [size]=\"size\" [shape]=\"shape\" [src]=\"src\" [alt]=\"alt\" [status]=\"status\"></slt-avatar></div>`\n    };\n  }\n}"
+                },
+                {
+                    "name": "SizesSmall",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: { size: 'small', shape: 'circle', src: '', alt: 'Small Avatar', status: null, dark: false, showIcon: false, iconType: 'user' },\n  render: (args: any) => {\n    if (args.dark) document.body.classList.add('theme-dark');\n    else document.body.classList.remove('theme-dark');\n    const { dark: _d, showIcon: _s, iconType: _i, ...componentProps } = args;\n    return {\n      props: { ...componentProps },\n      template: `<div style=\"padding:24px;background:var(--slt-background-color)\"><slt-avatar [size]=\"size\" [shape]=\"shape\" [src]=\"src\" [alt]=\"alt\" [status]=\"status\"></slt-avatar></div>`\n    };\n  }\n}"
+                },
+                {
+                    "name": "StatusAway",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: { size: 'default', shape: 'circle', status: 'away', dark: false, showIcon: false, iconType: 'user' },\n  render: (args: any) => ({ props: args, template: `<div style=\"padding:24px;background:var(--slt-background-color)\"><slt-avatar [status]=\"status\"></slt-avatar></div>` }),\n}"
+                },
+                {
+                    "name": "StatusBusy",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: { size: 'default', shape: 'circle', status: 'busy', dark: false, showIcon: false, iconType: 'user' },\n  render: (args: any) => ({ props: args, template: `<div style=\"padding:24px;background:var(--slt-background-color)\"><slt-avatar [status]=\"status\"></slt-avatar></div>` }),\n}"
+                },
+                {
+                    "name": "StatusOffline",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: { size: 'default', shape: 'circle', status: 'offline', dark: false, showIcon: false, iconType: 'user' },\n  render: (args: any) => ({ props: args, template: `<div style=\"padding:24px;background:var(--slt-background-color)\"><slt-avatar [status]=\"status\"></slt-avatar></div>` }),\n}"
+                },
+                {
+                    "name": "StatusOnline",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: { size: 'default', shape: 'circle', status: 'online', dark: false, showIcon: false, iconType: 'user' },\n  render: (args: any) => ({ props: args, template: `<div style=\"padding:24px;background:var(--slt-background-color)\"><slt-avatar [status]=\"status\"></slt-avatar></div>` }),\n}"
+                },
+                {
+                    "name": "WithIcon",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: { size: 'default', shape: 'circle', showIcon: true, iconType: 'user', dark: false },\n  render: (args: any) => {\n    if (args.dark) document.body.classList.add('theme-dark'); else document.body.classList.remove('theme-dark');\n    const iconTemplate = args.showIcon ? `<ng-template #myIcon><slt-icon [type]=\"iconType\" [theme]=\"'outlined'\"></slt-icon></ng-template>` : '';\n    const iconBinding = args.showIcon ? `[icon]=\"myIcon\"` : '';\n    const { dark: _d, showIcon: _s, iconType: _i, ...componentProps } = args;\n    return { props: { ...componentProps }, template: `${iconTemplate}<div style=\"padding:24px;background:var(--slt-background-color)\"><slt-avatar ${iconBinding} [size]=\"size\"></slt-avatar></div>` };\n  }\n}"
+                }
+            ],
+            "projects/slate/src/lib/molecules/card/card.stories.ts": [
+                {
+                    "name": "DarkTheme",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/molecules/card/card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div class=\"theme-dark\" style=\"padding:24px\">\n        <storybook-card variant=\"raised\">\n          <ng-container cardHeader><strong>Dark Theme</strong></ng-container>\n          <div>Card adapts via design tokens.</div>\n        </storybook-card>\n      </div>\n    `,\n  }),\n}"
+                },
+                {
+                    "name": "FooterOnly",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/molecules/card/card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <storybook-card>\n        <div cardFooter>\n          <small>Footer content</small>\n        </div>\n      </storybook-card>\n    `,\n  }),\n}"
+                },
+                {
+                    "name": "HeaderBodyFooter",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/molecules/card/card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <storybook-card>\n        <div cardHeader>\n          <strong>Header</strong>\n        </div>\n        <p>Body content goes here. Use atoms like <code>&lt;storybook-typography&gt;</code> inside.</p>\n        <div cardFooter>\n          <small>Footer</small>\n        </div>\n      </storybook-card>\n    `,\n  }),\n}"
+                },
+                {
+                    "name": "HeaderOnly",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/molecules/card/card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <storybook-card>\n        <div cardHeader>\n          <strong>Only Header</strong>\n        </div>\n      </storybook-card>\n    `,\n  }),\n}"
+                },
+                {
+                    "name": "LongContent",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/molecules/card/card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <storybook-card>\n        <div cardHeader>\n          <strong>Long Content</strong>\n        </div>\n        <div>\n          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>\n          <p>Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris.</p>\n        </div>\n      </storybook-card>\n    `,\n  }),\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/molecules/card/card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<CardComponent>",
+                    "defaultValue": "{\n  title: 'Molecules/Card',\n  component: CardComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    variant: {\n      control: 'select',\n      options: ['flat', 'raised'],\n      description: 'Visual surface variant',\n    },\n    size: {\n      control: 'select',\n      options: ['small', 'medium', 'large'],\n      description: 'Internal spacing density',\n    },\n    ariaLabel: {\n      control: 'text',\n      description: 'Accessible label for the card container',\n    },\n  },\n  args: {\n    variant: 'flat',\n    size: 'medium',\n  },\n}"
+                },
+                {
+                    "name": "Playground",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/molecules/card/card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    variant: 'flat',\n    size: 'medium',\n    ariaLabel: 'Example card',\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <storybook-card [variant]=\"variant\" [size]=\"size\" [ariaLabel]=\"ariaLabel\">\n        <div cardHeader>\n          <h3 style=\"margin:0\">Card Header</h3>\n        </div>\n\n        <p style=\"margin:0\">This is the main body content of the card. It accepts arbitrary projection.</p>\n\n        <div cardFooter>\n          <div style=\"display:flex;justify-content:flex-end;gap:8px\">\n            <button>Cancel</button>\n            <button>Save</button>\n          </div>\n        </div>\n      </storybook-card>\n    `,\n  }),\n}"
+                },
+                {
+                    "name": "SizesLarge",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/molecules/card/card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: { size: 'large', variant: 'flat' },\n  render: (args) => ({\n    props: args,\n    template: `\n      <storybook-card [variant]=\"variant\" [size]=\"size\">\n        <div cardHeader><strong>Large</strong></div>\n        <div>Spacious content with more padding</div>\n      </storybook-card>\n    `,\n  }),\n}"
+                },
+                {
+                    "name": "SizesMedium",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/molecules/card/card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: { size: 'medium', variant: 'flat' },\n  render: (args) => ({\n    props: args,\n    template: `\n      <storybook-card [variant]=\"variant\" [size]=\"size\">\n        <div cardHeader><strong>Medium</strong></div>\n        <div>Standard content</div>\n      </storybook-card>\n    `,\n  }),\n}"
+                },
+                {
+                    "name": "SizesSmall",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/molecules/card/card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: { size: 'small', variant: 'flat' },\n  render: (args) => ({\n    props: args,\n    template: `\n      <storybook-card [variant]=\"variant\" [size]=\"size\">\n        <div cardHeader><strong>Small</strong></div>\n        <div>Compact content</div>\n      </storybook-card>\n    `,\n  }),\n}"
+                },
+                {
+                    "name": "TokenShowcase",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/molecules/card/card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display:flex;gap:16px;flex-direction:column;max-width:600px\">\n        <div style=\"display:flex;gap:12px;align-items:center\">\n          <div style=\"width:56px;height:40px;border-radius:4px;border:1px solid var(--slt-border-color-base);background:var(--slt-background-color)\"></div>\n          <div>\n            <div style=\"font-weight:600\">Surface</div>\n            <div style=\"font-size:12px;color:var(--slt-text-color-secondary)\"><code>var(--slt-background-color)</code></div>\n          </div>\n        </div>\n\n        <div style=\"display:flex;gap:12px;align-items:center\">\n          <div style=\"width:120px;padding:8px;border-radius:6px;background:var(--slt-background-color);box-shadow:var(--slt-box-shadow-base)\">Elevated</div>\n          <div>\n            <div style=\"font-weight:600\">Elevation</div>\n            <div style=\"font-size:12px;color:var(--slt-text-color-secondary)\"><code>var(--slt-box-shadow-base)</code></div>\n          </div>\n        </div>\n      </div>\n    `,\n  }),\n}"
+                },
+                {
+                    "name": "VariantsFlat",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/molecules/card/card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: { variant: 'flat', size: 'medium' },\n  render: (args) => ({\n    props: args,\n    template: `\n      <storybook-card [variant]=\"variant\" [size]=\"size\">\n        <div cardHeader><strong>Flat</strong></div>\n        <div>Simple flat surface example</div>\n      </storybook-card>\n    `,\n  }),\n}"
+                },
+                {
+                    "name": "VariantsRaised",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/molecules/card/card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: { variant: 'raised', size: 'medium' },\n  render: (args) => ({\n    props: args,\n    template: `\n      <storybook-card [variant]=\"variant\" [size]=\"size\">\n        <div cardHeader><strong>Raised</strong></div>\n        <div>Elevated surface using tokenized shadow</div>\n      </storybook-card>\n    `,\n  }),\n}"
                 }
             ],
             "projects/slate/src/lib/atoms/checkbox/checkbox.stories.ts": [
@@ -765,7 +1868,7 @@
                     "defaultValue": "{\n  title: 'Atoms/Checkbox',\n  component: CheckboxComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: { control: 'color' },\n  },\n  args: {\n    onChange: fn(),\n  },\n}"
                 }
             ],
-            "projects/slate/src/lib/atoms/radio/radio.stories.ts": [
+            "projects/slate/src/lib/molecules/breadcrumb/breadcrumb.stories.ts": [
                 {
                     "name": "Default",
                     "ctype": "miscellaneous",
@@ -913,28 +2016,6 @@
                     "defaultValue": "{\n    args: {\n        separator: '/',\n        ariaLabel: 'Breadcrumb',\n        items: [\n            { label: 'Home', href: '#' },\n            { label: 'Products', href: '#' },\n            { label: 'Headphones' },\n        ],\n    },\n}"
                 }
             ],
-            "projects/slate/.storybook/preview.ts": [
-                {
-                    "name": "docJson",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/slate/.storybook/preview.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "any",
-                    "defaultValue": "{}"
-                },
-                {
-                    "name": "preview",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/slate/.storybook/preview.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Preview",
-                    "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n       color: /(background|color)$/i,\n       date: /Date$/i,\n      },\n    },\n  },\n}"
-                }
-            ],
             "projects/slate/src/lib/molecules/dropdown/dropdown.stories.ts": [
                 {
                     "name": "flatOptions",
@@ -1007,28 +2088,6 @@
                     "defaultValue": "{\n    args: {\n        options: flatOptions,\n        multiple: false,\n        searchable: true,\n        placeholder: 'Select a fruit',\n    },\n}"
                 }
             ],
-            "projects/slate/src/lib/atoms/avatar/avatar.stories.ts": [
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<any>",
-                    "defaultValue": "{\n  title: 'Atoms/Avatar',\n  component: AvatarComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CommonModule, AvatarComponent, IconComponent]\n    })\n  ],\n  argTypes: {\n    size: {\n      control: { type: 'select' },\n      options: ['large', 'small', 'default']\n    },\n    shape: {\n      control: { type: 'select' },\n      options: ['circle', 'square']\n    },\n    src: { control: 'text' },\n    alt: { control: 'text' },\n    status: {\n      control: { type: 'select' },\n      options: [null, 'online', 'offline', 'away', 'busy']\n    },\n    dark: { control: 'boolean' },\n    showIcon: { control: 'boolean' },\n    iconType: { control: 'text' }\n  }\n}"
-                },
-                {
-                    "name": "Playground",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {\n    size: 'default',\n    shape: 'circle',\n    src: '',\n    alt: 'John Doe',\n    status: null,\n    dark: false,\n    showIcon: false,\n    iconType: 'user'\n  },\n  render: (args: any) => {\n    // toggle theme class\n    if (args.dark) document.body.classList.add('theme-dark');\n    else document.body.classList.remove('theme-dark');\n\n    const iconTemplate = args.showIcon\n      ? `<ng-template #myIcon><slt-icon [type]=\"iconType\" [theme]=\"'outlined'\"></slt-icon></ng-template>`\n      : '';\n\n    const iconBinding = args.showIcon ? `[icon]=\"myIcon\"` : '';\n\n    // remove non-component args from props to avoid Angular input warnings\n    const { dark: _d, showIcon: _s, iconType: _i, ...componentProps } = args;\n    return {\n      props: { ...componentProps, iconType: args.iconType },\n      template: `\n          ${iconTemplate}\n          <div style=\"padding: 24px; background: var(--slt-background-color);\">\n            <slt-avatar ${iconBinding} [size]=\"size\" [shape]=\"shape\" [src]=\"src\" [alt]=\"alt\" [status]=\"status\"></slt-avatar>\n          </div>\n        `\n    };\n  }\n}"
-                }
-            ],
             "projects/slate/src/lib/atoms/button/button.stories.ts": [
                 {
                     "name": "meta",
@@ -1079,28 +2138,6 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display:flex; gap:12px;\">\n        <storybook-button\n          variant=\"primary\"\n          label=\"Primary\">\n        </storybook-button>\n\n        <storybook-button\n          variant=\"secondary\"\n          label=\"Secondary\">\n        </storybook-button>\n\n        <storybook-button\n          variant=\"ghost\"\n          label=\"Ghost\">\n        </storybook-button>\n\n        <storybook-button\n          variant=\"danger\"\n          label=\"Danger\">\n        </storybook-button>\n      </div>\n    `,\n  }),\n}"
-                }
-            ],
-            "projects/slate/src/lib/atoms/icon/icon.stories.ts": [
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<any>",
-                    "defaultValue": "{\n  title: 'Atoms/Icon',\n  component: IconComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CommonModule, IconComponent]\n    })\n  ],\n  argTypes: {\n    type: { control: 'text' },\n    theme: {\n      control: { type: 'select' },\n      options: ['outlined', 'filled', 'twoTone']\n    },\n    spin: { control: 'boolean' },\n    dark: { control: 'boolean' }\n  }\n}"
-                },
-                {
-                    "name": "Playground",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {\n    type: 'user',\n    theme: 'outlined',\n    spin: false,\n    dark: false\n  },\n  render: (args: any) => {\n    if (args.dark) document.body.classList.add('theme-dark');\n    else document.body.classList.remove('theme-dark');\n\n    // Don't pass `dark` into component props\n    const { dark: _d, ...componentProps } = args;\n\n    return {\n      props: componentProps,\n      template: `\n        <div style=\"padding: 24px; background: var(--slt-background-color); color: var(--slt-text-color);\">\n          <slt-icon [type]=\"type\" [theme]=\"theme\" [spin]=\"spin\"></slt-icon>\n        </div>\n      `\n    };\n  }\n}"
                 }
             ],
             "projects/slate/src/lib/atoms/typography/typography.stories.ts": [
@@ -1206,19 +2243,6 @@
                     "kind": 184
                 }
             ],
-            "projects/slate/src/lib/atoms/button/button.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<ButtonComponent>",
-                    "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
             "projects/slate/src/lib/atoms/checkbox/checkbox.stories.ts": [
                 {
                     "name": "Story",
@@ -1252,6 +2276,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<RadioComponent>",
                     "file": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/slate/src/lib/atoms/button/button.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ButtonComponent>",
+                    "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -1310,6 +2347,19 @@
                     "kind": 184
                 }
             ],
+            "projects/slate/src/lib/molecules/card/card.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<CardComponent>",
+                    "file": "projects/slate/src/lib/molecules/card/card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
             "projects/slate/src/lib/molecules/dropdown/dropdown.stories.ts": [
                 {
                     "name": "Story",
@@ -1323,13 +2373,39 @@
                     "kind": 184
                 }
             ],
-            "projects/slate/src/lib/molecules/pagination/pagination.stories.ts": [
+            "projects/slate/src/lib/molecules/form-field/form-field.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<FormFieldComponent>",
+                    "file": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<SearchBarComponent>",
+                    "file": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
                     "rawtype": "StoryObj<PaginationComponent>",
-                    "file": "projects/slate/src/lib/molecules/pagination/pagination.stories.ts",
+                    "file": "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -1352,6 +2428,16 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
+                "name": "_sltTokens",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/.storybook/preview.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
                 "name": "docJson",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
@@ -1362,7 +2448,27 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
+                "name": "globalThis",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/.storybook/preview.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
                 "name": "preview",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "DarkExample",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -1383,6 +2489,106 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Playground",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ShapeCircle",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ShapeSquare",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "SizesDefault",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "SizesLarge",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "SizesSmall",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "StatusAway",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "StatusBusy",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "StatusOffline",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "StatusOnline",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/atoms/avatar/avatar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithIcon",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -1572,6 +2778,36 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
+                "name": "Accessibility",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Colors",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "DarkExample",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
                 "name": "meta",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
@@ -1583,6 +2819,76 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Playground",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Sizes",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "SpinOff",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "SpinOn",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "SvgOverride",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ThemeFilled",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ThemeOutlined",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ThemeTwoTone",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -1838,6 +3144,146 @@
                 "status": "low"
             },
             {
+                "filePath": "projects/slate/src/lib/molecules/card/card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "DarkTheme",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/card/card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "FooterOnly",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/card/card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "HeaderBodyFooter",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/card/card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "HeaderOnly",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/card/card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "LongContent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/card/card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/card/card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Playground",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/card/card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "SizesLarge",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/card/card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "SizesMedium",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/card/card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "SizesSmall",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/card/card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "TokenShowcase",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/card/card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "VariantsFlat",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/card/card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "VariantsRaised",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/card/card.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "projects/slate/src/lib/molecules/dropdown/dropdown.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -1918,27 +3364,27 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/slate/src/lib/molecules/pagination/pagination.stories.ts",
+                "filePath": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Compact",
+                "name": "AllStates",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
             },
             {
-                "filePath": "projects/slate/src/lib/molecules/pagination/pagination.stories.ts",
+                "filePath": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "ManyPages",
+                "name": "EmailValidation",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
             },
             {
-                "filePath": "projects/slate/src/lib/molecules/pagination/pagination.stories.ts",
+                "filePath": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -1948,7 +3394,27 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/slate/src/lib/molecules/pagination/pagination.stories.ts",
+                "filePath": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "NumberValidation",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "PasswordField",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -1958,7 +3424,147 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/slate/src/lib/molecules/pagination/pagination.stories.ts",
+                "filePath": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "RequiredValidation",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "UrlValidation",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/form-field/form-field.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Compact",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ManyPages",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Playground",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "CustomPlaceholder",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Disabled",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Playground",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Sizes",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithValue",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",
