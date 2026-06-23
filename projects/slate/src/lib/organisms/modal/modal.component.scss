@@ -1,0 +1,142 @@
+.storybook-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: var(--slt-padding-md, 16px);
+  box-sizing: border-box;
+  animation: modal-backdrop-fade-in 0.25s ease-out forwards;
+}
+
+.storybook-modal {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--slt-background-color, #ffffff);
+  color: var(--slt-text-color, rgba(0, 0, 0, 0.85));
+  border-radius: var(--slt-border-radius-base, 8px);
+  box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05), 0 12px 48px 16px rgba(0, 0, 0, 0.03);
+  max-height: calc(100vh - 48px);
+  overflow: hidden;
+  box-sizing: border-box;
+  animation: modal-slide-up 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  width: 100%;
+}
+
+/* Modal Sizes */
+.storybook-modal--small {
+  max-width: 440px;
+}
+
+.storybook-modal--medium {
+  max-width: 600px;
+}
+
+.storybook-modal--large {
+  max-width: 800px;
+}
+
+.storybook-modal--full {
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  border-radius: 0;
+  animation: modal-backdrop-fade-in 0.25s ease-out forwards; // Simpler animation for full screen
+}
+
+/* Modal Elements */
+.storybook-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--slt-padding-md, 16px) var(--slt-padding-lg, 24px);
+  border-bottom: 1px solid var(--slt-border-color-base, #f0f0f0);
+}
+
+.storybook-modal__title {
+  margin: 0;
+  font-size: var(--slt-font-size-lg, 16px);
+  line-height: 1.5;
+  font-weight: 600;
+  color: var(--slt-heading-color, rgba(0, 0, 0, 0.85));
+}
+
+.storybook-modal__close {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: var(--slt-border-radius-sm, 4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--slt-text-color-secondary, rgba(0, 0, 0, 0.45));
+  transition: color 0.2s, background-color 0.2s;
+  margin-right: -8px;
+}
+
+.storybook-modal__close:hover {
+  color: var(--slt-text-color, rgba(0, 0, 0, 0.85));
+  background-color: rgba(0, 0, 0, 0.06);
+}
+
+.storybook-modal__close-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.storybook-modal__body {
+  padding: var(--slt-padding-lg, 24px);
+  overflow-y: auto;
+  font-size: var(--slt-font-size-base, 14px);
+  line-height: var(--slt-line-height-base, 1.5715);
+  flex-grow: 1;
+}
+
+.storybook-modal__footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  padding: var(--slt-padding-sm, 12px) var(--slt-padding-lg, 24px);
+  border-top: 1px solid var(--slt-border-color-base, #f0f0f0);
+  background-color: var(--slt-background-color-alt, #fafafa);
+}
+
+/* Animations */
+@keyframes modal-backdrop-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Dark theme style overrides */
+:host-context(body.theme-dark) {
+  .storybook-modal__footer {
+    background-color: rgba(255, 255, 255, 0.02);
+  }
+  .storybook-modal__close:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+}

@@ -13,3 +13,4 @@ export * from './lib/molecules/card/card.component';
 export * from './lib/atoms/icon/icon.component';
 export * from './lib/atoms/icon/icon.types';
 export * from './lib/organisms/navigation-sidebar/navigation-sidebar.component';
+export * from './lib/organisms/modal/modal.component';
