@@ -41,6 +41,26 @@
                 "defaultValue": "{\n  args: {\n    activeHref: '/projects',\n    collapsed: false,\n  },\n}"
             },
             {
+                "name": "allFieldsSchema",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "FormSchema",
+                "defaultValue": "{\n  submitLabel: 'Submit',\n  cancelLabel: 'Reset',\n  successMessage: 'Form submitted successfully!',\n  fields: [\n    { key: 'text', type: 'text', label: 'Text', placeholder: 'Plain text', validators: { required: true } },\n    { key: 'email', type: 'email', label: 'Email', placeholder: 'you@example.com', validators: { required: true } },\n    { key: 'password', type: 'password', label: 'Password', placeholder: '••••••••', validators: { required: true, minLength: 8 } },\n    { key: 'number', type: 'number', label: 'Number', placeholder: '42', validators: { required: true } },\n    { key: 'tel', type: 'tel', label: 'Phone', placeholder: '+1 555 000 0000' },\n    { key: 'url', type: 'url', label: 'URL', placeholder: 'https://example.com' },\n    {\n      key: 'country',\n      type: 'dropdown',\n      label: 'Country',\n      placeholder: 'Select country',\n      validators: { required: true },\n      options: [\n        { label: 'United States', value: 'us' },\n        { label: 'United Kingdom', value: 'uk' },\n        { label: 'Canada', value: 'ca' },\n        { label: 'India', value: 'in' },\n      ],\n    },\n    {\n      key: 'plan',\n      type: 'radio',\n      label: 'Plan',\n      validators: { required: true },\n      options: [\n        { label: 'Free', value: 'free' },\n        { label: 'Pro', value: 'pro' },\n        { label: 'Enterprise', value: 'enterprise' },\n      ],\n    },\n    { key: 'agree', type: 'checkbox', label: 'I accept the terms', validators: { required: true } },\n    { key: 'darkMode', type: 'toggle', label: 'Enable dark mode', defaultValue: false },\n  ],\n}"
+            },
+            {
+                "name": "AllFieldTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  name: 'All Field Types',\n  args: {\n    schema: allFieldsSchema,\n    loading: false,\n  },\n}"
+            },
+            {
                 "name": "AllStates",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -89,6 +109,26 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n    args: {\n        currentPage: 2,\n        totalPages: 4,\n        boundaryCount: 1,\n        siblingCount: 0,\n        disabled: false,\n        ariaLabel: 'Pagination',\n    },\n}"
+            },
+            {
+                "name": "ContactForm",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    schema: contactSchema,\n    loading: false,\n  },\n}"
+            },
+            {
+                "name": "contactSchema",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "FormSchema",
+                "defaultValue": "{\n  submitLabel: 'Send Message',\n  cancelLabel: 'Cancel',\n  successMessage: 'Your message has been sent successfully!',\n  fields: [\n    {\n      key: 'name',\n      type: 'text',\n      label: 'Full Name',\n      placeholder: 'Jane Doe',\n      validators: { required: true, minLength: 2 },\n    },\n    {\n      key: 'email',\n      type: 'email',\n      label: 'Email Address',\n      placeholder: 'jane@example.com',\n      validators: { required: true },\n    },\n    {\n      key: 'message',\n      type: 'text',\n      label: 'Message',\n      placeholder: 'Write your message here…',\n      validators: { required: true, minLength: 10 },\n    },\n  ],\n}"
             },
             {
                 "name": "CustomPlaceholder",
@@ -169,6 +209,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    label: 'Date',\n    placeholder: 'Select a date',\n    helperText: '',\n    validationMessage: '',\n    value: '',\n    min: '',\n    max: '',\n    disabled: false,\n    readonly: false,\n    required: false,\n    variant: 'default',\n    size: 'medium',\n    showPrefix: false,\n    showSuffix: false,\n    showDefaultIcon: true,\n  },\n  render,\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/modal/modal.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: (args) => ({\n    props: args,\n    template: `\n      <div>\n        <storybook-button label=\"Open Modal\" (onClick)=\"isOpen = true\"></storybook-button>\n        <storybook-modal\n          [isOpen]=\"isOpen\"\n          (isOpenChange)=\"isOpen = $event\"\n          [title]=\"title\"\n          [size]=\"size\"\n          [closeOnBackdropClick]=\"closeOnBackdropClick\"\n          [showCloseButton]=\"showCloseButton\"\n          (onClose)=\"onClose()\"\n        >\n          <p>This is the main body content of the modal. You can place any HTML elements or other components here.</p>\n          <div modalFooter>\n            <storybook-button variant=\"ghost\" label=\"Cancel\" (onClick)=\"isOpen = false\"></storybook-button>\n            <storybook-button label=\"Confirm\" (onClick)=\"isOpen = false\"></storybook-button>\n          </div>\n        </storybook-modal>\n      </div>\n    `,\n  }),\n  args: {\n    isOpen: true,\n    title: 'Interactive Modal',\n    size: 'medium',\n  },\n}"
             },
             {
                 "name": "Default",
@@ -400,6 +450,16 @@
                 "defaultValue": "{ args: { ...Default.args, size: 'large' }, render }"
             },
             {
+                "name": "LoadingState",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    schema: contactSchema,\n    loading: true,\n  },\n}"
+            },
+            {
                 "name": "LongContent",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -523,16 +583,6 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/molecules/breadcrumb/breadcrumb.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<BreadcrumbComponent>",
-                "defaultValue": "{\n    title: 'Molecules/Breadcrumb',\n    component: BreadcrumbComponent,\n    tags: ['autodocs'],\n    argTypes: {\n        separator: {\n            control: 'text',\n            description: 'Character or text displayed between breadcrumb items',\n        },\n        ariaLabel: {\n            control: 'text',\n            description: 'Accessible label for the breadcrumb navigation',\n        },\n    },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/slate/src/lib/molecules/card/card.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -548,6 +598,16 @@
                 "deprecationMessage": "",
                 "type": "Meta<any>",
                 "defaultValue": "{\n    title: 'Molecules/Dropdown',\n    component: DropdownComponent,\n    decorators: [\n        moduleMetadata({\n            imports: [CommonModule, DropdownComponent],\n        }),\n    ],\n    argTypes: {\n        multiple: { control: 'boolean' },\n        searchable: { control: 'boolean' },\n        disabled: { control: 'boolean' },\n        allowClear: { control: 'boolean' },\n        placeholder: { control: 'text' },\n        notFoundText: { control: 'text' },\n    },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/breadcrumb/breadcrumb.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<BreadcrumbComponent>",
+                "defaultValue": "{\n    title: 'Molecules/Breadcrumb',\n    component: BreadcrumbComponent,\n    tags: ['autodocs'],\n    argTypes: {\n        separator: {\n            control: 'text',\n            description: 'Character or text displayed between breadcrumb items',\n        },\n        ariaLabel: {\n            control: 'text',\n            description: 'Accessible label for the breadcrumb navigation',\n        },\n    },\n}"
             },
             {
                 "name": "meta",
@@ -587,7 +647,27 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<Args>",
-                "defaultValue": "{\n  title: 'Molecules/DatePicker',\n  component: DatePickerComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    label: { control: 'text' },\n    helperText: { control: 'text' },\n    validationMessage: { control: 'text' },\n    placeholder: { control: 'text' },\n    value: { control: 'text' },\n    min: { control: 'text' },\n    max: { control: 'text' },\n    disabled: { control: 'boolean' },\n    readonly: { control: 'boolean' },\n    required: { control: 'boolean' },\n    variant: { control: 'radio', options: ['default', 'filled', 'ghost'] },\n    size: { control: 'radio', options: ['small', 'medium', 'large'] },\n      showPrefix: { control: 'boolean' },\n      showSuffix: { control: 'boolean' },\n      showDefaultIcon: { control: 'boolean' },\n  },\n}"
+                "defaultValue": "{\n  title: 'Organisms/DatePicker',\n  component: DatePickerComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    label: { control: 'text' },\n    helperText: { control: 'text' },\n    validationMessage: { control: 'text' },\n    placeholder: { control: 'text' },\n    value: { control: 'text' },\n    min: { control: 'text' },\n    max: { control: 'text' },\n    disabled: { control: 'boolean' },\n    readonly: { control: 'boolean' },\n    required: { control: 'boolean' },\n    variant: { control: 'radio', options: ['default', 'filled', 'ghost'] },\n    size: { control: 'radio', options: ['small', 'medium', 'large'] },\n      showPrefix: { control: 'boolean' },\n      showSuffix: { control: 'boolean' },\n      showDefaultIcon: { control: 'boolean' },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<FormComponent>",
+                "defaultValue": "{\n  title: 'Organisms/Form',\n  component: FormComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    loading: { control: 'boolean', description: 'Shows loading state on submit button' },\n  },\n  args: {\n    formSubmit: fn(),\n    formCancel: fn(),\n    formChange: fn(),\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/modal/modal.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ModalComponent>",
+                "defaultValue": "{\n  title: 'Organisms/Modal',\n  component: ModalComponent,\n  tags: ['autodocs'],\n  decorators: [\n    moduleMetadata({\n      imports: [ModalComponent, ButtonComponent],\n    }),\n  ],\n  argTypes: {\n    size: {\n      control: 'select',\n      options: ['small', 'medium', 'large', 'full'],\n      description: 'Size of the modal container',\n    },\n    isOpen: {\n      control: 'boolean',\n      description: 'Whether the modal is visible',\n    },\n    title: {\n      control: 'text',\n      description: 'Modal title text',\n    },\n    closeOnBackdropClick: {\n      control: 'boolean',\n      description: 'Close the modal when clicking outside',\n    },\n    showCloseButton: {\n      control: 'boolean',\n      description: 'Show or hide the close button in the header',\n    },\n  },\n  args: {\n    isOpen: false,\n    title: 'Modal Title',\n    size: 'medium',\n    closeOnBackdropClick: true,\n    showCloseButton: true,\n    onClose: fn(),\n  },\n}"
             },
             {
                 "name": "meta",
@@ -607,7 +687,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<Args>",
-                "defaultValue": "{\n  title: 'Molecules/TimePicker',\n  component: TimePickerComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    label: { control: 'text' },\n    helperText: { control: 'text' },\n    validationMessage: { control: 'text' },\n    placeholder: { control: 'text' },\n    value: { control: 'text' },\n    min: { control: 'text' },\n    max: { control: 'text' },\n    disabled: { control: 'boolean' },\n    readonly: { control: 'boolean' },\n    required: { control: 'boolean' },\n    variant: { control: 'radio', options: ['default', 'filled', 'ghost'] },\n    size: { control: 'radio', options: ['small', 'medium', 'large'] },\n    showPrefix: { control: 'boolean' },\n    showSuffix: { control: 'boolean' },\n    showDefaultIcon: { control: 'boolean' },\n  },\n}"
+                "defaultValue": "{\n  title: 'Organisms/TimePicker',\n  component: TimePickerComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    label: { control: 'text' },\n    helperText: { control: 'text' },\n    validationMessage: { control: 'text' },\n    placeholder: { control: 'text' },\n    value: { control: 'text' },\n    min: { control: 'text' },\n    max: { control: 'text' },\n    disabled: { control: 'boolean' },\n    readonly: { control: 'boolean' },\n    required: { control: 'boolean' },\n    variant: { control: 'radio', options: ['default', 'filled', 'ghost'] },\n    size: { control: 'radio', options: ['small', 'medium', 'large'] },\n    showPrefix: { control: 'boolean' },\n    showSuffix: { control: 'boolean' },\n    showDefaultIcon: { control: 'boolean' },\n  },\n}"
             },
             {
                 "name": "Modifiers",
@@ -733,21 +813,21 @@
                 "name": "Playground",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/molecules/breadcrumb/breadcrumb.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n    args: {\n        separator: '/',\n        ariaLabel: 'Breadcrumb',\n        items: [\n            { label: 'Home', href: '#' },\n            { label: 'Products', href: '#' },\n            { label: 'Headphones' },\n        ],\n    },\n}"
-            },
-            {
-                "name": "Playground",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/slate/src/lib/molecules/card/card.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    variant: 'flat',\n    size: 'medium',\n    ariaLabel: 'Example card',\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <storybook-card [variant]=\"variant\" [size]=\"size\" [ariaLabel]=\"ariaLabel\">\n        <div cardHeader>\n          <h3 style=\"margin:0\">Card Header</h3>\n        </div>\n\n        <p style=\"margin:0\">This is the main body content of the card. It accepts arbitrary projection.</p>\n\n        <div cardFooter>\n          <div style=\"display:flex;justify-content:flex-end;gap:8px\">\n            <button>Cancel</button>\n            <button>Save</button>\n          </div>\n        </div>\n      </storybook-card>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "Playground",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/breadcrumb/breadcrumb.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n    args: {\n        separator: '/',\n        ariaLabel: 'Breadcrumb',\n        items: [\n            { label: 'Home', href: '#' },\n            { label: 'Products', href: '#' },\n            { label: 'Headphones' },\n        ],\n    },\n}"
             },
             {
                 "name": "Playground",
@@ -780,6 +860,16 @@
                 "defaultValue": "{\n  args: {\n    value: '',\n    placeholder: 'Search…',\n    disabled: false,\n  },\n}"
             },
             {
+                "name": "PrePopulated",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    schema: registrationSchema,\n    loading: false,\n    initialValues: {\n      firstName: 'Jane',\n      lastName: 'Doe',\n      email: 'jane@example.com',\n      role: 'designer',\n      newsletter: true,\n    },\n  },\n}"
+            },
+            {
                 "name": "preview",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -788,6 +878,26 @@
                 "deprecationMessage": "",
                 "type": "Preview",
                 "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n       color: /(background|color)$/i,\n       date: /Date$/i,\n      },\n    },\n  },\n}"
+            },
+            {
+                "name": "profileSchema",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "FormSchema",
+                "defaultValue": "{\n  layout: 'two-column',\n  submitLabel: 'Save Changes',\n  successMessage: 'Profile updated successfully.',\n  fields: [\n    {\n      key: 'displayName',\n      type: 'text',\n      label: 'Display Name',\n      placeholder: 'jane_doe',\n      validators: { required: true },\n    },\n    {\n      key: 'website',\n      type: 'url',\n      label: 'Website',\n      placeholder: 'https://example.com',\n      helperText: 'Must start with https://',\n    },\n    {\n      key: 'theme',\n      type: 'radio',\n      label: 'Theme',\n      validators: { required: true },\n      options: [\n        { label: 'Light', value: 'light' },\n        { label: 'Dark', value: 'dark' },\n        { label: 'System', value: 'system' },\n      ],\n    },\n    {\n      key: 'notifications',\n      type: 'toggle',\n      label: 'Enable email notifications',\n      helperText: 'We will email you about important updates.',\n      defaultValue: true,\n    },\n  ],\n}"
+            },
+            {
+                "name": "ProfileSettings",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    schema: profileSchema,\n    loading: false,\n    initialValues: { theme: 'system', notifications: true },\n  },\n}"
             },
             {
                 "name": "Readonly",
@@ -808,6 +918,26 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{ args: { ...Default.args, readonly: true, value: '12:00' }, render }"
+            },
+            {
+                "name": "RegistrationForm",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    schema: registrationSchema,\n    loading: false,\n  },\n}"
+            },
+            {
+                "name": "registrationSchema",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "FormSchema",
+                "defaultValue": "{\n  layout: 'two-column',\n  submitLabel: 'Create Account',\n  cancelLabel: 'Back to Login',\n  successMessage: 'Account created! Welcome aboard.',\n  fields: [\n    {\n      key: 'firstName',\n      type: 'text',\n      label: 'First Name',\n      placeholder: 'Jane',\n      validators: { required: true },\n    },\n    {\n      key: 'lastName',\n      type: 'text',\n      label: 'Last Name',\n      placeholder: 'Doe',\n      validators: { required: true },\n    },\n    {\n      key: 'email',\n      type: 'email',\n      label: 'Email Address',\n      placeholder: 'jane@example.com',\n      validators: { required: true },\n      colSpan: 2,\n    },\n    {\n      key: 'password',\n      type: 'password',\n      label: 'Password',\n      placeholder: '••••••••',\n      helperText: 'Minimum 8 characters.',\n      validators: { required: true, minLength: 8 },\n    },\n    {\n      key: 'role',\n      type: 'dropdown',\n      label: 'Role',\n      placeholder: 'Select a role',\n      validators: { required: true },\n      options: [\n        { label: 'Developer', value: 'developer' },\n        { label: 'Designer', value: 'designer' },\n        { label: 'Product Manager', value: 'pm' },\n        { label: 'Other', value: 'other' },\n      ],\n    },\n    {\n      key: 'newsletter',\n      type: 'checkbox',\n      label: 'Subscribe to newsletter',\n      colSpan: 2,\n    },\n    {\n      key: 'terms',\n      type: 'checkbox',\n      label: 'I agree to the Terms and Conditions',\n      validators: { required: true },\n      colSpan: 2,\n    },\n  ],\n}"
             },
             {
                 "name": "render",
@@ -898,6 +1028,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 16px;\">\n        <div style=\"width: 240px;\">\n          <slt-search-bar placeholder=\"Compact (240px)\"></slt-search-bar>\n        </div>\n        <div style=\"width: 400px;\">\n          <slt-search-bar placeholder=\"Medium (400px)\"></slt-search-bar>\n        </div>\n        <div style=\"width: 100%;\">\n          <slt-search-bar placeholder=\"Full width\"></slt-search-bar>\n        </div>\n      </div>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "Sizes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/modal/modal.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 12px;\">\n        <storybook-button label=\"Open Small\" (onClick)=\"smallOpen = true\"></storybook-button>\n        <storybook-button label=\"Open Medium\" (onClick)=\"medOpen = true\"></storybook-button>\n        <storybook-button label=\"Open Large\" (onClick)=\"largeOpen = true\"></storybook-button>\n        <storybook-button label=\"Open Full Screen\" (onClick)=\"fullOpen = true\"></storybook-button>\n\n        <!-- Small Modal -->\n        <storybook-modal [(isOpen)]=\"smallOpen\" title=\"Small Modal\" size=\"small\">\n          <p>This is a small size modal, best for alerts or quick confirmations.</p>\n          <div modalFooter>\n            <storybook-button label=\"Close\" (onClick)=\"smallOpen = false\"></storybook-button>\n          </div>\n        </storybook-modal>\n\n        <!-- Medium Modal -->\n        <storybook-modal [(isOpen)]=\"medOpen\" title=\"Medium Modal\" size=\"medium\">\n          <p>This is a medium size modal. It is the default size and works well for most general content.</p>\n          <div modalFooter>\n            <storybook-button label=\"Close\" (onClick)=\"medOpen = false\"></storybook-button>\n          </div>\n        </storybook-modal>\n\n        <!-- Large Modal -->\n        <storybook-modal [(isOpen)]=\"largeOpen\" title=\"Large Modal\" size=\"large\">\n          <p>This is a large size modal, suitable for displaying data tables, forms, or media content.</p>\n          <div modalFooter>\n            <storybook-button label=\"Close\" (onClick)=\"largeOpen = false\"></storybook-button>\n          </div>\n        </storybook-modal>\n\n        <!-- Full Screen Modal -->\n        <storybook-modal [(isOpen)]=\"fullOpen\" title=\"Full Screen Modal\" size=\"full\">\n          <p>This is a full screen modal. It takes up the entire viewport, ideal for rich experiences or multi-step wizard processes.</p>\n          <div modalFooter>\n            <storybook-button label=\"Close\" (onClick)=\"fullOpen = false\"></storybook-button>\n          </div>\n        </storybook-modal>\n      </div>\n    `,\n  }),\n}"
             },
             {
                 "name": "SizesDefault",
@@ -1008,6 +1148,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display:flex; gap:12px;\">\n        <storybook-button\n          label=\"Default\">\n        </storybook-button>\n\n        <storybook-button\n          [disabled]=\"true\"\n          label=\"Disabled\">\n        </storybook-button>\n\n        <storybook-button\n          [loading]=\"true\"\n          label=\"Loading\">\n        </storybook-button>\n      </div>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "StaticBackdrop",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/modal/modal.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: (args) => ({\n    props: args,\n    template: `\n      <div>\n        <storybook-button label=\"Open Modal (Static Backdrop)\" (onClick)=\"isOpen = true\"></storybook-button>\n        <storybook-modal\n          [(isOpen)]=\"isOpen\"\n          [title]=\"title\"\n          [closeOnBackdropClick]=\"closeOnBackdropClick\"\n          (onClose)=\"onClose()\"\n        >\n          <p>This modal cannot be closed by clicking the background overlay. You must click the close icon or actions below.</p>\n          <div modalFooter>\n            <storybook-button label=\"Understood\" (onClick)=\"isOpen = false\"></storybook-button>\n          </div>\n        </storybook-modal>\n      </div>\n    `,\n  }),\n  args: {\n    isOpen: true,\n    title: 'Static Backdrop Modal',\n    closeOnBackdropClick: false,\n  },\n}"
             },
             {
                 "name": "StatusAway",
@@ -1237,7 +1387,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{ args: { ...Default.args, showPrefix: true }, render }"
+                "defaultValue": "{ args: {\n  ...Default.args,\n  showPrefix: false,\n  showDefaultIcon: false\n}, render }"
             },
             {
                 "name": "WithPrefixAndSuffix",
@@ -1408,17 +1558,6 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<BreadcrumbComponent>",
-                "file": "projects/slate/src/lib/molecules/breadcrumb/breadcrumb.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 184
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
                 "rawtype": "StoryObj<CardComponent>",
                 "file": "projects/slate/src/lib/molecules/card/card.stories.ts",
                 "deprecated": false,
@@ -1432,6 +1571,17 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<any>",
                 "file": "projects/slate/src/lib/molecules/dropdown/dropdown.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<BreadcrumbComponent>",
+                "file": "projects/slate/src/lib/molecules/breadcrumb/breadcrumb.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1476,6 +1626,28 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<Args>",
                 "file": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<FormComponent>",
+                "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<ModalComponent>",
+                "file": "projects/slate/src/lib/organisms/modal/modal.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1719,6 +1891,118 @@
                     "deprecationMessage": "",
                     "type": "NavigationSidebarItem[]",
                     "defaultValue": "[\n  { label: 'Dashboard', href: '/dashboard', icon: 'home' },\n  { label: 'Projects', href: '/projects', icon: 'folder' },\n  { label: 'Teams', href: '/teams', icon: 'team' },\n  { label: 'Settings', href: '/settings', icon: 'setting', disabled: true },\n]"
+                }
+            ],
+            "projects/slate/src/lib/organisms/form/form.stories.ts": [
+                {
+                    "name": "allFieldsSchema",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "FormSchema",
+                    "defaultValue": "{\n  submitLabel: 'Submit',\n  cancelLabel: 'Reset',\n  successMessage: 'Form submitted successfully!',\n  fields: [\n    { key: 'text', type: 'text', label: 'Text', placeholder: 'Plain text', validators: { required: true } },\n    { key: 'email', type: 'email', label: 'Email', placeholder: 'you@example.com', validators: { required: true } },\n    { key: 'password', type: 'password', label: 'Password', placeholder: '••••••••', validators: { required: true, minLength: 8 } },\n    { key: 'number', type: 'number', label: 'Number', placeholder: '42', validators: { required: true } },\n    { key: 'tel', type: 'tel', label: 'Phone', placeholder: '+1 555 000 0000' },\n    { key: 'url', type: 'url', label: 'URL', placeholder: 'https://example.com' },\n    {\n      key: 'country',\n      type: 'dropdown',\n      label: 'Country',\n      placeholder: 'Select country',\n      validators: { required: true },\n      options: [\n        { label: 'United States', value: 'us' },\n        { label: 'United Kingdom', value: 'uk' },\n        { label: 'Canada', value: 'ca' },\n        { label: 'India', value: 'in' },\n      ],\n    },\n    {\n      key: 'plan',\n      type: 'radio',\n      label: 'Plan',\n      validators: { required: true },\n      options: [\n        { label: 'Free', value: 'free' },\n        { label: 'Pro', value: 'pro' },\n        { label: 'Enterprise', value: 'enterprise' },\n      ],\n    },\n    { key: 'agree', type: 'checkbox', label: 'I accept the terms', validators: { required: true } },\n    { key: 'darkMode', type: 'toggle', label: 'Enable dark mode', defaultValue: false },\n  ],\n}"
+                },
+                {
+                    "name": "AllFieldTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  name: 'All Field Types',\n  args: {\n    schema: allFieldsSchema,\n    loading: false,\n  },\n}"
+                },
+                {
+                    "name": "ContactForm",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    schema: contactSchema,\n    loading: false,\n  },\n}"
+                },
+                {
+                    "name": "contactSchema",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "FormSchema",
+                    "defaultValue": "{\n  submitLabel: 'Send Message',\n  cancelLabel: 'Cancel',\n  successMessage: 'Your message has been sent successfully!',\n  fields: [\n    {\n      key: 'name',\n      type: 'text',\n      label: 'Full Name',\n      placeholder: 'Jane Doe',\n      validators: { required: true, minLength: 2 },\n    },\n    {\n      key: 'email',\n      type: 'email',\n      label: 'Email Address',\n      placeholder: 'jane@example.com',\n      validators: { required: true },\n    },\n    {\n      key: 'message',\n      type: 'text',\n      label: 'Message',\n      placeholder: 'Write your message here…',\n      validators: { required: true, minLength: 10 },\n    },\n  ],\n}"
+                },
+                {
+                    "name": "LoadingState",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    schema: contactSchema,\n    loading: true,\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<FormComponent>",
+                    "defaultValue": "{\n  title: 'Organisms/Form',\n  component: FormComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    loading: { control: 'boolean', description: 'Shows loading state on submit button' },\n  },\n  args: {\n    formSubmit: fn(),\n    formCancel: fn(),\n    formChange: fn(),\n  },\n}"
+                },
+                {
+                    "name": "PrePopulated",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    schema: registrationSchema,\n    loading: false,\n    initialValues: {\n      firstName: 'Jane',\n      lastName: 'Doe',\n      email: 'jane@example.com',\n      role: 'designer',\n      newsletter: true,\n    },\n  },\n}"
+                },
+                {
+                    "name": "profileSchema",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "FormSchema",
+                    "defaultValue": "{\n  layout: 'two-column',\n  submitLabel: 'Save Changes',\n  successMessage: 'Profile updated successfully.',\n  fields: [\n    {\n      key: 'displayName',\n      type: 'text',\n      label: 'Display Name',\n      placeholder: 'jane_doe',\n      validators: { required: true },\n    },\n    {\n      key: 'website',\n      type: 'url',\n      label: 'Website',\n      placeholder: 'https://example.com',\n      helperText: 'Must start with https://',\n    },\n    {\n      key: 'theme',\n      type: 'radio',\n      label: 'Theme',\n      validators: { required: true },\n      options: [\n        { label: 'Light', value: 'light' },\n        { label: 'Dark', value: 'dark' },\n        { label: 'System', value: 'system' },\n      ],\n    },\n    {\n      key: 'notifications',\n      type: 'toggle',\n      label: 'Enable email notifications',\n      helperText: 'We will email you about important updates.',\n      defaultValue: true,\n    },\n  ],\n}"
+                },
+                {
+                    "name": "ProfileSettings",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    schema: profileSchema,\n    loading: false,\n    initialValues: { theme: 'system', notifications: true },\n  },\n}"
+                },
+                {
+                    "name": "RegistrationForm",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    schema: registrationSchema,\n    loading: false,\n  },\n}"
+                },
+                {
+                    "name": "registrationSchema",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "FormSchema",
+                    "defaultValue": "{\n  layout: 'two-column',\n  submitLabel: 'Create Account',\n  cancelLabel: 'Back to Login',\n  successMessage: 'Account created! Welcome aboard.',\n  fields: [\n    {\n      key: 'firstName',\n      type: 'text',\n      label: 'First Name',\n      placeholder: 'Jane',\n      validators: { required: true },\n    },\n    {\n      key: 'lastName',\n      type: 'text',\n      label: 'Last Name',\n      placeholder: 'Doe',\n      validators: { required: true },\n    },\n    {\n      key: 'email',\n      type: 'email',\n      label: 'Email Address',\n      placeholder: 'jane@example.com',\n      validators: { required: true },\n      colSpan: 2,\n    },\n    {\n      key: 'password',\n      type: 'password',\n      label: 'Password',\n      placeholder: '••••••••',\n      helperText: 'Minimum 8 characters.',\n      validators: { required: true, minLength: 8 },\n    },\n    {\n      key: 'role',\n      type: 'dropdown',\n      label: 'Role',\n      placeholder: 'Select a role',\n      validators: { required: true },\n      options: [\n        { label: 'Developer', value: 'developer' },\n        { label: 'Designer', value: 'designer' },\n        { label: 'Product Manager', value: 'pm' },\n        { label: 'Other', value: 'other' },\n      ],\n    },\n    {\n      key: 'newsletter',\n      type: 'checkbox',\n      label: 'Subscribe to newsletter',\n      colSpan: 2,\n    },\n    {\n      key: 'terms',\n      type: 'checkbox',\n      label: 'I agree to the Terms and Conditions',\n      validators: { required: true },\n      colSpan: 2,\n    },\n  ],\n}"
                 }
             ],
             "projects/slate/src/lib/molecules/form-field/form-field.stories.ts": [
@@ -2348,7 +2632,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<Args>",
-                    "defaultValue": "{\n  title: 'Molecules/DatePicker',\n  component: DatePickerComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    label: { control: 'text' },\n    helperText: { control: 'text' },\n    validationMessage: { control: 'text' },\n    placeholder: { control: 'text' },\n    value: { control: 'text' },\n    min: { control: 'text' },\n    max: { control: 'text' },\n    disabled: { control: 'boolean' },\n    readonly: { control: 'boolean' },\n    required: { control: 'boolean' },\n    variant: { control: 'radio', options: ['default', 'filled', 'ghost'] },\n    size: { control: 'radio', options: ['small', 'medium', 'large'] },\n      showPrefix: { control: 'boolean' },\n      showSuffix: { control: 'boolean' },\n      showDefaultIcon: { control: 'boolean' },\n  },\n}"
+                    "defaultValue": "{\n  title: 'Organisms/DatePicker',\n  component: DatePickerComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    label: { control: 'text' },\n    helperText: { control: 'text' },\n    validationMessage: { control: 'text' },\n    placeholder: { control: 'text' },\n    value: { control: 'text' },\n    min: { control: 'text' },\n    max: { control: 'text' },\n    disabled: { control: 'boolean' },\n    readonly: { control: 'boolean' },\n    required: { control: 'boolean' },\n    variant: { control: 'radio', options: ['default', 'filled', 'ghost'] },\n    size: { control: 'radio', options: ['small', 'medium', 'large'] },\n      showPrefix: { control: 'boolean' },\n      showSuffix: { control: 'boolean' },\n      showDefaultIcon: { control: 'boolean' },\n  },\n}"
                 },
                 {
                     "name": "Readonly",
@@ -2398,7 +2682,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{ args: { ...Default.args, showPrefix: true }, render }"
+                    "defaultValue": "{ args: {\n  ...Default.args,\n  showPrefix: false,\n  showDefaultIcon: false\n}, render }"
                 },
                 {
                     "name": "WithSuffix",
@@ -2409,6 +2693,48 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{ args: { ...Default.args, showSuffix: true }, render }"
+                }
+            ],
+            "projects/slate/src/lib/organisms/modal/modal.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/modal/modal.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: (args) => ({\n    props: args,\n    template: `\n      <div>\n        <storybook-button label=\"Open Modal\" (onClick)=\"isOpen = true\"></storybook-button>\n        <storybook-modal\n          [isOpen]=\"isOpen\"\n          (isOpenChange)=\"isOpen = $event\"\n          [title]=\"title\"\n          [size]=\"size\"\n          [closeOnBackdropClick]=\"closeOnBackdropClick\"\n          [showCloseButton]=\"showCloseButton\"\n          (onClose)=\"onClose()\"\n        >\n          <p>This is the main body content of the modal. You can place any HTML elements or other components here.</p>\n          <div modalFooter>\n            <storybook-button variant=\"ghost\" label=\"Cancel\" (onClick)=\"isOpen = false\"></storybook-button>\n            <storybook-button label=\"Confirm\" (onClick)=\"isOpen = false\"></storybook-button>\n          </div>\n        </storybook-modal>\n      </div>\n    `,\n  }),\n  args: {\n    isOpen: true,\n    title: 'Interactive Modal',\n    size: 'medium',\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/modal/modal.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<ModalComponent>",
+                    "defaultValue": "{\n  title: 'Organisms/Modal',\n  component: ModalComponent,\n  tags: ['autodocs'],\n  decorators: [\n    moduleMetadata({\n      imports: [ModalComponent, ButtonComponent],\n    }),\n  ],\n  argTypes: {\n    size: {\n      control: 'select',\n      options: ['small', 'medium', 'large', 'full'],\n      description: 'Size of the modal container',\n    },\n    isOpen: {\n      control: 'boolean',\n      description: 'Whether the modal is visible',\n    },\n    title: {\n      control: 'text',\n      description: 'Modal title text',\n    },\n    closeOnBackdropClick: {\n      control: 'boolean',\n      description: 'Close the modal when clicking outside',\n    },\n    showCloseButton: {\n      control: 'boolean',\n      description: 'Show or hide the close button in the header',\n    },\n  },\n  args: {\n    isOpen: false,\n    title: 'Modal Title',\n    size: 'medium',\n    closeOnBackdropClick: true,\n    showCloseButton: true,\n    onClose: fn(),\n  },\n}"
+                },
+                {
+                    "name": "Sizes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/modal/modal.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 12px;\">\n        <storybook-button label=\"Open Small\" (onClick)=\"smallOpen = true\"></storybook-button>\n        <storybook-button label=\"Open Medium\" (onClick)=\"medOpen = true\"></storybook-button>\n        <storybook-button label=\"Open Large\" (onClick)=\"largeOpen = true\"></storybook-button>\n        <storybook-button label=\"Open Full Screen\" (onClick)=\"fullOpen = true\"></storybook-button>\n\n        <!-- Small Modal -->\n        <storybook-modal [(isOpen)]=\"smallOpen\" title=\"Small Modal\" size=\"small\">\n          <p>This is a small size modal, best for alerts or quick confirmations.</p>\n          <div modalFooter>\n            <storybook-button label=\"Close\" (onClick)=\"smallOpen = false\"></storybook-button>\n          </div>\n        </storybook-modal>\n\n        <!-- Medium Modal -->\n        <storybook-modal [(isOpen)]=\"medOpen\" title=\"Medium Modal\" size=\"medium\">\n          <p>This is a medium size modal. It is the default size and works well for most general content.</p>\n          <div modalFooter>\n            <storybook-button label=\"Close\" (onClick)=\"medOpen = false\"></storybook-button>\n          </div>\n        </storybook-modal>\n\n        <!-- Large Modal -->\n        <storybook-modal [(isOpen)]=\"largeOpen\" title=\"Large Modal\" size=\"large\">\n          <p>This is a large size modal, suitable for displaying data tables, forms, or media content.</p>\n          <div modalFooter>\n            <storybook-button label=\"Close\" (onClick)=\"largeOpen = false\"></storybook-button>\n          </div>\n        </storybook-modal>\n\n        <!-- Full Screen Modal -->\n        <storybook-modal [(isOpen)]=\"fullOpen\" title=\"Full Screen Modal\" size=\"full\">\n          <p>This is a full screen modal. It takes up the entire viewport, ideal for rich experiences or multi-step wizard processes.</p>\n          <div modalFooter>\n            <storybook-button label=\"Close\" (onClick)=\"fullOpen = false\"></storybook-button>\n          </div>\n        </storybook-modal>\n      </div>\n    `,\n  }),\n}"
+                },
+                {
+                    "name": "StaticBackdrop",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/modal/modal.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: (args) => ({\n    props: args,\n    template: `\n      <div>\n        <storybook-button label=\"Open Modal (Static Backdrop)\" (onClick)=\"isOpen = true\"></storybook-button>\n        <storybook-modal\n          [(isOpen)]=\"isOpen\"\n          [title]=\"title\"\n          [closeOnBackdropClick]=\"closeOnBackdropClick\"\n          (onClose)=\"onClose()\"\n        >\n          <p>This modal cannot be closed by clicking the background overlay. You must click the close icon or actions below.</p>\n          <div modalFooter>\n            <storybook-button label=\"Understood\" (onClick)=\"isOpen = false\"></storybook-button>\n          </div>\n        </storybook-modal>\n      </div>\n    `,\n  }),\n  args: {\n    isOpen: true,\n    title: 'Static Backdrop Modal',\n    closeOnBackdropClick: false,\n  },\n}"
                 }
             ],
             "projects/slate/src/lib/organisms/time-picker/time-picker.stories.ts": [
@@ -2470,7 +2796,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<Args>",
-                    "defaultValue": "{\n  title: 'Molecules/TimePicker',\n  component: TimePickerComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    label: { control: 'text' },\n    helperText: { control: 'text' },\n    validationMessage: { control: 'text' },\n    placeholder: { control: 'text' },\n    value: { control: 'text' },\n    min: { control: 'text' },\n    max: { control: 'text' },\n    disabled: { control: 'boolean' },\n    readonly: { control: 'boolean' },\n    required: { control: 'boolean' },\n    variant: { control: 'radio', options: ['default', 'filled', 'ghost'] },\n    size: { control: 'radio', options: ['small', 'medium', 'large'] },\n    showPrefix: { control: 'boolean' },\n    showSuffix: { control: 'boolean' },\n    showDefaultIcon: { control: 'boolean' },\n  },\n}"
+                    "defaultValue": "{\n  title: 'Organisms/TimePicker',\n  component: TimePickerComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    label: { control: 'text' },\n    helperText: { control: 'text' },\n    validationMessage: { control: 'text' },\n    placeholder: { control: 'text' },\n    value: { control: 'text' },\n    min: { control: 'text' },\n    max: { control: 'text' },\n    disabled: { control: 'boolean' },\n    readonly: { control: 'boolean' },\n    required: { control: 'boolean' },\n    variant: { control: 'radio', options: ['default', 'filled', 'ghost'] },\n    size: { control: 'radio', options: ['small', 'medium', 'large'] },\n    showPrefix: { control: 'boolean' },\n    showSuffix: { control: 'boolean' },\n    showDefaultIcon: { control: 'boolean' },\n  },\n}"
                 },
                 {
                     "name": "Readonly",
@@ -2983,19 +3309,6 @@
                     "kind": 184
                 }
             ],
-            "projects/slate/src/lib/molecules/breadcrumb/breadcrumb.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<BreadcrumbComponent>",
-                    "file": "projects/slate/src/lib/molecules/breadcrumb/breadcrumb.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
             "projects/slate/src/lib/molecules/card/card.stories.ts": [
                 {
                     "name": "Story",
@@ -3016,6 +3329,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<any>",
                     "file": "projects/slate/src/lib/molecules/dropdown/dropdown.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/slate/src/lib/molecules/breadcrumb/breadcrumb.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<BreadcrumbComponent>",
+                    "file": "projects/slate/src/lib/molecules/breadcrumb/breadcrumb.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -3055,6 +3381,32 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<SearchBarComponent>",
                     "file": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/slate/src/lib/organisms/form/form.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<FormComponent>",
+                    "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/slate/src/lib/organisms/modal/modal.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ModalComponent>",
+                    "file": "projects/slate/src/lib/organisms/modal/modal.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -4367,6 +4719,176 @@
             },
             {
                 "filePath": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/form/form.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "allFieldsSchema",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/form/form.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "AllFieldTypes",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/form/form.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ContactForm",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/form/form.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "contactSchema",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/form/form.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "LoadingState",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/form/form.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/form/form.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "PrePopulated",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/form/form.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "profileSchema",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/form/form.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ProfileSettings",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/form/form.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "RegistrationForm",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/form/form.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "registrationSchema",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/form/form.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/modal/modal.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/modal/modal.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/modal/modal.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Sizes",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/modal/modal.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "StaticBackdrop",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/modal/modal.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",

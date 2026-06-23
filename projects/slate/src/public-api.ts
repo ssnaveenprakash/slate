@@ -16,3 +16,5 @@ export * from './lib/organisms/navigation-sidebar/navigation-sidebar.component';
 export * from './lib/organisms/modal/modal.component';
 export * from './lib/organisms/date-picker/date-picker.component';
 export * from './lib/organisms/time-picker/time-picker.component';
+export * from './lib/organisms/form/form.component';
+export * from './lib/organisms/form/form.types';
