@@ -144,16 +144,6 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/atoms/toggle/toggle.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {\n    label: 'Toggle',\n    checked: false,\n  },\n}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -164,11 +154,41 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/toggle/toggle.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    label: 'Toggle',\n    checked: false,\n  },\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    label: 'Date',\n    placeholder: 'Select a date',\n    helperText: '',\n    validationMessage: '',\n    value: '',\n    min: '',\n    max: '',\n    disabled: false,\n    readonly: false,\n    required: false,\n    variant: 'default',\n    size: 'medium',\n    showPrefix: false,\n    showSuffix: false,\n    showDefaultIcon: true,\n  },\n  render,\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/slate/src/lib/organisms/navigation-sidebar/navigation-sidebar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    activeHref: '/dashboard',\n    collapsed: false,\n  },\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/time-picker/time-picker.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    label: 'Time',\n    placeholder: 'Select time',\n    helperText: '',\n    validationMessage: '',\n    value: '',\n    min: '',\n    max: '',\n    disabled: false,\n    readonly: false,\n    required: false,\n    variant: 'default',\n    size: 'medium',\n    showPrefix: false,\n    showSuffix: false,\n    showDefaultIcon: true,\n  },\n  render,\n}"
             },
             {
                 "name": "Disabled",
@@ -189,6 +209,26 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    value: '',\n    placeholder: 'Search unavailable',\n    disabled: true,\n  },\n}"
+            },
+            {
+                "name": "Disabled",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{ args: { ...Default.args, disabled: true }, render }"
+            },
+            {
+                "name": "Disabled",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/time-picker/time-picker.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{ args: { ...Default.args, disabled: true }, render }"
             },
             {
                 "name": "DisabledStep",
@@ -221,6 +261,26 @@
                 "defaultValue": "{\n  name: 'Email — built-in validation',\n  args: {\n    label: 'Email Address',\n    placeholder: 'you@example.com',\n    type: 'email',\n    required: true,\n    helperText: 'Type an invalid email then click outside to see the error.',\n  },\n}"
             },
             {
+                "name": "Filled",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{ args: { ...Default.args, variant: 'filled' }, render }"
+            },
+            {
+                "name": "Filled",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/time-picker/time-picker.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{ args: { ...Default.args, variant: 'filled' }, render }"
+            },
+            {
                 "name": "flatOptions",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -239,6 +299,26 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  render: () => ({\n    template: `\n      <storybook-card>\n        <div cardFooter>\n          <small>Footer content</small>\n        </div>\n      </storybook-card>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "Ghost",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{ args: { ...Default.args, variant: 'ghost' }, render }"
+            },
+            {
+                "name": "Ghost",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/time-picker/time-picker.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{ args: { ...Default.args, variant: 'ghost' }, render }"
             },
             {
                 "name": "globalThis",
@@ -298,6 +378,26 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  render: () => ({\n    template: `\n      <storybook-card>\n        <div cardHeader>\n          <strong>Only Header</strong>\n        </div>\n      </storybook-card>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "Large",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{ args: { ...Default.args, size: 'large' }, render }"
+            },
+            {
+                "name": "Large",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/time-picker/time-picker.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{ args: { ...Default.args, size: 'large' }, render }"
             },
             {
                 "name": "LongContent",
@@ -383,6 +483,16 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<RadioComponent>",
+                "defaultValue": "{\n  title: 'Atoms/Radio',\n  component: RadioComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: { control: 'color' },\n  }\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/slate/src/lib/atoms/toggle/toggle.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -408,16 +518,6 @@
                 "deprecationMessage": "",
                 "type": "Meta<AlertComponent>",
                 "defaultValue": "{\n  title: 'Molecules/Alert',\n  component: AlertComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    type: {\n      control: 'select',\n      options: ['info', 'success', 'warning', 'error'],\n      description: 'The type of notification state to represent',\n    },\n    message: {\n      control: 'text',\n      description: 'The primary message header text',\n    },\n    description: {\n      control: 'text',\n      description: 'Secondary, detailed description text',\n    },\n    dismissible: {\n      control: 'boolean',\n      description: 'Whether the close button is displayed',\n    },\n    duration: {\n      control: 'number',\n      description: 'Auto-dismiss timeout duration in ms (0 to disable)',\n    },\n  },\n  args: {\n    onClose: fn(),\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<RadioComponent>",
-                "defaultValue": "{\n  title: 'Atoms/Radio',\n  component: RadioComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: { control: 'color' },\n  }\n}"
             },
             {
                 "name": "meta",
@@ -483,11 +583,31 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<Args>",
+                "defaultValue": "{\n  title: 'Molecules/DatePicker',\n  component: DatePickerComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    label: { control: 'text' },\n    helperText: { control: 'text' },\n    validationMessage: { control: 'text' },\n    placeholder: { control: 'text' },\n    value: { control: 'text' },\n    min: { control: 'text' },\n    max: { control: 'text' },\n    disabled: { control: 'boolean' },\n    readonly: { control: 'boolean' },\n    required: { control: 'boolean' },\n    variant: { control: 'radio', options: ['default', 'filled', 'ghost'] },\n    size: { control: 'radio', options: ['small', 'medium', 'large'] },\n      showPrefix: { control: 'boolean' },\n      showSuffix: { control: 'boolean' },\n      showDefaultIcon: { control: 'boolean' },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/slate/src/lib/organisms/navigation-sidebar/navigation-sidebar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<NavigationSidebarComponent>",
                 "defaultValue": "{\n  title: 'Organisms/Navigation Sidebar',\n  component: NavigationSidebarComponent,\n  tags: ['autodocs'],\n  decorators: [\n    moduleMetadata({\n      imports: [NavigationSidebarComponent],\n    }),\n  ],\n  args: {\n    items: navigationItems,\n    activeHref: '/dashboard',\n    collapsed: false,\n  },\n  argTypes: {\n    items: { control: false },\n    activeHref: { control: 'text' },\n    collapsed: { control: 'boolean' },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/time-picker/time-picker.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<Args>",
+                "defaultValue": "{\n  title: 'Molecules/TimePicker',\n  component: TimePickerComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    label: { control: 'text' },\n    helperText: { control: 'text' },\n    validationMessage: { control: 'text' },\n    placeholder: { control: 'text' },\n    value: { control: 'text' },\n    min: { control: 'text' },\n    max: { control: 'text' },\n    disabled: { control: 'boolean' },\n    readonly: { control: 'boolean' },\n    required: { control: 'boolean' },\n    variant: { control: 'radio', options: ['default', 'filled', 'ghost'] },\n    size: { control: 'radio', options: ['small', 'medium', 'large'] },\n    showPrefix: { control: 'boolean' },\n    showSuffix: { control: 'boolean' },\n    showDefaultIcon: { control: 'boolean' },\n  },\n}"
             },
             {
                 "name": "Modifiers",
@@ -670,6 +790,46 @@
                 "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n       color: /(background|color)$/i,\n       date: /Date$/i,\n      },\n    },\n  },\n}"
             },
             {
+                "name": "Readonly",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{ args: { ...Default.args, readonly: true, value: '2023-01-01' }, render }"
+            },
+            {
+                "name": "Readonly",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/time-picker/time-picker.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{ args: { ...Default.args, readonly: true, value: '12:00' }, render }"
+            },
+            {
+                "name": "render",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "unknown",
+                "defaultValue": "(args: Args) => ({\n  props: args,\n  template: `\n    <slt-date-picker\n      [label]=\"label\"\n      [helperText]=\"helperText\"\n      [validationMessage]=\"validationMessage\"\n      [placeholder]=\"placeholder\"\n      [value]=\"value\"\n      [min]=\"min\"\n      [max]=\"max\"\n      [disabled]=\"disabled\"\n      [readonly]=\"readonly\"\n      [required]=\"required\"\n      [variant]=\"variant\"\n      [size]=\"size\"\n      [showDefaultIcon]=\"showDefaultIcon\"\n    >\n      <span *ngIf=\"showSuffix\" suffix>⏰</span>\n    </slt-date-picker>\n  `,\n})"
+            },
+            {
+                "name": "render",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/time-picker/time-picker.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "unknown",
+                "defaultValue": "(args: Args) => ({\n  props: args,\n  template: `\n    <slt-time-picker\n      [label]=\"label\"\n      [helperText]=\"helperText\"\n      [validationMessage]=\"validationMessage\"\n      [placeholder]=\"placeholder\"\n      [value]=\"value\"\n      [min]=\"min\"\n      [max]=\"max\"\n      [disabled]=\"disabled\"\n      [readonly]=\"readonly\"\n      [required]=\"required\"\n      [variant]=\"variant\"\n      [size]=\"size\"\n      [showDefaultIcon]=\"showDefaultIcon\"\n    >\n      <span *ngIf=\"showPrefix\" prefix>🕒</span>\n      <span *ngIf=\"showSuffix\" suffix>⏱️</span>\n    </slt-time-picker>\n  `,\n})"
+            },
+            {
                 "name": "RequiredValidation",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -798,6 +958,26 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: { size: 'small', variant: 'flat' },\n  render: (args) => ({\n    props: args,\n    template: `\n      <storybook-card [variant]=\"variant\" [size]=\"size\">\n        <div cardHeader><strong>Small</strong></div>\n        <div>Compact content</div>\n      </storybook-card>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "Small",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{ args: { ...Default.args, size: 'small' }, render }"
+            },
+            {
+                "name": "Small",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/time-picker/time-picker.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{ args: { ...Default.args, size: 'small' }, render }"
             },
             {
                 "name": "SpinOff",
@@ -1020,6 +1200,26 @@
                 "defaultValue": "{\n  args: { size: 'default', shape: 'circle', showIcon: true, iconType: 'user', dark: false },\n  render: (args: any) => {\n    if (args.dark) document.body.classList.add('theme-dark'); else document.body.classList.remove('theme-dark');\n    const iconTemplate = args.showIcon ? `<ng-template #myIcon><slt-icon [type]=\"iconType\" [theme]=\"'outlined'\"></slt-icon></ng-template>` : '';\n    const iconBinding = args.showIcon ? `[icon]=\"myIcon\"` : '';\n    const { dark: _d, showIcon: _s, iconType: _i, ...componentProps } = args;\n    return { props: { ...componentProps }, template: `${iconTemplate}<div style=\"padding:24px;background:var(--slt-background-color)\"><slt-avatar ${iconBinding} [size]=\"size\"></slt-avatar></div>` };\n  }\n}"
             },
             {
+                "name": "WithMinMax",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{ args: { ...Default.args, min: '2023-01-01', max: '2023-12-31' }, render }"
+            },
+            {
+                "name": "WithMinMax",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/time-picker/time-picker.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{ args: { ...Default.args, min: '09:00', max: '17:00' }, render }"
+            },
+            {
                 "name": "WithoutDescription",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -1030,6 +1230,16 @@
                 "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 600px;\">\n        <storybook-alert type=\"info\" message=\"Standard informative message header.\"></storybook-alert>\n        <storybook-alert type=\"success\" message=\"Successfully saved settings.\"></storybook-alert>\n        <storybook-alert type=\"warning\" message=\"Database space is getting low.\"></storybook-alert>\n        <storybook-alert type=\"error\" message=\"Invalid credentials entered.\"></storybook-alert>\n      </div>\n    `,\n  }),\n}"
             },
             {
+                "name": "WithPrefix",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{ args: { ...Default.args, showPrefix: true }, render }"
+            },
+            {
                 "name": "WithPrefixAndSuffix",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -1038,6 +1248,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    fieldType: 'input',\n    label: 'Search',\n    placeholder: 'Search...',\n    helperText: 'Search by name or email',\n    error: '',\n    disabled: false,\n    showPrefix: true,\n    showSuffix: true,\n  },\n  render: Playground.render,\n}"
+            },
+            {
+                "name": "WithSuffix",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{ args: { ...Default.args, showSuffix: true }, render }"
             },
             {
                 "name": "WithValue",
@@ -1052,6 +1272,28 @@
         ],
         "functions": [],
         "typealiases": [
+            {
+                "name": "Args",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "unknown",
+                "file": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 194
+            },
+            {
+                "name": "Args",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "unknown",
+                "file": "projects/slate/src/lib/organisms/time-picker/time-picker.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 194
+            },
             {
                 "name": "FieldStoryArgs",
                 "ctype": "miscellaneous",
@@ -1122,6 +1364,17 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<RadioComponent>",
+                "file": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<ToggleComponent>",
                 "file": "projects/slate/src/lib/atoms/toggle/toggle.stories.ts",
                 "deprecated": false,
@@ -1146,17 +1399,6 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<AlertComponent>",
                 "file": "projects/slate/src/lib/molecules/alert/alert.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 184
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<RadioComponent>",
-                "file": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1232,8 +1474,30 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<Args>",
+                "file": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<NavigationSidebarComponent>",
                 "file": "projects/slate/src/lib/organisms/navigation-sidebar/navigation-sidebar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<Args>",
+                "file": "projects/slate/src/lib/organisms/time-picker/time-picker.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1981,6 +2245,28 @@
                     "defaultValue": "{\n  title: 'Atoms/Checkbox',\n  component: CheckboxComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: { control: 'color' },\n  },\n  args: {\n    onChange: fn(),\n  },\n}"
                 }
             ],
+            "projects/slate/src/lib/atoms/radio/radio.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    label: 'Radio',\n    checked: false,\n    name: 'radio-group',\n    onClick: fn()\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<RadioComponent>",
+                    "defaultValue": "{\n  title: 'Atoms/Radio',\n  component: RadioComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: { control: 'color' },\n  }\n}"
+                }
+            ],
             "projects/slate/src/lib/atoms/toggle/toggle.stories.ts": [
                 {
                     "name": "Default",
@@ -2003,26 +2289,228 @@
                     "defaultValue": "{\n  title: 'Atoms/Toggle',\n  component: ToggleComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: { control: 'color' },\n  },\n  args: {\n    onChange: fn(),\n  },\n}"
                 }
             ],
-            "projects/slate/src/lib/atoms/radio/radio.stories.ts": [
+            "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts": [
                 {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
+                    "file": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    label: 'Radio',\n    checked: false,\n    name: 'radio-group',\n    onClick: fn()\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    label: 'Date',\n    placeholder: 'Select a date',\n    helperText: '',\n    validationMessage: '',\n    value: '',\n    min: '',\n    max: '',\n    disabled: false,\n    readonly: false,\n    required: false,\n    variant: 'default',\n    size: 'medium',\n    showPrefix: false,\n    showSuffix: false,\n    showDefaultIcon: true,\n  },\n  render,\n}"
+                },
+                {
+                    "name": "Disabled",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{ args: { ...Default.args, disabled: true }, render }"
+                },
+                {
+                    "name": "Filled",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{ args: { ...Default.args, variant: 'filled' }, render }"
+                },
+                {
+                    "name": "Ghost",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{ args: { ...Default.args, variant: 'ghost' }, render }"
+                },
+                {
+                    "name": "Large",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{ args: { ...Default.args, size: 'large' }, render }"
                 },
                 {
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
+                    "file": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Meta<RadioComponent>",
-                    "defaultValue": "{\n  title: 'Atoms/Radio',\n  component: RadioComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: { control: 'color' },\n  }\n}"
+                    "type": "Meta<Args>",
+                    "defaultValue": "{\n  title: 'Molecules/DatePicker',\n  component: DatePickerComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    label: { control: 'text' },\n    helperText: { control: 'text' },\n    validationMessage: { control: 'text' },\n    placeholder: { control: 'text' },\n    value: { control: 'text' },\n    min: { control: 'text' },\n    max: { control: 'text' },\n    disabled: { control: 'boolean' },\n    readonly: { control: 'boolean' },\n    required: { control: 'boolean' },\n    variant: { control: 'radio', options: ['default', 'filled', 'ghost'] },\n    size: { control: 'radio', options: ['small', 'medium', 'large'] },\n      showPrefix: { control: 'boolean' },\n      showSuffix: { control: 'boolean' },\n      showDefaultIcon: { control: 'boolean' },\n  },\n}"
+                },
+                {
+                    "name": "Readonly",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{ args: { ...Default.args, readonly: true, value: '2023-01-01' }, render }"
+                },
+                {
+                    "name": "render",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "defaultValue": "(args: Args) => ({\n  props: args,\n  template: `\n    <slt-date-picker\n      [label]=\"label\"\n      [helperText]=\"helperText\"\n      [validationMessage]=\"validationMessage\"\n      [placeholder]=\"placeholder\"\n      [value]=\"value\"\n      [min]=\"min\"\n      [max]=\"max\"\n      [disabled]=\"disabled\"\n      [readonly]=\"readonly\"\n      [required]=\"required\"\n      [variant]=\"variant\"\n      [size]=\"size\"\n      [showDefaultIcon]=\"showDefaultIcon\"\n    >\n      <span *ngIf=\"showSuffix\" suffix>⏰</span>\n    </slt-date-picker>\n  `,\n})"
+                },
+                {
+                    "name": "Small",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{ args: { ...Default.args, size: 'small' }, render }"
+                },
+                {
+                    "name": "WithMinMax",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{ args: { ...Default.args, min: '2023-01-01', max: '2023-12-31' }, render }"
+                },
+                {
+                    "name": "WithPrefix",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{ args: { ...Default.args, showPrefix: true }, render }"
+                },
+                {
+                    "name": "WithSuffix",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{ args: { ...Default.args, showSuffix: true }, render }"
+                }
+            ],
+            "projects/slate/src/lib/organisms/time-picker/time-picker.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/time-picker/time-picker.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    label: 'Time',\n    placeholder: 'Select time',\n    helperText: '',\n    validationMessage: '',\n    value: '',\n    min: '',\n    max: '',\n    disabled: false,\n    readonly: false,\n    required: false,\n    variant: 'default',\n    size: 'medium',\n    showPrefix: false,\n    showSuffix: false,\n    showDefaultIcon: true,\n  },\n  render,\n}"
+                },
+                {
+                    "name": "Disabled",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/time-picker/time-picker.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{ args: { ...Default.args, disabled: true }, render }"
+                },
+                {
+                    "name": "Filled",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/time-picker/time-picker.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{ args: { ...Default.args, variant: 'filled' }, render }"
+                },
+                {
+                    "name": "Ghost",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/time-picker/time-picker.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{ args: { ...Default.args, variant: 'ghost' }, render }"
+                },
+                {
+                    "name": "Large",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/time-picker/time-picker.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{ args: { ...Default.args, size: 'large' }, render }"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/time-picker/time-picker.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<Args>",
+                    "defaultValue": "{\n  title: 'Molecules/TimePicker',\n  component: TimePickerComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    label: { control: 'text' },\n    helperText: { control: 'text' },\n    validationMessage: { control: 'text' },\n    placeholder: { control: 'text' },\n    value: { control: 'text' },\n    min: { control: 'text' },\n    max: { control: 'text' },\n    disabled: { control: 'boolean' },\n    readonly: { control: 'boolean' },\n    required: { control: 'boolean' },\n    variant: { control: 'radio', options: ['default', 'filled', 'ghost'] },\n    size: { control: 'radio', options: ['small', 'medium', 'large'] },\n    showPrefix: { control: 'boolean' },\n    showSuffix: { control: 'boolean' },\n    showDefaultIcon: { control: 'boolean' },\n  },\n}"
+                },
+                {
+                    "name": "Readonly",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/time-picker/time-picker.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{ args: { ...Default.args, readonly: true, value: '12:00' }, render }"
+                },
+                {
+                    "name": "render",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/time-picker/time-picker.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "defaultValue": "(args: Args) => ({\n  props: args,\n  template: `\n    <slt-time-picker\n      [label]=\"label\"\n      [helperText]=\"helperText\"\n      [validationMessage]=\"validationMessage\"\n      [placeholder]=\"placeholder\"\n      [value]=\"value\"\n      [min]=\"min\"\n      [max]=\"max\"\n      [disabled]=\"disabled\"\n      [readonly]=\"readonly\"\n      [required]=\"required\"\n      [variant]=\"variant\"\n      [size]=\"size\"\n      [showDefaultIcon]=\"showDefaultIcon\"\n    >\n      <span *ngIf=\"showPrefix\" prefix>🕒</span>\n      <span *ngIf=\"showSuffix\" suffix>⏱️</span>\n    </slt-time-picker>\n  `,\n})"
+                },
+                {
+                    "name": "Small",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/time-picker/time-picker.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{ args: { ...Default.args, size: 'small' }, render }"
+                },
+                {
+                    "name": "WithMinMax",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/time-picker/time-picker.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{ args: { ...Default.args, min: '09:00', max: '17:00' }, render }"
                 }
             ],
             "projects/slate/src/lib/atoms/field/field.stories.ts": [
@@ -2319,6 +2807,54 @@
         "groupedFunctions": {},
         "groupedEnumerations": {},
         "groupedTypeAliases": {
+            "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts": [
+                {
+                    "name": "Args",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "unknown",
+                    "file": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 194
+                },
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<Args>",
+                    "file": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/slate/src/lib/organisms/time-picker/time-picker.stories.ts": [
+                {
+                    "name": "Args",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "unknown",
+                    "file": "projects/slate/src/lib/organisms/time-picker/time-picker.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 194
+                },
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<Args>",
+                    "file": "projects/slate/src/lib/organisms/time-picker/time-picker.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
             "projects/slate/src/lib/atoms/field/field.stories.ts": [
                 {
                     "name": "FieldStoryArgs",
@@ -2395,6 +2931,19 @@
                     "kind": 184
                 }
             ],
+            "projects/slate/src/lib/atoms/radio/radio.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<RadioComponent>",
+                    "file": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
             "projects/slate/src/lib/atoms/toggle/toggle.stories.ts": [
                 {
                     "name": "Story",
@@ -2428,19 +2977,6 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<AlertComponent>",
                     "file": "projects/slate/src/lib/molecules/alert/alert.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
-            "projects/slate/src/lib/atoms/radio/radio.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<RadioComponent>",
-                    "file": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -3700,6 +4236,146 @@
                 "status": "low"
             },
             {
+                "filePath": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Disabled",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Filled",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Ghost",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Large",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Readonly",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "render",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Small",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithMinMax",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithPrefix",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithSuffix",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Args",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "projects/slate/src/lib/organisms/navigation-sidebar/navigation-sidebar.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -3751,6 +4427,126 @@
             },
             {
                 "filePath": "projects/slate/src/lib/organisms/navigation-sidebar/navigation-sidebar.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/time-picker/time-picker.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/time-picker/time-picker.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Disabled",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/time-picker/time-picker.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Filled",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/time-picker/time-picker.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Ghost",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/time-picker/time-picker.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Large",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/time-picker/time-picker.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/time-picker/time-picker.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Readonly",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/time-picker/time-picker.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "render",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/time-picker/time-picker.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Small",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/time-picker/time-picker.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithMinMax",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/time-picker/time-picker.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Args",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/time-picker/time-picker.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",
