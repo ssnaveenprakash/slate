@@ -1,0 +1,15 @@
+<nav class="slt-navigation-sidebar" [class.collapsed]="collapsed" [attr.aria-label]="ariaLabel">
+  <button class="toggle-button" type="button" (click)="toggleCollapsed()" [attr.aria-pressed]="collapsed">
+    <slt-icon type="menu" ariaLabel="Toggle navigation" [decorative]="false"></slt-icon>
+    <span *ngIf="!collapsed">Menu</span>
+  </button>
+
+  <ul class="nav-list">
+    <li slt-nav-item *ngFor="let item of items; trackBy: trackByItem"
+      [item]="item"
+      [collapsed]="collapsed"
+      [active]="isActive(item)"
+      (select)="onItemClick($event)">
+    </li>
+  </ul>
+</nav>

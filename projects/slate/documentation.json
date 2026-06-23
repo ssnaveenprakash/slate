@@ -31,6 +31,16 @@
                 "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"padding:24px;background:var(--slt-background-color);color:var(--slt-text-color);display:flex;flex-direction:column;gap:12px\">\n        <div>Decorative (default): <slt-icon type=\"user\"></slt-icon></div>\n        <div>Informative (non-decorative): <slt-icon type=\"close\" [decorative]=\"false\" aria-label=\"Close\"></slt-icon></div>\n      </div>\n    `\n  })\n}"
             },
             {
+                "name": "ActiveRouteExample",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/navigation-sidebar/navigation-sidebar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    activeHref: '/projects',\n    collapsed: false,\n  },\n}"
+            },
+            {
                 "name": "AllStates",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -49,6 +59,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    type: 'success',\n    message: 'Auto-Timeout Alert',\n    description: 'This alert will automatically fade out and dismiss after 3 seconds (3000ms).',\n    dismissible: true,\n    duration: 3000,\n  },\n}"
+            },
+            {
+                "name": "Collapsed",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/navigation-sidebar/navigation-sidebar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    activeHref: '/dashboard',\n    collapsed: true,\n  },\n}"
             },
             {
                 "name": "Colors",
@@ -124,6 +144,16 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/toggle/toggle.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    label: 'Toggle',\n    checked: false,\n  },\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -134,11 +164,11 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/atoms/toggle/toggle.stories.ts",
+                "file": "projects/slate/src/lib/organisms/navigation-sidebar/navigation-sidebar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    label: 'Toggle',\n    checked: false,\n  },\n}"
+                "defaultValue": "{\n  args: {\n    activeHref: '/dashboard',\n    collapsed: false,\n  },\n}"
             },
             {
                 "name": "Disabled",
@@ -313,6 +343,16 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ButtonComponent>",
+                "defaultValue": "{\n  title: 'Atoms/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n\n  argTypes: {\n    variant: {\n      control: 'radio',\n      options: ['primary', 'secondary', 'ghost', 'danger'],\n    },\n\n    size: {\n      control: 'radio',\n      options: ['small', 'medium', 'large'],\n    },\n\n    disabled: {\n      control: 'boolean',\n    },\n\n    loading: {\n      control: 'boolean',\n    },\n\n    label: {\n      control: 'text',\n    },\n  },\n\n  args: {\n    onClick: fn(),\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/slate/src/lib/atoms/checkbox/checkbox.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -326,6 +366,16 @@
                 "file": "projects/slate/src/lib/atoms/field/field.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
+                "type": "Meta<FieldStoryArgs>",
+                "defaultValue": "{\n  title: 'Atoms/Field',\n  component: FieldComponent,\n  tags: ['autodocs'],\n\n  argTypes: {\n    fieldType: {\n      control: 'radio',\n      options: ['input', 'textarea'],\n    },\n    label: { control: 'text' },\n    helperText: { control: 'text' },\n    error: { control: 'text' },\n    placeholder: { control: 'text' },\n    disabled: { control: 'boolean' },\n\n    showPrefix: {\n      control: 'boolean',\n    },\n    showSuffix: {\n      control: 'boolean',\n    },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
                 "type": "Meta<any>",
                 "defaultValue": "{\n  title: 'Atoms/Icon',\n  component: IconComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CommonModule, IconComponent]\n    })\n  ],\n  argTypes: {\n    type: { control: 'text' },\n    theme: {\n      control: { type: 'select' },\n      options: ['outlined', 'filled', 'twoTone']\n    },\n    size: { control: { type: 'select' }, options: ['xs', 'sm', 'md', 'lg', 'xl'] },\n    color: { control: { type: 'select' }, options: ['inherit', 'primary', 'secondary', 'success', 'warning', 'danger', 'muted'] },\n    spin: { control: 'boolean' },\n    svgContent: { control: 'text' },\n    decorative: { control: 'boolean' },\n    ariaLabel: { control: 'text' },\n    dark: { control: 'boolean' }\n  }\n}"
             },
@@ -333,41 +383,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
+                "file": "projects/slate/src/lib/atoms/toggle/toggle.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<RadioComponent>",
-                "defaultValue": "{\n  title: 'Atoms/Radio',\n  component: RadioComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: { control: 'color' },\n  }\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/slate/src/lib/atoms/checkbox/checkbox.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<CheckboxComponent>",
-                "defaultValue": "{\n  title: 'Atoms/Checkbox',\n  component: CheckboxComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: { control: 'color' },\n  },\n  args: {\n    onChange: fn(),\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<ButtonComponent>",
-                "defaultValue": "{\n  title: 'Atoms/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n\n  argTypes: {\n    variant: {\n      control: 'radio',\n      options: ['primary', 'secondary', 'ghost', 'danger'],\n    },\n\n    size: {\n      control: 'radio',\n      options: ['small', 'medium', 'large'],\n    },\n\n    disabled: {\n      control: 'boolean',\n    },\n\n    loading: {\n      control: 'boolean',\n    },\n\n    label: {\n      control: 'text',\n    },\n  },\n\n  args: {\n    onClick: fn(),\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<RadioComponent>",
-                "defaultValue": "{\n  title: 'Atoms/Radio',\n  component: RadioComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: { control: 'color' },\n  }\n}"
+                "type": "Meta<ToggleComponent>",
+                "defaultValue": "{\n  title: 'Atoms/Toggle',\n  component: ToggleComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: { control: 'color' },\n  },\n  args: {\n    onChange: fn(),\n  },\n}"
             },
             {
                 "name": "meta",
@@ -393,11 +413,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/molecules/alert/alert.stories.ts",
+                "file": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<AlertComponent>",
-                "defaultValue": "{\n  title: 'Molecules/Alert',\n  component: AlertComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    type: {\n      control: 'select',\n      options: ['info', 'success', 'warning', 'error'],\n      description: 'The type of notification state to represent',\n    },\n    message: {\n      control: 'text',\n      description: 'The primary message header text',\n    },\n    description: {\n      control: 'text',\n      description: 'Secondary, detailed description text',\n    },\n    dismissible: {\n      control: 'boolean',\n      description: 'Whether the close button is displayed',\n    },\n    duration: {\n      control: 'number',\n      description: 'Auto-dismiss timeout duration in ms (0 to disable)',\n    },\n  },\n  args: {\n    onClose: fn(),\n  },\n}"
+                "type": "Meta<RadioComponent>",
+                "defaultValue": "{\n  title: 'Atoms/Radio',\n  component: RadioComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: { control: 'color' },\n  }\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/breadcrumb/breadcrumb.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<BreadcrumbComponent>",
+                "defaultValue": "{\n    title: 'Molecules/Breadcrumb',\n    component: BreadcrumbComponent,\n    tags: ['autodocs'],\n    argTypes: {\n        separator: {\n            control: 'text',\n            description: 'Character or text displayed between breadcrumb items',\n        },\n        ariaLabel: {\n            control: 'text',\n            description: 'Accessible label for the breadcrumb navigation',\n        },\n    },\n}"
             },
             {
                 "name": "meta",
@@ -433,6 +463,16 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/pagination/pagination.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<PaginationComponent>",
+                "defaultValue": "{\n    title: 'Molecules/Pagination',\n    component: PaginationComponent,\n    tags: ['autodocs'],\n    argTypes: {\n        currentPage: {\n            control: { type: 'number', min: 1 },\n            description: 'Current active page number',\n        },\n        totalPages: {\n            control: { type: 'number', min: 0 },\n            description: 'Total number of pages available',\n        },\n        boundaryCount: {\n            control: { type: 'number', min: 0 },\n            description: 'Number of pages to always show at the start and end',\n        },\n        siblingCount: {\n            control: { type: 'number', min: 0 },\n            description: 'Number of neighboring pages to show around the current page',\n        },\n        disabled: {\n            control: 'boolean',\n            description: 'Disables navigation controls and page selection',\n        },\n        ariaLabel: {\n            control: 'text',\n            description: 'Accessible label for the pagination navigation',\n        },\n        pageChange: {\n            action: 'pageChange',\n            description: 'Emitted when the user selects a new page',\n        },\n    },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -443,11 +483,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts",
+                "file": "projects/slate/src/lib/organisms/navigation-sidebar/navigation-sidebar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<PaginationComponent>",
-                "defaultValue": "{\n    title: 'Molecules/Pagination',\n    component: PaginationComponent,\n    tags: ['autodocs'],\n    argTypes: {\n        currentPage: {\n            control: { type: 'number', min: 1 },\n            description: 'Current active page number',\n        },\n        totalPages: {\n            control: { type: 'number', min: 0 },\n            description: 'Total number of pages available',\n        },\n        boundaryCount: {\n            control: { type: 'number', min: 0 },\n            description: 'Number of pages to always show at the start and end',\n        },\n        siblingCount: {\n            control: { type: 'number', min: 0 },\n            description: 'Number of neighboring pages to show around the current page',\n        },\n        disabled: {\n            control: 'boolean',\n            description: 'Disables navigation controls and page selection',\n        },\n        ariaLabel: {\n            control: 'text',\n            description: 'Accessible label for the pagination navigation',\n        },\n        pageChange: {\n            action: 'pageChange',\n            description: 'Emitted when the user selects a new page',\n        },\n    },\n}"
+                "type": "Meta<NavigationSidebarComponent>",
+                "defaultValue": "{\n  title: 'Organisms/Navigation Sidebar',\n  component: NavigationSidebarComponent,\n  tags: ['autodocs'],\n  decorators: [\n    moduleMetadata({\n      imports: [NavigationSidebarComponent],\n    }),\n  ],\n  args: {\n    items: navigationItems,\n    activeHref: '/dashboard',\n    collapsed: false,\n  },\n  argTypes: {\n    items: { control: false },\n    activeHref: { control: 'text' },\n    collapsed: { control: 'boolean' },\n  },\n}"
             },
             {
                 "name": "Modifiers",
@@ -468,6 +508,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n    args: {\n        options: flatOptions,\n        multiple: true,\n        searchable: true,\n        placeholder: 'Select fruits',\n    },\n}"
+            },
+            {
+                "name": "navigationItems",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/navigation-sidebar/navigation-sidebar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "NavigationSidebarItem[]",
+                "defaultValue": "[\n  { label: 'Dashboard', href: '/dashboard', icon: 'home' },\n  { label: 'Projects', href: '/projects', icon: 'folder' },\n  { label: 'Teams', href: '/teams', icon: 'team' },\n  { label: 'Settings', href: '/settings', icon: 'setting', disabled: true },\n]"
             },
             {
                 "name": "NumberValidation",
@@ -513,26 +563,6 @@
                 "name": "Playground",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/atoms/field/field.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {\n    type: 'user',\n    theme: 'outlined',\n    size: 'md',\n    color: 'inherit',\n    spin: false,\n    decorative: true,\n    ariaLabel: undefined,\n    svgContent: undefined,\n    dark: false\n  },\n  render: (args: any) => {\n    if (args.dark) document.body.classList.add('theme-dark');\n    else document.body.classList.remove('theme-dark');\n\n    // Don't pass `dark` into component props\n    const { dark: _d, ...componentProps } = args;\n\n    return {\n      props: componentProps,\n      template: `\n        <div style=\"padding: 24px; background: var(--slt-background-color); color: var(--slt-text-color);\">\n          <slt-icon [type]=\"type\" [theme]=\"theme\" [size]=\"size\" [color]=\"color\" [spin]=\"spin\" [svgContent]=\"svgContent\" [decorative]=\"decorative\" [ariaLabel]=\"ariaLabel\"></slt-icon>\n        </div>\n      `\n    };\n  }\n}"
-            },
-            {
-                "name": "Playground",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {\n    type: 'user',\n    theme: 'outlined',\n    spin: false,\n    dark: false\n  },\n  render: (args: any) => {\n    if (args.dark) document.body.classList.add('theme-dark');\n    else document.body.classList.remove('theme-dark');\n\n    // Don't pass `dark` into component props\n    const { dark: _d, ...componentProps } = args;\n\n    return {\n      props: componentProps,\n      template: `\n        <div style=\"padding: 24px; background: var(--slt-background-color); color: var(--slt-text-color);\">\n          <slt-icon [type]=\"type\" [theme]=\"theme\" [spin]=\"spin\"></slt-icon>\n        </div>\n      `\n    };\n  }\n}"
-            },
-            {
-                "name": "Playground",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -543,11 +573,31 @@
                 "name": "Playground",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/molecules/alert/alert.stories.ts",
+                "file": "projects/slate/src/lib/atoms/field/field.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    type: 'info',\n    message: 'Check out this notification!',\n    description: 'This alert is customizable and interactive.',\n    dismissible: true,\n    duration: 0,\n  },\n}"
+                "defaultValue": "{\n  args: {\n    fieldType: 'input',\n    label: 'Name',\n    placeholder: 'Enter your name',\n    helperText: 'This is helper text',\n    error: '',\n    disabled: false,\n    showPrefix: false,\n    showSuffix: false,\n  },\n\n  render: (args) => ({\n    props: args,\n    template: `\n      <storybook-field\n        [fieldType]=\"fieldType\"\n        [label]=\"label\"\n        [placeholder]=\"placeholder\"\n        [helperText]=\"helperText\"\n        [error]=\"error\"\n        [disabled]=\"disabled\"\n      >\n        <span *ngIf=\"showPrefix\" prefix>🔍</span>\n        <span *ngIf=\"showSuffix\" suffix>⌘K</span>\n      </storybook-field>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "Playground",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    type: 'user',\n    theme: 'outlined',\n    size: 'md',\n    color: 'inherit',\n    spin: false,\n    decorative: true,\n    ariaLabel: undefined,\n    svgContent: undefined,\n    dark: false\n  },\n  render: (args: any) => {\n    if (args.dark) document.body.classList.add('theme-dark');\n    else document.body.classList.remove('theme-dark');\n\n    // Don't pass `dark` into component props\n    const { dark: _d, ...componentProps } = args;\n\n    return {\n      props: componentProps,\n      template: `\n        <div style=\"padding: 24px; background: var(--slt-background-color); color: var(--slt-text-color);\">\n          <slt-icon [type]=\"type\" [theme]=\"theme\" [size]=\"size\" [color]=\"color\" [spin]=\"spin\" [svgContent]=\"svgContent\" [decorative]=\"decorative\" [ariaLabel]=\"ariaLabel\"></slt-icon>\n        </div>\n      `\n    };\n  }\n}"
+            },
+            {
+                "name": "Playground",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    variant: 'text',\n    level: 1,\n    type: 'primary',\n    strong: false,\n    italic: false,\n    underline: false,\n    delete: false,\n    code: false,\n    mark: false,\n    disabled: false,\n    href: '',\n    target: '_self',\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <storybook-typography\n        [variant]=\"variant\"\n        [level]=\"level\"\n        [type]=\"type\"\n        [strong]=\"strong\"\n        [italic]=\"italic\"\n        [underline]=\"underline\"\n        [delete]=\"delete\"\n        [code]=\"code\"\n        [mark]=\"mark\"\n        [disabled]=\"disabled\"\n        [href]=\"href\"\n        [target]=\"target\"\n      >\n        Typography Content\n      </storybook-typography>\n    `,\n  }),\n}"
             },
             {
                 "name": "Playground",
@@ -593,21 +643,21 @@
                 "name": "Playground",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
+                "file": "projects/slate/src/lib/molecules/pagination/pagination.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    value: '',\n    placeholder: 'Search…',\n    disabled: false,\n  },\n}"
+                "defaultValue": "{\n    args: {\n        currentPage: 4,\n        totalPages: 12,\n        boundaryCount: 1,\n        siblingCount: 1,\n        disabled: false,\n        ariaLabel: 'Pagination',\n    },\n}"
             },
             {
                 "name": "Playground",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts",
+                "file": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n    args: {\n        currentPage: 4,\n        totalPages: 12,\n        boundaryCount: 1,\n        siblingCount: 1,\n        disabled: false,\n        ariaLabel: 'Pagination',\n    },\n}"
+                "defaultValue": "{\n  args: {\n    value: '',\n    placeholder: 'Search…',\n    disabled: false,\n  },\n}"
             },
             {
                 "name": "preview",
@@ -663,21 +713,21 @@
                 "name": "Sizes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"padding:24px; display:flex; gap:16px; align-items:center; background:var(--slt-background-color); color:var(--slt-text-color)\">\n        <slt-icon type=\"user\" size=\"xs\"></slt-icon>\n        <slt-icon type=\"user\" size=\"sm\"></slt-icon>\n        <slt-icon type=\"user\" size=\"md\"></slt-icon>\n        <slt-icon type=\"user\" size=\"lg\"></slt-icon>\n        <slt-icon type=\"user\" size=\"xl\"></slt-icon>\n      </div>\n    `\n  })\n}"
-            },
-            {
-                "name": "Sizes",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display:flex; gap:12px; align-items:center;\">\n        <storybook-button\n          size=\"small\"\n          label=\"Small\">\n        </storybook-button>\n\n        <storybook-button\n          size=\"medium\"\n          label=\"Medium\">\n        </storybook-button>\n\n        <storybook-button\n          size=\"large\"\n          label=\"Large\">\n        </storybook-button>\n      </div>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "Sizes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"padding:24px; display:flex; gap:16px; align-items:center; background:var(--slt-background-color); color:var(--slt-text-color)\">\n        <slt-icon type=\"user\" size=\"xs\"></slt-icon>\n        <slt-icon type=\"user\" size=\"sm\"></slt-icon>\n        <slt-icon type=\"user\" size=\"md\"></slt-icon>\n        <slt-icon type=\"user\" size=\"lg\"></slt-icon>\n        <slt-icon type=\"user\" size=\"xl\"></slt-icon>\n      </div>\n    `\n  })\n}"
             },
             {
                 "name": "Sizes",
@@ -1028,30 +1078,19 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<ButtonComponent>",
+                "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<CheckboxComponent>",
                 "file": "projects/slate/src/lib/atoms/checkbox/checkbox.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 184
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<any>",
-                "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 184
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<RadioComponent>",
-                "file": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1072,8 +1111,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ButtonComponent>",
-                "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
+                "rawtype": "StoryObj<any>",
+                "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1107,6 +1146,17 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<AlertComponent>",
                 "file": "projects/slate/src/lib/molecules/alert/alert.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<RadioComponent>",
+                "file": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1160,6 +1210,17 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<PaginationComponent>",
+                "file": "projects/slate/src/lib/molecules/pagination/pagination.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<SearchBarComponent>",
                 "file": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
                 "deprecated": false,
@@ -1171,8 +1232,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<PaginationComponent>",
-                "file": "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts",
+                "rawtype": "StoryObj<NavigationSidebarComponent>",
+                "file": "projects/slate/src/lib/organisms/navigation-sidebar/navigation-sidebar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1344,6 +1405,58 @@
                     "defaultValue": "{\n  args: { type: 'user', theme: 'twoTone', spin: false, dark: false, size: 'md', color: 'primary' },\n  render: (args: any) => {\n    if (args.dark) document.body.classList.add('theme-dark'); else document.body.classList.remove('theme-dark');\n    const { dark: _d, ...componentProps } = args;\n    return { props: componentProps, template: `<div style=\"padding:24px;background:var(--slt-background-color);color:var(--slt-text-color)\"><slt-icon [type]=\"type\" [theme]=\"theme\" [size]=\"size\" [color]=\"color\"></slt-icon></div>` };\n  }\n}"
                 }
             ],
+            "projects/slate/src/lib/organisms/navigation-sidebar/navigation-sidebar.stories.ts": [
+                {
+                    "name": "ActiveRouteExample",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/navigation-sidebar/navigation-sidebar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    activeHref: '/projects',\n    collapsed: false,\n  },\n}"
+                },
+                {
+                    "name": "Collapsed",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/navigation-sidebar/navigation-sidebar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    activeHref: '/dashboard',\n    collapsed: true,\n  },\n}"
+                },
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/navigation-sidebar/navigation-sidebar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    activeHref: '/dashboard',\n    collapsed: false,\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/navigation-sidebar/navigation-sidebar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<NavigationSidebarComponent>",
+                    "defaultValue": "{\n  title: 'Organisms/Navigation Sidebar',\n  component: NavigationSidebarComponent,\n  tags: ['autodocs'],\n  decorators: [\n    moduleMetadata({\n      imports: [NavigationSidebarComponent],\n    }),\n  ],\n  args: {\n    items: navigationItems,\n    activeHref: '/dashboard',\n    collapsed: false,\n  },\n  argTypes: {\n    items: { control: false },\n    activeHref: { control: 'text' },\n    collapsed: { control: 'boolean' },\n  },\n}"
+                },
+                {
+                    "name": "navigationItems",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/navigation-sidebar/navigation-sidebar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "NavigationSidebarItem[]",
+                    "defaultValue": "[\n  { label: 'Dashboard', href: '/dashboard', icon: 'home' },\n  { label: 'Projects', href: '/projects', icon: 'folder' },\n  { label: 'Teams', href: '/teams', icon: 'team' },\n  { label: 'Settings', href: '/settings', icon: 'setting', disabled: true },\n]"
+                }
+            ],
             "projects/slate/src/lib/molecules/form-field/form-field.stories.ts": [
                 {
                     "name": "AllStates",
@@ -1478,12 +1591,12 @@
                     "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 600px;\">\n        <storybook-alert type=\"info\" message=\"Standard informative message header.\"></storybook-alert>\n        <storybook-alert type=\"success\" message=\"Successfully saved settings.\"></storybook-alert>\n        <storybook-alert type=\"warning\" message=\"Database space is getting low.\"></storybook-alert>\n        <storybook-alert type=\"error\" message=\"Invalid credentials entered.\"></storybook-alert>\n      </div>\n    `,\n  }),\n}"
                 }
             ],
-            "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts": [
+            "projects/slate/src/lib/molecules/pagination/pagination.stories.ts": [
                 {
                     "name": "Compact",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts",
+                    "file": "projects/slate/src/lib/molecules/pagination/pagination.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -1493,7 +1606,7 @@
                     "name": "ManyPages",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts",
+                    "file": "projects/slate/src/lib/molecules/pagination/pagination.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -1503,7 +1616,7 @@
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts",
+                    "file": "projects/slate/src/lib/molecules/pagination/pagination.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<PaginationComponent>",
@@ -1513,7 +1626,7 @@
                     "name": "Playground",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts",
+                    "file": "projects/slate/src/lib/molecules/pagination/pagination.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -1868,28 +1981,6 @@
                     "defaultValue": "{\n  title: 'Atoms/Checkbox',\n  component: CheckboxComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: { control: 'color' },\n  },\n  args: {\n    onChange: fn(),\n  },\n}"
                 }
             ],
-            "projects/slate/src/lib/molecules/breadcrumb/breadcrumb.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {\n    label: 'Radio',\n    checked: false,\n    name: 'radio-group',\n    onClick: fn()\n  },\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<RadioComponent>",
-                    "defaultValue": "{\n  title: 'Atoms/Radio',\n  component: RadioComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: { control: 'color' },\n  }\n}"
-                }
-            ],
             "projects/slate/src/lib/atoms/toggle/toggle.stories.ts": [
                 {
                     "name": "Default",
@@ -1910,6 +2001,28 @@
                     "deprecationMessage": "",
                     "type": "Meta<ToggleComponent>",
                     "defaultValue": "{\n  title: 'Atoms/Toggle',\n  component: ToggleComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: { control: 'color' },\n  },\n  args: {\n    onChange: fn(),\n  },\n}"
+                }
+            ],
+            "projects/slate/src/lib/atoms/radio/radio.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    label: 'Radio',\n    checked: false,\n    name: 'radio-group',\n    onClick: fn()\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<RadioComponent>",
+                    "defaultValue": "{\n  title: 'Atoms/Radio',\n  component: RadioComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: { control: 'color' },\n  }\n}"
                 }
             ],
             "projects/slate/src/lib/atoms/field/field.stories.ts": [
@@ -2243,6 +2356,19 @@
                     "kind": 184
                 }
             ],
+            "projects/slate/src/lib/atoms/button/button.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ButtonComponent>",
+                    "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
             "projects/slate/src/lib/atoms/checkbox/checkbox.stories.ts": [
                 {
                     "name": "Story",
@@ -2263,32 +2389,6 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<any>",
                     "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
-            "projects/slate/src/lib/atoms/radio/radio.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<RadioComponent>",
-                    "file": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
-            "projects/slate/src/lib/atoms/button/button.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<ButtonComponent>",
-                    "file": "projects/slate/src/lib/atoms/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -2328,6 +2428,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<AlertComponent>",
                     "file": "projects/slate/src/lib/molecules/alert/alert.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/slate/src/lib/atoms/radio/radio.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<RadioComponent>",
+                    "file": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -2386,6 +2499,19 @@
                     "kind": 184
                 }
             ],
+            "projects/slate/src/lib/molecules/pagination/pagination.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<PaginationComponent>",
+                    "file": "projects/slate/src/lib/molecules/pagination/pagination.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
             "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts": [
                 {
                     "name": "Story",
@@ -2399,13 +2525,13 @@
                     "kind": 184
                 }
             ],
-            "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts": [
+            "projects/slate/src/lib/organisms/navigation-sidebar/navigation-sidebar.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<PaginationComponent>",
-                    "file": "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts",
+                    "rawtype": "StoryObj<NavigationSidebarComponent>",
+                    "file": "projects/slate/src/lib/organisms/navigation-sidebar/navigation-sidebar.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -3454,7 +3580,7 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts",
+                "filePath": "projects/slate/src/lib/molecules/pagination/pagination.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -3464,7 +3590,7 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts",
+                "filePath": "projects/slate/src/lib/molecules/pagination/pagination.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -3474,7 +3600,7 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts",
+                "filePath": "projects/slate/src/lib/molecules/pagination/pagination.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -3484,7 +3610,7 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts",
+                "filePath": "projects/slate/src/lib/molecules/pagination/pagination.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -3494,7 +3620,7 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/slate/src/lib/molecules/molecules/pagination/pagination.stories.ts",
+                "filePath": "projects/slate/src/lib/molecules/pagination/pagination.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",
@@ -3565,6 +3691,66 @@
             },
             {
                 "filePath": "projects/slate/src/lib/molecules/search-bar/search-bar.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/navigation-sidebar/navigation-sidebar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ActiveRouteExample",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/navigation-sidebar/navigation-sidebar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Collapsed",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/navigation-sidebar/navigation-sidebar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/navigation-sidebar/navigation-sidebar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/navigation-sidebar/navigation-sidebar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "navigationItems",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/navigation-sidebar/navigation-sidebar.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",
