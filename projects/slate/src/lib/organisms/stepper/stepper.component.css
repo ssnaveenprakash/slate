@@ -1,0 +1,234 @@
+.slt-stepper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  width: 100%;
+}
+
+/* ── Track ─────────────────────────────────────────────── */
+
+.slt-stepper__track {
+  width: 100%;
+}
+
+.slt-stepper__list {
+  display: flex;
+  align-items: flex-start;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Item ───────────────────────────────────────────────── */
+
+.slt-stepper__item {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+  position: relative;
+}
+
+.slt-stepper__item:last-child {
+  flex: 0 0 auto;
+}
+
+/* ── Step button ────────────────────────────────────────── */
+
+.slt-stepper__step-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: default;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.slt-stepper__item--clickable .slt-stepper__step-btn {
+  cursor: pointer;
+}
+
+.slt-stepper__item--disabled .slt-stepper__step-btn {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* ── Indicator circle ───────────────────────────────────── */
+
+.slt-stepper__indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  border: 2px solid #d1d5db;
+  background: #fff;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.slt-stepper__item--active .slt-stepper__indicator {
+  border-color: #6366f1;
+  background: #6366f1;
+}
+
+.slt-stepper__item--completed .slt-stepper__indicator {
+  border-color: #6366f1;
+  background: #6366f1;
+}
+
+.slt-stepper__item--error .slt-stepper__indicator {
+  border-color: #dc2626;
+  background: #dc2626;
+}
+
+/* ── Icon / Number inside indicator ────────────────────── */
+
+.slt-stepper__number {
+  font-size: 13px;
+  font-weight: 600;
+  color: #6b7280;
+  line-height: 1;
+}
+
+.slt-stepper__item--active .slt-stepper__number {
+  color: #fff;
+}
+
+.slt-stepper__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  color: #fff;
+}
+
+.slt-stepper__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Meta (label + description) ────────────────────────── */
+
+.slt-stepper__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.slt-stepper__label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.slt-stepper__item--active .slt-stepper__label {
+  color: #6366f1;
+}
+
+.slt-stepper__item--completed .slt-stepper__label {
+  color: #111827;
+}
+
+.slt-stepper__item--error .slt-stepper__label {
+  color: #dc2626;
+}
+
+.slt-stepper__optional {
+  font-size: 11px;
+  font-weight: 400;
+  color: #9ca3af;
+}
+
+.slt-stepper__description {
+  font-size: 12px;
+  color: #6b7280;
+  white-space: normal;
+}
+
+/* ── Connector line ─────────────────────────────────────── */
+
+.slt-stepper__connector {
+  flex: 1;
+  height: 2px;
+  background: #e5e7eb;
+  margin: 0 8px;
+  border-radius: 1px;
+  transition: background 0.3s ease;
+  margin-top: -28px;
+  align-self: flex-start;
+}
+
+.slt-stepper__connector--filled {
+  background: #6366f1;
+}
+
+/* ── Content area ───────────────────────────────────────── */
+
+.slt-stepper__content {
+  min-height: 80px;
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #fff;
+  color: #374151;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ── Actions bar ────────────────────────────────────────── */
+
+.slt-stepper__actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 4px;
+  border-top: 1px solid #f3f4f6;
+}
+
+.slt-stepper__actions-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+
+/* ══════════════════════════════════════════════════════════
+   VERTICAL ORIENTATION
+══════════════════════════════════════════════════════════ */
+
+.slt-stepper--vertical .slt-stepper__list {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+}
+
+.slt-stepper--vertical .slt-stepper__item {
+  flex-direction: column;
+  align-items: stretch;
+  flex: 0 0 auto;
+}
+
+.slt-stepper--vertical .slt-stepper__step-btn {
+  align-items: center;
+  padding: 8px 0;
+}
+
+.slt-stepper--vertical .slt-stepper__connector {
+  width: 2px;
+  height: 28px;
+  flex: none;
+  margin: 0 15px;
+  align-self: auto;
+}
