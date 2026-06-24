@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "Add Slate UI to an Angular project",
+  "type": "object",
+  "properties": {
+    "project": {
+      "type": "string",
+      "description": "The Angular project to target"
+    },
+    "styles": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether to add the Slate UI stylesheet import"
+    }
+  },
+  "required": []
+}

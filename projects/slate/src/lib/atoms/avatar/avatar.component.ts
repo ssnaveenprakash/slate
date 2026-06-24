@@ -52,6 +52,10 @@ export class AvatarComponent implements OnInit, OnChanges {
   public textStyles: { [key: string]: string } = {};
   public isTemplateIcon: boolean = false;
 
+  get iconTemplate(): TemplateRef<void> | null {
+    return this.icon instanceof TemplateRef ? this.icon : null;
+  }
+
   ngOnInit(): void {
     this.updateTextStyles();
     this.isTemplateIcon = this.icon instanceof TemplateRef;
