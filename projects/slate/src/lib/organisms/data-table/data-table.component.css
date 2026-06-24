@@ -1,0 +1,377 @@
+/* Containers */
+.slt-data-table-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: var(--slt-background-color, #fff);
+  border: 1px solid var(--slt-border-color-base, #d9d9d9);
+  border-radius: var(--slt-border-radius-base, 6px);
+  box-shadow: var(--slt-box-shadow-base, 0 1px 2px 0 rgba(0, 0, 0, 0.03));
+  overflow: hidden;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Header toolbar containing search */
+.slt-data-table__header-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--slt-padding-md, 16px);
+  border-bottom: 1px solid var(--slt-border-color-base, #d9d9d9);
+  background-color: var(--slt-background-color, #fff);
+}
+
+.slt-data-table__search {
+  max-width: 320px;
+  width: 100%;
+}
+
+/* Outer wrapper for loader layering */
+.slt-data-table__wrapper-outer {
+  position: relative;
+  width: 100%;
+}
+
+/* Table Wrapper for horizontal scroll */
+.slt-data-table__wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Core Table Element */
+.slt-data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: var(--slt-font-size-base, 14px);
+  color: var(--slt-text-color, #000000d9);
+}
+
+/* Row & Cell Paddings by Size Density */
+.slt-data-table th,
+.slt-data-table td {
+  padding: 16px;
+  border-bottom: 1px solid var(--slt-border-color-base, #e8e8e8);
+  transition: background-color 0.15s ease;
+}
+
+/* Small Sizing */
+.slt-data-table--small th,
+.slt-data-table--small td {
+  padding: 8px 12px;
+}
+
+/* Large Sizing */
+.slt-data-table--large th,
+.slt-data-table--large td {
+  padding: 20px 24px;
+}
+
+/* Table Head */
+.slt-data-table th {
+  background-color: rgba(15, 23, 42, 0.02);
+  color: var(--slt-text-color-secondary, #00000073);
+  font-weight: 600;
+  white-space: nowrap;
+  user-select: none;
+  border-bottom: 2px solid var(--slt-border-color-base, #d9d9d9);
+}
+
+/* Sortable Headers */
+.slt-data-table__th--sortable {
+  cursor: pointer;
+}
+
+.slt-data-table__th--sortable:hover {
+  background-color: rgba(15, 23, 42, 0.05);
+}
+
+.slt-data-table__th-content {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Alignment utilities */
+.slt-data-table__align--left {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.slt-data-table__align--center {
+  justify-content: center;
+  text-align: center;
+}
+
+.slt-data-table__align--right {
+  justify-content: flex-end;
+  text-align: right;
+  flex-direction: row-reverse;
+}
+
+/* Sort Icon styles */
+.slt-data-table__sort-icons {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 14px;
+  width: 14px;
+  color: var(--slt-text-color-secondary, #bfbfbf);
+}
+
+.slt-data-table__sort-icon {
+  width: 12px;
+  height: 6px;
+  stroke-width: 3px;
+  transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.slt-data-table__sort-icon:first-child {
+  margin-bottom: 1px;
+}
+
+.slt-data-table__sort-icon--active {
+  color: var(--slt-primary-color, #1890ff);
+  transform: scale(1.1);
+}
+
+/* Checkbox specific widths and centering */
+.slt-data-table__th-select,
+.slt-data-table__td-select {
+  width: 48px;
+  max-width: 48px;
+  padding: 0 0 0 16px !important;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.slt-data-table__checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Custom styled checkbox inside table */
+.slt-data-table__checkbox {
+  width: 16px;
+  height: 16px;
+  border-radius: var(--slt-border-radius-sm, 4px);
+  border: 1.5px solid var(--slt-border-color-base, #d9d9d9);
+  outline: none;
+  cursor: pointer;
+  accent-color: var(--slt-primary-color, #1890ff);
+}
+
+/* Striped Variant */
+.slt-data-table--striped tbody tr:nth-child(even) {
+  background-color: rgba(15, 23, 42, 0.015);
+}
+
+/* Bordered Variant */
+.slt-data-table--bordered {
+  border: 1px solid var(--slt-border-color-base, #d9d9d9);
+}
+
+.slt-data-table--bordered th,
+.slt-data-table--bordered td {
+  border-right: 1px solid var(--slt-border-color-base, #e8e8e8);
+}
+
+.slt-data-table--bordered th:last-child,
+.slt-data-table--bordered td:last-child {
+  border-right: none;
+}
+
+/* Hover Row Highlight */
+.slt-data-table--hover tbody tr:hover {
+  background-color: rgba(24, 144, 255, 0.04) !important;
+}
+
+/* Selected Row Highlight */
+.slt-data-table__tr--selected {
+  background-color: rgba(24, 144, 255, 0.08) !important;
+}
+
+/* Badges for status */
+.slt-data-table__badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  font-size: var(--slt-font-size-sm, 12px);
+  font-weight: 500;
+  border-radius: 9999px;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.slt-data-table__badge--success {
+  background-color: rgba(82, 196, 26, 0.1);
+  color: var(--slt-success-color, #52c41a);
+}
+
+.slt-data-table__badge--warning {
+  background-color: rgba(250, 173, 20, 0.1);
+  color: var(--slt-warning-color, #faad14);
+}
+
+.slt-data-table__badge--error {
+  background-color: rgba(255, 77, 79, 0.1);
+  color: var(--slt-error-color, #ff4d4f);
+}
+
+.slt-data-table__badge--info {
+  background-color: rgba(22, 119, 255, 0.1);
+  color: var(--slt-info-color, #1677ff);
+}
+
+.slt-data-table__badge--neutral {
+  background-color: rgba(148, 163, 184, 0.1);
+  color: #64748b;
+}
+
+/* Actions cell buttons */
+.slt-data-table__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.slt-data-table__action-btn {
+  margin: 0;
+}
+
+.slt-data-table__text-nowrap {
+  white-space: nowrap;
+}
+
+/* Loading Overlay Styles */
+.slt-data-table__loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(1px);
+}
+
+.slt-data-table__spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--slt-border-color-base, #d9d9d9);
+  border-top-color: var(--slt-primary-color, #1890ff);
+  border-radius: 50%;
+  animation: slt-spinner-spin 0.8s linear infinite;
+}
+
+@keyframes slt-spinner-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Empty State Styles */
+.slt-data-table__empty-state {
+  text-align: center !important;
+  padding: var(--slt-padding-lg, 48px) !important;
+  color: var(--slt-text-color-secondary, #8c8c8c);
+}
+
+.slt-data-table__empty-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.slt-data-table__empty-icon {
+  width: 48px;
+  height: 48px;
+  color: #bfbfbf;
+}
+
+/* Footer Section */
+.slt-data-table__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--slt-padding-md, 16px);
+  border-top: 1px solid var(--slt-border-color-base, #d9d9d9);
+  background-color: rgba(15, 23, 42, 0.01);
+  font-size: var(--slt-font-size-sm, 12px);
+  color: var(--slt-text-color-secondary, #64748b);
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.slt-data-table__footer-info span {
+  font-weight: 600;
+  color: var(--slt-text-color, #0f172a);
+}
+
+.slt-data-table__footer-paging {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.slt-data-table__page-size {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.slt-data-table__page-size-label {
+  white-space: nowrap;
+}
+
+.slt-data-table__page-size-dropdown {
+  min-width: 100px;
+}
+
+/* Dark Theme overrides compatibility */
+body.theme-dark .slt-data-table-container,
+body.theme-dark .slt-data-table__header-toolbar {
+  background-color: var(--slt-background-color);
+  border-color: var(--slt-border-color-base);
+}
+
+body.theme-dark .slt-data-table th {
+  background-color: rgba(255, 255, 255, 0.02);
+  color: var(--slt-text-color-secondary);
+  border-bottom-color: var(--slt-border-color-base);
+}
+
+body.theme-dark .slt-data-table th:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+body.theme-dark .slt-data-table td {
+  border-bottom-color: var(--slt-border-color-base);
+}
+
+body.theme-dark .slt-data-table--striped tbody tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.015);
+}
+
+body.theme-dark .slt-data-table--hover tbody tr:hover {
+  background-color: rgba(24, 144, 255, 0.08) !important;
+}
+
+body.theme-dark .slt-data-table__tr--selected {
+  background-color: rgba(24, 144, 255, 0.12) !important;
+}
+
+body.theme-dark .slt-data-table__loading-overlay {
+  background-color: rgba(0, 21, 41, 0.6);
+}
+
+body.theme-dark .slt-data-table__footer-info span {
+  color: var(--slt-text-color);
+}
