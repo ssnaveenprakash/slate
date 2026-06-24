@@ -6,8 +6,8 @@
 
   <ng-template #avatarContent>
     <ng-container *ngIf="icon; else textContent">
-      <ng-container *ngIf="isTemplateIcon; else stringIcon">
-        <ng-container *ngTemplateOutlet="icon"></ng-container>
+      <ng-container *ngIf="iconTemplate as templateIcon; else stringIcon">
+        <ng-container *ngTemplateOutlet="templateIcon"></ng-container>
       </ng-container>
       <ng-template #stringIcon>
         <span class="slt-avatar-icon-custom" [class]="icon"></span>

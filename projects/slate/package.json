@@ -1,12 +1,54 @@
 {
-  "name": "slate",
+  "name": "@slate/ui",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^19.2.0",
-    "@angular/core": "^19.2.0"
+    "@angular/core": "^19.2.0",
+    "@angular/forms": "^19.2.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "schematics": "./collection.json",
+  "keywords": [
+    "angular",
+    "components",
+    "ui-library",
+    "design-system"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/slate.git"
+  },
+  "homepage": "https://github.com/your-org/slate",
+  "bugs": {
+    "url": "https://github.com/your-org/slate/issues"
+  },
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "types": "./dist/slate/public-api.d.ts",
+      "esm2022": "./dist/slate/esm2022/slate.mjs",
+      "default": "./dist/slate/fesm2022/slate.mjs"
+    },
+    "./atoms": {
+      "types": "./dist/slate/atoms/public-api.d.ts",
+      "esm2022": "./dist/slate/esm2022/atoms/public-api.mjs",
+      "default": "./dist/slate/fesm2022/atoms/public-api.mjs"
+    },
+    "./molecules": {
+      "types": "./dist/slate/molecules/public-api.d.ts",
+      "esm2022": "./dist/slate/esm2022/molecules/public-api.mjs",
+      "default": "./dist/slate/fesm2022/molecules/public-api.mjs"
+    },
+    "./organisms": {
+      "types": "./dist/slate/organisms/public-api.d.ts",
+      "esm2022": "./dist/slate/esm2022/organisms/public-api.mjs",
+      "default": "./dist/slate/fesm2022/organisms/public-api.mjs"
+    },
+    "./package.json": {
+      "default": "./package.json"
+    }
+  }
 }

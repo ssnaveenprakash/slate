@@ -1,63 +1,48 @@
-# Slate
+# Slate UI
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.0.
+Slate UI is an Angular component library for building consistent product interfaces with composable atoms, molecules, and organisms.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Installation
 
 ```bash
-ng generate component component-name
+npm install @slate/ui @angular/core @angular/common @angular/forms
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Quick start
+
+Import the root entry point in your Angular application:
+
+```ts
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { SlateModule } from '@slate/ui';
+
+@NgModule({
+  imports: [BrowserModule, SlateModule],
+  bootstrap: []
+})
+export class AppModule {}
+```
+
+You can also import grouped entry points for tree-shaking:
+
+```ts
+import { ButtonComponent, IconComponent } from '@slate/ui/atoms';
+import { CardComponent, SearchBarComponent } from '@slate/ui/molecules';
+import { NavigationSidebarComponent } from '@slate/ui/organisms';
+```
+
+## Styles
+
+Add the design tokens and theme stylesheet to your app styles:
+
+```scss
+@use '@slate/ui/styles';
+```
+
+## Development
 
 ```bash
-ng generate --help
+npm install
+npm run build
 ```
-
-## Building
-
-To build the library, run:
-
-```bash
-ng build slate
-```
-
-This command will compile your project, and the build artifacts will be placed in the `dist/` directory.
-
-### Publishing the Library
-
-Once the project is built, you can publish your library by following these steps:
-
-1. Navigate to the `dist` directory:
-   ```bash
-   cd dist/slate
-   ```
-
-2. Run the `npm publish` command to publish your library to the npm registry:
-   ```bash
-   npm publish
-   ```
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

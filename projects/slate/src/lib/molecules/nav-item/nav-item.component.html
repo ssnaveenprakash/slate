@@ -6,6 +6,6 @@
   [attr.aria-disabled]="item?.disabled ? 'true' : null"
   tabindex="0"
 >
-  <slt-icon *ngIf="item?.icon" [type]="item.icon" ariaLabel="{{item.label}} icon" decorative="false"></slt-icon>
+  <slt-icon *ngIf="item?.icon" [type]="item.icon" ariaLabel="{{item.label}} icon" [decorative]="false"></slt-icon>
   <span class="nav-label" *ngIf="!collapsed">{{ item?.label }}</span>
 </a>
