@@ -81,6 +81,16 @@
                 "defaultValue": "{\n  args: {\n    type: 'success',\n    message: 'Auto-Timeout Alert',\n    description: 'This alert will automatically fade out and dismiss after 3 seconds (3000ms).',\n    dismissible: true,\n    duration: 3000,\n  },\n}"
             },
             {
+                "name": "basicSteps",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/stepper/stepper.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "StepConfig[]",
+                "defaultValue": "[\n  { label: 'Account', description: 'Create your account' },\n  { label: 'Profile', description: 'Set up your profile' },\n  { label: 'Payment', description: 'Add payment details' },\n  { label: 'Review', description: 'Confirm and submit' },\n]"
+            },
+            {
                 "name": "Collapsed",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -139,6 +149,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    value: '',\n    placeholder: 'Search by name, email, or role…',\n  },\n}"
+            },
+            {
+                "name": "CustomTemplates",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/data-table/data-table.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: (args) => ({\n    props: args,\n    template: `\n      <div>\n        <slt-data-table\n          [columns]=\"columns\"\n          [data]=\"data\"\n          [actions]=\"actions\"\n          [pageSize]=\"5\"\n          (actionClick)=\"actionClick($event)\"\n        >\n          <!-- Custom template for name column incorporating slt-avatar -->\n          <ng-template sltTableCell=\"name\" let-value let-row=\"row\">\n            <div style=\"display: flex; align-items: center; gap: 8px;\">\n              <slt-avatar [alt]=\"value\" size=\"small\" [status]=\"row.status === 'active' ? 'online' : 'offline'\"></slt-avatar>\n              <div style=\"display: flex; flex-direction: column;\">\n                <span style=\"font-weight: 600;\">{{ value }}</span>\n                <span style=\"font-size: 11px; color: #888;\">ID: {{ row.id }}</span>\n              </div>\n            </div>\n          </ng-template>\n\n          <!-- Custom template for email column to render clickable link -->\n          <ng-template sltTableCell=\"email\" let-value>\n            <a href=\"mailto:{{value}}\" style=\"color: var(--slt-primary-color); text-decoration: none;\">\n              {{ value }}\n            </a>\n          </ng-template>\n        </slt-data-table>\n      </div>\n    `,\n  }),\n  args: {\n    columns: defaultColumns,\n    data: mockData,\n    actions: defaultActions,\n    actionClick: fn(),\n  },\n}"
             },
             {
                 "name": "DarkExample",
@@ -204,21 +224,21 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
+                "file": "projects/slate/src/lib/organisms/data-table/data-table.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    label: 'Date',\n    placeholder: 'Select a date',\n    helperText: '',\n    validationMessage: '',\n    value: '',\n    min: '',\n    max: '',\n    disabled: false,\n    readonly: false,\n    required: false,\n    variant: 'default',\n    size: 'medium',\n    showPrefix: false,\n    showSuffix: false,\n    showDefaultIcon: true,\n  },\n  render,\n}"
+                "defaultValue": "{\n  args: {},\n}"
             },
             {
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/organisms/modal/modal.stories.ts",
+                "file": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  render: (args) => ({\n    props: args,\n    template: `\n      <div>\n        <storybook-button label=\"Open Modal\" (onClick)=\"isOpen = true\"></storybook-button>\n        <storybook-modal\n          [isOpen]=\"isOpen\"\n          (isOpenChange)=\"isOpen = $event\"\n          [title]=\"title\"\n          [size]=\"size\"\n          [closeOnBackdropClick]=\"closeOnBackdropClick\"\n          [showCloseButton]=\"showCloseButton\"\n          (onClose)=\"onClose()\"\n        >\n          <p>This is the main body content of the modal. You can place any HTML elements or other components here.</p>\n          <div modalFooter>\n            <storybook-button variant=\"ghost\" label=\"Cancel\" (onClick)=\"isOpen = false\"></storybook-button>\n            <storybook-button label=\"Confirm\" (onClick)=\"isOpen = false\"></storybook-button>\n          </div>\n        </storybook-modal>\n      </div>\n    `,\n  }),\n  args: {\n    isOpen: true,\n    title: 'Interactive Modal',\n    size: 'medium',\n  },\n}"
+                "defaultValue": "{\n  args: {\n    label: 'Date',\n    placeholder: 'Select a date',\n    helperText: '',\n    validationMessage: '',\n    value: '',\n    min: '',\n    max: '',\n    disabled: false,\n    readonly: false,\n    required: false,\n    variant: 'default',\n    size: 'medium',\n    showPrefix: false,\n    showSuffix: false,\n    showDefaultIcon: true,\n  },\n  render,\n}"
             },
             {
                 "name": "Default",
@@ -234,11 +254,41 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/modal/modal.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: (args) => ({\n    props: args,\n    template: `\n      <div>\n        <storybook-button label=\"Open Modal\" (onClick)=\"isOpen = true\"></storybook-button>\n        <storybook-modal\n          [isOpen]=\"isOpen\"\n          (isOpenChange)=\"isOpen = $event\"\n          [title]=\"title\"\n          [size]=\"size\"\n          [closeOnBackdropClick]=\"closeOnBackdropClick\"\n          [showCloseButton]=\"showCloseButton\"\n          (onClose)=\"onClose()\"\n        >\n          <p>This is the main body content of the modal. You can place any HTML elements or other components here.</p>\n          <div modalFooter>\n            <storybook-button variant=\"ghost\" label=\"Cancel\" (onClick)=\"isOpen = false\"></storybook-button>\n            <storybook-button label=\"Confirm\" (onClick)=\"isOpen = false\"></storybook-button>\n          </div>\n        </storybook-modal>\n      </div>\n    `,\n  }),\n  args: {\n    isOpen: true,\n    title: 'Interactive Modal',\n    size: 'medium',\n  },\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/slate/src/lib/organisms/time-picker/time-picker.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    label: 'Time',\n    placeholder: 'Select time',\n    helperText: '',\n    validationMessage: '',\n    value: '',\n    min: '',\n    max: '',\n    disabled: false,\n    readonly: false,\n    required: false,\n    variant: 'default',\n    size: 'medium',\n    showPrefix: false,\n    showSuffix: false,\n    showDefaultIcon: true,\n  },\n  render,\n}"
+            },
+            {
+                "name": "defaultActions",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/data-table/data-table.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "DataTableAction[]",
+                "defaultValue": "[\n  { id: 'edit', label: 'Edit', variant: 'secondary' },\n  { id: 'delete', label: 'Delete', variant: 'danger' },\n]"
+            },
+            {
+                "name": "defaultColumns",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/data-table/data-table.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "DataTableColumn[]",
+                "defaultValue": "[\n  { key: 'name', label: 'Name', sortable: true, width: '200px' },\n  { key: 'email', label: 'Email', width: '250px' },\n  { key: 'role', label: 'Role', sortable: true },\n  { key: 'age', label: 'Age', sortable: true, align: 'right', type: 'number', width: '80px' },\n  { key: 'joinDate', label: 'Join Date', sortable: true, type: 'date', width: '120px' },\n  {\n    key: 'status',\n    label: 'Status',\n    sortable: true,\n    type: 'badge',\n    width: '120px',\n    badgeMap: {\n      active: { label: 'Active', variant: 'success' },\n      inactive: { label: 'Inactive', variant: 'neutral' },\n      pending: { label: 'Pending', variant: 'warning' },\n      warning: { label: 'Review Required', variant: 'error' },\n    },\n  },\n  { key: 'actions', label: 'Actions', type: 'actions', align: 'center', width: '150px' },\n]"
             },
             {
                 "name": "Disabled",
@@ -450,6 +500,36 @@
                 "defaultValue": "{ args: { ...Default.args, size: 'large' }, render }"
             },
             {
+                "name": "LastStep",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/stepper/stepper.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    steps: basicSteps,\n    activeStep: 3,\n    linear: true,\n    errorSteps: [],\n  },\n  render: Playground.render,\n}"
+            },
+            {
+                "name": "LinearFlow",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/stepper/stepper.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: () => ({\n    props: {\n      steps: basicSteps,\n      active: 0,\n      contents: [\n        'Fill in your email and password to create an account.',\n        'Tell us a bit about yourself — name, avatar, bio.',\n        'Add a credit or debit card to complete your subscription.',\n        'Double-check your details and hit Finish to submit.',\n      ],\n    },\n    template: `\n      <slt-stepper\n        [steps]=\"steps\"\n        [activeStep]=\"active\"\n        [linear]=\"true\"\n        (stepChange)=\"active = $event\"\n        (finish)=\"active = 0\"\n        (cancel)=\"active = 0\"\n      >\n        <p>{{ contents[active] }}</p>\n      </slt-stepper>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "LoadingState",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/data-table/data-table.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    loading: true,\n  },\n}"
+            },
+            {
                 "name": "LoadingState",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -458,6 +538,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    schema: contactSchema,\n    loading: true,\n  },\n}"
+            },
+            {
+                "name": "LoadingState",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/stepper/stepper.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    steps: basicSteps,\n    activeStep: 2,\n    linear: true,\n    loading: true,\n    errorSteps: [],\n  },\n  render: Playground.render,\n}"
             },
             {
                 "name": "LongContent",
@@ -583,6 +673,16 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/breadcrumb/breadcrumb.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<BreadcrumbComponent>",
+                "defaultValue": "{\n    title: 'Molecules/Breadcrumb',\n    component: BreadcrumbComponent,\n    tags: ['autodocs'],\n    argTypes: {\n        separator: {\n            control: 'text',\n            description: 'Character or text displayed between breadcrumb items',\n        },\n        ariaLabel: {\n            control: 'text',\n            description: 'Accessible label for the breadcrumb navigation',\n        },\n    },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/slate/src/lib/molecules/card/card.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -598,16 +698,6 @@
                 "deprecationMessage": "",
                 "type": "Meta<any>",
                 "defaultValue": "{\n    title: 'Molecules/Dropdown',\n    component: DropdownComponent,\n    decorators: [\n        moduleMetadata({\n            imports: [CommonModule, DropdownComponent],\n        }),\n    ],\n    argTypes: {\n        multiple: { control: 'boolean' },\n        searchable: { control: 'boolean' },\n        disabled: { control: 'boolean' },\n        allowClear: { control: 'boolean' },\n        placeholder: { control: 'text' },\n        notFoundText: { control: 'text' },\n    },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/slate/src/lib/molecules/breadcrumb/breadcrumb.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<BreadcrumbComponent>",
-                "defaultValue": "{\n    title: 'Molecules/Breadcrumb',\n    component: BreadcrumbComponent,\n    tags: ['autodocs'],\n    argTypes: {\n        separator: {\n            control: 'text',\n            description: 'Character or text displayed between breadcrumb items',\n        },\n        ariaLabel: {\n            control: 'text',\n            description: 'Accessible label for the breadcrumb navigation',\n        },\n    },\n}"
             },
             {
                 "name": "meta",
@@ -643,6 +733,16 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/data-table/data-table.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<DataTableComponent>",
+                "defaultValue": "{\n  title: 'Organisms/Data Table',\n  component: DataTableComponent,\n  tags: ['autodocs'],\n  decorators: [\n    moduleMetadata({\n      imports: [\n        DataTableComponent,\n        TableCellTemplateDirective,\n        AvatarComponent,\n        ButtonComponent,\n        DropdownComponent,\n        SearchBarComponent,\n        PaginationComponent,\n      ],\n    }),\n  ],\n  argTypes: {\n    size: {\n      control: 'select',\n      options: ['small', 'medium', 'large'],\n      description: 'Density of the table rows and cells',\n    },\n    striped: {\n      control: 'boolean',\n      description: 'Zebra stripe rows for alternate lines',\n    },\n    bordered: {\n      control: 'boolean',\n      description: 'Adds grid borders to the table cells',\n    },\n    hover: {\n      control: 'boolean',\n      description: 'Highlight rows on mouse hover',\n    },\n    showSelection: {\n      control: 'boolean',\n      description: 'Show checkbox column for row selection',\n    },\n    loading: {\n      control: 'boolean',\n      description: 'Shows loading spinner overlay and disables sorting',\n    },\n  },\n  args: {\n    columns: defaultColumns,\n    data: mockData,\n    actions: defaultActions,\n    pageSize: 5,\n    currentPage: 1,\n    pageSizeOptions: [5, 10, 20],\n    striped: false,\n    bordered: false,\n    hover: true,\n    showSelection: false,\n    loading: false,\n    actionClick: fn(),\n    selectionChange: fn(),\n    sortChange: fn(),\n    pageChange: fn(),\n    pageSizeChange: fn(),\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -663,16 +763,6 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/organisms/modal/modal.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<ModalComponent>",
-                "defaultValue": "{\n  title: 'Organisms/Modal',\n  component: ModalComponent,\n  tags: ['autodocs'],\n  decorators: [\n    moduleMetadata({\n      imports: [ModalComponent, ButtonComponent],\n    }),\n  ],\n  argTypes: {\n    size: {\n      control: 'select',\n      options: ['small', 'medium', 'large', 'full'],\n      description: 'Size of the modal container',\n    },\n    isOpen: {\n      control: 'boolean',\n      description: 'Whether the modal is visible',\n    },\n    title: {\n      control: 'text',\n      description: 'Modal title text',\n    },\n    closeOnBackdropClick: {\n      control: 'boolean',\n      description: 'Close the modal when clicking outside',\n    },\n    showCloseButton: {\n      control: 'boolean',\n      description: 'Show or hide the close button in the header',\n    },\n  },\n  args: {\n    isOpen: false,\n    title: 'Modal Title',\n    size: 'medium',\n    closeOnBackdropClick: true,\n    showCloseButton: true,\n    onClose: fn(),\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/slate/src/lib/organisms/navigation-sidebar/navigation-sidebar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -683,11 +773,41 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/modal/modal.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ModalComponent>",
+                "defaultValue": "{\n  title: 'Organisms/Modal',\n  component: ModalComponent,\n  tags: ['autodocs'],\n  decorators: [\n    moduleMetadata({\n      imports: [ModalComponent, ButtonComponent],\n    }),\n  ],\n  argTypes: {\n    size: {\n      control: 'select',\n      options: ['small', 'medium', 'large', 'full'],\n      description: 'Size of the modal container',\n    },\n    isOpen: {\n      control: 'boolean',\n      description: 'Whether the modal is visible',\n    },\n    title: {\n      control: 'text',\n      description: 'Modal title text',\n    },\n    closeOnBackdropClick: {\n      control: 'boolean',\n      description: 'Close the modal when clicking outside',\n    },\n    showCloseButton: {\n      control: 'boolean',\n      description: 'Show or hide the close button in the header',\n    },\n  },\n  args: {\n    isOpen: false,\n    title: 'Modal Title',\n    size: 'medium',\n    closeOnBackdropClick: true,\n    showCloseButton: true,\n    onClose: fn(),\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/stepper/stepper.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<StepperComponent>",
+                "defaultValue": "{\n  title: 'Organisms/Stepper',\n  component: StepperComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    activeStep: { control: { type: 'number', min: 0 } },\n    orientation: { control: 'radio', options: ['horizontal', 'vertical'] },\n    linear: { control: 'boolean', description: 'Prevent skipping steps when true' },\n    loading: { control: 'boolean' },\n    nextLabel: { control: 'text' },\n    backLabel: { control: 'text' },\n    finishLabel: { control: 'text' },\n  },\n  args: {\n    stepChange: fn(),\n    finish: fn(),\n    cancel: fn(),\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/slate/src/lib/organisms/time-picker/time-picker.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<Args>",
                 "defaultValue": "{\n  title: 'Organisms/TimePicker',\n  component: TimePickerComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    label: { control: 'text' },\n    helperText: { control: 'text' },\n    validationMessage: { control: 'text' },\n    placeholder: { control: 'text' },\n    value: { control: 'text' },\n    min: { control: 'text' },\n    max: { control: 'text' },\n    disabled: { control: 'boolean' },\n    readonly: { control: 'boolean' },\n    required: { control: 'boolean' },\n    variant: { control: 'radio', options: ['default', 'filled', 'ghost'] },\n    size: { control: 'radio', options: ['small', 'medium', 'large'] },\n    showPrefix: { control: 'boolean' },\n    showSuffix: { control: 'boolean' },\n    showDefaultIcon: { control: 'boolean' },\n  },\n}"
+            },
+            {
+                "name": "mockData",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/data-table/data-table.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "[]",
+                "defaultValue": "[\n  { id: 1, name: 'Alice Johnson', email: 'alice.j@example.com', age: 28, joinDate: '2023-01-15', status: 'active', role: 'Developer' },\n  { id: 2, name: 'Bob Smith', email: 'bob.smith@example.com', age: 34, joinDate: '2022-06-20', status: 'inactive', role: 'Designer' },\n  { id: 3, name: 'Charlie Brown', email: 'charlie.b@example.com', age: 22, joinDate: '2024-03-01', status: 'active', role: 'Intern' },\n  { id: 4, name: 'Diana Prince', email: 'diana.p@example.com', age: 29, joinDate: '2021-11-10', status: 'pending', role: 'Manager' },\n  { id: 5, name: 'Evan Wright', email: 'evan.w@example.com', age: 41, joinDate: '2020-04-05', status: 'active', role: 'Director' },\n  { id: 6, name: 'Fiona Gallagher', email: 'fiona.g@example.com', age: 25, joinDate: '2023-08-12', status: 'active', role: 'Support' },\n  { id: 7, name: 'George Costanza', email: 'george.c@example.com', age: 39, joinDate: '2022-09-30', status: 'inactive', role: 'Administrator' },\n  { id: 8, name: 'Helen Parr', email: 'helen.p@example.com', age: 31, joinDate: '2021-02-28', status: 'active', role: 'Consultant' },\n  { id: 9, name: 'Ian Malcolm', email: 'ian.m@example.com', age: 45, joinDate: '2019-07-15', status: 'warning', role: 'Scientist' },\n  { id: 10, name: 'Julia Roberts', email: 'julia.r@example.com', age: 36, joinDate: '2020-12-01', status: 'active', role: 'Marketing' },\n  { id: 11, name: 'Kevin Bacon', email: 'kevin.b@example.com', age: 52, joinDate: '2018-05-20', status: 'active', role: 'Sales' },\n  { id: 12, name: 'Lois Lane', email: 'lois.l@example.com', age: 30, joinDate: '2022-10-15', status: 'active', role: 'Journalist' },\n]"
             },
             {
                 "name": "Modifiers",
@@ -718,6 +838,16 @@
                 "deprecationMessage": "",
                 "type": "NavigationSidebarItem[]",
                 "defaultValue": "[\n  { label: 'Dashboard', href: '/dashboard', icon: 'home' },\n  { label: 'Projects', href: '/projects', icon: 'folder' },\n  { label: 'Teams', href: '/teams', icon: 'team' },\n  { label: 'Settings', href: '/settings', icon: 'setting', disabled: true },\n]"
+            },
+            {
+                "name": "NonLinearFlow",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/stepper/stepper.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: () => ({\n    props: {\n      steps: basicSteps,\n      active: 0,\n    },\n    template: `\n      <div style=\"margin-bottom: 12px; font-size: 13px; color: #6b7280;\">\n        Non-linear: click any step header to jump directly to it.\n      </div>\n      <slt-stepper\n        [steps]=\"steps\"\n        [activeStep]=\"active\"\n        [linear]=\"false\"\n        (stepChange)=\"active = $event\"\n        (finish)=\"active = 0\"\n        (cancel)=\"active = 0\"\n      >\n        <p>Step {{ active + 1 }} — freely navigate between steps.</p>\n      </slt-stepper>\n    `,\n  }),\n}"
             },
             {
                 "name": "NumberValidation",
@@ -813,21 +943,21 @@
                 "name": "Playground",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/molecules/card/card.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {\n    variant: 'flat',\n    size: 'medium',\n    ariaLabel: 'Example card',\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <storybook-card [variant]=\"variant\" [size]=\"size\" [ariaLabel]=\"ariaLabel\">\n        <div cardHeader>\n          <h3 style=\"margin:0\">Card Header</h3>\n        </div>\n\n        <p style=\"margin:0\">This is the main body content of the card. It accepts arbitrary projection.</p>\n\n        <div cardFooter>\n          <div style=\"display:flex;justify-content:flex-end;gap:8px\">\n            <button>Cancel</button>\n            <button>Save</button>\n          </div>\n        </div>\n      </storybook-card>\n    `,\n  }),\n}"
-            },
-            {
-                "name": "Playground",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/slate/src/lib/molecules/breadcrumb/breadcrumb.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n    args: {\n        separator: '/',\n        ariaLabel: 'Breadcrumb',\n        items: [\n            { label: 'Home', href: '#' },\n            { label: 'Products', href: '#' },\n            { label: 'Headphones' },\n        ],\n    },\n}"
+            },
+            {
+                "name": "Playground",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/molecules/card/card.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    variant: 'flat',\n    size: 'medium',\n    ariaLabel: 'Example card',\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <storybook-card [variant]=\"variant\" [size]=\"size\" [ariaLabel]=\"ariaLabel\">\n        <div cardHeader>\n          <h3 style=\"margin:0\">Card Header</h3>\n        </div>\n\n        <p style=\"margin:0\">This is the main body content of the card. It accepts arbitrary projection.</p>\n\n        <div cardFooter>\n          <div style=\"display:flex;justify-content:flex-end;gap:8px\">\n            <button>Cancel</button>\n            <button>Save</button>\n          </div>\n        </div>\n      </storybook-card>\n    `,\n  }),\n}"
             },
             {
                 "name": "Playground",
@@ -858,6 +988,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    value: '',\n    placeholder: 'Search…',\n    disabled: false,\n  },\n}"
+            },
+            {
+                "name": "Playground",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/stepper/stepper.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    steps: basicSteps,\n    activeStep: 1,\n    linear: true,\n    orientation: 'horizontal',\n    loading: false,\n    nextLabel: 'Next',\n    backLabel: 'Back',\n    finishLabel: 'Finish',\n    errorSteps: [],\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <slt-stepper\n        [steps]=\"steps\"\n        [activeStep]=\"activeStep\"\n        [linear]=\"linear\"\n        [orientation]=\"orientation\"\n        [loading]=\"loading\"\n        [nextLabel]=\"nextLabel\"\n        [backLabel]=\"backLabel\"\n        [finishLabel]=\"finishLabel\"\n        [errorSteps]=\"errorSteps\"\n        (stepChange)=\"activeStep = $event\"\n        (finish)=\"finish($event)\"\n        (cancel)=\"cancel($event)\"\n      >\n        <p>Step {{ activeStep + 1 }} content goes here.</p>\n      </slt-stepper>\n    `,\n  }),\n}"
             },
             {
                 "name": "PrePopulated",
@@ -968,6 +1108,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  name: 'Required — empty blur',\n  args: {\n    label: 'Username',\n    placeholder: 'Enter username',\n    type: 'text',\n    required: true,\n    helperText: 'Leave empty and click outside to trigger the required error.',\n  },\n}"
+            },
+            {
+                "name": "Selection",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/data-table/data-table.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    showSelection: true,\n  },\n}"
             },
             {
                 "name": "ShapeCircle",
@@ -1330,6 +1480,26 @@
                 "defaultValue": "{\n  args: { variant: 'raised', size: 'medium' },\n  render: (args) => ({\n    props: args,\n    template: `\n      <storybook-card [variant]=\"variant\" [size]=\"size\">\n        <div cardHeader><strong>Raised</strong></div>\n        <div>Elevated surface using tokenized shadow</div>\n      </storybook-card>\n    `,\n  }),\n}"
             },
             {
+                "name": "VerticalOrientation",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/stepper/stepper.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: () => ({\n    props: {\n      steps: basicSteps,\n      active: 1,\n    },\n    template: `\n      <div style=\"max-width: 480px;\">\n        <slt-stepper\n          [steps]=\"steps\"\n          [activeStep]=\"active\"\n          [linear]=\"true\"\n          orientation=\"vertical\"\n          (stepChange)=\"active = $event\"\n          (finish)=\"active = 0\"\n          (cancel)=\"active = 0\"\n        >\n          <p>Step {{ active + 1 }} content in vertical layout.</p>\n        </slt-stepper>\n      </div>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "VisualVariants",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/data-table/data-table.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: (args) => ({\n    props: args,\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 32px;\">\n        <div>\n          <h3 style=\"margin-bottom: 8px;\">Striped</h3>\n          <slt-data-table [columns]=\"columns\" [data]=\"data\" [actions]=\"actions\" [pageSize]=\"5\" [striped]=\"true\"></slt-data-table>\n        </div>\n        <div>\n          <h3 style=\"margin-bottom: 8px;\">Bordered</h3>\n          <slt-data-table [columns]=\"columns\" [data]=\"data\" [actions]=\"actions\" [pageSize]=\"5\" [bordered]=\"true\"></slt-data-table>\n        </div>\n        <div>\n          <h3 style=\"margin-bottom: 8px;\">Small Density</h3>\n          <slt-data-table [columns]=\"columns\" [data]=\"data\" [actions]=\"actions\" [pageSize]=\"5\" size=\"small\"></slt-data-table>\n        </div>\n      </div>\n    `,\n  }),\n  args: {\n    columns: defaultColumns,\n    data: mockData,\n    actions: defaultActions,\n  },\n}"
+            },
+            {
                 "name": "WithError",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -1338,6 +1508,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    fieldType: 'input',\n    label: 'Email',\n    placeholder: 'Enter email',\n    helperText: '',\n    error: 'Email is required',\n    disabled: false,\n    showPrefix: false,\n    showSuffix: false,\n  },\n  render: Playground.render,\n}"
+            },
+            {
+                "name": "WithErrorStep",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/stepper/stepper.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: () => ({\n    props: {\n      steps: basicSteps,\n      active: 2,\n      errors: [1],\n    },\n    template: `\n      <slt-stepper\n        [steps]=\"steps\"\n        [activeStep]=\"active\"\n        [linear]=\"false\"\n        [errorSteps]=\"errors\"\n        (stepChange)=\"active = $event\"\n        (finish)=\"active = 0\"\n        (cancel)=\"active = 0\"\n      >\n        <p>Step 2 (Profile) has a validation error — indicated in the track above.</p>\n      </slt-stepper>\n    `,\n  }),\n}"
             },
             {
                 "name": "WithIcon",
@@ -1368,6 +1548,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{ args: { ...Default.args, min: '09:00', max: '17:00' }, render }"
+            },
+            {
+                "name": "WithOptionalStep",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/stepper/stepper.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: () => ({\n    props: {\n      steps: [\n        { label: 'Account', description: 'Create your account' },\n        { label: 'Profile', description: 'Set up your profile', optional: true },\n        { label: 'Payment', description: 'Add payment details' },\n        { label: 'Review', description: 'Confirm and submit' },\n      ] as StepConfig[],\n      active: 0,\n    },\n    template: `\n      <slt-stepper\n        [steps]=\"steps\"\n        [activeStep]=\"active\"\n        [linear]=\"true\"\n        (stepChange)=\"active = $event\"\n        (finish)=\"active = 0\"\n        (cancel)=\"active = 0\"\n      >\n        <p>Step {{ active + 1 }} content. The Profile step is optional.</p>\n      </slt-stepper>\n    `,\n  }),\n}"
             },
             {
                 "name": "WithoutDescription",
@@ -1558,6 +1748,17 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<BreadcrumbComponent>",
+                "file": "projects/slate/src/lib/molecules/breadcrumb/breadcrumb.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<CardComponent>",
                 "file": "projects/slate/src/lib/molecules/card/card.stories.ts",
                 "deprecated": false,
@@ -1571,17 +1772,6 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<any>",
                 "file": "projects/slate/src/lib/molecules/dropdown/dropdown.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 184
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<BreadcrumbComponent>",
-                "file": "projects/slate/src/lib/molecules/breadcrumb/breadcrumb.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1624,6 +1814,17 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<DataTableComponent>",
+                "file": "projects/slate/src/lib/organisms/data-table/data-table.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<Args>",
                 "file": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
                 "deprecated": false,
@@ -1646,6 +1847,17 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<NavigationSidebarComponent>",
+                "file": "projects/slate/src/lib/organisms/navigation-sidebar/navigation-sidebar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<ModalComponent>",
                 "file": "projects/slate/src/lib/organisms/modal/modal.stories.ts",
                 "deprecated": false,
@@ -1657,8 +1869,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<NavigationSidebarComponent>",
-                "file": "projects/slate/src/lib/organisms/navigation-sidebar/navigation-sidebar.stories.ts",
+                "rawtype": "StoryObj<StepperComponent>",
+                "file": "projects/slate/src/lib/organisms/stepper/stepper.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -2139,6 +2351,108 @@
                     "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 600px;\">\n        <storybook-alert type=\"info\" message=\"Standard informative message header.\"></storybook-alert>\n        <storybook-alert type=\"success\" message=\"Successfully saved settings.\"></storybook-alert>\n        <storybook-alert type=\"warning\" message=\"Database space is getting low.\"></storybook-alert>\n        <storybook-alert type=\"error\" message=\"Invalid credentials entered.\"></storybook-alert>\n      </div>\n    `,\n  }),\n}"
                 }
             ],
+            "projects/slate/src/lib/organisms/stepper/stepper.stories.ts": [
+                {
+                    "name": "basicSteps",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/stepper/stepper.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "StepConfig[]",
+                    "defaultValue": "[\n  { label: 'Account', description: 'Create your account' },\n  { label: 'Profile', description: 'Set up your profile' },\n  { label: 'Payment', description: 'Add payment details' },\n  { label: 'Review', description: 'Confirm and submit' },\n]"
+                },
+                {
+                    "name": "LastStep",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/stepper/stepper.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    steps: basicSteps,\n    activeStep: 3,\n    linear: true,\n    errorSteps: [],\n  },\n  render: Playground.render,\n}"
+                },
+                {
+                    "name": "LinearFlow",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/stepper/stepper.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: () => ({\n    props: {\n      steps: basicSteps,\n      active: 0,\n      contents: [\n        'Fill in your email and password to create an account.',\n        'Tell us a bit about yourself — name, avatar, bio.',\n        'Add a credit or debit card to complete your subscription.',\n        'Double-check your details and hit Finish to submit.',\n      ],\n    },\n    template: `\n      <slt-stepper\n        [steps]=\"steps\"\n        [activeStep]=\"active\"\n        [linear]=\"true\"\n        (stepChange)=\"active = $event\"\n        (finish)=\"active = 0\"\n        (cancel)=\"active = 0\"\n      >\n        <p>{{ contents[active] }}</p>\n      </slt-stepper>\n    `,\n  }),\n}"
+                },
+                {
+                    "name": "LoadingState",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/stepper/stepper.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    steps: basicSteps,\n    activeStep: 2,\n    linear: true,\n    loading: true,\n    errorSteps: [],\n  },\n  render: Playground.render,\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/stepper/stepper.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<StepperComponent>",
+                    "defaultValue": "{\n  title: 'Organisms/Stepper',\n  component: StepperComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    activeStep: { control: { type: 'number', min: 0 } },\n    orientation: { control: 'radio', options: ['horizontal', 'vertical'] },\n    linear: { control: 'boolean', description: 'Prevent skipping steps when true' },\n    loading: { control: 'boolean' },\n    nextLabel: { control: 'text' },\n    backLabel: { control: 'text' },\n    finishLabel: { control: 'text' },\n  },\n  args: {\n    stepChange: fn(),\n    finish: fn(),\n    cancel: fn(),\n  },\n}"
+                },
+                {
+                    "name": "NonLinearFlow",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/stepper/stepper.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: () => ({\n    props: {\n      steps: basicSteps,\n      active: 0,\n    },\n    template: `\n      <div style=\"margin-bottom: 12px; font-size: 13px; color: #6b7280;\">\n        Non-linear: click any step header to jump directly to it.\n      </div>\n      <slt-stepper\n        [steps]=\"steps\"\n        [activeStep]=\"active\"\n        [linear]=\"false\"\n        (stepChange)=\"active = $event\"\n        (finish)=\"active = 0\"\n        (cancel)=\"active = 0\"\n      >\n        <p>Step {{ active + 1 }} — freely navigate between steps.</p>\n      </slt-stepper>\n    `,\n  }),\n}"
+                },
+                {
+                    "name": "Playground",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/stepper/stepper.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    steps: basicSteps,\n    activeStep: 1,\n    linear: true,\n    orientation: 'horizontal',\n    loading: false,\n    nextLabel: 'Next',\n    backLabel: 'Back',\n    finishLabel: 'Finish',\n    errorSteps: [],\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <slt-stepper\n        [steps]=\"steps\"\n        [activeStep]=\"activeStep\"\n        [linear]=\"linear\"\n        [orientation]=\"orientation\"\n        [loading]=\"loading\"\n        [nextLabel]=\"nextLabel\"\n        [backLabel]=\"backLabel\"\n        [finishLabel]=\"finishLabel\"\n        [errorSteps]=\"errorSteps\"\n        (stepChange)=\"activeStep = $event\"\n        (finish)=\"finish($event)\"\n        (cancel)=\"cancel($event)\"\n      >\n        <p>Step {{ activeStep + 1 }} content goes here.</p>\n      </slt-stepper>\n    `,\n  }),\n}"
+                },
+                {
+                    "name": "VerticalOrientation",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/stepper/stepper.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: () => ({\n    props: {\n      steps: basicSteps,\n      active: 1,\n    },\n    template: `\n      <div style=\"max-width: 480px;\">\n        <slt-stepper\n          [steps]=\"steps\"\n          [activeStep]=\"active\"\n          [linear]=\"true\"\n          orientation=\"vertical\"\n          (stepChange)=\"active = $event\"\n          (finish)=\"active = 0\"\n          (cancel)=\"active = 0\"\n        >\n          <p>Step {{ active + 1 }} content in vertical layout.</p>\n        </slt-stepper>\n      </div>\n    `,\n  }),\n}"
+                },
+                {
+                    "name": "WithErrorStep",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/stepper/stepper.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: () => ({\n    props: {\n      steps: basicSteps,\n      active: 2,\n      errors: [1],\n    },\n    template: `\n      <slt-stepper\n        [steps]=\"steps\"\n        [activeStep]=\"active\"\n        [linear]=\"false\"\n        [errorSteps]=\"errors\"\n        (stepChange)=\"active = $event\"\n        (finish)=\"active = 0\"\n        (cancel)=\"active = 0\"\n      >\n        <p>Step 2 (Profile) has a validation error — indicated in the track above.</p>\n      </slt-stepper>\n    `,\n  }),\n}"
+                },
+                {
+                    "name": "WithOptionalStep",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/stepper/stepper.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: () => ({\n    props: {\n      steps: [\n        { label: 'Account', description: 'Create your account' },\n        { label: 'Profile', description: 'Set up your profile', optional: true },\n        { label: 'Payment', description: 'Add payment details' },\n        { label: 'Review', description: 'Confirm and submit' },\n      ] as StepConfig[],\n      active: 0,\n    },\n    template: `\n      <slt-stepper\n        [steps]=\"steps\"\n        [activeStep]=\"active\"\n        [linear]=\"true\"\n        (stepChange)=\"active = $event\"\n        (finish)=\"active = 0\"\n        (cancel)=\"active = 0\"\n      >\n        <p>Step {{ active + 1 }} content. The Profile step is optional.</p>\n      </slt-stepper>\n    `,\n  }),\n}"
+                }
+            ],
             "projects/slate/src/lib/molecules/pagination/pagination.stories.ts": [
                 {
                     "name": "Compact",
@@ -2241,6 +2555,98 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{\n  args: {\n    value: 'Angular components',\n    placeholder: 'Search…',\n  },\n}"
+                }
+            ],
+            "projects/slate/src/lib/organisms/data-table/data-table.stories.ts": [
+                {
+                    "name": "CustomTemplates",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/data-table/data-table.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: (args) => ({\n    props: args,\n    template: `\n      <div>\n        <slt-data-table\n          [columns]=\"columns\"\n          [data]=\"data\"\n          [actions]=\"actions\"\n          [pageSize]=\"5\"\n          (actionClick)=\"actionClick($event)\"\n        >\n          <!-- Custom template for name column incorporating slt-avatar -->\n          <ng-template sltTableCell=\"name\" let-value let-row=\"row\">\n            <div style=\"display: flex; align-items: center; gap: 8px;\">\n              <slt-avatar [alt]=\"value\" size=\"small\" [status]=\"row.status === 'active' ? 'online' : 'offline'\"></slt-avatar>\n              <div style=\"display: flex; flex-direction: column;\">\n                <span style=\"font-weight: 600;\">{{ value }}</span>\n                <span style=\"font-size: 11px; color: #888;\">ID: {{ row.id }}</span>\n              </div>\n            </div>\n          </ng-template>\n\n          <!-- Custom template for email column to render clickable link -->\n          <ng-template sltTableCell=\"email\" let-value>\n            <a href=\"mailto:{{value}}\" style=\"color: var(--slt-primary-color); text-decoration: none;\">\n              {{ value }}\n            </a>\n          </ng-template>\n        </slt-data-table>\n      </div>\n    `,\n  }),\n  args: {\n    columns: defaultColumns,\n    data: mockData,\n    actions: defaultActions,\n    actionClick: fn(),\n  },\n}"
+                },
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/data-table/data-table.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {},\n}"
+                },
+                {
+                    "name": "defaultActions",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/data-table/data-table.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "DataTableAction[]",
+                    "defaultValue": "[\n  { id: 'edit', label: 'Edit', variant: 'secondary' },\n  { id: 'delete', label: 'Delete', variant: 'danger' },\n]"
+                },
+                {
+                    "name": "defaultColumns",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/data-table/data-table.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "DataTableColumn[]",
+                    "defaultValue": "[\n  { key: 'name', label: 'Name', sortable: true, width: '200px' },\n  { key: 'email', label: 'Email', width: '250px' },\n  { key: 'role', label: 'Role', sortable: true },\n  { key: 'age', label: 'Age', sortable: true, align: 'right', type: 'number', width: '80px' },\n  { key: 'joinDate', label: 'Join Date', sortable: true, type: 'date', width: '120px' },\n  {\n    key: 'status',\n    label: 'Status',\n    sortable: true,\n    type: 'badge',\n    width: '120px',\n    badgeMap: {\n      active: { label: 'Active', variant: 'success' },\n      inactive: { label: 'Inactive', variant: 'neutral' },\n      pending: { label: 'Pending', variant: 'warning' },\n      warning: { label: 'Review Required', variant: 'error' },\n    },\n  },\n  { key: 'actions', label: 'Actions', type: 'actions', align: 'center', width: '150px' },\n]"
+                },
+                {
+                    "name": "LoadingState",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/data-table/data-table.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    loading: true,\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/data-table/data-table.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<DataTableComponent>",
+                    "defaultValue": "{\n  title: 'Organisms/Data Table',\n  component: DataTableComponent,\n  tags: ['autodocs'],\n  decorators: [\n    moduleMetadata({\n      imports: [\n        DataTableComponent,\n        TableCellTemplateDirective,\n        AvatarComponent,\n        ButtonComponent,\n        DropdownComponent,\n        SearchBarComponent,\n        PaginationComponent,\n      ],\n    }),\n  ],\n  argTypes: {\n    size: {\n      control: 'select',\n      options: ['small', 'medium', 'large'],\n      description: 'Density of the table rows and cells',\n    },\n    striped: {\n      control: 'boolean',\n      description: 'Zebra stripe rows for alternate lines',\n    },\n    bordered: {\n      control: 'boolean',\n      description: 'Adds grid borders to the table cells',\n    },\n    hover: {\n      control: 'boolean',\n      description: 'Highlight rows on mouse hover',\n    },\n    showSelection: {\n      control: 'boolean',\n      description: 'Show checkbox column for row selection',\n    },\n    loading: {\n      control: 'boolean',\n      description: 'Shows loading spinner overlay and disables sorting',\n    },\n  },\n  args: {\n    columns: defaultColumns,\n    data: mockData,\n    actions: defaultActions,\n    pageSize: 5,\n    currentPage: 1,\n    pageSizeOptions: [5, 10, 20],\n    striped: false,\n    bordered: false,\n    hover: true,\n    showSelection: false,\n    loading: false,\n    actionClick: fn(),\n    selectionChange: fn(),\n    sortChange: fn(),\n    pageChange: fn(),\n    pageSizeChange: fn(),\n  },\n}"
+                },
+                {
+                    "name": "mockData",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/data-table/data-table.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "defaultValue": "[\n  { id: 1, name: 'Alice Johnson', email: 'alice.j@example.com', age: 28, joinDate: '2023-01-15', status: 'active', role: 'Developer' },\n  { id: 2, name: 'Bob Smith', email: 'bob.smith@example.com', age: 34, joinDate: '2022-06-20', status: 'inactive', role: 'Designer' },\n  { id: 3, name: 'Charlie Brown', email: 'charlie.b@example.com', age: 22, joinDate: '2024-03-01', status: 'active', role: 'Intern' },\n  { id: 4, name: 'Diana Prince', email: 'diana.p@example.com', age: 29, joinDate: '2021-11-10', status: 'pending', role: 'Manager' },\n  { id: 5, name: 'Evan Wright', email: 'evan.w@example.com', age: 41, joinDate: '2020-04-05', status: 'active', role: 'Director' },\n  { id: 6, name: 'Fiona Gallagher', email: 'fiona.g@example.com', age: 25, joinDate: '2023-08-12', status: 'active', role: 'Support' },\n  { id: 7, name: 'George Costanza', email: 'george.c@example.com', age: 39, joinDate: '2022-09-30', status: 'inactive', role: 'Administrator' },\n  { id: 8, name: 'Helen Parr', email: 'helen.p@example.com', age: 31, joinDate: '2021-02-28', status: 'active', role: 'Consultant' },\n  { id: 9, name: 'Ian Malcolm', email: 'ian.m@example.com', age: 45, joinDate: '2019-07-15', status: 'warning', role: 'Scientist' },\n  { id: 10, name: 'Julia Roberts', email: 'julia.r@example.com', age: 36, joinDate: '2020-12-01', status: 'active', role: 'Marketing' },\n  { id: 11, name: 'Kevin Bacon', email: 'kevin.b@example.com', age: 52, joinDate: '2018-05-20', status: 'active', role: 'Sales' },\n  { id: 12, name: 'Lois Lane', email: 'lois.l@example.com', age: 30, joinDate: '2022-10-15', status: 'active', role: 'Journalist' },\n]"
+                },
+                {
+                    "name": "Selection",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/data-table/data-table.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    showSelection: true,\n  },\n}"
+                },
+                {
+                    "name": "VisualVariants",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/slate/src/lib/organisms/data-table/data-table.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: (args) => ({\n    props: args,\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 32px;\">\n        <div>\n          <h3 style=\"margin-bottom: 8px;\">Striped</h3>\n          <slt-data-table [columns]=\"columns\" [data]=\"data\" [actions]=\"actions\" [pageSize]=\"5\" [striped]=\"true\"></slt-data-table>\n        </div>\n        <div>\n          <h3 style=\"margin-bottom: 8px;\">Bordered</h3>\n          <slt-data-table [columns]=\"columns\" [data]=\"data\" [actions]=\"actions\" [pageSize]=\"5\" [bordered]=\"true\"></slt-data-table>\n        </div>\n        <div>\n          <h3 style=\"margin-bottom: 8px;\">Small Density</h3>\n          <slt-data-table [columns]=\"columns\" [data]=\"data\" [actions]=\"actions\" [pageSize]=\"5\" size=\"small\"></slt-data-table>\n        </div>\n      </div>\n    `,\n  }),\n  args: {\n    columns: defaultColumns,\n    data: mockData,\n    actions: defaultActions,\n  },\n}"
                 }
             ],
             "projects/slate/src/lib/atoms/avatar/avatar.stories.ts": [
@@ -3309,6 +3715,19 @@
                     "kind": 184
                 }
             ],
+            "projects/slate/src/lib/molecules/breadcrumb/breadcrumb.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<BreadcrumbComponent>",
+                    "file": "projects/slate/src/lib/molecules/breadcrumb/breadcrumb.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
             "projects/slate/src/lib/molecules/card/card.stories.ts": [
                 {
                     "name": "Story",
@@ -3329,19 +3748,6 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<any>",
                     "file": "projects/slate/src/lib/molecules/dropdown/dropdown.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
-            "projects/slate/src/lib/molecules/breadcrumb/breadcrumb.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<BreadcrumbComponent>",
-                    "file": "projects/slate/src/lib/molecules/breadcrumb/breadcrumb.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -3387,6 +3793,19 @@
                     "kind": 184
                 }
             ],
+            "projects/slate/src/lib/organisms/data-table/data-table.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<DataTableComponent>",
+                    "file": "projects/slate/src/lib/organisms/data-table/data-table.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
             "projects/slate/src/lib/organisms/form/form.stories.ts": [
                 {
                     "name": "Story",
@@ -3394,6 +3813,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<FormComponent>",
                     "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/slate/src/lib/organisms/navigation-sidebar/navigation-sidebar.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<NavigationSidebarComponent>",
+                    "file": "projects/slate/src/lib/organisms/navigation-sidebar/navigation-sidebar.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -3413,13 +3845,13 @@
                     "kind": 184
                 }
             ],
-            "projects/slate/src/lib/organisms/navigation-sidebar/navigation-sidebar.stories.ts": [
+            "projects/slate/src/lib/organisms/stepper/stepper.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<NavigationSidebarComponent>",
-                    "file": "projects/slate/src/lib/organisms/navigation-sidebar/navigation-sidebar.stories.ts",
+                    "rawtype": "StoryObj<StepperComponent>",
+                    "file": "projects/slate/src/lib/organisms/stepper/stepper.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -4588,6 +5020,106 @@
                 "status": "low"
             },
             {
+                "filePath": "projects/slate/src/lib/organisms/data-table/data-table.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "CustomTemplates",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/data-table/data-table.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/data-table/data-table.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "defaultActions",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/data-table/data-table.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "defaultColumns",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/data-table/data-table.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "LoadingState",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/data-table/data-table.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/data-table/data-table.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "mockData",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/data-table/data-table.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Selection",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/data-table/data-table.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "VisualVariants",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/data-table/data-table.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -4949,6 +5481,116 @@
             },
             {
                 "filePath": "projects/slate/src/lib/organisms/navigation-sidebar/navigation-sidebar.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/stepper/stepper.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "basicSteps",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/stepper/stepper.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "LastStep",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/stepper/stepper.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "LinearFlow",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/stepper/stepper.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "LoadingState",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/stepper/stepper.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/stepper/stepper.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "NonLinearFlow",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/stepper/stepper.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Playground",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/stepper/stepper.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "VerticalOrientation",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/stepper/stepper.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithErrorStep",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/stepper/stepper.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithOptionalStep",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/slate/src/lib/organisms/stepper/stepper.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",
