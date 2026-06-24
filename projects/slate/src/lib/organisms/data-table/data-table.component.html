@@ -1,0 +1,210 @@
+<div class="slt-data-table-container">
+  <!-- Table Header controls (Search) -->
+  <div class="slt-data-table__header-toolbar">
+    <slt-search-bar
+      [placeholder]="searchPlaceholder"
+      [value]="searchTerm"
+      (valueChange)="onSearch($event)"
+      class="slt-data-table__search"
+    ></slt-search-bar>
+  </div>
+
+  <!-- Loading State & Table Wrapper -->
+  <div class="slt-data-table__wrapper-outer">
+    <!-- Loading Overlay -->
+    <div class="slt-data-table__loading-overlay" *ngIf="loading" aria-hidden="true">
+      <div class="slt-data-table__spinner"></div>
+    </div>
+
+    <!-- Responsive Table Wrapper -->
+    <div class="slt-data-table__wrapper">
+      <table [ngClass]="tableClasses">
+        <thead>
+          <tr>
+            <!-- Selection Checkbox Column Header -->
+            <th *ngIf="showSelection" class="slt-data-table__th-select">
+              <div class="slt-data-table__checkbox-wrapper">
+                <input
+                  type="checkbox"
+                  [checked]="isAllPageSelected"
+                  (change)="toggleAllPageSelection($event)"
+                  class="slt-data-table__checkbox"
+                  aria-label="Select all rows on current page"
+                />
+              </div>
+            </th>
+
+            <!-- Data Column Headers -->
+            <th
+              *ngFor="let col of columns"
+              [style.width]="col.width || null"
+              [class.slt-data-table__th--sortable]="col.sortable"
+              [attr.aria-sort]="sortState.column === col.key ? (sortState.direction === 'asc' ? 'ascending' : 'descending') : null"
+              (click)="onSort(col)"
+            >
+              <div
+                class="slt-data-table__th-content"
+                [ngClass]="'slt-data-table__align--' + (col.align || 'left')"
+              >
+                <span class="slt-data-table__th-label">{{ col.label }}</span>
+
+                <!-- Sort Indicator Arrows -->
+                <span *ngIf="col.sortable" class="slt-data-table__sort-icons">
+                  <svg
+                    class="slt-data-table__sort-icon"
+                    [class.slt-data-table__sort-icon--active]="sortState.column === col.key && sortState.direction === 'asc'"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polyline points="18 15 12 9 6 15"></polyline>
+                  </svg>
+                  <svg
+                    class="slt-data-table__sort-icon"
+                    [class.slt-data-table__sort-icon--active]="sortState.column === col.key && sortState.direction === 'desc'"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </span>
+              </div>
+            </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <!-- Empty State -->
+          <tr *ngIf="paginatedData.length === 0 && !loading">
+            <td [attr.colspan]="columns.length + (showSelection ? 1 : 0)" class="slt-data-table__empty-state">
+              <div class="slt-data-table__empty-content">
+                <svg
+                  class="slt-data-table__empty-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="8" y1="12" x2="16" y2="12"></line>
+                </svg>
+                <p>No records found</p>
+              </div>
+            </td>
+          </tr>
+
+          <!-- Data Rows -->
+          <tr
+            *ngFor="let row of paginatedData"
+            [class.slt-data-table__tr--selected]="isRowSelected(row)"
+          >
+            <!-- Row Checkbox Selector -->
+            <td *ngIf="showSelection" class="slt-data-table__td-select">
+              <div class="slt-data-table__checkbox-wrapper">
+                <input
+                  type="checkbox"
+                  [checked]="isRowSelected(row)"
+                  (change)="toggleRowSelection(row)"
+                  class="slt-data-table__checkbox"
+                  aria-label="Select row"
+                />
+              </div>
+            </td>
+
+            <!-- Row Data Cells -->
+            <td *ngFor="let col of columns">
+              <div [ngClass]="'slt-data-table__align--' + (col.align || 'left')">
+                <!-- Check for custom cell template projection first -->
+                <ng-container *ngIf="customTemplates[col.key]; else defaultCell">
+                  <ng-container
+                    *ngTemplateOutlet="customTemplates[col.key]; context: { $implicit: row[col.key], row: row, column: col }"
+                  ></ng-container>
+                </ng-container>
+
+                <!-- Default Cell Templates based on type -->
+                <ng-template #defaultCell>
+                  <!-- 1. Badge Type -->
+                  <ng-container *ngIf="col.type === 'badge'">
+                    <span
+                      class="slt-data-table__badge"
+                      [ngClass]="'slt-data-table__badge--' + getBadgeConfig(col, row[col.key]).variant"
+                    >
+                      {{ getBadgeConfig(col, row[col.key]).label }}
+                    </span>
+                  </ng-container>
+
+                  <!-- 2. Action Type -->
+                  <ng-container *ngIf="col.type === 'actions'">
+                    <div class="slt-data-table__actions">
+                      <storybook-button
+                        *ngFor="let act of actions"
+                        [variant]="act.variant || 'ghost'"
+                        size="small"
+                        [label]="act.label"
+                        [disabled]="!!act.disabled"
+                        (onClick)="onActionClick(act.id, row)"
+                        class="slt-data-table__action-btn"
+                      ></storybook-button>
+                    </div>
+                  </ng-container>
+
+                  <!-- 3. Date Type -->
+                  <ng-container *ngIf="col.type === 'date'">
+                    <span class="slt-data-table__text-nowrap">
+                      {{ row[col.key] | date: 'mediumDate' }}
+                    </span>
+                  </ng-container>
+
+                  <!-- 4. Default Text/Number Type -->
+                  <ng-container *ngIf="col.type !== 'badge' && col.type !== 'actions' && col.type !== 'date'">
+                    {{ row[col.key] }}
+                  </ng-container>
+                </ng-template>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Table Footer (Pagination controls) -->
+  <div class="slt-data-table__footer" *ngIf="totalRecords > 0">
+    <!-- Showing indicator text -->
+    <div class="slt-data-table__footer-info">
+      Showing <span>{{ showingStart }}</span> to <span>{{ showingEnd }}</span> of <span>{{ totalRecords }}</span> entries
+    </div>
+
+    <!-- Paging actions -->
+    <div class="slt-data-table__footer-paging">
+      <!-- Page Size Selector -->
+      <div class="slt-data-table__page-size">
+        <span class="slt-data-table__page-size-label">Rows per page:</span>
+        <slt-dropdown
+          [options]="pageSizeDropdownOptions"
+          [value]="pageSize"
+          [allowClear]="false"
+          [placeholder]="pageSize + ' rows'"
+          (valueChange)="onPageSizeChange($event)"
+          class="slt-data-table__page-size-dropdown"
+        ></slt-dropdown>
+      </div>
+
+      <!-- Pagination component -->
+      <storybook-pagination
+        [totalPages]="totalPages"
+        [currentPage]="currentPage"
+        (pageChange)="onPageChange($event)"
+      ></storybook-pagination>
+    </div>
+  </div>
+</div>

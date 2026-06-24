@@ -18,3 +18,6 @@ export * from './lib/organisms/date-picker/date-picker.component';
 export * from './lib/organisms/time-picker/time-picker.component';
 export * from './lib/organisms/form/form.component';
 export * from './lib/organisms/form/form.types';
+export * from './lib/organisms/data-table/data-table.component';
+export * from './lib/organisms/data-table/data-table.types';
+
