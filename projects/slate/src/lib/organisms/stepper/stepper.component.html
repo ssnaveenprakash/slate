@@ -1,0 +1,85 @@
+<div class="slt-stepper" [class.slt-stepper--vertical]="orientation === 'vertical'">
+
+  <nav class="slt-stepper__track" [attr.aria-label]="'Progress'">
+    <ol class="slt-stepper__list">
+      <li
+        *ngFor="let step of steps; let i = index; let last = last"
+        class="slt-stepper__item"
+        [class.slt-stepper__item--active]="stepStatus(i) === 'active'"
+        [class.slt-stepper__item--completed]="stepStatus(i) === 'completed'"
+        [class.slt-stepper__item--error]="stepStatus(i) === 'error'"
+        [class.slt-stepper__item--pending]="stepStatus(i) === 'pending'"
+        [class.slt-stepper__item--clickable]="canNavigateTo(i) && i !== activeStep"
+        [class.slt-stepper__item--disabled]="step.disabled"
+        [attr.aria-current]="i === activeStep ? 'step' : null"
+      >
+        <button
+          type="button"
+          class="slt-stepper__step-btn"
+          [disabled]="!canNavigateTo(i) || i === activeStep || !!step.disabled"
+          (click)="goTo(i)"
+        >
+          <span class="slt-stepper__indicator">
+            <span *ngIf="stepStatus(i) === 'completed'" class="slt-stepper__icon slt-stepper__icon--check">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </span>
+            <span *ngIf="stepStatus(i) === 'error'" class="slt-stepper__icon slt-stepper__icon--error">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </span>
+            <span *ngIf="stepStatus(i) === 'active' || stepStatus(i) === 'pending'" class="slt-stepper__number">
+              {{ i + 1 }}
+            </span>
+          </span>
+
+          <span class="slt-stepper__meta">
+            <span class="slt-stepper__label">
+              {{ step.label }}
+              <span *ngIf="step.optional" class="slt-stepper__optional">(Optional)</span>
+            </span>
+            <span *ngIf="step.description" class="slt-stepper__description">{{ step.description }}</span>
+          </span>
+        </button>
+
+        <div *ngIf="!last" class="slt-stepper__connector"
+          [class.slt-stepper__connector--filled]="stepStatus(i) === 'completed'">
+        </div>
+      </li>
+    </ol>
+  </nav>
+
+  <div class="slt-stepper__content">
+    <ng-content></ng-content>
+  </div>
+
+  <div class="slt-stepper__actions">
+    <storybook-button
+      *ngIf="!isFirst"
+      variant="secondary"
+      [label]="backLabel"
+      [disabled]="loading"
+      (onClick)="back()"
+    ></storybook-button>
+
+    <div class="slt-stepper__actions-right">
+      <storybook-button
+        variant="ghost"
+        label="Cancel"
+        [disabled]="loading"
+        (onClick)="cancel.emit()"
+      ></storybook-button>
+
+      <storybook-button
+        variant="primary"
+        [label]="isLast ? finishLabel : nextLabel"
+        [loading]="loading"
+        (onClick)="next()"
+      ></storybook-button>
+    </div>
+  </div>
+
+</div>
