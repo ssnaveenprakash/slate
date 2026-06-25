@@ -196,6 +196,14 @@ export class FormComponent implements OnInit, OnChanges {
     return ['text', 'email', 'password', 'number', 'tel', 'url', 'textarea'].includes(type);
   }
 
+  inputType(field: FormFieldSchema): 'text' | 'email' | 'password' | 'number' | 'tel' | 'url' {
+    if (field.type === 'textarea') return 'text';
+    if (['email', 'password', 'number', 'tel', 'url'].includes(field.type)) {
+      return field.type as 'email' | 'password' | 'number' | 'tel' | 'url';
+    }
+    return 'text';
+  }
+
   colSpanClass(field: FormFieldSchema): string {
     return field.colSpan === 2 ? 'slt-form__field--span-2' : '';
   }

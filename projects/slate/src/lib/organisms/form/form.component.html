@@ -15,7 +15,7 @@
       <div *ngIf="isTextType(field.type)" class="slt-form__field" [ngClass]="colSpanClass(field)">
         <slt-form-field
           [label]="field.label"
-          [type]="field.type === 'textarea' ? 'text' : field.type"
+          [type]="inputType(field)"
           [placeholder]="field.placeholder || ''"
           [helperText]="field.helperText || ''"
           [required]="!!field.validators?.required"
