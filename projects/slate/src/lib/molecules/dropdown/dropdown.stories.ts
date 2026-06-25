@@ -35,6 +35,7 @@ const groupedOptions: DropdownOptionOrGroup[] = [
 const meta: Meta<any> = {
     title: 'Molecules/Dropdown',
     component: DropdownComponent,
+    tags: ['autodocs'],
     decorators: [
         moduleMetadata({
             imports: [CommonModule, DropdownComponent],
