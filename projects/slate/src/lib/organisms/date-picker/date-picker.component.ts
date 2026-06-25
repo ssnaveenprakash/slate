@@ -25,7 +25,7 @@ import { IconComponent } from '../../atoms/icon/icon.component';
           <ng-content select="[prefix]"></ng-content>
         </span>
 
-        <slt-icon *ngIf="showDefaultIcon && !prefixIcon" class="slt-form-field__slot" type="calendar" decorative="true"></slt-icon>
+        <slt-icon *ngIf="showDefaultIcon && !prefixIcon" class="slt-form-field__slot" type="calendar" [decorative]="true"></slt-icon>
 
         <input
           id="{{ fieldId }}"

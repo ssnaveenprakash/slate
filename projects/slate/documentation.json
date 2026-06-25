@@ -41,26 +41,6 @@
                 "defaultValue": "{\n  args: {\n    activeHref: '/projects',\n    collapsed: false,\n  },\n}"
             },
             {
-                "name": "allFieldsSchema",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "FormSchema",
-                "defaultValue": "{\n  submitLabel: 'Submit',\n  cancelLabel: 'Reset',\n  successMessage: 'Form submitted successfully!',\n  fields: [\n    { key: 'text', type: 'text', label: 'Text', placeholder: 'Plain text', validators: { required: true } },\n    { key: 'email', type: 'email', label: 'Email', placeholder: 'you@example.com', validators: { required: true } },\n    { key: 'password', type: 'password', label: 'Password', placeholder: '••••••••', validators: { required: true, minLength: 8 } },\n    { key: 'number', type: 'number', label: 'Number', placeholder: '42', validators: { required: true } },\n    { key: 'tel', type: 'tel', label: 'Phone', placeholder: '+1 555 000 0000' },\n    { key: 'url', type: 'url', label: 'URL', placeholder: 'https://example.com' },\n    {\n      key: 'country',\n      type: 'dropdown',\n      label: 'Country',\n      placeholder: 'Select country',\n      validators: { required: true },\n      options: [\n        { label: 'United States', value: 'us' },\n        { label: 'United Kingdom', value: 'uk' },\n        { label: 'Canada', value: 'ca' },\n        { label: 'India', value: 'in' },\n      ],\n    },\n    {\n      key: 'plan',\n      type: 'radio',\n      label: 'Plan',\n      validators: { required: true },\n      options: [\n        { label: 'Free', value: 'free' },\n        { label: 'Pro', value: 'pro' },\n        { label: 'Enterprise', value: 'enterprise' },\n      ],\n    },\n    { key: 'agree', type: 'checkbox', label: 'I accept the terms', validators: { required: true } },\n    { key: 'darkMode', type: 'toggle', label: 'Enable dark mode', defaultValue: false },\n  ],\n}"
-            },
-            {
-                "name": "AllFieldTypes",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  name: 'All Field Types',\n  args: {\n    schema: allFieldsSchema,\n    loading: false,\n  },\n}"
-            },
-            {
                 "name": "AllStates",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -119,26 +99,6 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n    args: {\n        currentPage: 2,\n        totalPages: 4,\n        boundaryCount: 1,\n        siblingCount: 0,\n        disabled: false,\n        ariaLabel: 'Pagination',\n    },\n}"
-            },
-            {
-                "name": "ContactForm",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {\n    schema: contactSchema,\n    loading: false,\n  },\n}"
-            },
-            {
-                "name": "contactSchema",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "FormSchema",
-                "defaultValue": "{\n  submitLabel: 'Send Message',\n  cancelLabel: 'Cancel',\n  successMessage: 'Your message has been sent successfully!',\n  fields: [\n    {\n      key: 'name',\n      type: 'text',\n      label: 'Full Name',\n      placeholder: 'Jane Doe',\n      validators: { required: true, minLength: 2 },\n    },\n    {\n      key: 'email',\n      type: 'email',\n      label: 'Email Address',\n      placeholder: 'jane@example.com',\n      validators: { required: true },\n    },\n    {\n      key: 'message',\n      type: 'text',\n      label: 'Message',\n      placeholder: 'Write your message here…',\n      validators: { required: true, minLength: 10 },\n    },\n  ],\n}"
             },
             {
                 "name": "CustomPlaceholder",
@@ -244,21 +204,21 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/organisms/navigation-sidebar/navigation-sidebar.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {\n    activeHref: '/dashboard',\n    collapsed: false,\n  },\n}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/slate/src/lib/organisms/modal/modal.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  render: (args) => ({\n    props: args,\n    template: `\n      <div>\n        <storybook-button label=\"Open Modal\" (onClick)=\"isOpen = true\"></storybook-button>\n        <storybook-modal\n          [isOpen]=\"isOpen\"\n          (isOpenChange)=\"isOpen = $event\"\n          [title]=\"title\"\n          [size]=\"size\"\n          [closeOnBackdropClick]=\"closeOnBackdropClick\"\n          [showCloseButton]=\"showCloseButton\"\n          (onClose)=\"onClose()\"\n        >\n          <p>This is the main body content of the modal. You can place any HTML elements or other components here.</p>\n          <div modalFooter>\n            <storybook-button variant=\"ghost\" label=\"Cancel\" (onClick)=\"isOpen = false\"></storybook-button>\n            <storybook-button label=\"Confirm\" (onClick)=\"isOpen = false\"></storybook-button>\n          </div>\n        </storybook-modal>\n      </div>\n    `,\n  }),\n  args: {\n    isOpen: true,\n    title: 'Interactive Modal',\n    size: 'medium',\n  },\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/organisms/navigation-sidebar/navigation-sidebar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    activeHref: '/dashboard',\n    collapsed: false,\n  },\n}"
             },
             {
                 "name": "Default",
@@ -533,16 +493,6 @@
                 "name": "LoadingState",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {\n    schema: contactSchema,\n    loading: true,\n  },\n}"
-            },
-            {
-                "name": "LoadingState",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/slate/src/lib/organisms/stepper/stepper.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -623,16 +573,6 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<any>",
-                "defaultValue": "{\n  title: 'Atoms/Icon',\n  component: IconComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CommonModule, IconComponent]\n    })\n  ],\n  argTypes: {\n    type: { control: 'text' },\n    theme: {\n      control: { type: 'select' },\n      options: ['outlined', 'filled', 'twoTone']\n    },\n    size: { control: { type: 'select' }, options: ['xs', 'sm', 'md', 'lg', 'xl'] },\n    color: { control: { type: 'select' }, options: ['inherit', 'primary', 'secondary', 'success', 'warning', 'danger', 'muted'] },\n    spin: { control: 'boolean' },\n    svgContent: { control: 'text' },\n    decorative: { control: 'boolean' },\n    ariaLabel: { control: 'text' },\n    dark: { control: 'boolean' }\n  }\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -653,11 +593,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
+                "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<TypographyComponent>",
-                "defaultValue": "{\n  title: 'Atoms/Typography',\n  component: TypographyComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    variant: {\n      control: 'select',\n      options: ['title', 'text', 'paragraph', 'link'],\n      description: 'The type of element to render',\n    },\n    level: {\n      control: 'select',\n      options: [1, 2, 3, 4, 5],\n      description: 'Heading level (only applies to variant: \"title\")',\n    },\n    type: {\n      control: 'select',\n      options: ['primary', 'secondary', 'success', 'warning', 'danger'],\n      description: 'Semantic color styles for the text',\n    },\n    strong: {\n      control: 'boolean',\n      description: 'Applies bold text styling',\n    },\n    italic: {\n      control: 'boolean',\n      description: 'Applies italic text styling',\n    },\n    underline: {\n      control: 'boolean',\n      description: 'Applies underlined text styling',\n    },\n    delete: {\n      control: 'boolean',\n      description: 'Applies line-through text styling',\n    },\n    code: {\n      control: 'boolean',\n      description: 'Wraps content in semantic <code> block styling',\n    },\n    mark: {\n      control: 'boolean',\n      description: 'Wraps content in high-visibility mark highlighting',\n    },\n    disabled: {\n      control: 'boolean',\n      description: 'Mutes and disables interaction (only link variant)',\n    },\n    href: {\n      control: 'text',\n      description: 'Hyperlink path (only applies to variant: \"link\")',\n    },\n    target: {\n      control: 'select',\n      options: ['_self', '_blank', '_parent', '_top'],\n      description: 'Hyperlink target behavior (only applies to variant: \"link\")',\n    },\n  },\n}"
+                "type": "Meta<any>",
+                "defaultValue": "{\n  title: 'Atoms/Icon',\n  component: IconComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CommonModule, IconComponent]\n    })\n  ],\n  argTypes: {\n    type: { control: 'text' },\n    theme: {\n      control: { type: 'select' },\n      options: ['outlined', 'filled', 'twoTone']\n    },\n    size: { control: { type: 'select' }, options: ['xs', 'sm', 'md', 'lg', 'xl'] },\n    color: { control: { type: 'select' }, options: ['inherit', 'primary', 'secondary', 'success', 'warning', 'danger', 'muted'] },\n    spin: { control: 'boolean' },\n    svgContent: { control: 'text' },\n    decorative: { control: 'boolean' },\n    ariaLabel: { control: 'text' },\n    dark: { control: 'boolean' }\n  }\n}"
             },
             {
                 "name": "meta",
@@ -683,6 +623,16 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<TypographyComponent>",
+                "defaultValue": "{\n  title: 'Atoms/Typography',\n  component: TypographyComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    variant: {\n      control: 'select',\n      options: ['title', 'text', 'paragraph', 'link'],\n      description: 'The type of element to render',\n    },\n    level: {\n      control: 'select',\n      options: [1, 2, 3, 4, 5],\n      description: 'Heading level (only applies to variant: \"title\")',\n    },\n    type: {\n      control: 'select',\n      options: ['primary', 'secondary', 'success', 'warning', 'danger'],\n      description: 'Semantic color styles for the text',\n    },\n    strong: {\n      control: 'boolean',\n      description: 'Applies bold text styling',\n    },\n    italic: {\n      control: 'boolean',\n      description: 'Applies italic text styling',\n    },\n    underline: {\n      control: 'boolean',\n      description: 'Applies underlined text styling',\n    },\n    delete: {\n      control: 'boolean',\n      description: 'Applies line-through text styling',\n    },\n    code: {\n      control: 'boolean',\n      description: 'Wraps content in semantic <code> block styling',\n    },\n    mark: {\n      control: 'boolean',\n      description: 'Wraps content in high-visibility mark highlighting',\n    },\n    disabled: {\n      control: 'boolean',\n      description: 'Mutes and disables interaction (only link variant)',\n    },\n    href: {\n      control: 'text',\n      description: 'Hyperlink path (only applies to variant: \"link\")',\n    },\n    target: {\n      control: 'select',\n      options: ['_self', '_blank', '_parent', '_top'],\n      description: 'Hyperlink target behavior (only applies to variant: \"link\")',\n    },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/slate/src/lib/molecules/card/card.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -697,7 +647,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<any>",
-                "defaultValue": "{\n    title: 'Molecules/Dropdown',\n    component: DropdownComponent,\n    decorators: [\n        moduleMetadata({\n            imports: [CommonModule, DropdownComponent],\n        }),\n    ],\n    argTypes: {\n        multiple: { control: 'boolean' },\n        searchable: { control: 'boolean' },\n        disabled: { control: 'boolean' },\n        allowClear: { control: 'boolean' },\n        placeholder: { control: 'text' },\n        notFoundText: { control: 'text' },\n    },\n}"
+                "defaultValue": "{\n    title: 'Molecules/Dropdown',\n    component: DropdownComponent,\n    tags: ['autodocs'],\n    decorators: [\n        moduleMetadata({\n            imports: [CommonModule, DropdownComponent],\n        }),\n    ],\n    argTypes: {\n        multiple: { control: 'boolean' },\n        searchable: { control: 'boolean' },\n        disabled: { control: 'boolean' },\n        allowClear: { control: 'boolean' },\n        placeholder: { control: 'text' },\n        notFoundText: { control: 'text' },\n    },\n}"
             },
             {
                 "name": "meta",
@@ -753,11 +703,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
+                "file": "projects/slate/src/lib/organisms/modal/modal.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<FormComponent>",
-                "defaultValue": "{\n  title: 'Organisms/Form',\n  component: FormComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    loading: { control: 'boolean', description: 'Shows loading state on submit button' },\n  },\n  args: {\n    formSubmit: fn(),\n    formCancel: fn(),\n    formChange: fn(),\n  },\n}"
+                "type": "Meta<ModalComponent>",
+                "defaultValue": "{\n  title: 'Organisms/Modal',\n  component: ModalComponent,\n  tags: ['autodocs'],\n  decorators: [\n    moduleMetadata({\n      imports: [ModalComponent, ButtonComponent],\n    }),\n  ],\n  argTypes: {\n    size: {\n      control: 'select',\n      options: ['small', 'medium', 'large', 'full'],\n      description: 'Size of the modal container',\n    },\n    isOpen: {\n      control: 'boolean',\n      description: 'Whether the modal is visible',\n    },\n    title: {\n      control: 'text',\n      description: 'Modal title text',\n    },\n    closeOnBackdropClick: {\n      control: 'boolean',\n      description: 'Close the modal when clicking outside',\n    },\n    showCloseButton: {\n      control: 'boolean',\n      description: 'Show or hide the close button in the header',\n    },\n  },\n  args: {\n    isOpen: false,\n    title: 'Modal Title',\n    size: 'medium',\n    closeOnBackdropClick: true,\n    showCloseButton: true,\n    onClose: fn(),\n  },\n}"
             },
             {
                 "name": "meta",
@@ -768,16 +718,6 @@
                 "deprecationMessage": "",
                 "type": "Meta<NavigationSidebarComponent>",
                 "defaultValue": "{\n  title: 'Organisms/Navigation Sidebar',\n  component: NavigationSidebarComponent,\n  tags: ['autodocs'],\n  decorators: [\n    moduleMetadata({\n      imports: [NavigationSidebarComponent],\n    }),\n  ],\n  args: {\n    items: navigationItems,\n    activeHref: '/dashboard',\n    collapsed: false,\n  },\n  argTypes: {\n    items: { control: false },\n    activeHref: { control: 'text' },\n    collapsed: { control: 'boolean' },\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/slate/src/lib/organisms/modal/modal.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<ModalComponent>",
-                "defaultValue": "{\n  title: 'Organisms/Modal',\n  component: ModalComponent,\n  tags: ['autodocs'],\n  decorators: [\n    moduleMetadata({\n      imports: [ModalComponent, ButtonComponent],\n    }),\n  ],\n  argTypes: {\n    size: {\n      control: 'select',\n      options: ['small', 'medium', 'large', 'full'],\n      description: 'Size of the modal container',\n    },\n    isOpen: {\n      control: 'boolean',\n      description: 'Whether the modal is visible',\n    },\n    title: {\n      control: 'text',\n      description: 'Modal title text',\n    },\n    closeOnBackdropClick: {\n      control: 'boolean',\n      description: 'Close the modal when clicking outside',\n    },\n    showCloseButton: {\n      control: 'boolean',\n      description: 'Show or hide the close button in the header',\n    },\n  },\n  args: {\n    isOpen: false,\n    title: 'Modal Title',\n    size: 'medium',\n    closeOnBackdropClick: true,\n    showCloseButton: true,\n    onClose: fn(),\n  },\n}"
             },
             {
                 "name": "meta",
@@ -923,16 +863,6 @@
                 "name": "Playground",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {\n    variant: 'text',\n    level: 1,\n    type: 'primary',\n    strong: false,\n    italic: false,\n    underline: false,\n    delete: false,\n    code: false,\n    mark: false,\n    disabled: false,\n    href: '',\n    target: '_self',\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <storybook-typography\n        [variant]=\"variant\"\n        [level]=\"level\"\n        [type]=\"type\"\n        [strong]=\"strong\"\n        [italic]=\"italic\"\n        [underline]=\"underline\"\n        [delete]=\"delete\"\n        [code]=\"code\"\n        [mark]=\"mark\"\n        [disabled]=\"disabled\"\n        [href]=\"href\"\n        [target]=\"target\"\n      >\n        Typography Content\n      </storybook-typography>\n    `,\n  }),\n}"
-            },
-            {
-                "name": "Playground",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/slate/src/lib/molecules/alert/alert.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -948,6 +878,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n    args: {\n        separator: '/',\n        ariaLabel: 'Breadcrumb',\n        items: [\n            { label: 'Home', href: '#' },\n            { label: 'Products', href: '#' },\n            { label: 'Headphones' },\n        ],\n    },\n}"
+            },
+            {
+                "name": "Playground",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    variant: 'text',\n    level: 1,\n    type: 'primary',\n    strong: false,\n    italic: false,\n    underline: false,\n    delete: false,\n    code: false,\n    mark: false,\n    disabled: false,\n    href: '',\n    target: '_self',\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <storybook-typography\n        [variant]=\"variant\"\n        [level]=\"level\"\n        [type]=\"type\"\n        [strong]=\"strong\"\n        [italic]=\"italic\"\n        [underline]=\"underline\"\n        [delete]=\"delete\"\n        [code]=\"code\"\n        [mark]=\"mark\"\n        [disabled]=\"disabled\"\n        [href]=\"href\"\n        [target]=\"target\"\n      >\n        Typography Content\n      </storybook-typography>\n    `,\n  }),\n}"
             },
             {
                 "name": "Playground",
@@ -1000,16 +940,6 @@
                 "defaultValue": "{\n  args: {\n    steps: basicSteps,\n    activeStep: 1,\n    linear: true,\n    orientation: 'horizontal',\n    loading: false,\n    nextLabel: 'Next',\n    backLabel: 'Back',\n    finishLabel: 'Finish',\n    errorSteps: [],\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <slt-stepper\n        [steps]=\"steps\"\n        [activeStep]=\"activeStep\"\n        [linear]=\"linear\"\n        [orientation]=\"orientation\"\n        [loading]=\"loading\"\n        [nextLabel]=\"nextLabel\"\n        [backLabel]=\"backLabel\"\n        [finishLabel]=\"finishLabel\"\n        [errorSteps]=\"errorSteps\"\n        (stepChange)=\"activeStep = $event\"\n        (finish)=\"finish($event)\"\n        (cancel)=\"cancel($event)\"\n      >\n        <p>Step {{ activeStep + 1 }} content goes here.</p>\n      </slt-stepper>\n    `,\n  }),\n}"
             },
             {
-                "name": "PrePopulated",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {\n    schema: registrationSchema,\n    loading: false,\n    initialValues: {\n      firstName: 'Jane',\n      lastName: 'Doe',\n      email: 'jane@example.com',\n      role: 'designer',\n      newsletter: true,\n    },\n  },\n}"
-            },
-            {
                 "name": "preview",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -1018,26 +948,6 @@
                 "deprecationMessage": "",
                 "type": "Preview",
                 "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n       color: /(background|color)$/i,\n       date: /Date$/i,\n      },\n    },\n  },\n}"
-            },
-            {
-                "name": "profileSchema",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "FormSchema",
-                "defaultValue": "{\n  layout: 'two-column',\n  submitLabel: 'Save Changes',\n  successMessage: 'Profile updated successfully.',\n  fields: [\n    {\n      key: 'displayName',\n      type: 'text',\n      label: 'Display Name',\n      placeholder: 'jane_doe',\n      validators: { required: true },\n    },\n    {\n      key: 'website',\n      type: 'url',\n      label: 'Website',\n      placeholder: 'https://example.com',\n      helperText: 'Must start with https://',\n    },\n    {\n      key: 'theme',\n      type: 'radio',\n      label: 'Theme',\n      validators: { required: true },\n      options: [\n        { label: 'Light', value: 'light' },\n        { label: 'Dark', value: 'dark' },\n        { label: 'System', value: 'system' },\n      ],\n    },\n    {\n      key: 'notifications',\n      type: 'toggle',\n      label: 'Enable email notifications',\n      helperText: 'We will email you about important updates.',\n      defaultValue: true,\n    },\n  ],\n}"
-            },
-            {
-                "name": "ProfileSettings",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {\n    schema: profileSchema,\n    loading: false,\n    initialValues: { theme: 'system', notifications: true },\n  },\n}"
             },
             {
                 "name": "Readonly",
@@ -1058,26 +968,6 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{ args: { ...Default.args, readonly: true, value: '12:00' }, render }"
-            },
-            {
-                "name": "RegistrationForm",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {\n    schema: registrationSchema,\n    loading: false,\n  },\n}"
-            },
-            {
-                "name": "registrationSchema",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "FormSchema",
-                "defaultValue": "{\n  layout: 'two-column',\n  submitLabel: 'Create Account',\n  cancelLabel: 'Back to Login',\n  successMessage: 'Account created! Welcome aboard.',\n  fields: [\n    {\n      key: 'firstName',\n      type: 'text',\n      label: 'First Name',\n      placeholder: 'Jane',\n      validators: { required: true },\n    },\n    {\n      key: 'lastName',\n      type: 'text',\n      label: 'Last Name',\n      placeholder: 'Doe',\n      validators: { required: true },\n    },\n    {\n      key: 'email',\n      type: 'email',\n      label: 'Email Address',\n      placeholder: 'jane@example.com',\n      validators: { required: true },\n      colSpan: 2,\n    },\n    {\n      key: 'password',\n      type: 'password',\n      label: 'Password',\n      placeholder: '••••••••',\n      helperText: 'Minimum 8 characters.',\n      validators: { required: true, minLength: 8 },\n    },\n    {\n      key: 'role',\n      type: 'dropdown',\n      label: 'Role',\n      placeholder: 'Select a role',\n      validators: { required: true },\n      options: [\n        { label: 'Developer', value: 'developer' },\n        { label: 'Designer', value: 'designer' },\n        { label: 'Product Manager', value: 'pm' },\n        { label: 'Other', value: 'other' },\n      ],\n    },\n    {\n      key: 'newsletter',\n      type: 'checkbox',\n      label: 'Subscribe to newsletter',\n      colSpan: 2,\n    },\n    {\n      key: 'terms',\n      type: 'checkbox',\n      label: 'I agree to the Terms and Conditions',\n      validators: { required: true },\n      colSpan: 2,\n    },\n  ],\n}"
             },
             {
                 "name": "render",
@@ -1423,21 +1313,21 @@
                 "name": "Types",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 8px;\">\n        <storybook-typography type=\"primary\">Primary text color (default)</storybook-typography>\n        <storybook-typography type=\"secondary\">Secondary description text color</storybook-typography>\n        <storybook-typography type=\"success\">Success state text color</storybook-typography>\n        <storybook-typography type=\"warning\">Warning status warning text color</storybook-typography>\n        <storybook-typography type=\"danger\">Danger error text color</storybook-typography>\n      </div>\n    `,\n  }),\n}"
-            },
-            {
-                "name": "Types",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/slate/src/lib/molecules/alert/alert.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 16px; width: 100%; max-width: 600px;\">\n        <storybook-alert\n          type=\"info\"\n          message=\"Info Alert\"\n          description=\"This is some general informative text for the user.\"\n        ></storybook-alert>\n\n        <storybook-alert\n          type=\"success\"\n          message=\"Success Alert\"\n          description=\"Your operation completed successfully without any errors.\"\n        ></storybook-alert>\n\n        <storybook-alert\n          type=\"warning\"\n          message=\"Warning Alert\"\n          description=\"Attention required! Please verify the credentials before completing the task.\"\n        ></storybook-alert>\n\n        <storybook-alert\n          type=\"error\"\n          message=\"Error Alert\"\n          description=\"A critical failure occurred. Please contact the systems administrator.\"\n        ></storybook-alert>\n      </div>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "Types",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 8px;\">\n        <storybook-typography type=\"primary\">Primary text color (default)</storybook-typography>\n        <storybook-typography type=\"secondary\">Secondary description text color</storybook-typography>\n        <storybook-typography type=\"success\">Success state text color</storybook-typography>\n        <storybook-typography type=\"warning\">Warning status warning text color</storybook-typography>\n        <storybook-typography type=\"danger\">Danger error text color</storybook-typography>\n      </div>\n    `,\n  }),\n}"
             },
             {
                 "name": "UrlValidation",
@@ -1693,17 +1583,6 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<any>",
-                "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 184
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
                 "rawtype": "StoryObj<RadioComponent>",
                 "file": "projects/slate/src/lib/atoms/radio/radio.stories.ts",
                 "deprecated": false,
@@ -1726,8 +1605,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<TypographyComponent>",
-                "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
+                "rawtype": "StoryObj<any>",
+                "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1750,6 +1629,17 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<BreadcrumbComponent>",
                 "file": "projects/slate/src/lib/molecules/breadcrumb/breadcrumb.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<TypographyComponent>",
+                "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1836,8 +1726,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<FormComponent>",
-                "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
+                "rawtype": "StoryObj<ModalComponent>",
+                "file": "projects/slate/src/lib/organisms/modal/modal.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1849,17 +1739,6 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<NavigationSidebarComponent>",
                 "file": "projects/slate/src/lib/organisms/navigation-sidebar/navigation-sidebar.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 184
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<ModalComponent>",
-                "file": "projects/slate/src/lib/organisms/modal/modal.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -2103,118 +1982,6 @@
                     "deprecationMessage": "",
                     "type": "NavigationSidebarItem[]",
                     "defaultValue": "[\n  { label: 'Dashboard', href: '/dashboard', icon: 'home' },\n  { label: 'Projects', href: '/projects', icon: 'folder' },\n  { label: 'Teams', href: '/teams', icon: 'team' },\n  { label: 'Settings', href: '/settings', icon: 'setting', disabled: true },\n]"
-                }
-            ],
-            "projects/slate/src/lib/organisms/form/form.stories.ts": [
-                {
-                    "name": "allFieldsSchema",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "FormSchema",
-                    "defaultValue": "{\n  submitLabel: 'Submit',\n  cancelLabel: 'Reset',\n  successMessage: 'Form submitted successfully!',\n  fields: [\n    { key: 'text', type: 'text', label: 'Text', placeholder: 'Plain text', validators: { required: true } },\n    { key: 'email', type: 'email', label: 'Email', placeholder: 'you@example.com', validators: { required: true } },\n    { key: 'password', type: 'password', label: 'Password', placeholder: '••••••••', validators: { required: true, minLength: 8 } },\n    { key: 'number', type: 'number', label: 'Number', placeholder: '42', validators: { required: true } },\n    { key: 'tel', type: 'tel', label: 'Phone', placeholder: '+1 555 000 0000' },\n    { key: 'url', type: 'url', label: 'URL', placeholder: 'https://example.com' },\n    {\n      key: 'country',\n      type: 'dropdown',\n      label: 'Country',\n      placeholder: 'Select country',\n      validators: { required: true },\n      options: [\n        { label: 'United States', value: 'us' },\n        { label: 'United Kingdom', value: 'uk' },\n        { label: 'Canada', value: 'ca' },\n        { label: 'India', value: 'in' },\n      ],\n    },\n    {\n      key: 'plan',\n      type: 'radio',\n      label: 'Plan',\n      validators: { required: true },\n      options: [\n        { label: 'Free', value: 'free' },\n        { label: 'Pro', value: 'pro' },\n        { label: 'Enterprise', value: 'enterprise' },\n      ],\n    },\n    { key: 'agree', type: 'checkbox', label: 'I accept the terms', validators: { required: true } },\n    { key: 'darkMode', type: 'toggle', label: 'Enable dark mode', defaultValue: false },\n  ],\n}"
-                },
-                {
-                    "name": "AllFieldTypes",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  name: 'All Field Types',\n  args: {\n    schema: allFieldsSchema,\n    loading: false,\n  },\n}"
-                },
-                {
-                    "name": "ContactForm",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {\n    schema: contactSchema,\n    loading: false,\n  },\n}"
-                },
-                {
-                    "name": "contactSchema",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "FormSchema",
-                    "defaultValue": "{\n  submitLabel: 'Send Message',\n  cancelLabel: 'Cancel',\n  successMessage: 'Your message has been sent successfully!',\n  fields: [\n    {\n      key: 'name',\n      type: 'text',\n      label: 'Full Name',\n      placeholder: 'Jane Doe',\n      validators: { required: true, minLength: 2 },\n    },\n    {\n      key: 'email',\n      type: 'email',\n      label: 'Email Address',\n      placeholder: 'jane@example.com',\n      validators: { required: true },\n    },\n    {\n      key: 'message',\n      type: 'text',\n      label: 'Message',\n      placeholder: 'Write your message here…',\n      validators: { required: true, minLength: 10 },\n    },\n  ],\n}"
-                },
-                {
-                    "name": "LoadingState",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {\n    schema: contactSchema,\n    loading: true,\n  },\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<FormComponent>",
-                    "defaultValue": "{\n  title: 'Organisms/Form',\n  component: FormComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    loading: { control: 'boolean', description: 'Shows loading state on submit button' },\n  },\n  args: {\n    formSubmit: fn(),\n    formCancel: fn(),\n    formChange: fn(),\n  },\n}"
-                },
-                {
-                    "name": "PrePopulated",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {\n    schema: registrationSchema,\n    loading: false,\n    initialValues: {\n      firstName: 'Jane',\n      lastName: 'Doe',\n      email: 'jane@example.com',\n      role: 'designer',\n      newsletter: true,\n    },\n  },\n}"
-                },
-                {
-                    "name": "profileSchema",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "FormSchema",
-                    "defaultValue": "{\n  layout: 'two-column',\n  submitLabel: 'Save Changes',\n  successMessage: 'Profile updated successfully.',\n  fields: [\n    {\n      key: 'displayName',\n      type: 'text',\n      label: 'Display Name',\n      placeholder: 'jane_doe',\n      validators: { required: true },\n    },\n    {\n      key: 'website',\n      type: 'url',\n      label: 'Website',\n      placeholder: 'https://example.com',\n      helperText: 'Must start with https://',\n    },\n    {\n      key: 'theme',\n      type: 'radio',\n      label: 'Theme',\n      validators: { required: true },\n      options: [\n        { label: 'Light', value: 'light' },\n        { label: 'Dark', value: 'dark' },\n        { label: 'System', value: 'system' },\n      ],\n    },\n    {\n      key: 'notifications',\n      type: 'toggle',\n      label: 'Enable email notifications',\n      helperText: 'We will email you about important updates.',\n      defaultValue: true,\n    },\n  ],\n}"
-                },
-                {
-                    "name": "ProfileSettings",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {\n    schema: profileSchema,\n    loading: false,\n    initialValues: { theme: 'system', notifications: true },\n  },\n}"
-                },
-                {
-                    "name": "RegistrationForm",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {\n    schema: registrationSchema,\n    loading: false,\n  },\n}"
-                },
-                {
-                    "name": "registrationSchema",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "FormSchema",
-                    "defaultValue": "{\n  layout: 'two-column',\n  submitLabel: 'Create Account',\n  cancelLabel: 'Back to Login',\n  successMessage: 'Account created! Welcome aboard.',\n  fields: [\n    {\n      key: 'firstName',\n      type: 'text',\n      label: 'First Name',\n      placeholder: 'Jane',\n      validators: { required: true },\n    },\n    {\n      key: 'lastName',\n      type: 'text',\n      label: 'Last Name',\n      placeholder: 'Doe',\n      validators: { required: true },\n    },\n    {\n      key: 'email',\n      type: 'email',\n      label: 'Email Address',\n      placeholder: 'jane@example.com',\n      validators: { required: true },\n      colSpan: 2,\n    },\n    {\n      key: 'password',\n      type: 'password',\n      label: 'Password',\n      placeholder: '••••••••',\n      helperText: 'Minimum 8 characters.',\n      validators: { required: true, minLength: 8 },\n    },\n    {\n      key: 'role',\n      type: 'dropdown',\n      label: 'Role',\n      placeholder: 'Select a role',\n      validators: { required: true },\n      options: [\n        { label: 'Developer', value: 'developer' },\n        { label: 'Designer', value: 'designer' },\n        { label: 'Product Manager', value: 'pm' },\n        { label: 'Other', value: 'other' },\n      ],\n    },\n    {\n      key: 'newsletter',\n      type: 'checkbox',\n      label: 'Subscribe to newsletter',\n      colSpan: 2,\n    },\n    {\n      key: 'terms',\n      type: 'checkbox',\n      label: 'I agree to the Terms and Conditions',\n      validators: { required: true },\n      colSpan: 2,\n    },\n  ],\n}"
                 }
             ],
             "projects/slate/src/lib/molecules/form-field/form-field.stories.ts": [
@@ -3398,7 +3165,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<any>",
-                    "defaultValue": "{\n    title: 'Molecules/Dropdown',\n    component: DropdownComponent,\n    decorators: [\n        moduleMetadata({\n            imports: [CommonModule, DropdownComponent],\n        }),\n    ],\n    argTypes: {\n        multiple: { control: 'boolean' },\n        searchable: { control: 'boolean' },\n        disabled: { control: 'boolean' },\n        allowClear: { control: 'boolean' },\n        placeholder: { control: 'text' },\n        notFoundText: { control: 'text' },\n    },\n}"
+                    "defaultValue": "{\n    title: 'Molecules/Dropdown',\n    component: DropdownComponent,\n    tags: ['autodocs'],\n    decorators: [\n        moduleMetadata({\n            imports: [CommonModule, DropdownComponent],\n        }),\n    ],\n    argTypes: {\n        multiple: { control: 'boolean' },\n        searchable: { control: 'boolean' },\n        disabled: { control: 'boolean' },\n        allowClear: { control: 'boolean' },\n        placeholder: { control: 'text' },\n        notFoundText: { control: 'text' },\n    },\n}"
                 },
                 {
                     "name": "MultiSelect",
@@ -3650,19 +3417,6 @@
                     "kind": 184
                 }
             ],
-            "projects/slate/src/lib/atoms/icon/icon.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<any>",
-                    "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
             "projects/slate/src/lib/atoms/radio/radio.stories.ts": [
                 {
                     "name": "Story",
@@ -3689,13 +3443,13 @@
                     "kind": 184
                 }
             ],
-            "projects/slate/src/lib/atoms/typography/typography.stories.ts": [
+            "projects/slate/src/lib/atoms/icon/icon.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<TypographyComponent>",
-                    "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
+                    "rawtype": "StoryObj<any>",
+                    "file": "projects/slate/src/lib/atoms/icon/icon.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -3722,6 +3476,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<BreadcrumbComponent>",
                     "file": "projects/slate/src/lib/molecules/breadcrumb/breadcrumb.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/slate/src/lib/atoms/typography/typography.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<TypographyComponent>",
+                    "file": "projects/slate/src/lib/atoms/typography/typography.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -3806,13 +3573,13 @@
                     "kind": 184
                 }
             ],
-            "projects/slate/src/lib/organisms/form/form.stories.ts": [
+            "projects/slate/src/lib/organisms/modal/modal.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<FormComponent>",
-                    "file": "projects/slate/src/lib/organisms/form/form.stories.ts",
+                    "rawtype": "StoryObj<ModalComponent>",
+                    "file": "projects/slate/src/lib/organisms/modal/modal.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -3826,19 +3593,6 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<NavigationSidebarComponent>",
                     "file": "projects/slate/src/lib/organisms/navigation-sidebar/navigation-sidebar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
-            "projects/slate/src/lib/organisms/modal/modal.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<ModalComponent>",
-                    "file": "projects/slate/src/lib/organisms/modal/modal.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -5251,126 +5005,6 @@
             },
             {
                 "filePath": "projects/slate/src/lib/organisms/date-picker/date-picker.stories.ts",
-                "type": "type alias",
-                "linktype": "miscellaneous",
-                "linksubtype": "typealias",
-                "name": "Story",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/slate/src/lib/organisms/form/form.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "allFieldsSchema",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/slate/src/lib/organisms/form/form.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "AllFieldTypes",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/slate/src/lib/organisms/form/form.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "ContactForm",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/slate/src/lib/organisms/form/form.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "contactSchema",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/slate/src/lib/organisms/form/form.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "LoadingState",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/slate/src/lib/organisms/form/form.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "meta",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/slate/src/lib/organisms/form/form.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "PrePopulated",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/slate/src/lib/organisms/form/form.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "profileSchema",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/slate/src/lib/organisms/form/form.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "ProfileSettings",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/slate/src/lib/organisms/form/form.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "RegistrationForm",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/slate/src/lib/organisms/form/form.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "registrationSchema",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/slate/src/lib/organisms/form/form.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",
